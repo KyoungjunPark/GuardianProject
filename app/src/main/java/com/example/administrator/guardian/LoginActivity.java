@@ -19,11 +19,20 @@ public class LoginActivity extends AppCompatActivity {
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
 
-        findViewById(R.id.join_button).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.joinbutton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent Go_mainActivity = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(Go_mainActivity);
+                finish();
+            }
+        });
+
+        findViewById(R.id.joinbutton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Go_joinActivity = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(Go_joinActivity);
                 finish();
             }
         });

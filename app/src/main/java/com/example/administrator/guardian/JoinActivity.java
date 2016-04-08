@@ -1,9 +1,11 @@
 package com.example.administrator.guardian;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class JoinActivity extends AppCompatActivity {
 
@@ -11,6 +13,14 @@ public class JoinActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join);
+        findViewById(R.id.join).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Go_RegiActivity = new Intent(getApplicationContext(), JoinActivity.class);
+                startActivity(Go_RegiActivity);
+                finish();
+            }
+        });
     }
 
     @Override
