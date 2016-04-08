@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".LoginActivity"
+    android:id="@+id/screen"
+    android:background="#b59dff">
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:id="@+id/title"
+        android:background="@drawable/title"
+        android:layout_above="@+id/idEdit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="53dp" />
+
+    <EditText
+        android:id="@+id/idEdit"
+        android:layout_width="270dp"
+        android:layout_height="45dp"
+        android:singleLine="true"
+        android:textColor="#474747"
+        android:textCursorDrawable="@null"
+        android:background="@drawable/login_edittext"
+        android:hint="아이디"
+        android:textColorHint="#474747"
+        android:layout_gravity="center_horizontal"
+        android:layout_above="@+id/pwEdit"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/pwEdit"
+        android:layout_width="270dp"
+        android:layout_height="45dp"
+        android:hint="비밀번호"
+        android:textColorHint="#474747"
+        android:singleLine="true"
+        android:inputType="textPassword"
+        android:textColor="#474747"
+        android:textCursorDrawable="@null"
+        android:background="@drawable/login_edittext"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="51dp"
+        android:layout_above="@+id/loginbutton"
+        android:layout_alignLeft="@+id/idEdit"
+        android:layout_alignStart="@+id/idEdit" />
+
+    <Button
+        android:layout_width="270dp"
+        android:layout_height="45dp"
+        android:id="@+id/loginbutton"
+        android:background="@drawable/login"
+        android:layout_marginBottom="122dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/pwEdit"
+        android:layout_alignStart="@+id/pwEdit" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:id="@+id/joinbutton"
+        android:layout_marginBottom="62dp"
+        android:background="@drawable/joinbutton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
