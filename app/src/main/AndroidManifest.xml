@@ -27,6 +27,10 @@
             android:name=".firstMainActivity"
             android:label="@string/title_activity_first_main" >
         </activity>
+        <activity
+            android:name=".ManagerRegistration"
+            android:label="@string/title_activity_manager_registration" >
+        </activity>
     </application>
 
 </manifest>

@@ -7,22 +7,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class RegistrationActivity extends AppCompatActivity {
+public class ManagerRegistration extends AppCompatActivity {
 
-    String type;   // senior?? or volunteer??
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registration);
+        setContentView(R.layout.activity_manager_registration);
 
-        Intent intent = getIntent();
-        type = intent.getAction();
-
-        
-        findViewById(R.id.lastjoinbutton).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.managerjoinbutton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Go_loginActivity = new Intent(getApplicationContext(), RegistrationActivity.class);
+                Intent Go_loginActivity = new Intent(getApplicationContext(), ManagerRegistration.class);
                 startActivity(Go_loginActivity);
                 finish();
             }
@@ -32,7 +27,7 @@ public class RegistrationActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_registration, menu);
+        getMenuInflater().inflate(R.menu.menu_manager_registration, menu);
         return true;
     }
 

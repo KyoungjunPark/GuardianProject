@@ -14,59 +14,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#ffffff">
+        android:background="#ffffff"
+        android:id="@+id/background">
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/radioButton"
-            android:layout_marginTop="120dp"
-            android:text="노인"
-            android:layout_marginLeft="108dp"
-            android:layout_marginStart="108dp"
-            android:textSize="25dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="15dp" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="자원봉사자"
-            android:id="@+id/radioButton2"
-            android:layout_below="@+id/radioButton"
-            android:layout_alignLeft="@+id/radioButton"
-            android:layout_alignStart="@+id/radioButton"
-            android:textSize="25dp"
-            android:layout_marginBottom="15dp" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="관리사"
-            android:id="@+id/radioButton3"
-            android:layout_below="@+id/radioButton2"
-            android:layout_alignLeft="@+id/radioButton2"
-            android:layout_alignStart="@+id/radioButton2"
-            android:textSize="25dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:text="회원가입"
-            android:id="@+id/textView"
-            android:background="@drawable/login_edittext"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="24dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="31dp"
-            android:layout_alignRight="@+id/radioButton3"
-            android:layout_alignEnd="@+id/radioButton3"
-            android:textSize="25dp"
-            android:textColor="#000000" />
 
     </RelativeLayout>
 
@@ -78,4 +28,79 @@
         android:background="@drawable/joinbutton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:layout_width="381dp"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/background"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@+id/background">
+
+        <RadioGroup
+            android:layout_width="300dp"
+            android:layout_height="400dp"
+            android:id="@+id/choiceGroup"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_below="@+id/jointext">
+
+            <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/senior"
+                android:text="노인"
+                android:textSize="25dp"
+                android:layout_gravity="center_horizontal"
+                android:checked="false"
+                android:layout_marginBottom="15dp"
+                android:layout_above="@+id/volunteer"
+                android:layout_alignLeft="@+id/volunteer"
+                android:layout_alignStart="@+id/volunteer"
+                android:layout_marginRight="10dp"
+                android:contextClickable="true" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="자원봉사자"
+                android:id="@+id/volunteer"
+                android:textSize="25dp"
+                android:checked="false"
+                android:layout_marginBottom="15dp"
+                android:layout_above="@+id/manager"
+                android:layout_alignLeft="@+id/manager"
+                android:layout_alignStart="@+id/manager"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="24dp"
+                android:contextClickable="true" />
+
+            <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="관리사"
+            android:id="@+id/manager"
+                android:textSize="25dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="30dp"
+                android:layout_gravity="center_horizontal"
+                android:contextClickable="true"
+                android:checked="false" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:text="회원가입"
+            android:id="@+id/jointext"
+            android:background="@drawable/login_edittext"
+            android:layout_marginTop="23dp"
+            android:textSize="25dp"
+            android:textColor="#000000"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp" />
+
+    </RelativeLayout>
 </RelativeLayout>

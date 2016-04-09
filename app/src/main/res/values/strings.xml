@@ -6,4 +6,6 @@
     <string name="title_activity_join">JoinActivity</string>
     <string name="title_activity_registration">RegistrationActivity</string>
     <string name="title_activity_first_main">firstMainActivity</string>
+    <string name="title_activity_volunteer_registation">VolunteerRegistationActivity</string>
+    <string name="title_activity_manager_registration">ManagerRegistration</string>
 </resources>

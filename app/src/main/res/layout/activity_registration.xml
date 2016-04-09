@@ -16,7 +16,8 @@
         android:textSize="20dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,18 +28,20 @@
         android:textSize="20dp"
         android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="패스워드"
+        android:text="비밀번호"
         android:id="@+id/textView4"
         android:textSize="20dp"
         android:layout_below="@+id/textView3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp" />
+        android:layout_marginTop="25dp"
+        android:textColor="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -49,66 +52,114 @@
         android:textSize="20dp"
         android:layout_below="@+id/textView4"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="주소"
+        android:text="연락처"
         android:id="@+id/textView6"
         android:layout_marginTop="25dp"
         android:textSize="20dp"
         android:layout_below="@+id/textView5"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#ffffff" />
 
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/my_id"
         android:layout_alignTop="@+id/textView2"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textColor="#ffffff" />
 
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
+        android:id="@+id/my_name"
         android:layout_alignTop="@+id/textView3"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_alignLeft="@+id/my_id"
+        android:layout_alignStart="@+id/my_id"
+        android:textColor="#ffffff" />
 
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText3"
+        android:id="@+id/my_pw"
         android:layout_alignTop="@+id/textView4"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2" />
+        android:layout_alignLeft="@+id/my_name"
+        android:layout_alignStart="@+id/my_name"
+        android:textColor="#ffffff" />
 
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText4"
+        android:id="@+id/my_gender"
         android:layout_alignTop="@+id/textView5"
-        android:layout_alignLeft="@+id/editText3"
-        android:layout_alignStart="@+id/editText3" />
+        android:layout_alignLeft="@+id/my_pw"
+        android:layout_alignStart="@+id/my_pw"
+        android:textColor="#ffffff" />
 
     <EditText
-        android:layout_width="250dp"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText5"
+        android:id="@+id/my_pn1"
         android:layout_alignTop="@+id/textView6"
-        android:layout_alignLeft="@+id/editText4"
-        android:layout_alignStart="@+id/editText4" />
+        android:layout_alignLeft="@+id/my_gender"
+        android:layout_alignStart="@+id/my_gender"
+        android:textColor="#ffffff" />
 
     <Button
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:id="@+id/lastjoinbutton"
+        android:id="@+id/seniorjoinbutton"
         android:background="@drawable/joinbutton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="41dp" />
+        android:layout_marginBottom="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="주소"
+        android:id="@+id/textView"
+        android:textSize="20dp"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/textView6"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/my_address"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignLeft="@+id/my_pn1"
+        android:layout_alignStart="@+id/my_pn1"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:layout_width="82dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/my_pn2"
+        android:layout_alignTop="@+id/my_pn1"
+        android:layout_toRightOf="@+id/my_pn1"
+        android:layout_toEndOf="@+id/my_pn1"
+        android:layout_marginLeft="10dp"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/my_pn3"
+        android:layout_alignTop="@+id/my_pn2"
+        android:layout_toRightOf="@+id/my_pn2"
+        android:layout_toEndOf="@+id/my_pn2"
+        android:layout_marginLeft="10dp"
+        android:textColor="#ffffff" />
 
 </RelativeLayout>

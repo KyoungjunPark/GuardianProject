@@ -1,24 +1,51 @@
 package com.example.administrator.guardian;
 
 import android.content.Intent;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.RadioButton;
 
 public class JoinActivity extends AppCompatActivity {
+    private Button join;
+    private RadioButton senior;
+    private RadioButton volunteer;
+    private RadioButton manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join);
-        findViewById(R.id.join).setOnClickListener(new View.OnClickListener() {
+
+        senior = (RadioButton)findViewById(R.id.senior);
+        volunteer = (RadioButton)findViewById(R.id.volunteer);
+        manager = (RadioButton)findViewById(R.id.manager);
+
+        join = (Button)findViewById(R.id.join);
+        join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Go_RegiActivity = new Intent(getApplicationContext(), JoinActivity.class);
-                startActivity(Go_RegiActivity);
-                finish();
+                if(senior.isChecked() || volunteer.isChecked()) {
+                    Intent RegistrationActivity = new Intent(getApplicationContext(), RegistrationActivity.class);
+                    if(senior.isChecked()){
+                        RegistrationActivity.putExtra("type","senior");
+                        startActivity(RegistrationActivity);
+                    }
+                    else{
+                        RegistrationActivity.putExtra("type","volunteer");
+                        startActivity(RegistrationActivity);
+                    }
+                    finish();
+                }
+                if(manager.isChecked()){
+                    Intent ManagerRegistration = new Intent(getApplicationContext(), ManagerRegistration.class);
+                    startActivity(ManagerRegistration);
+                    finish();
+                }
             }
         });
     }
