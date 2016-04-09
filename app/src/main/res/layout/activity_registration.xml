@@ -74,7 +74,8 @@
         android:layout_alignTop="@+id/textView2"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:singleLine="true" />
 
     <EditText
         android:layout_width="250dp"
@@ -83,7 +84,8 @@
         android:layout_alignTop="@+id/textView3"
         android:layout_alignLeft="@+id/my_id"
         android:layout_alignStart="@+id/my_id"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:singleLine="true" />
 
     <EditText
         android:layout_width="250dp"
@@ -92,25 +94,9 @@
         android:layout_alignTop="@+id/textView4"
         android:layout_alignLeft="@+id/my_name"
         android:layout_alignStart="@+id/my_name"
-        android:textColor="#ffffff" />
-
-    <EditText
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/my_gender"
-        android:layout_alignTop="@+id/textView5"
-        android:layout_alignLeft="@+id/my_pw"
-        android:layout_alignStart="@+id/my_pw"
-        android:textColor="#ffffff" />
-
-    <EditText
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/my_pn1"
-        android:layout_alignTop="@+id/textView6"
-        android:layout_alignLeft="@+id/my_gender"
-        android:layout_alignStart="@+id/my_gender"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:singleLine="true"
+        android:password="true"/>
 
     <Button
         android:layout_width="120dp"
@@ -138,28 +124,54 @@
         android:layout_height="wrap_content"
         android:id="@+id/my_address"
         android:layout_alignTop="@+id/textView"
-        android:layout_alignLeft="@+id/my_pn1"
-        android:layout_alignStart="@+id/my_pn1"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:singleLine="true"
+        android:layout_alignLeft="@+id/my_pw"
+        android:layout_alignStart="@+id/my_pw" />
 
     <EditText
-        android:layout_width="82dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/my_pn2"
-        android:layout_alignTop="@+id/my_pn1"
-        android:layout_toRightOf="@+id/my_pn1"
-        android:layout_toEndOf="@+id/my_pn1"
-        android:layout_marginLeft="10dp"
-        android:textColor="#ffffff" />
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_alignTop="@+id/textView6"
+        android:layout_alignRight="@+id/my_address"
+        android:layout_alignEnd="@+id/my_address"
+        android:singleLine="true"
+        android:phoneNumber="true"
+        android:layout_alignLeft="@+id/my_pw" />
+    <RadioGroup
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView5"
+        android:layout_alignLeft="@+id/seniorjoinbutton"
+        android:layout_alignStart="@+id/seniorjoinbutton"
+        android:orientation="horizontal"
+        android:layout_alignRight="@+id/my_pw"
+        android:layout_alignEnd="@+id/my_pw"
+        android:gravity="center_vertical|center_horizontal">
 
-    <EditText
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/my_pn3"
-        android:layout_alignTop="@+id/my_pn2"
-        android:layout_toRightOf="@+id/my_pn2"
-        android:layout_toEndOf="@+id/my_pn2"
-        android:layout_marginLeft="10dp"
-        android:textColor="#ffffff" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="남"
+            android:id="@+id/radioButton"
+            android:layout_alignTop="@+id/textView5"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="여"
+            android:id="@+id/radioButton2"
+            android:layout_alignTop="@+id/radioButton"
+            android:layout_toRightOf="@+id/seniorjoinbutton"
+            android:layout_toEndOf="@+id/seniorjoinbutton"
+            android:textSize="20dp"
+            android:layout_marginLeft="50dp" />
+
+    </RadioGroup>
 
 </RelativeLayout>

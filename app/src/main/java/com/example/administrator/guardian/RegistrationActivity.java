@@ -18,7 +18,7 @@ public class RegistrationActivity extends AppCompatActivity {
         Intent intent = getIntent();
         type = intent.getAction();
 
-        
+
         findViewById(R.id.lastjoinbutton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
