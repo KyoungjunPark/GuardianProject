@@ -8,13 +8,13 @@
     android:background="#b59dff">
 
     <TextView
-        android:layout_width="250dp"
-        android:layout_height="80dp"
+        android:layout_width="280dp"
+        android:layout_height="100dp"
         android:id="@+id/title"
         android:background="@drawable/title"
+        android:layout_marginBottom="23dp"
         android:layout_above="@+id/idEdit"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="53dp" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:id="@+id/idEdit"
