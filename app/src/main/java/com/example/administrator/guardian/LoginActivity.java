@@ -9,8 +9,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 
 public class LoginActivity extends AppCompatActivity {
+    private Button loginbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +20,15 @@ public class LoginActivity extends AppCompatActivity {
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
+
+        loginbutton = (Button)findViewById(R.id.loginbutton);
+        loginbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent firstMainActivity = new Intent(getApplicationContext(), com.example.administrator.guardian.firstMainActivity.class);
+                startActivity(firstMainActivity);
+            }
+        });
 
         findViewById(R.id.joinbutton).setOnClickListener(new View.OnClickListener() {
             @Override
