@@ -34,5 +34,8 @@
             android:name=".DeviceListActivity"
             android:theme="@android:style/Theme.DeviceDefault.Dialog" >
         </activity>
+        <activity android:name=".ManagerActivity"
+                  android:label="ManagerActivity">
+        </activity>
     </application>
 </manifest>

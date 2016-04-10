@@ -13,5 +13,11 @@
         android:layout_height="wrap_content"
         android:text="received: " />
 
+    <Button
+        android:id="@+id/gotoManager"
+        android:hint="gotoManager"
+        android:layout_below="@+id/textViewResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </RelativeLayout>
