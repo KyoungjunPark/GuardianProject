@@ -3,29 +3,33 @@ package com.example.administrator.guardian;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.android.gms.maps.MapsInitializer;
 
 public class RegistrationActivity extends AppCompatActivity {
 
+    Button toMap;
     String type;   // senior?? or volunteer??
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
+        toMap=(Button)findViewById(R.id.tomap);
         Intent intent = getIntent();
         type = intent.getAction();
 
-        findViewById(R.id.tomap).setOnClickListener(new View.OnClickListener() {
+
+        toMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent Go_Map = new Intent(getApplicationContext(), MapsActivity.class);
-                startActivity(Go_Map);
-                finish();
+                startActivityForResult(Go_Map,1);
             }
         });
 
@@ -37,6 +41,18 @@ public class RegistrationActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==RESULT_OK)
+        {
+            if(requestCode==1)
+            {
+                toMap.setText(data.getStringExtra("Address"));
+                Log.d("a","b");
+            }
+        }
     }
 
     @Override

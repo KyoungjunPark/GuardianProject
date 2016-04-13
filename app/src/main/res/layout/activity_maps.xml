@@ -22,21 +22,51 @@ tools:context="com.example.administrator.guardian.MapsActivity">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/place"
+        android:id="@+id/inputAddress"
         android:paddingTop="5dp"
         android:layout_marginBottom="5dp"
         android:textSize="30sp"
         android:textAlignment="center"
         android:singleLine="true"
         android:maxLength="15"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/login_edittext"
+        android:textColor="#000000"
+        android:hint="위치입력" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingTop="5dp"
+        android:paddingBottom= "5dp"
+        android:textSize="20sp"
+        android:id="@+id/latitude"
+        android:background="@drawable/login_edittext"
+        android:textColor="#000000" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingTop="5dp"
+        android:paddingBottom= "5dp"
+        android:textSize="20sp"
+        android:id="@+id/longitude"
+        android:background="@drawable/login_edittext"
+        android:textColor="#000000" />
 
 
     <com.google.android.gms.maps.MapView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="250dp"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:id="@+id/more_map"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="확   인"
+        android:id="@+id/InputAddressButton"
+        android:textSize="25dp" />
 
 </LinearLayout>
 
