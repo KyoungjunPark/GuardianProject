@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.android.gms.maps.MapsInitializer;
+
 public class RegistrationActivity extends AppCompatActivity {
 
     String type;   // senior?? or volunteer??
@@ -18,11 +20,19 @@ public class RegistrationActivity extends AppCompatActivity {
         Intent intent = getIntent();
         type = intent.getAction();
 
+        findViewById(R.id.tomap).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Go_Map = new Intent(getApplicationContext(), MapsActivity.class);
+                startActivity(Go_Map);
+                finish();
+            }
+        });
 
         findViewById(R.id.seniorjoinbutton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Go_loginActivity = new Intent(getApplicationContext(), RegistrationActivity.class);
+                Intent Go_loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(Go_loginActivity);
                 finish();
             }

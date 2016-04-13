@@ -30,8 +30,8 @@ public class LoginActivity extends AppCompatActivity {
         findViewById(R.id.joinbutton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Go_mainActivity = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(Go_mainActivity);
+                Intent Go_joinActivity = new Intent(getApplicationContext(), JoinActivity.class);
+                startActivity(Go_joinActivity);
                 finish();
             }
         });

@@ -12,12 +12,12 @@
         android:layout_height="wrap_content"
         android:text="아이디"
         android:id="@+id/textView2"
-        android:layout_marginTop="87dp"
+        android:layout_marginTop="28dp"
         android:textSize="20dp"
+        android:textColor="#ffffff"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#ffffff" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -120,28 +120,17 @@
         android:layout_marginTop="25dp" />
 
     <EditText
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/my_address"
-        android:layout_alignTop="@+id/textView"
-        android:textColor="#ffffff"
-        android:singleLine="true"
-        android:layout_alignLeft="@+id/my_pw"
-        android:layout_alignStart="@+id/my_pw"
-        android:autoLink="map"/>
-
-    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="phone"
         android:ems="10"
         android:id="@+id/my_pn"
         android:layout_alignTop="@+id/textView6"
-        android:layout_alignRight="@+id/my_address"
-        android:layout_alignEnd="@+id/my_address"
         android:singleLine="true"
         android:phoneNumber="true"
-        android:layout_alignLeft="@+id/my_pw" />
+        android:layout_alignLeft="@+id/my_pw"
+        android:layout_alignRight="@+id/radioGroup"
+        android:layout_alignEnd="@+id/radioGroup" />
     <RadioGroup
         android:layout_width="200dp"
         android:layout_height="wrap_content"
@@ -151,7 +140,8 @@
         android:orientation="horizontal"
         android:layout_alignRight="@+id/my_pw"
         android:layout_alignEnd="@+id/my_pw"
-        android:gravity="center_vertical|center_horizontal">
+        android:gravity="center_vertical|center_horizontal"
+        android:id="@+id/radioGroup">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -176,5 +166,31 @@
             android:textColor="#ffffff" />
 
     </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:id="@+id/tomap"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignLeft="@+id/detailaddress"
+        android:layout_alignStart="@+id/detailaddress"
+        android:layout_alignRight="@+id/radioGroup"
+        android:layout_alignEnd="@+id/radioGroup"
+        android:background="@drawable/login_edittext" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/detailaddress"
+        android:textColor="#ffffff"
+        android:singleLine="true"
+        android:autoLink="map"
+        android:hint="상세 주소"
+        android:layout_below="@+id/tomap"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp" />
+
+
 
 </RelativeLayout>
