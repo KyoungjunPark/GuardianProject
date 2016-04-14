@@ -17,7 +17,7 @@ public class ManagerRegistration extends AppCompatActivity {
         findViewById(R.id.managerjoinbutton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Go_loginActivity = new Intent(getApplicationContext(), ManagerRegistration.class);
+                Intent Go_loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(Go_loginActivity);
                 finish();
             }

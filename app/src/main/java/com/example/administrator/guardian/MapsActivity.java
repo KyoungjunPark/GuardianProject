@@ -38,13 +38,14 @@ public class MapsActivity extends AppCompatActivity {
 
     private GoogleApiClient mGoogleApiClient;
     final int REQUEST_PLACE_PICKER = 1;
-    TextView inputAdd,latitude,longitude;
+    TextView inputAdd,latitudeAndlongitude;
     private GoogleMap mMap;
     MapView mapView;
     Button inputAddressButton;
-    double dLatitude;
-    double dLongitude;
+    double dLatitude=37.6;
+    double dLongitude=127;
     String placeName;
+    String placeAddress;
     String placeID;
 
 
@@ -54,8 +55,7 @@ public class MapsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_maps);
 
         inputAdd=(TextView)findViewById(R.id.inputAddress);
-        latitude=(TextView)findViewById(R.id.latitude);
-        longitude=(TextView)findViewById(R.id.longitude);
+        latitudeAndlongitude=(TextView)findViewById(R.id.latitudeAndlongitude);
         inputAddressButton=(Button)findViewById(R.id.InputAddressButton);
 
         mapView = (MapView)findViewById(R.id.more_map);
@@ -79,7 +79,7 @@ public class MapsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = getIntent();
-                intent.putExtra("Address",placeName);
+                intent.putExtra("Address",placeAddress);
                 setResult(RESULT_OK,intent);
                 finish();
             }
@@ -90,7 +90,8 @@ public class MapsActivity extends AppCompatActivity {
         if (requestCode == REQUEST_PLACE_PICKER) {
             if (resultCode == Activity.RESULT_OK) {
                 final Place place = PlacePicker.getPlace(data, MapsActivity.this);
-                 placeName = (String)place.getAddress();
+                 placeAddress = (String)place.getAddress();
+                placeName = (String)place.getName();
                 //final CharSequence address = place.getAddress();
                 //final CharSequence phone = place.getPhoneNumber();
                  placeID = place.getId();
@@ -100,8 +101,7 @@ public class MapsActivity extends AppCompatActivity {
                 Log.d("longitude",dLongitude+"");
 
                 inputAdd.setText(placeName);
-                latitude.setText(dLatitude+"");
-                longitude.setText(dLongitude+"");
+                latitudeAndlongitude.setText("("+dLatitude+", "+dLongitude+")");
 
 //                String attribution = PlacePicker.getAttributions(data);
 //                if(attribution == null){

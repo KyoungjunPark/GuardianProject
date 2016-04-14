@@ -50,7 +50,6 @@ public class RegistrationActivity extends AppCompatActivity {
             if(requestCode==1)
             {
                 toMap.setText(data.getStringExtra("Address"));
-                Log.d("a","b");
             }
         }
     }

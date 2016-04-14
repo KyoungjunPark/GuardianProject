@@ -10,7 +10,7 @@ import android.widget.Button;
 
 public class LoginActivity extends AppCompatActivity {
     private Button loginbutton;
-
+    private Button joinbutton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,15 +24,16 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent firstMainActivity = new Intent(getApplicationContext(), FirstMainActivity.class);
                 startActivity(firstMainActivity);
+                finish();
             }
         });
 
-        findViewById(R.id.joinbutton).setOnClickListener(new View.OnClickListener() {
+        joinbutton = (Button)findViewById(R.id.joinbutton);
+        joinbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent Go_joinActivity = new Intent(getApplicationContext(), JoinActivity.class);
                 startActivity(Go_joinActivity);
-                finish();
             }
         });
 
