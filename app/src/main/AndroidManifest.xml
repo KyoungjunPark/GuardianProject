@@ -47,8 +47,8 @@
             android:label="@string/title_activity_registration"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
         <activity
-            android:name=".FirstMainActivity"
-            android:label="@string/title_activity_first_main"/>
+            android:name=".SeniorMainActivity"
+            android:label="SeniorMainActivity"/>
         <activity
             android:name=".DeviceListActivity"
             android:theme="@android:style/Theme.DeviceDefault.Dialog"

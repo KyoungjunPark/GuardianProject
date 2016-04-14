@@ -5,16 +5,12 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
-import android.provider.SyncStateContract;
 import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.Arrays;
 import java.util.UUID;
 
 /**
@@ -313,7 +309,7 @@ public class BluetoothService {
                         bytes = mmInStream.read(buffer, 1, buffer.length-1);
                     }
                     Log.d(TAG, "Bytes: " + bytes);
-                    mHandler.obtainMessage(FirstMainActivity.MESSAGE_READ, bytes, -1, buffer)
+                    mHandler.obtainMessage(SeniorMainActivity.MESSAGE_READ, bytes, -1, buffer)
                             .sendToTarget();
                 } catch (IOException e) {
                     Log.e(TAG, "disconnected", e);
@@ -333,7 +329,7 @@ public class BluetoothService {
                 mmOutStream.write(buffer);
 
                 // Share the sent message back to the UI Activity
-                mHandler.obtainMessage(FirstMainActivity.MESSAGE_WRITE, -1, -1, buffer)
+                mHandler.obtainMessage(SeniorMainActivity.MESSAGE_WRITE, -1, -1, buffer)
                         .sendToTarget();
             } catch (IOException e) {
                 Log.e(TAG, "Exception during write", e);

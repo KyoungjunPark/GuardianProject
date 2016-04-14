@@ -9,13 +9,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class FirstMainActivity extends AppCompatActivity {
+public class SeniorMainActivity extends AppCompatActivity {
 
-    private static final String TAG = "FirstMainActivity";
+    private static final String TAG = "SeniorMainActivity";
     private static final int REQUEST_ENABLE_BT = 6666;
     private static final int REQUEST_CONNECT_DEVICE = 6667;
 
@@ -29,6 +30,9 @@ public class FirstMainActivity extends AppCompatActivity {
     // Key names received from the BluetoothChatService Handler
     public static final String DEVICE_NAME = "device_name";
     public static final String TOAST = "toast";
+
+    Button door;
+    boolean door_open=true;
 
     //private BluetoothService btService = null;
     private BluetoothService btService = null;
@@ -59,7 +63,7 @@ public class FirstMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_first_main);
+        setContentView(R.layout.activity_senior_main);
         if(btService == null) {
             btService = new BluetoothService(this, mHandler);
         }
@@ -82,6 +86,25 @@ public class FirstMainActivity extends AppCompatActivity {
             }
         });
         //-----------------test-----------------
+
+
+
+
+        door = (Button)findViewById(R.id.door);
+        door.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(door_open==true) {
+                    door.setBackgroundResource(R.drawable.dooropen);
+                    door_open=false;
+                }
+                else{
+                    door.setBackgroundResource(R.drawable.doorclose);
+                    door_open=true;
+                }
+
+            }
+        });
 
     }
 
