@@ -46,7 +46,7 @@ public class MapsActivity extends AppCompatActivity {
     double dLongitude=126.9564800;
     String placeName;
     String placeAddress;
-    String placeID;
+    String placeID, dLa, dLo;
 
 
     @Override
@@ -92,34 +92,24 @@ public class MapsActivity extends AppCompatActivity {
                 final Place place = PlacePicker.getPlace(data, MapsActivity.this);
                  placeAddress = (String)place.getAddress();
                 placeName = (String)place.getName();
-                //final CharSequence address = place.getAddress();
-                //final CharSequence phone = place.getPhoneNumber();
                  placeID = place.getId();
                  dLatitude = place.getLatLng().latitude;
                  dLongitude =place.getLatLng().longitude;
-                Log.d("latitude",dLatitude+"");
-                Log.d("longitude",dLongitude+"");
+                Log.d("longitude 2",dLongitude+"");
+                Log.d("latitude 2",dLatitude+"");
+
 
                 inputAdd.setText(placeName);
 
-                String dLa= String.format("%.2lf",dLatitude);
-                String dLo= String.format("%.2lf",dLongitude);
-                latitudeAndlongitude.setText("("+"11"+", "+"111"+")");
-                Log.d("dd","("+dLa+", "+dLo+")" );
+                dLa= String.format("%.7f",dLatitude);
+                dLo= String.format("%.7f",dLongitude);
+                latitudeAndlongitude.setText("("+dLa+", "+dLo+")");
+                Log.d(dLa,dLo);
 
 //                String attribution = PlacePicker.getAttributions(data);
 //                if(attribution == null){
 //                    attribution = "";
 //                }
-                /*int latitudeToInt = (int)listData.dLatitude;
-
-                if(listData.placeName.toString().startsWith("(" + Integer.toString(latitudeToInt))){
-                    editTextAlertDialog("장소 이름","선택하신 장소의 이름을 써주세요.");
-                } else tvPlace.setText("장소 => "+listData.placeName);
-
-                tvPlace.setTextColor(Color.BLACK);
-                checkPlace = true;
-                */
 
                 mapView.getMapAsync(new OnMapReadyCallback() {
                     @Override
@@ -134,7 +124,7 @@ public class MapsActivity extends AppCompatActivity {
 
                         mMap.clear();
                         LatLng Place = new LatLng(dLatitude, dLongitude);
-                        CameraPosition cameraPosition = new CameraPosition.Builder().target(Place).zoom(16).build();
+                        CameraPosition cameraPosition = new CameraPosition.Builder().target(Place).zoom(17).build();
                         mMap.addMarker(new MarkerOptions().position(Place).title("yeah").snippet("hello"));
                         mMap.moveCamera(CameraUpdateFactory.newLatLng(Place));
                         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
