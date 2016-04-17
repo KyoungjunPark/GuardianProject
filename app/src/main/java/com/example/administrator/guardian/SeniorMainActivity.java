@@ -77,14 +77,14 @@ public class SeniorMainActivity extends AppCompatActivity {
         textViewResult = (TextView) findViewById(R.id.textViewResult);
 
         //-----------------test-----------------
-        Button gotoManager = (Button)findViewById(R.id.gotoManager);
+        /*Button gotoManager = (Button)findViewById(R.id.gotoManager);
         gotoManager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent ManagerActivity = new Intent(getApplicationContext(), com.example.administrator.guardian.ManagerActivity.class);
                 startActivity(ManagerActivity);
             }
-        });
+        });*/
         //-----------------test-----------------
 
 
@@ -105,7 +105,6 @@ public class SeniorMainActivity extends AppCompatActivity {
 
             }
         });
-
     }
 
     @Override

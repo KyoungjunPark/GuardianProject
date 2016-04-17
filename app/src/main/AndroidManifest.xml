@@ -48,7 +48,7 @@
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
         <activity
             android:name=".SeniorMainActivity"
-            android:label="SeniorMainActivity"/>
+            android:label="SeniorMainActivity" />
         <activity
             android:name=".DeviceListActivity"
             android:theme="@android:style/Theme.DeviceDefault.Dialog"
