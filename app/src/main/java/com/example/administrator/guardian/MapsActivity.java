@@ -42,8 +42,8 @@ public class MapsActivity extends AppCompatActivity {
     private GoogleMap mMap;
     MapView mapView;
     Button inputAddressButton;
-    double dLatitude=37.6;
-    double dLongitude=127;
+    double dLatitude=37.5037660;
+    double dLongitude=126.9564800;
     String placeName;
     String placeAddress;
     String placeID;
@@ -101,7 +101,11 @@ public class MapsActivity extends AppCompatActivity {
                 Log.d("longitude",dLongitude+"");
 
                 inputAdd.setText(placeName);
-                latitudeAndlongitude.setText("("+dLatitude+", "+dLongitude+")");
+
+                String dLa= String.format("%.2lf",dLatitude);
+                String dLo= String.format("%.2lf",dLongitude);
+                latitudeAndlongitude.setText("("+"11"+", "+"111"+")");
+                Log.d("dd","("+dLa+", "+dLo+")" );
 
 //                String attribution = PlacePicker.getAttributions(data);
 //                if(attribution == null){

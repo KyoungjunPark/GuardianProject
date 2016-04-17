@@ -19,8 +19,7 @@
         android:id="@+id/door"
         android:background="@drawable/doorclose"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/relativeLayout2"
-        android:layout_alignStart="@+id/relativeLayout2" />
+        android:layout_centerHorizontal="true" />
 
     <RelativeLayout
         android:layout_width="270dp"
