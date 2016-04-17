@@ -26,6 +26,7 @@ import com.google.android.gms.location.places.Places;
 import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -61,6 +62,17 @@ public class MapsActivity extends AppCompatActivity {
         mapView = (MapView)findViewById(R.id.more_map);
         mapView.onCreate(new Bundle());
         mapView.onResume();
+        mapView.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(GoogleMap googleMap) {
+                mMap = googleMap;
+
+                LatLng seoul = new LatLng( 37.56, 126.97 );
+                CameraPosition cameraPosition = new CameraPosition.Builder().target(seoul).zoom(11).build();
+                mMap.moveCamera( CameraUpdateFactory.newLatLng(seoul) );
+                mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+            }
+        });
 
         inputAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,9 +107,7 @@ public class MapsActivity extends AppCompatActivity {
                  placeID = place.getId();
                  dLatitude = place.getLatLng().latitude;
                  dLongitude =place.getLatLng().longitude;
-                Log.d("longitude 2",dLongitude+"");
-                Log.d("latitude 2",dLatitude+"");
-
+                Log.d("longitude 2 latitude 2",dLongitude+" "+dLatitude);
 
                 inputAdd.setText(placeName);
 
