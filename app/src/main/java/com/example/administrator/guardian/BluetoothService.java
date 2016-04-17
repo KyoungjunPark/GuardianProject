@@ -7,6 +7,7 @@ import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,6 +32,7 @@ public class BluetoothService {
     private Activity mActivity;
     private Handler mHandler;
     private int mState;
+    private String mDeviceName;
 
     // Unique UUID for this application
     private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
@@ -49,6 +51,9 @@ public class BluetoothService {
         // get BluetoothAdapter
         btAdapter = BluetoothAdapter.getDefaultAdapter();
     }
+
+
+
     public boolean getDeviceState() {
         Log.d(TAG, "Check the Bluetooth support");
 
@@ -92,7 +97,7 @@ public class BluetoothService {
         // Get the BluetoothDevice object
         //BluetoothDevice device = btAdapter.getRemoteDevice(address);
         BluetoothDevice device = btAdapter.getRemoteDevice(address);
-
+        mDeviceName = device.getName();
         Log.d(TAG, "Get Device Info \n" + "address : " + address);
 
         connect(device);
@@ -206,6 +211,9 @@ public class BluetoothService {
         setState(STATE_LISTEN);
 
     }
+    public String getDeviceName(){
+        return mDeviceName;
+    }
 
     private class ConnectThread extends Thread {
         private final BluetoothSocket mmSocket;
@@ -308,7 +316,6 @@ public class BluetoothService {
                     if(bytes ==1){
                         bytes = mmInStream.read(buffer, 1, buffer.length-1);
                     }
-                    Log.d(TAG, "Bytes: " + bytes);
                     mHandler.obtainMessage(SeniorMainActivity.MESSAGE_READ, bytes, -1, buffer)
                             .sendToTarget();
                 } catch (IOException e) {

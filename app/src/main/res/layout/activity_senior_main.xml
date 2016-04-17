@@ -7,12 +7,6 @@
     tools:context=".SeniorMainActivity"
     android:background="#b59dff">
 
-    <TextView
-        android:id="@+id/textViewResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="received: " />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,6 +22,18 @@
         android:layout_above="@+id/door"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"
-        android:id="@+id/relativeLayout2"></RelativeLayout>
+        android:id="@+id/relativeLayout2">
+
+        <TextView
+            android:id="@+id/textViewResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="150"
+            android:textSize="50sp"
+            android:textIsSelectable="false"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:singleLine="true" />
+    </RelativeLayout>
 
 </RelativeLayout>

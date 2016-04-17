@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -35,8 +34,10 @@ public class SeniorMainActivity extends AppCompatActivity {
     boolean door_open=true;
 
     //private BluetoothService btService = null;
+
+    /*for bluetoothService for Pulse sensor*/
     private BluetoothService btService = null;
-    private TextView textViewResult;
+    private TextView textPulseValue;
     private final Handler mHandler = new Handler() {
 
         @Override
@@ -49,11 +50,25 @@ public class SeniorMainActivity extends AppCompatActivity {
                     break;
                 case MESSAGE_READ:
                     byte[] readBuf = (byte[]) msg.obj;
-
+                    //btService.getDeviceState();
                     // construct a string from the valid bytes in the buffer
+
                     String readMessage = new String(readBuf, 0, msg.arg1);
-                    //Log.d(TAG, "Message received: "+ readMessage);
-                    textViewResult.setText("received: "+ readMessage);
+                    Log.d(TAG, "readMessage: "+ readMessage);
+
+                    if(btService.getDeviceName().equals("kjpark")){//the case: pulse sensor
+                        textPulseValue.setText(readMessage.trim());
+                    } else if(btService.getDeviceName().equals("Door1")){
+                        if(readMessage.equals("1")) {
+                            door.setBackgroundResource(R.drawable.dooropen);
+                            door_open=false;
+                        }
+                        else{
+                            door.setBackgroundResource(R.drawable.doorclose);
+                            door_open=true;
+                        }
+
+                    }
                     break;
             }
         }
@@ -74,39 +89,21 @@ public class SeniorMainActivity extends AppCompatActivity {
             finish();
         }
 
-        textViewResult = (TextView) findViewById(R.id.textViewResult);
-
-        //-----------------test-----------------
-        /*Button gotoManager = (Button)findViewById(R.id.gotoManager);
-        gotoManager.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent ManagerActivity = new Intent(getApplicationContext(), com.example.administrator.guardian.ManagerActivity.class);
-                startActivity(ManagerActivity);
-            }
-        });*/
-        //-----------------test-----------------
-
-
-
+        textPulseValue = (TextView) findViewById(R.id.textViewResult);
 
         door = (Button)findViewById(R.id.door);
         door.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(door_open==true) {
-                    door.setBackgroundResource(R.drawable.dooropen);
-                    door_open=false;
+                if(btService.getDeviceState()) {
+                    // 블루투스가 지원 가능한 기기일 때
+                    btService.enableBluetooth();
+                } else {
+                    finish();
                 }
-                else{
-                    door.setBackgroundResource(R.drawable.doorclose);
-                    door_open=true;
-                }
-
             }
         });
     }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
