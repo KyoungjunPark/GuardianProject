@@ -1,40 +1,42 @@
 package com.example.administrator.guardian;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
 
-public class LoginActivity extends AppCompatActivity {
-    private Button loginbutton;
-    private Button joinbutton;
+public class tempActivity extends AppCompatActivity {
+
+    Button pulseButton;
+    Button doorButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.temp_select_be_deleted);
 
-        loginbutton = (Button)findViewById(R.id.loginbutton);
-        loginbutton.setOnClickListener(new View.OnClickListener() {
+        pulseButton = (Button) findViewById(R.id.pulseButton);
+        doorButton = (Button) findViewById(R.id.doorButton);
+
+
+        pulseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Intent firstMainActivity = new Intent(getApplicationContext(), SeniorMainActivity.class);
-                Intent firstMainActivity = new Intent(getApplicationContext(), tempActivity.class);
+                Intent firstMainActivity = new Intent(getApplicationContext(), tempPulseActivity.class);
                 startActivity(firstMainActivity);
-                finish();
             }
         });
-
-        joinbutton = (Button)findViewById(R.id.joinbutton);
-        joinbutton.setOnClickListener(new View.OnClickListener() {
+        doorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Go_joinActivity = new Intent(getApplicationContext(), JoinActivity.class);
-                startActivity(Go_joinActivity);
+                //Intent firstMainActivity = new Intent(getApplicationContext(), SeniorMainActivity.class);
+                Intent firstMainActivity = new Intent(getApplicationContext(), tempDoorActivity.class);
+                startActivity(firstMainActivity);
             }
         });
 
@@ -43,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_login, menu);
+        getMenuInflater().inflate(R.menu.menu_join, menu);
         return true;
     }
 

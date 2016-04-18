@@ -50,6 +50,15 @@
             android:name=".SeniorMainActivity"
             android:label="SeniorMainActivity" />
         <activity
+            android:name=".tempActivity"
+            android:label="tempActivity" />
+        <activity
+            android:name=".tempDoorActivity"
+            android:label="tempDoorActivity" />
+        <activity
+            android:name=".tempPulseActivity"
+            android:label="tempPulseActivity" />
+        <activity
             android:name=".DeviceListActivity"
             android:theme="@android:style/Theme.DeviceDefault.Dialog"
             />
