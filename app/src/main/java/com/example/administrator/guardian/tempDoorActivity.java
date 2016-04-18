@@ -1,5 +1,7 @@
 package com.example.administrator.guardian;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -7,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -80,17 +81,6 @@ public class tempDoorActivity extends AppCompatActivity {
             finish();
         }
         door = (Button)findViewById(R.id.door);
-        door.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(btService.getDeviceState()) {
-                    // 블루투스가 지원 가능한 기기일 때
-                    btService.enableBluetooth();
-                } else {
-                    finish();
-                }
-            }
-        });
 
     }
 
@@ -114,5 +104,28 @@ public class tempDoorActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode,resultCode,data);
+        switch (requestCode) {
+            case REQUEST_ENABLE_BT:
+                // When the request to enable Bluetooth returns
+                if (resultCode == Activity.RESULT_OK) {
+                    //Next Step
+                    btService.scanDevice();
+                } else {
+                    // 취소 눌렀을 때
+                    Log.d(TAG, "Bluetooth is not enabled");
+                }
+                break;
+            case REQUEST_CONNECT_DEVICE:
+                // When DeviceListActivity returns with a device to connect
+                if (resultCode == Activity.RESULT_OK) {
+                    btService.getDeviceInfo(data);
+                }
+                break;
+
+        }
     }
 }
