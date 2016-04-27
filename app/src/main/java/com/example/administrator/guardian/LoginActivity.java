@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Intent firstMainActivity = new Intent(getApplicationContext(), SeniorMainActivity.class);
-                Intent firstMainActivity = new Intent(getApplicationContext(), tempActivity.class);
+                Intent firstMainActivity = new Intent(getApplicationContext(), SeniorTabActivity.class);
                 startActivity(firstMainActivity);
                 finish();
             }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,6 +37,7 @@ public class SeniorMainActivity extends AppCompatActivity {
     //private BluetoothService btService = null;
 
     /*for bluetoothService for Pulse sensor*/
+    /*
     private BluetoothService btService = null;
     private TextView textPulseValue;
     private final Handler mHandler = new Handler() {
@@ -74,11 +76,13 @@ public class SeniorMainActivity extends AppCompatActivity {
         }
 
     };
-
+*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_senior_main);
+        setSupportActionBar((Toolbar) findViewById(R.id.main_toolbar));
+        /*
         if(btService == null) {
             btService = new BluetoothService(this, mHandler);
         }
@@ -102,7 +106,7 @@ public class SeniorMainActivity extends AppCompatActivity {
                     finish();
                 }
             }
-        });
+        });*/
     }
     @Override
     protected void onDestroy() {
@@ -135,6 +139,7 @@ public class SeniorMainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+    /*
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode,resultCode,data);
@@ -157,5 +162,5 @@ public class SeniorMainActivity extends AppCompatActivity {
                 break;
 
         }
-    }
+    }*/
 }

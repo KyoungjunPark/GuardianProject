@@ -9,12 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class tempPulseActivity extends AppCompatActivity {
-
+public class SeniorFragmentTwoActivity extends AppCompatActivity {
     private static final String TAG = "SeniorMainActivity";
     private static final int REQUEST_ENABLE_BT = 6666;
     private static final int REQUEST_CONNECT_DEVICE = 6667;
@@ -30,9 +28,13 @@ public class tempPulseActivity extends AppCompatActivity {
     public static final String DEVICE_NAME = "device_name";
     public static final String TOAST = "toast";
 
-    /*for bluetoothService for Pulse sensor*/
+    Button door;
+    boolean door_open=true;
+
+
     private BluetoothService btService = null;
     private TextView textPulseValue;
+    /*
     private final Handler mHandler = new Handler() {
 
         @Override
@@ -51,15 +53,26 @@ public class tempPulseActivity extends AppCompatActivity {
                     String readMessage = new String(readBuf, 0, msg.arg1);
                     Log.d(TAG, "readMessage: "+ readMessage);
 
-                    textPulseValue.setText(readMessage.trim());
+                    if(readMessage.equals("1")) {
+                        door.setBackgroundResource(R.drawable.dooropen);
+                        door_open=false;
+                    }
+                    else{
+                        door.setBackgroundResource(R.drawable.doorclose);
+                        door_open=true;
+                    }
 
+                    break;
             }
-        }};
+        }
+
+    };*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.temp_pulse);
-        if(btService == null) {
+        setContentView(R.layout.activity_senior_fragment_two);
+        /*if(btService == null) {
             btService = new BluetoothService(this, mHandler);
         }
         if(btService.getDeviceState()) {
@@ -68,9 +81,8 @@ public class tempPulseActivity extends AppCompatActivity {
         } else {
             finish();
         }
-
-        textPulseValue = (TextView) findViewById(R.id.textViewResult);
-
+        door = (Button)findViewById(R.id.door);
+        */
     }
 
     @Override
