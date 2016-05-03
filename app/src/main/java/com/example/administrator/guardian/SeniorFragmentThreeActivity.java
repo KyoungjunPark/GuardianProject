@@ -1,25 +1,34 @@
 package com.example.administrator.guardian;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class SeniorFragmentThreeActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
+    TextView a;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_senior_fragment_three);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        a= (TextView)findViewById(R.id.anabada);
+        a.setText("된다아아아아");
+
+        /*recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
 
@@ -33,27 +42,12 @@ public class SeniorFragmentThreeActivity extends AppCompatActivity {
 
         for (int i = 0; i < 5; i++) items.add(item[i]);
 
-        recyclerView.setAdapter(new SeniorRecyclerViewAdapter(getApplicationContext(), items, R.layout.activity_senior_fragment_three));
+        recyclerView.setAdapter(new SeniorRecyclerViewAdapter(getApplicationContext(), items, R.layout.activity_senior_fragment_three));*/
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_join, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        //MultiDex.install(this);
     }
 }
