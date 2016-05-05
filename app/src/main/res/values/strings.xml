@@ -20,5 +20,12 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_senior_tab">Home</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_senior_fragment_four">senior_fragment_four</string>
+    <string name="title_activity_test">test</string>
+    <string name="title_section1">심박측정</string>
+    <string name="title_section2">주변독거노인</string>
+    <string name="title_section3">자원봉사자  방문요청</string>
+    <string name="title_section4">그래프</string>
+
 
 </resources>

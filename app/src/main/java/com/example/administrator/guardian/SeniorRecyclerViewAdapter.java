@@ -36,7 +36,7 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.senior_cardview, parent, false);
+        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.senior_cardview, null);
         return new ViewHolder(v);
     }
 
@@ -46,7 +46,7 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
         final SeniorRecyclerItem item=items.get(position);
 
         holder.name.setText(item.getName());
-        holder.age.setText(item.getAge());
+        holder.age.setText(item.getAge()+"");
         holder.gender.setText(item.getGender());
         holder.vcallbutton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,38 +1,54 @@
 package com.example.administrator.guardian;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SeniorFragmentThreeActivity extends AppCompatActivity {
+@SuppressLint("ValidFragment")
+public class SeniorFragmentThreeActivity extends Fragment {
 
     RecyclerView recyclerView;
     TextView a;
+    private View view;
+    List<SeniorRecyclerItem> items;
+
+    Context mContext;
+    public SeniorFragmentThreeActivity(Context context) {
+        mContext = context;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_senior_fragment_three);
+    }
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.activity_senior_fragment_three, null);
 
-        a= (TextView)findViewById(R.id.anabada);
-        a.setText("된다아아아아");
 
-        /*recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView = (RecyclerView)view.findViewById(R.id.recyclerView);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
 
-        List<SeniorRecyclerItem> items = new ArrayList<>();
+        items = new ArrayList<>();
         SeniorRecyclerItem[] item = new SeniorRecyclerItem[5];
         item[0] = new SeniorRecyclerItem(0, "박경준1", 23, "남");
         item[1] = new SeniorRecyclerItem(1, "박경준2", 23, "남");
@@ -42,12 +58,9 @@ public class SeniorFragmentThreeActivity extends AppCompatActivity {
 
         for (int i = 0; i < 5; i++) items.add(item[i]);
 
-        recyclerView.setAdapter(new SeniorRecyclerViewAdapter(getApplicationContext(), items, R.layout.activity_senior_fragment_three));*/
+        recyclerView.setAdapter(new SeniorRecyclerViewAdapter(getContext(), items, R.layout.activity_senior_fragment_three));
+
+        return view;
     }
 
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        //MultiDex.install(this);
-    }
 }

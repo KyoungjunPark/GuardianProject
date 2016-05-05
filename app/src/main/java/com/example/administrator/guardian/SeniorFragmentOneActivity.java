@@ -1,23 +1,32 @@
 package com.example.administrator.guardian;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class SeniorFragmentOneActivity extends AppCompatActivity {
+@SuppressLint("ValidFragment")
+public class SeniorFragmentOneActivity extends Fragment {
 
     private static final String TAG = "SeniorMainActivity";
     private static final int REQUEST_ENABLE_BT = 6666;
     private static final int REQUEST_CONNECT_DEVICE = 6667;
+
+    private View view;
+    Context mContext;
 
     // Message types sent from the BluetoothChatService Handler
     public static final int MESSAGE_STATE_CHANGE = 1;
@@ -56,10 +65,15 @@ public class SeniorFragmentOneActivity extends AppCompatActivity {
             }
         }};*/
 
+
+    public SeniorFragmentOneActivity(Context context) {
+        mContext = context;
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_senior_fragment_one);
+        //setContentView(R.layout.activity_senior_fragment_one);
         /*if(btService == null) {
             btService = new BluetoothService(this, mHandler);
         }
@@ -75,28 +89,16 @@ public class SeniorFragmentOneActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_join, menu);
-        return true;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.activity_senior_fragment_one, null);
+
+
+        return view;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode,resultCode,data);
         switch (requestCode) {
             case REQUEST_ENABLE_BT:

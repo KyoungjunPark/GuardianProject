@@ -81,9 +81,6 @@
             android:name=".SeniorTabActivity"
             android:label="@string/title_activity_senior_tab"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SeniorFragmentOneActivity" />
-        <activity android:name=".SeniorFragmentTwoActivity" />
-        <activity android:name=".SeniorFragmentThreeActivity"/>
     </application>
 
 </manifest>
