@@ -45,35 +45,30 @@ public class VolunteerMapActivity extends FragmentActivity implements OnMapReady
 
         // volunteer's address
         LatLng home = new LatLng(37.5037660, 126.9564800);
-        LatLng home2 = new LatLng(37.5037661, 126.9554801);
+        LatLng home2 = new LatLng(37.5038660, 126.9555800);
 
         CameraPosition cameraPosition = new CameraPosition.Builder().target(home).zoom(15).build();
         mMap.moveCamera(CameraUpdateFactory.newLatLng(home));
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
-
-        final MarkerOptions optFirst = new MarkerOptions();
+        MarkerOptions optFirst = new MarkerOptions();
         optFirst.position(home);// 위도 • 경도
-        optFirst.title("marker1");// 제목 미리보기
-        optFirst.snippet("Snippet");
-        mMap.addMarker(optFirst).showInfoWindow();
-/*
+        optFirst.title("박경준 할아버지");// 제목 미리보기
+        optFirst.snippet("방문하기");
+        mMap.addMarker(optFirst);
+
         MarkerOptions optSecond = new MarkerOptions();
-        optFirst.position(home2);// 위도 • 경도
-        optFirst.title("marker2");// 제목 미리보기
-        optFirst.snippet("Snippet2");
+        optSecond.position(home2);// 위도 • 경도
+        optSecond.title("박경준 할머니");// 제목 미리보기
+        optSecond.snippet("방문하기");
         mMap.addMarker(optSecond);
-*/
-        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+
+        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
-            public boolean onMarkerClick(final Marker marker) {
-
-                Toast.makeText(getApplicationContext(), "된당.", Toast.LENGTH_SHORT).show();
-
-                return true;
+            public void onInfoWindowClick(Marker marker) {
+                Toast.makeText(getApplicationContext(),marker.getTitle()+"",Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }
 /*
