@@ -81,6 +81,10 @@
             android:name=".ui.activity.SeniorTabActivity"
             android:label="@string/title_activity_senior_tab"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activity.VolunteerMainActivity"
+            android:label="@string/title_activity_volunteer_main"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

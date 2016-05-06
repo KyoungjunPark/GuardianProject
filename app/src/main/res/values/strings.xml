@@ -26,6 +26,7 @@
     <string name="title_section2">주변독거노인</string>
     <string name="title_section3">자원봉사자  방문요청</string>
     <string name="title_section4">그래프</string>
+    <string name="title_activity_volunteer_main">VolunteerMainActivity</string>
 
 
 </resources>
