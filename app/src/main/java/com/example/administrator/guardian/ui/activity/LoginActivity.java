@@ -27,7 +27,6 @@ public class LoginActivity extends AppCompatActivity {
                 //Intent firstMainActivity = new Intent(getApplicationContext(), SeniorMainActivity.class);
                 Intent firstMainActivity = new Intent(getApplicationContext(), SeniorTabActivity.class);
                 startActivity(firstMainActivity);
-                finish();
             }
         });
 

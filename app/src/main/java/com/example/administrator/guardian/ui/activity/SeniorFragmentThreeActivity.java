@@ -41,7 +41,7 @@ public class SeniorFragmentThreeActivity extends Fragment {
         view = inflater.inflate(R.layout.activity_senior_fragment_three, null);
 
 
-        recyclerView = (RecyclerView)view.findViewById(R.id.recyclerView);
+        recyclerView = (RecyclerView)view.findViewById(R.id.senior_recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setHasFixedSize(true);

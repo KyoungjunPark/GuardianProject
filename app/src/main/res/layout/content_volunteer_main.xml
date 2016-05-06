@@ -23,7 +23,8 @@
         android:textColor="#000000"
         android:textSize="28dp"
         android:background="@drawable/login_edittext"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp" />
 
     <FrameLayout
         android:layout_width="300dp"
@@ -55,5 +56,18 @@
         android:layout_alignStart="@+id/frameLayout"
         android:textSize="25dp"
         android:layout_marginTop="20dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="방문하기"
+        android:id="@+id/visitbutton"
+        android:layout_marginTop="20dp"
+        android:textSize="25dp"
+        android:layout_below="@+id/vtimecheck"
+        android:layout_alignRight="@+id/vtimecheck"
+        android:layout_alignEnd="@+id/vtimecheck"
+        android:layout_alignLeft="@+id/vtimecheck"
+        android:layout_alignStart="@+id/vtimecheck" />
 
 </RelativeLayout>
