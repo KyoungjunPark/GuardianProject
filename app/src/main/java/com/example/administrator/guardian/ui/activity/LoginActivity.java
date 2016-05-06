@@ -13,6 +13,9 @@ import com.example.administrator.guardian.R;
 public class LoginActivity extends AppCompatActivity {
     private Button loginbutton;
     private Button joinbutton;
+
+    Button tov;//for volunteer activity test
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +41,17 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(Go_joinActivity);
             }
         });
+
+        tov = (Button)findViewById(R.id.tov);
+        tov.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent vtest = new Intent(getApplicationContext(), VolunteerMainActivity.class);
+                startActivity(vtest);
+            }
+        });
+
+
 
     }
 

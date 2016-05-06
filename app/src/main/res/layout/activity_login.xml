@@ -67,5 +67,21 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="자원봉사자메인가기"
+        android:id="@+id/tov"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="관리사메인가기"
+        android:id="@+id/tom"
+        android:layout_below="@+id/tov"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>

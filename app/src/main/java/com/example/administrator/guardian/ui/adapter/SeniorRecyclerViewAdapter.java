@@ -74,7 +74,7 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
             gender=(TextView)itemView.findViewById(R.id.inputvgender);
             vcallbutton=(Button)itemView.findViewById(R.id.vcallbutton);
 
-            cardview=(CardView)itemView.findViewById(R.id.cardview);
+            cardview=(CardView)itemView.findViewById(R.id.senior_cardview);
         }
     }
 }

@@ -1,67 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.administrator.guardian">
+<?xml version="1.0" encoding="utf-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"
+package="com.example.administrator.guardian">
 
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <!--
+<uses-permission android:name="android.permission.BLUETOOTH" />
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+<!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality. 
     -->
-    <permission
-        android:name="com.example.administrator.guardian.locationapi.maps.permission.MAPS_RECEIVE"
-        android:protectionLevel="signature" />
+<permission android:name="com.example.administrator.guardian.locationapi.maps.permission.MAPS_RECEIVE"
+    android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.example.administrator.guardian.locationapi.maps.permission.MAPS_RECEIVE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="com.example.administrator.guardian.locationapi.maps.permission.MAPS_RECEIVE" />
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <uses-feature
-        android:glEsVersion="0x00020000"
-        android:required="true" />
+<uses-feature android:glEsVersion="0x00020000" android:required="true" />
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:theme="@style/AppTheme">
-        <activity
-            android:name=".ui.activity.LoginActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:theme="@style/AppTheme">
+    <activity android:name=".ui.activity.LoginActivity" android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".ui.activity.JoinActivity"
-            android:label="@string/title_activity_join"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity
-            android:name=".ui.activity.RegistrationActivity"
-            android:label="@string/title_activity_registration"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity
-            android:name=".ui.activity.SeniorMainActivity"
-            android:label="SeniorMainActivity" />
-        <activity
-            android:name=".ui.activity.DeviceListActivity"
-            android:theme="@android:style/Theme.DeviceDefault.Dialog" />
-        <activity
-            android:name=".ui.activity.ManagerActivity"
-            android:label="ManagerActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity
-            android:name=".ui.activity.ManagerRegistrationActivity"
-            android:label="MangerRegistration"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity android:name=".ui.activity.JoinActivity" android:label="@string/title_activity_join"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+    <activity android:name=".ui.activity.RegistrationActivity" android:label="@string/title_activity_registration"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+    <activity android:name=".ui.activity.SeniorMainActivity" android:label="SeniorMainActivity" />
+    <activity android:name=".ui.activity.DeviceListActivity" android:theme="@android:style/Theme.DeviceDefault.Dialog" />
+    <activity android:name=".ui.activity.ManagerActivity" android:label="ManagerActivity"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+    <activity android:name=".ui.activity.ManagerRegistrationActivity" android:label="MangerRegistration"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 
-        <!--
+    <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
              Note that the API key is linked to the encryption key used to sign the APK.
@@ -69,26 +48,18 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/. 
         -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDrdm_h6ShF4lTb6IGPwm6Ct2l83Yfcbsk" />
+    <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDrdm_h6ShF4lTb6IGPwm6Ct2l83Yfcbsk" />
 
-        <activity
-            android:name=".ui.activity.MapsActivity"
-            android:label="@string/title_activity_maps"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity
-            android:name=".ui.activity.SeniorTabActivity"
-            android:label="@string/title_activity_senior_tab"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ui.activity.VolunteerMainActivity"
-            android:label="@string/title_activity_volunteer_main"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ui.activity.VolunteerTimeActivity"
-            android:label="@string/title_activity_volunteer_time"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-    </application>
+    <activity android:name=".ui.activity.MapsActivity" android:label="@string/title_activity_maps"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+    <activity android:name=".ui.activity.SeniorTabActivity" android:label="@string/title_activity_senior_tab"
+        android:theme="@style/AppTheme.NoActionBar" />
+    <activity android:name=".ui.activity.VolunteerMainActivity" android:label="VolunteerMain"
+        android:theme="@style/AppTheme.NoActionBar" />
+    <activity android:name=".ui.activity.VolunteerTimeActivity" android:label="VolunteerTime"
+        android:theme="@style/AppTheme.NoActionBar" />
+    <activity android:name=".ui.activity.VolunteerMapActivity" android:label="@string/title_activity_volunteer_map"
+        android:theme="@style/AppTheme.NoActionBar" />
+</application>
 
 </manifest>
