@@ -1,4 +1,4 @@
-package com.example.administrator.guardian;
+package com.example.administrator.guardian.datamodel;
 
 /**
  * Created by Administrator on 2016-04-28.

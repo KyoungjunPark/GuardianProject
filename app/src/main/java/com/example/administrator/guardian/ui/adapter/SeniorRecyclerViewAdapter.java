@@ -1,15 +1,10 @@
-package com.example.administrator.guardian;
+package com.example.administrator.guardian.ui.adapter;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +12,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.example.administrator.guardian.R;
+import com.example.administrator.guardian.datamodel.SeniorRecyclerItem;
+
 import java.util.List;
 
 /**

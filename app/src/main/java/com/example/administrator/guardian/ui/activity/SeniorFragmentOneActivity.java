@@ -1,30 +1,29 @@
-package com.example.administrator.guardian;
+package com.example.administrator.guardian.ui.activity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.administrator.guardian.R;
+import com.example.administrator.guardian.services.BluetoothService;
+
 @SuppressLint("ValidFragment")
-public class SeniorFragmentTwoActivity extends Fragment {
+public class SeniorFragmentOneActivity extends Fragment {
+
     private static final String TAG = "SeniorMainActivity";
     private static final int REQUEST_ENABLE_BT = 6666;
     private static final int REQUEST_CONNECT_DEVICE = 6667;
+
+    private View view;
+    Context mContext;
 
     // Message types sent from the BluetoothChatService Handler
     public static final int MESSAGE_STATE_CHANGE = 1;
@@ -37,16 +36,10 @@ public class SeniorFragmentTwoActivity extends Fragment {
     public static final String DEVICE_NAME = "device_name";
     public static final String TOAST = "toast";
 
-    Button door;
-    boolean door_open=true;
-    TextView a;
-    private View view;
-    Context mContext;
-
+    /*for bluetoothService for Pulse sensor*/
     private BluetoothService btService = null;
     private TextView textPulseValue;
-    /*
-    private final Handler mHandler = new Handler() {
+    /*private final Handler mHandler = new Handler() {
 
         @Override
         public void handleMessage(Message msg) {
@@ -64,31 +57,20 @@ public class SeniorFragmentTwoActivity extends Fragment {
                     String readMessage = new String(readBuf, 0, msg.arg1);
                     Log.d(TAG, "readMessage: "+ readMessage);
 
-                    if(readMessage.equals("1")) {
-                        door.setBackgroundResource(R.drawable.dooropen);
-                        door_open=false;
-                    }
-                    else{
-                        door.setBackgroundResource(R.drawable.doorclose);
-                        door_open=true;
-                    }
+                    textPulseValue.setText(readMessage.trim());
 
-                    break;
             }
-        }
+        }};*/
 
-    };*/
 
-    public SeniorFragmentTwoActivity(Context context) {
+    public SeniorFragmentOneActivity(Context context) {
         mContext = context;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_senior_fragment_two);
-
-
+        //setContentView(R.layout.activity_senior_fragment_one);
         /*if(btService == null) {
             btService = new BluetoothService(this, mHandler);
         }
@@ -98,20 +80,19 @@ public class SeniorFragmentTwoActivity extends Fragment {
         } else {
             finish();
         }
-        door = (Button)findViewById(R.id.door);
-        */
+
+        textPulseValue = (TextView) findViewById(R.id.textViewResult);
+*/
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.activity_senior_fragment_two, null);
+        view = inflater.inflate(R.layout.activity_senior_fragment_one, null);
 
-        //a= (TextView)view.findViewById(R.id.what);
-        //a.setText("mymy");
 
         return view;
     }
-
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

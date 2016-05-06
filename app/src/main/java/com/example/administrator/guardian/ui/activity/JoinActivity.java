@@ -1,7 +1,6 @@
-package com.example.administrator.guardian;
+package com.example.administrator.guardian.ui.activity;
 
 import android.content.Intent;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,6 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+
+import com.example.administrator.guardian.R;
 
 public class JoinActivity extends AppCompatActivity {
     private Button join;
@@ -42,7 +43,7 @@ public class JoinActivity extends AppCompatActivity {
                     finish();
                 }
                 if(manager.isChecked()){
-                    Intent ManagerRegistration = new Intent(getApplicationContext(), ManagerRegistration.class);
+                    Intent ManagerRegistration = new Intent(getApplicationContext(), ManagerRegistrationActivity.class);
                     startActivity(ManagerRegistration);
                     finish();
                 }

@@ -1,32 +1,26 @@
-package com.example.administrator.guardian;
+package com.example.administrator.guardian.ui.activity;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-@SuppressLint("ValidFragment")
-public class SeniorFragmentOneActivity extends Fragment {
+import com.example.administrator.guardian.R;
+
+public class SeniorMainActivity extends AppCompatActivity {
 
     private static final String TAG = "SeniorMainActivity";
     private static final int REQUEST_ENABLE_BT = 6666;
     private static final int REQUEST_CONNECT_DEVICE = 6667;
-
-    private View view;
-    Context mContext;
 
     // Message types sent from the BluetoothChatService Handler
     public static final int MESSAGE_STATE_CHANGE = 1;
@@ -39,10 +33,16 @@ public class SeniorFragmentOneActivity extends Fragment {
     public static final String DEVICE_NAME = "device_name";
     public static final String TOAST = "toast";
 
+    Button door;
+    boolean door_open=true;
+
+    //private BluetoothService btService = null;
+
     /*for bluetoothService for Pulse sensor*/
+    /*
     private BluetoothService btService = null;
     private TextView textPulseValue;
-    /*private final Handler mHandler = new Handler() {
+    private final Handler mHandler = new Handler() {
 
         @Override
         public void handleMessage(Message msg) {
@@ -60,21 +60,32 @@ public class SeniorFragmentOneActivity extends Fragment {
                     String readMessage = new String(readBuf, 0, msg.arg1);
                     Log.d(TAG, "readMessage: "+ readMessage);
 
-                    textPulseValue.setText(readMessage.trim());
+                    if(btService.getDeviceName().equals("kjpark")){//the case: pulse sensor
+                        textPulseValue.setText(readMessage.trim());
+                    } else if(btService.getDeviceName().equals("Door1")){
+                        if(readMessage.equals("1")) {
+                            door.setBackgroundResource(R.drawable.dooropen);
+                            door_open=false;
+                        }
+                        else{
+                            door.setBackgroundResource(R.drawable.doorclose);
+                            door_open=true;
+                        }
 
+                    }
+                    break;
             }
-        }};*/
+        }
 
-
-    public SeniorFragmentOneActivity(Context context) {
-        mContext = context;
-    }
-
+    };
+*/
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_senior_fragment_one);
-        /*if(btService == null) {
+        setContentView(R.layout.activity_senior_main);
+        setSupportActionBar((Toolbar) findViewById(R.id.main_toolbar));
+        /*
+        if(btService == null) {
             btService = new BluetoothService(this, mHandler);
         }
         if(btService.getDeviceState()) {
@@ -85,20 +96,54 @@ public class SeniorFragmentOneActivity extends Fragment {
         }
 
         textPulseValue = (TextView) findViewById(R.id.textViewResult);
-*/
+
+        door = (Button)findViewById(R.id.door);
+        door.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(btService.getDeviceState()) {
+                    // 블루투스가 지원 가능한 기기일 때
+                    btService.enableBluetooth();
+                } else {
+                    finish();
+                }
+            }
+        });*/
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.activity_senior_fragment_one, null);
-
-
-        return view;
+    protected void onStart() {
+        super.onStart();
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_first_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+    /*
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode,resultCode,data);
         switch (requestCode) {
             case REQUEST_ENABLE_BT:
@@ -119,5 +164,5 @@ public class SeniorFragmentOneActivity extends Fragment {
                 break;
 
         }
-    }
+    }*/
 }

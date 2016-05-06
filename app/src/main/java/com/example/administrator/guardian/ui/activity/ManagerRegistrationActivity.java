@@ -1,4 +1,4 @@
-package com.example.administrator.guardian;
+package com.example.administrator.guardian.ui.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +7,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class ManagerRegistration extends AppCompatActivity {
+import com.example.administrator.guardian.R;
+import com.example.administrator.guardian.ui.activity.LoginActivity;
+
+public class ManagerRegistrationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

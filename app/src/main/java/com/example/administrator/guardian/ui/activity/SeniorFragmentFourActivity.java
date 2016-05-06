@@ -1,4 +1,4 @@
-package com.example.administrator.guardian;
+package com.example.administrator.guardian.ui.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.annotation.SuppressLint;
 import android.content.Context;
+
+import com.example.administrator.guardian.R;
+
 /**
  * Created by Administrator on 2016-05-05.
  */

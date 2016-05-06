@@ -1,4 +1,4 @@
-package com.example.administrator.guardian;
+package com.example.administrator.guardian.ui.activity;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.administrator.guardian.R;
 
 import java.util.ArrayList;
 

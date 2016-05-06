@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.administrator.guardian;
+package com.example.administrator.guardian.ui.activity;
 
 import java.util.Set;
 
@@ -36,6 +36,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
+
+import com.example.administrator.guardian.R;
 
 /**
  * This Activity appears as a dialog. It lists any paired devices and

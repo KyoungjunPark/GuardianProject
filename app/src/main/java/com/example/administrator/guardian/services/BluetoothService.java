@@ -1,4 +1,4 @@
-package com.example.administrator.guardian;
+package com.example.administrator.guardian.services;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -7,7 +7,9 @@ import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.Handler;
 import android.util.Log;
-import android.view.View;
+
+import com.example.administrator.guardian.ui.activity.DeviceListActivity;
+import com.example.administrator.guardian.ui.activity.SeniorMainActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
