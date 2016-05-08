@@ -31,7 +31,7 @@ public class JoinActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(senior.isChecked() || volunteer.isChecked()) {
-                    Intent RegistrationActivity = new Intent(getApplicationContext(), RegistrationActivity.class);
+                    Intent RegistrationActivity = new Intent(getApplicationContext(), JoinContentsActivity.class);
                     if(senior.isChecked()){
                         RegistrationActivity.putExtra("type","senior");
                         startActivity(RegistrationActivity);

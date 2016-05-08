@@ -12,38 +12,49 @@ import java.net.HttpURLConnection;
 public class ConnectServer {
     private AsyncTask<String, Void, Boolean> task;
 
-    public enum Type {teacher, student, parent}
-    Type type;
-
     private String token;
-    private String code;
+    private static String URL = "http://59.187.203.140:80";
 
     private static final ConnectServer instance = new ConnectServer();
 
-    public ConnectServer(){}
-    public static ConnectServer getInstance(){ return instance;}
-    public void setAsncTask(AsyncTask<String, Void, Boolean> task) { this.task = task;}
-    public void setToken(String token){this.token = token;}
-    public Type getType(){return type;}
-    public void setTypetoTeacher() { type = Type.teacher;}
-    public void setTypetoStudent()
-    {
-        type = Type.student;
+    public ConnectServer() {
     }
-    public void setTypeParent()
-    {
-        type = Type.parent;
-    }
-    public void setCode(String code){this.code = code;}
 
-    public void execute(){
+    public static ConnectServer getInstance() {
+        return instance;
+    }
+
+    public void setAsncTask(AsyncTask<String, Void, Boolean> task) {
+        this.task = task;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public void execute() {
         this.task.execute();
     }
 
-    public HttpURLConnection setHeader(HttpURLConnection con){
+    public HttpURLConnection setHeader(HttpURLConnection con) {
         con.setRequestProperty("Accept-Language", "ko-kr,ko;q=0.8,en-us;q=0.5,en;q=0.3");
-        con.setRequestProperty("token",this.token);
+        con.setRequestProperty("Content-Type", "application/json");
+        con.setRequestProperty("token", this.token);
 
         return con;
+    }
+
+    public String getURL(String path) {
+        String resultURL = null;
+
+        switch (path) {
+            case "Sign_Up":
+                //The case which is Join Request
+                resultURL = URL + "/" + "Sign_Up";
+                break;
+            case "Sign_In":
+                break;
+        }
+        return resultURL;
     }
 }

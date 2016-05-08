@@ -79,6 +79,9 @@ public class MapsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = getIntent();
                 intent.putExtra("Address",placeAddress);
+                intent.putExtra("latitude", dLa);
+                intent.putExtra("longitude", dLo);
+
                 setResult(RESULT_OK,intent);
                 finish();
             }
@@ -90,7 +93,7 @@ public class MapsActivity extends AppCompatActivity {
             if (resultCode == Activity.RESULT_OK) {
                 final Place place = PlacePicker.getPlace(data, MapsActivity.this);
                  placeAddress = (String)place.getAddress();
-                placeName = (String)place.getName();
+                 placeName = (String)place.getName();
                  placeID = place.getId();
                  dLatitude = place.getLatLng().latitude;
                  dLongitude =place.getLatLng().longitude;
@@ -98,8 +101,8 @@ public class MapsActivity extends AppCompatActivity {
 
                 inputAdd.setText(placeName);
 
-                dLa= String.format("%.7f",dLatitude);
-                dLo= String.format("%.7f",dLongitude);
+                dLa= String.format("%.10f",dLatitude);
+                dLo= String.format("%.10f",dLongitude);
                 latitudeAndlongitude.setText("("+dLa+", "+dLo+")");
                 Log.d(dLa,dLo);
 
