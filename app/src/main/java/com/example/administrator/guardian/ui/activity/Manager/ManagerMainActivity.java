@@ -1,6 +1,7 @@
 package com.example.administrator.guardian.ui.activity.Manager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -116,13 +117,15 @@ public class ManagerMainActivity extends AppCompatActivity{
 			show_senior_info_button.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Toast.makeText(ManagerMainActivity.this, "clicked", Toast.LENGTH_SHORT).show();
+					Intent manageinfo = new Intent(getApplicationContext(),ManagerManageInfoActivity.class);
+					startActivity(manageinfo);
 				}
 			});
 			manage_senior_button.setOnClickListener(new View.OnClickListener(){
 				@Override
 				public void onClick(View v){
-					Toast.makeText(ManagerMainActivity.this, "clicked", Toast.LENGTH_SHORT).show();
+					Intent managepulse = new Intent(getApplicationContext(),ManagerManagePulseActivity.class);
+					startActivity(managepulse);
 				}
 			});
 			//-----------------test-----------------
