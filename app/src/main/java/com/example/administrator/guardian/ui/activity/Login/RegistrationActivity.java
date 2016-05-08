@@ -12,14 +12,18 @@ import com.example.administrator.guardian.R;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    Button toMap;
-    String type;   // senior?? or volunteer??
+    private Button toMap;
+    private String type;   // senior?? or volunteer??
+    private Button seniorJoinButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
         toMap=(Button)findViewById(R.id.tomap);
+        seniorJoinButton = (Button) findViewById(R.id.seniorjoinbutton);
+
         Intent intent = getIntent();
         type = intent.getAction();
 
@@ -32,12 +36,15 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.seniorjoinbutton).setOnClickListener(new View.OnClickListener() {
+        seniorJoinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Go_loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(Go_loginActivity);
-                finish();
+                //Intent Go_loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
+                //startActivity(Go_loginActivity);
+                //finish();
+
+                //Send join data to server
+
             }
         });
     }
