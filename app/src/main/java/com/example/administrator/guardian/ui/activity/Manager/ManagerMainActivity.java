@@ -1,6 +1,7 @@
 package com.example.administrator.guardian.ui.activity.Manager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 /**
  * Created by 경태 on 2016-04-10.
  */
-public class ManagerActivity extends AppCompatActivity{
+public class ManagerMainActivity extends AppCompatActivity{
 	ListView lv;
 
 	@Override
@@ -66,7 +67,7 @@ public class ManagerActivity extends AppCompatActivity{
 		}
 		//-----------------test-----------------
 
-		SeniorAdapter adpt = new SeniorAdapter(ManagerActivity.this, R.layout.unit_senior_to_manage, list);
+		SeniorAdapter adpt = new SeniorAdapter(ManagerMainActivity.this, R.layout.unit_senior_to_manage, list);
 		lv.setAdapter(adpt);
 	}
 
@@ -116,13 +117,15 @@ public class ManagerActivity extends AppCompatActivity{
 			show_senior_info_button.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Toast.makeText(ManagerActivity.this, "clicked", Toast.LENGTH_SHORT).show();
+					Intent manageinfo = new Intent(getApplicationContext(),ManagerManageInfoActivity.class);
+					startActivity(manageinfo);
 				}
 			});
 			manage_senior_button.setOnClickListener(new View.OnClickListener(){
 				@Override
 				public void onClick(View v){
-					Toast.makeText(ManagerActivity.this, "clicked", Toast.LENGTH_SHORT).show();
+					Intent managepulse = new Intent(getApplicationContext(),ManagerManagePulseActivity.class);
+					startActivity(managepulse);
 				}
 			});
 			//-----------------test-----------------

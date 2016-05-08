@@ -57,7 +57,7 @@
             android:name=".ui.activity.DeviceListActivity"
             android:theme="@android:style/Theme.DeviceDefault.Dialog" />
         <activity
-            android:name=".ui.activity.Manager.ManagerActivity"
+            android:name=".ui.activity.Manager.ManagerMainActivity"
             android:label="ManagerActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -98,11 +98,11 @@
             android:label="@string/title_activity_volunteer_map"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.activity.Manager.Manager_manage_pulse"
+            android:name=".ui.activity.Manager.ManagerManagePulseActivity"
             android:label="@string/title_activity_manager_manage_pulse"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.activity.Manager.Manager_manage_info"
+            android:name=".ui.activity.Manager.ManagerManageInfoActivity"
             android:label="@string/title_activity_manager_manage_info"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

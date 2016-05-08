@@ -9,7 +9,7 @@ import android.view.View;
 
 import com.example.administrator.guardian.R;
 
-public class Manager_manage_info extends AppCompatActivity {
+public class ManagerManageInfoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
