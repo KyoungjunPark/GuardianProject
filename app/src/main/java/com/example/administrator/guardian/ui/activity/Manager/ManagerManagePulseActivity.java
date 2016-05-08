@@ -9,7 +9,7 @@ import android.view.View;
 
 import com.example.administrator.guardian.R;
 
-public class Manager_manage_pulse extends AppCompatActivity {
+public class ManagerManagePulseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

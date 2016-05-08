@@ -20,7 +20,7 @@ import java.util.ArrayList;
 /**
  * Created by 경태 on 2016-04-10.
  */
-public class ManagerActivity extends AppCompatActivity{
+public class ManagerMainActivity extends AppCompatActivity{
 	ListView lv;
 
 	@Override
@@ -66,7 +66,7 @@ public class ManagerActivity extends AppCompatActivity{
 		}
 		//-----------------test-----------------
 
-		SeniorAdapter adpt = new SeniorAdapter(ManagerActivity.this, R.layout.unit_senior_to_manage, list);
+		SeniorAdapter adpt = new SeniorAdapter(ManagerMainActivity.this, R.layout.unit_senior_to_manage, list);
 		lv.setAdapter(adpt);
 	}
 
@@ -116,13 +116,13 @@ public class ManagerActivity extends AppCompatActivity{
 			show_senior_info_button.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Toast.makeText(ManagerActivity.this, "clicked", Toast.LENGTH_SHORT).show();
+					Toast.makeText(ManagerMainActivity.this, "clicked", Toast.LENGTH_SHORT).show();
 				}
 			});
 			manage_senior_button.setOnClickListener(new View.OnClickListener(){
 				@Override
 				public void onClick(View v){
-					Toast.makeText(ManagerActivity.this, "clicked", Toast.LENGTH_SHORT).show();
+					Toast.makeText(ManagerMainActivity.this, "clicked", Toast.LENGTH_SHORT).show();
 				}
 			});
 			//-----------------test-----------------

@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.administrator.guardian.R;
-import com.example.administrator.guardian.ui.activity.Manager.ManagerActivity;
+import com.example.administrator.guardian.ui.activity.Manager.ManagerMainActivity;
 import com.example.administrator.guardian.ui.activity.Senior.SeniorTabActivity;
 import com.example.administrator.guardian.ui.activity.Volunteer.VolunteerMainActivity;
 
@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         tom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mtest = new Intent(getApplicationContext(), ManagerActivity.class);
+                Intent mtest = new Intent(getApplicationContext(), ManagerMainActivity.class);
                 startActivity(mtest);
             }
         });
