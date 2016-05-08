@@ -26,7 +26,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class JoinContentsActivity extends AppCompatActivity {
 
@@ -190,6 +192,13 @@ public class JoinContentsActivity extends AppCompatActivity {
                     // onDateSet method
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                         birth.setText("   "+year+" 년"+"    "+monthOfYear+" 월"+"   "+dayOfMonth+" 일");
+                        long now = System.currentTimeMillis();
+                        Date date = new Date(now);
+                        SimpleDateFormat CurYearFormat = new SimpleDateFormat("yyyy");
+                        String nowyear = CurYearFormat.format(date);
+                        int numyear = Integer.parseInt(nowyear);
+                        int intAge=numyear-year+1;          //나이 int값
+                        age=String.valueOf(intAge);
                     }
                 };
         DatePickerDialog alert = new DatePickerDialog(this,  mDateSetListener, cyear, cmonth, cday);
