@@ -29,7 +29,7 @@
         android:icon="@drawable/icon"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.activity.IntroActivity"
+            android:name=".ui.activity.Login.IntroActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
@@ -38,15 +38,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.LoginActivity"
+        <activity android:name=".ui.activity.Login.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
         <activity
-            android:name=".ui.activity.JoinActivity"
+            android:name=".ui.activity.Login.JoinActivity"
             android:label="@string/title_activity_join"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".ui.activity.RegistrationActivity"
+            android:name=".ui.activity.Login.RegistrationActivity"
             android:label="@string/title_activity_registration"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
@@ -56,11 +56,11 @@
             android:name=".ui.activity.DeviceListActivity"
             android:theme="@android:style/Theme.DeviceDefault.Dialog" />
         <activity
-            android:name=".ui.activity.ManagerActivity"
+            android:name=".ui.activity.Manager.ManagerActivity"
             android:label="ManagerActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".ui.activity.ManagerRegistrationActivity"
+            android:name=".ui.activity.Login.ManagerRegistrationActivity"
             android:label="MangerRegistration"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 
@@ -77,23 +77,23 @@
             android:value="AIzaSyDrdm_h6ShF4lTb6IGPwm6Ct2l83Yfcbsk" />
 
         <activity
-            android:name=".ui.activity.MapsActivity"
+            android:name=".ui.activity.Login.MapsActivity"
             android:label="@string/title_activity_maps"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".ui.activity.SeniorTabActivity"
+            android:name=".ui.activity.Senior.SeniorTabActivity"
             android:label="@string/title_activity_senior_tab"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.activity.VolunteerMainActivity"
+            android:name=".ui.activity.Volunteer.VolunteerMainActivity"
             android:label="VolunteerMain"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.activity.VolunteerTimeActivity"
+            android:name=".ui.activity.Volunteer.VolunteerTimeActivity"
             android:label="VolunteerTime"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.activity.VolunteerMapActivity"
+            android:name=".ui.activity.Volunteer.VolunteerMapActivity"
             android:label="@string/title_activity_volunteer_map"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

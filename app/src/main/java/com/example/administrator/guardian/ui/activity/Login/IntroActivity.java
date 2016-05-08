@@ -1,9 +1,8 @@
-package com.example.administrator.guardian.ui.activity;
+package com.example.administrator.guardian.ui.activity.Login;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.administrator.guardian.R;

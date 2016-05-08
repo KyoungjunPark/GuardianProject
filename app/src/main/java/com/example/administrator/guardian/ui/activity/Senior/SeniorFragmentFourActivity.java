@@ -1,4 +1,4 @@
-package com.example.administrator.guardian.ui.activity;
+package com.example.administrator.guardian.ui.activity.Senior;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

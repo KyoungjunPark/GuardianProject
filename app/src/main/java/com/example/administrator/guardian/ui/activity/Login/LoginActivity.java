@@ -1,4 +1,4 @@
-package com.example.administrator.guardian.ui.activity;
+package com.example.administrator.guardian.ui.activity.Login;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,13 +9,16 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.administrator.guardian.R;
+import com.example.administrator.guardian.ui.activity.Manager.ManagerActivity;
+import com.example.administrator.guardian.ui.activity.Senior.SeniorTabActivity;
+import com.example.administrator.guardian.ui.activity.Volunteer.VolunteerMainActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private Button loginbutton;
     private Button joinbutton;
 
     Button tov;//for volunteer activity test
-
+    Button tom;//for manager activity test
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +52,14 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
-
+        tom = (Button)findViewById(R.id.tom);
+        tom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mtest = new Intent(getApplicationContext(), ManagerActivity.class);
+                startActivity(mtest);
+            }
+        });
     }
 
     @Override

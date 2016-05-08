@@ -1,4 +1,4 @@
-package com.example.administrator.guardian.ui.activity;
+package com.example.administrator.guardian.ui.activity.Login;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

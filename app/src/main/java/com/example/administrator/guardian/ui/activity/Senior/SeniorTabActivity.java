@@ -1,4 +1,4 @@
-package com.example.administrator.guardian.ui.activity;
+package com.example.administrator.guardian.ui.activity.Senior;
 
 import android.content.Context;
 import android.support.design.widget.TabLayout;

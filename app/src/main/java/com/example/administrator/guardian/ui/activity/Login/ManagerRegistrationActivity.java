@@ -1,4 +1,4 @@
-package com.example.administrator.guardian.ui.activity;
+package com.example.administrator.guardian.ui.activity.Login;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.administrator.guardian.R;
-import com.example.administrator.guardian.ui.activity.LoginActivity;
 
 public class ManagerRegistrationActivity extends AppCompatActivity {
 
