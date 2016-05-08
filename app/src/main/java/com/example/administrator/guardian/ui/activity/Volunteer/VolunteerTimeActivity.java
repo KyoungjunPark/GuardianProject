@@ -27,7 +27,7 @@ public class VolunteerTimeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_volunteer_time);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.vttoolbar);
         setSupportActionBar(toolbar);
 
         recyclerView = (RecyclerView)findViewById(R.id.volunteer_recyclerview);

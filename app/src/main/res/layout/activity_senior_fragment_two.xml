@@ -13,15 +13,6 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="75dp">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/door"
-            android:background="@drawable/doorclose"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="false" />
-
 
     </RelativeLayout>
 </RelativeLayout>

@@ -26,9 +26,9 @@ public class ManagerActivity extends AppCompatActivity{
 	@Override
 	protected void onCreate (Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_manager);
+		setContentView(R.layout.activity_manager_main);
 
-		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+		Toolbar toolbar = (Toolbar) findViewById(R.id.mtoolbar);
 		setSupportActionBar(toolbar);
 
 		lv = (ListView)findViewById(R.id.senior_list_view);
