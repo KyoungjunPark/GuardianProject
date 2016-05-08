@@ -81,8 +81,7 @@
             android:textColor="#000000"
             android:layout_marginLeft="10dp"
             android:layout_row="1"
-            android:layout_column="0"
-            android:layout_marginTop="10dp" />
+            android:layout_column="0" />
 
         <EditText
             android:layout_width="220dp"
@@ -95,7 +94,6 @@
             android:layout_alignStart="@+id/my_id"
             android:layout_row="1"
             android:layout_column="1"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp" />
 
         <TextView
@@ -110,8 +108,7 @@
             android:textColor="#000000"
         android:layout_marginLeft="10dp"
             android:layout_row="2"
-            android:layout_column="0"
-            android:layout_marginTop="10dp" />
+            android:layout_column="0" />
 
         <EditText
         android:layout_width="220dp"
@@ -125,7 +122,6 @@
         android:layout_alignStart="@+id/my_name"
             android:layout_row="2"
             android:layout_column="1"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp" />
 
         <TextView
@@ -284,39 +280,17 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="230dp"
-            android:layout_height="50dp"
+        <Button
+            android:layout_width="229dp"
+            android:layout_height="30dp"
+            android:text="        년       월      일"
+            android:id="@+id/birth"
             android:layout_row="5"
             android:layout_column="1"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="년"
-                android:id="@+id/textView13"
-                android:textSize="20dp"
-                android:textColor="#000000"
-                android:layout_marginLeft="10dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="월"
-                android:id="@+id/textView14"
-                android:textSize="20dp"
-                android:textColor="#000000" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="일"
-                android:id="@+id/textView15"
-                android:textSize="20dp"
-                android:textColor="#000000" />
-        </LinearLayout>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:background="#ffffff" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -331,7 +305,7 @@
             android:layout_marginLeft="10dp"
             android:layout_row="6"
             android:layout_column="0"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="20dp" />
 
         <Button
         android:layout_width="212dp"
@@ -346,7 +320,7 @@
         android:layout_alignStart="@+id/my_pn1"
         android:layout_row="6"
         android:layout_column="1"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="13dp"
             android:hint="클릭해서 주소 찾기"
             android:gravity="center_vertical|start" />

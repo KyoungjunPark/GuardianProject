@@ -1,5 +1,7 @@
 package com.example.administrator.guardian.ui.activity.Login;
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -9,8 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.utils.ConnectServer;
@@ -22,6 +26,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Calendar;
 
 public class JoinContentsActivity extends AppCompatActivity {
 
@@ -34,6 +39,7 @@ public class JoinContentsActivity extends AppCompatActivity {
     private Button toMap;
     private String type;   // senior?? or volunteer??
     private Button seniorJoinButton;
+    private Button birth;
 
     private EditText my_id;
     private EditText my_name;
@@ -58,6 +64,7 @@ public class JoinContentsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_joincontents);
 
         toMap=(Button)findViewById(R.id.tomap);
+        birth=(Button)findViewById(R.id.birth);
         seniorJoinButton = (Button) findViewById(R.id.seniorjoinbutton);
         my_id = (EditText) findViewById(R.id.my_id);
         my_name = (EditText) findViewById(R.id.my_name);
@@ -74,6 +81,12 @@ public class JoinContentsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         type = intent.getAction();
 
+        birth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogDatePicker();
+            }
+        });
 
         toMap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,6 +178,25 @@ public class JoinContentsActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void DialogDatePicker(){
+        Calendar c = Calendar.getInstance();
+        int cyear = c.get(Calendar.YEAR);
+        int cmonth = c.get(Calendar.MONTH);
+        int cday = c.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog.OnDateSetListener mDateSetListener =
+                new DatePickerDialog.OnDateSetListener() {
+                    // onDateSet method
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        birth.setText("   "+year+" 년"+"    "+monthOfYear+" 월"+"   "+dayOfMonth+" 일");
+                    }
+                };
+        DatePickerDialog alert = new DatePickerDialog(this,  mDateSetListener, cyear, cmonth, cday);
+        alert.setTitle("생년월일 입력");
+        alert.show();
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
