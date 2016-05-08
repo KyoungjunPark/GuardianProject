@@ -3,6 +3,7 @@ package com.example.administrator.guardian.ui.activity.Manager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,9 +28,11 @@ public class ManagerActivity extends AppCompatActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_manager);
 
+		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+		setSupportActionBar(toolbar);
+
 		lv = (ListView)findViewById(R.id.senior_list_view);
 		updateSeniorList();
-
 	}
 
 	public void updateSeniorList(){
@@ -55,7 +58,7 @@ public class ManagerActivity extends AppCompatActivity{
 		//-----------------test-----------------
 		String sample_name;
 		Senior senior;
-		for(int i=0; i<5; i++){
+		for(int i=0; i<10; i++){
 			sample_name = "홍길동";
 			sample_name += " "+i;
 			senior = new Senior(sample_name);

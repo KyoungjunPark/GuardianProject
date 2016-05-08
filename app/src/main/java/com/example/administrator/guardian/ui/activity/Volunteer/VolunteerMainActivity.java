@@ -20,7 +20,7 @@ public class VolunteerMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_volunteer_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.vtoolbar);
         setSupportActionBar(toolbar);
 
         vtime = (TextView)findViewById(R.id.vtime);
