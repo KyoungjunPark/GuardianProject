@@ -19,12 +19,9 @@ import com.example.administrator.guardian.utils.MakeUTF8Parameter;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
 
 public class JoinContentsActivity extends AppCompatActivity {
 
@@ -41,7 +38,9 @@ public class JoinContentsActivity extends AppCompatActivity {
     private EditText my_id;
     private EditText my_name;
     private EditText my_pw;
-    private EditText my_pn;
+    private EditText my_pn1;
+    private EditText my_pn2;
+    private EditText my_pn3;
     private RadioButton radioButton_man;
     private RadioButton radioButton_woman;
 
@@ -63,10 +62,14 @@ public class JoinContentsActivity extends AppCompatActivity {
         my_id = (EditText) findViewById(R.id.my_id);
         my_name = (EditText) findViewById(R.id.my_name);
         my_pw = (EditText) findViewById(R.id.my_pw);
-        my_pn = (EditText) findViewById(R.id.my_pn);
+        my_pn1 = (EditText) findViewById(R.id.my_pn1);
+        my_pn2 = (EditText) findViewById(R.id.my_pn2);
+        my_pn3 = (EditText)findViewById(R.id.my_pn3);
         radioButton_man = (RadioButton) findViewById(R.id.radioButton);
         radioButton_woman = (RadioButton) findViewById(R.id.radioButton2);
 
+        my_pn1.setNextFocusDownId(R.id.my_pn2);
+        my_pn2.setNextFocusDownId(R.id.my_pn3);
 
         Intent intent = getIntent();
         type = intent.getAction();
@@ -105,7 +108,7 @@ public class JoinContentsActivity extends AppCompatActivity {
                         user_name = my_name.getText().toString();
                         isMan = radioButton_man.isChecked();
                         user_gender = isMan ? "man" : "woman";
-                        user_tel = my_pn.getText().toString();
+                        user_tel = my_pn1.getText().toString() + my_pn2.getText().toString() + my_pn3.getText().toString();
 
                         //must be modified
                         address = "This is test Address";
