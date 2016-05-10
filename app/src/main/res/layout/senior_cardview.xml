@@ -60,7 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="나이  :  "
-                    android:id="@+id/vage"
+                    android:id="@+id/vr_sage"
                     android:layout_below="@+id/vname"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
@@ -71,11 +71,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="19"
-                    android:id="@+id/inputvage"
-                    android:layout_alignTop="@+id/vage"
-                    android:layout_toRightOf="@+id/vage"
-                    android:layout_toEndOf="@+id/vage"
-                    android:layout_alignBottom="@+id/vage"
+                    android:id="@+id/vr_inputsage"
+                    android:layout_alignTop="@+id/vr_sage"
+                    android:layout_toRightOf="@+id/vr_sage"
+                    android:layout_toEndOf="@+id/vr_sage"
+                    android:layout_alignBottom="@+id/vr_sage"
                     android:gravity="center_vertical"
                     android:textSize="15dp" />
 
@@ -83,12 +83,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="성별  :  "
-                    android:id="@+id/vgender"
-                    android:layout_alignTop="@+id/inputvage"
-                    android:layout_toRightOf="@+id/inputvage"
-                    android:layout_toEndOf="@+id/inputvage"
+                    android:id="@+id/vr_sgender"
+                    android:layout_alignTop="@+id/vr_inputsage"
+                    android:layout_toRightOf="@+id/vr_inputsage"
+                    android:layout_toEndOf="@+id/vr_inputsage"
                     android:layout_marginLeft="20dp"
-                    android:layout_alignBottom="@+id/inputvage"
+                    android:layout_alignBottom="@+id/vr_inputsage"
                     android:gravity="center_vertical"
                     android:textSize="15dp" />
 
@@ -97,10 +97,10 @@
                     android:layout_height="wrap_content"
                     android:text="남"
                     android:id="@+id/inputvgender"
-                    android:layout_alignTop="@+id/vgender"
-                    android:layout_toRightOf="@+id/vgender"
-                    android:layout_toEndOf="@+id/vgender"
-                    android:layout_alignBottom="@+id/vgender"
+                    android:layout_alignTop="@+id/vr_sgender"
+                    android:layout_toRightOf="@+id/vr_sgender"
+                    android:layout_toEndOf="@+id/vr_sgender"
+                    android:layout_alignBottom="@+id/vr_sgender"
                     android:textSize="15dp" />
 
             </RelativeLayout>

@@ -14,6 +14,7 @@ public class VolunteerMainActivity extends AppCompatActivity {
 
     Button vtimecheck;
     Button visitbutton;
+    Button requestbutton;
     TextView vtime;
 
     @Override
@@ -32,6 +33,15 @@ public class VolunteerMainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent volunteertimecheck = new Intent(getApplicationContext(), VolunteerTimeActivity.class);
                 startActivity(volunteertimecheck);
+            }
+        });
+
+        requestbutton = (Button)findViewById(R.id.requestbutton);
+        requestbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent volunteerrequest = new Intent(getApplicationContext(), VolunteerRequestActivity.class);
+                startActivity(volunteerrequest);
             }
         });
 

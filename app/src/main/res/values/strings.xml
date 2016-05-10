@@ -31,6 +31,7 @@
     <string name="title_activity_volunteer_map">Choose Volunteer Place</string>
     <string name="title_activity_manager_manage_pulse">Manager_manage_pulse</string>
     <string name="title_activity_manager_manage_info">Manager_manage_info</string>
+    <string name="title_activity_volunteer_request">VolunteerRequestActivity</string>
 
 
 </resources>

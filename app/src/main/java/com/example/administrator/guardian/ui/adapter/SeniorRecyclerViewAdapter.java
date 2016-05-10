@@ -70,7 +70,7 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
             super(itemView);
 
             name=(TextView)itemView.findViewById(R.id.inputvname);
-            age=(TextView)itemView.findViewById(R.id.inputvage);
+            age=(TextView)itemView.findViewById(R.id.vr_inputsage);
             gender=(TextView)itemView.findViewById(R.id.inputvgender);
             vcallbutton=(Button)itemView.findViewById(R.id.vcallbutton);
 
