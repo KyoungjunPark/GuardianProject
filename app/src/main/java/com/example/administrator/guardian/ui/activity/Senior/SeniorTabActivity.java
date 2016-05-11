@@ -99,87 +99,28 @@ public class SeniorTabActivity extends AppCompatActivity {
             return null;
         }
     }
-
-
-    public static class PlaceholderFragment extends Fragment {
-
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.activity_senior_fragment_one, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-            return rootView;
-        }
-    }
-
-
+}
 
 /*
-    public static class SeniorFragmentOneActivity extends Fragment {
+public static class PlaceholderFragment extends Fragment {
 
-        public SeniorFragmentOneActivity() {
+    private static final String ARG_SECTION_NUMBER = "section_number";
 
-        }
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.activity_senior_fragment_one, container, false);
-            return rootView;
-        }
+    public static PlaceholderFragment newInstance(int sectionNumber) {
+        PlaceholderFragment fragment = new PlaceholderFragment();
+        Bundle args = new Bundle();
+        args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+        fragment.setArguments(args);
+        return fragment;
     }
 
-    public static class SeniorFragmentTwoActivity extends Fragment {
-
-        public SeniorFragmentTwoActivity() {
-
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.activity_senior_fragment_two, container, false);
-            return rootView;
-        }
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.activity_senior_fragment_one, container, false);
+        TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+        textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+        return rootView;
     }
-
-    public static class SeniorFragmentThreeActivity extends Fragment {
-
-        public SeniorFragmentThreeActivity() {
-
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.activity_senior_fragment_three, container, false);
-            return rootView;
-        }
-    }
-    public static class SeniorFragmentFourActivity extends Fragment {
-
-        public SeniorFragmentFourActivity() {
-
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.activity_senior_fragment_four, container, false);
-            return rootView;
-        }
-    }
-*/
-}
+}*/

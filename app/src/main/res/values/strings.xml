@@ -26,12 +26,15 @@
     <string name="title_section2">주변독거노인</string>
     <string name="title_section3">자원봉사자  방문요청</string>
     <string name="title_section4">그래프</string>
+    <string name="sv_title_section1">방문예정</string>
+    <string name="sv_title_section2">방문확인</string>
     <string name="title_activity_volunteer_main">VolunteerMainActivity</string>
     <string name="title_activity_volunteer_time">VolunteerTimeActivity</string>
     <string name="title_activity_volunteer_map">Choose Volunteer Place</string>
     <string name="title_activity_manager_manage_pulse">Manager_manage_pulse</string>
     <string name="title_activity_manager_manage_info">Manager_manage_info</string>
     <string name="title_activity_volunteer_request">VolunteerRequestActivity</string>
+    <string name="title_activity_senior_visit_tab">SeniorVisitTabActivity</string>
 
 
 </resources>

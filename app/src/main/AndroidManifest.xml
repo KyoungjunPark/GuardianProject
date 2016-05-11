@@ -115,6 +115,11 @@
             android:name=".ui.activity.Volunteer.VolunteerRequestActivity"
             android:label="@string/title_activity_volunteer_request"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activity.Senior.SeniorVisitTabActivity"
+            android:label="@string/title_activity_senior_visit_tab"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.activity.Senior.SeniorVisitFragmentCheckActivity"></activity>
     </application>
 
 </manifest>
