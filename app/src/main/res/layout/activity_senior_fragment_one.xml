@@ -35,13 +35,14 @@ android:gravity="center">
                 android:layout_marginTop="80dp" />
         </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/section_label"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/relativeLayout2"
-            android:layout_alignStart="@+id/relativeLayout2" />
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:id="@+id/measure"
+            android:background="@drawable/measure"
+            android:layout_below="@+id/relativeLayout2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp" />
+
     </RelativeLayout>
 </RelativeLayout>

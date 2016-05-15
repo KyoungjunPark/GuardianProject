@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.administrator.guardian.R;
@@ -24,6 +25,7 @@ public class SeniorFragmentOneActivity extends Fragment {
 
     private View view;
     Context mContext;
+    private Button measure;
 
     // Message types sent from the BluetoothChatService Handler
     public static final int MESSAGE_STATE_CHANGE = 1;
@@ -90,6 +92,15 @@ public class SeniorFragmentOneActivity extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.activity_senior_fragment_one, null);
 
+
+        measure = (Button)view.findViewById(R.id.measure);
+        measure.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(getContext(), SeniorFragmentOneActivity2.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
