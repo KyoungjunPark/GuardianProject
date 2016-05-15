@@ -94,13 +94,13 @@ public class SeniorFragmentOneActivity extends Fragment {
 
 
         measure = (Button)view.findViewById(R.id.measure);
-        measure.setOnClickListener(new View.OnClickListener(){
+        /*measure.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(getContext(), SeniorFragmentOneActivity2.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         return view;
     }

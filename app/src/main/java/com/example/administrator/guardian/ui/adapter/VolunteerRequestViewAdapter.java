@@ -44,21 +44,15 @@ public class VolunteerRequestViewAdapter extends RecyclerView.Adapter<VolunteerR
     public void onBindViewHolder(ViewHolder holder, int position) {
         final VolunteerRequestRecyclerItem item=items.get(position);
 
-        holder.vr_inputsname.setText(item.getName()+" 님께서 방문을 요청하셨습니다.");
+        holder.vr_inputsname.setText(item.getName()+"");
         holder.vr_inputsage.setText(item.getAge()+"");
         holder.vr_inputsgender.setText(item.getGender());
-        holder.vr_inputsaddress.setText(item.getAddress());
 
-        holder.vr_ok.setOnClickListener(new View.OnClickListener() {
+        holder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,item.getId(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        holder.vr_no.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context,item.getId(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,item.getName()+"aa",Toast.LENGTH_SHORT).show();
+                //implement onClick
             }
         });
     }
@@ -73,9 +67,6 @@ public class VolunteerRequestViewAdapter extends RecyclerView.Adapter<VolunteerR
         TextView vr_inputsname;
         TextView vr_inputsage;
         TextView vr_inputsgender;
-        TextView vr_inputsaddress;
-        Button vr_ok;
-        Button vr_no;
         CardView cardview;
 
         public ViewHolder(View itemView) {
@@ -84,11 +75,19 @@ public class VolunteerRequestViewAdapter extends RecyclerView.Adapter<VolunteerR
             vr_inputsname=(TextView)itemView.findViewById(R.id.vr_inputsname);
             vr_inputsage=(TextView)itemView.findViewById(R.id.vr_inputsage);
             vr_inputsgender=(TextView)itemView.findViewById(R.id.vr_inputsgender);
-            vr_inputsaddress=(TextView)itemView.findViewById(R.id.vr_inputsaddress);
-            vr_ok=(Button)itemView.findViewById(R.id.vr_ok);
-            vr_no=(Button)itemView.findViewById(R.id.vr_no);
 
-            cardview=(CardView)itemView.findViewById(R.id.volunteer_cardview);
+            cardview = (CardView)itemView.findViewById(R.id.volunteer_request_cardview);
+
+            /*itemView.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Toast.makeText(context,"aa",Toast.LENGTH_SHORT).show();
+                    //write here the code for wathever you want to do with a card
+                    //...
+                }
+            });*/
         }
     }
 }

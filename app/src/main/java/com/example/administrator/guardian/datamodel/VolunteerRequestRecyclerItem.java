@@ -8,19 +8,16 @@ public class VolunteerRequestRecyclerItem {
     private String name;
     private int age;
     private String gender;
-    private String address;
 
     public int getId(){return this.id;}
     public String getName(){return this.name;}
     public int getAge(){return this.age;}
     public String getGender(){return this.gender;}
-    public String getAddress(){return this.address;}
 
-    public VolunteerRequestRecyclerItem(int id, String name, int age, String gender, String address){
+    public VolunteerRequestRecyclerItem(int id, String name, int age, String gender){
         this.id=id;
         this.name=name;
         this.age=age;
         this.gender=gender;
-        this.address=address;
     }
 }

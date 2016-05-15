@@ -12,7 +12,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,7 +36,7 @@ public class VolunteerTimeRecyclerViewAdapter extends RecyclerView.Adapter<Volun
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.volunteer_cardview, null);
+        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.volunteer_time_cardview, null);
         return new ViewHolder(v);
     }
 
@@ -49,6 +48,13 @@ public class VolunteerTimeRecyclerViewAdapter extends RecyclerView.Adapter<Volun
         holder.volunteerdate.setText(item.getYear()+"."+item.getMonth()+"."+item.getDay()+"/"+item.getStartHour()+":"+item.getStartMinute()+"~"+item.getFinishHour()+":"+item.getFinishMinute());
         holder.volunteersenior.setText(item.getName()+" 님을 방문하여 봉사함을 인정함.");
 
+        holder.cardview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context,item.getName()+"aa",Toast.LENGTH_SHORT).show();
+                //implement onClick
+            }
+        });
     }
 
     @Override
@@ -68,7 +74,7 @@ public class VolunteerTimeRecyclerViewAdapter extends RecyclerView.Adapter<Volun
             volunteerdate=(TextView)itemView.findViewById(R.id.volunteerdate);
             volunteersenior=(TextView)itemView.findViewById(R.id.volunteersenior);
 
-            cardview=(CardView)itemView.findViewById(R.id.volunteer_cardview);
+            cardview=(CardView)itemView.findViewById(R.id.volunteer_time_cardview);
         }
     }
 }

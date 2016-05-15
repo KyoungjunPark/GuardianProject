@@ -10,8 +10,10 @@ import android.widget.Button;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.ui.activity.Manager.ManagerMainActivity;
+import com.example.administrator.guardian.ui.activity.Manager.ManagerSeniorInfoTabActivity;
 import com.example.administrator.guardian.ui.activity.Senior.SeniorTabActivity;
 import com.example.administrator.guardian.ui.activity.Volunteer.VolunteerMainActivity;
+import com.example.administrator.guardian.ui.activity.Volunteer.VolunteerTabActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private Button loginbutton;
@@ -47,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         tov.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent vtest = new Intent(getApplicationContext(), VolunteerMainActivity.class);
+                Intent vtest = new Intent(getApplicationContext(), VolunteerTabActivity.class);
                 startActivity(vtest);
             }
         });

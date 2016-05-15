@@ -1,4 +1,4 @@
-package com.example.administrator.guardian.ui.activity.Senior;
+package com.example.administrator.guardian.ui.activity.Manager;
 
 import android.content.Context;
 import android.support.design.widget.FloatingActionButton;
@@ -23,31 +23,36 @@ import android.widget.TextView;
 import com.example.administrator.guardian.R;
 
 @SuppressWarnings("deprecation")
-public class SeniorVisitTabActivity extends AppCompatActivity {
+public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
+
 
     static final int Num_Tab = 2;
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
+
+    /**
+     * The {@link ViewPager} that will host the section contents.
+     */
     private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_senior_visit_tab);
+        setContentView(R.layout.activity_manager_senior_info_tab);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.svtoolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.mstoolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getApplicationContext(), getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.svcontainer);
+        mViewPager = (ViewPager) findViewById(R.id.mscontainer);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.svtabs);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.mstabs);
         tabLayout.setupWithViewPager(mViewPager);
     }
-
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
         Context mContext;
@@ -62,9 +67,9 @@ public class SeniorVisitTabActivity extends AppCompatActivity {
 
             switch (position) {
                 case 0:
-                    return new SeniorVisitFragmentScheduleActivity(mContext);
+                    return new ManagerManageInfoActivity(mContext);
                 case 1:
-                    return new SeniorVisitFragmentCheckActivity(mContext);
+                    return new ManagerManagePulseActivity(mContext);
             }
             return null;
         }
@@ -80,11 +85,14 @@ public class SeniorVisitTabActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return mContext.getString(R.string.sv_title_section1);
+                    return mContext.getString(R.string.mstitle_section1);
                 case 1:
-                    return mContext.getString(R.string.sv_title_section2);
+                    return mContext.getString(R.string.mstitle_section2);
             }
             return null;
         }
     }
+
+
+
 }

@@ -117,17 +117,17 @@ public class ManagerMainActivity extends AppCompatActivity{
 			show_senior_info_button.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Intent manageinfo = new Intent(getApplicationContext(),ManagerManageInfoActivity.class);
+					Intent manageinfo = new Intent(getApplicationContext(),ManagerSeniorInfoTabActivity.class);
 					startActivity(manageinfo);
 				}
 			});
-			manage_senior_button.setOnClickListener(new View.OnClickListener(){
+			/*manage_senior_button.setOnClickListener(new View.OnClickListener(){
 				@Override
 				public void onClick(View v){
 					Intent managepulse = new Intent(getApplicationContext(),ManagerManagePulseActivity.class);
 					startActivity(managepulse);
 				}
-			});
+			});*/
 			//-----------------test-----------------
 
 			return convertView;

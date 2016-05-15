@@ -35,24 +35,6 @@ public class VolunteerMainActivity extends AppCompatActivity {
                 startActivity(volunteertimecheck);
             }
         });
-
-        requestbutton = (Button)findViewById(R.id.requestbutton);
-        requestbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent volunteerrequest = new Intent(getApplicationContext(), VolunteerRequestActivity.class);
-                startActivity(volunteerrequest);
-            }
-        });
-
-        visitbutton = (Button)findViewById(R.id.visitbutton);
-        visitbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent volunteermap = new Intent(getApplicationContext(), VolunteerMapActivity.class);
-                startActivity(volunteermap);
-            }
-        });
     }
 
 }

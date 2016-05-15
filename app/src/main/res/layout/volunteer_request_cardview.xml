@@ -9,7 +9,7 @@
         android:id="@+id/volunteer_request_cardview"
         card_view:cardCornerRadius="3dp"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
         android:background="#ffffff"
         android:layout_alignParentTop="false"
         android:layout_alignParentRight="false"
@@ -23,136 +23,79 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="100dp"
                 android:id="@+id/linearLayout2"
                 >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="150dp">
+                    android:layout_height="100dp">
 
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center_horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/vr_inputsname"
+                        android:textSize="15dp"
+                        android:text="박경준"
+                        android:textColor="#000000"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_above="@+id/vr_sage"
+                        android:layout_alignLeft="@+id/vr_sage"
+                        android:layout_alignStart="@+id/vr_sage"
+                        android:layout_marginBottom="10dp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/vr_inputsname"
-                            android:gravity="center_vertical"
-                            android:textSize="15dp"
-                            android:text="박경준 님께서 방문을 요청하셨습니다."
-                            android:textColor="#000000"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginLeft="20dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="나이  :  "
+                        android:id="@+id/vr_sage"
+                        android:textSize="15dp"
+                        android:textColor="#000000"
+                        android:layout_marginLeft="67dp"
+                        android:layout_marginStart="67dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginBottom="27dp" />
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="30dp"
-                            android:gravity="center_vertical|center_horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="66"
+                        android:id="@+id/vr_inputsage"
+                        android:layout_alignTop="@+id/vr_sage"
+                        android:layout_toRightOf="@+id/vr_sage"
+                        android:layout_toEndOf="@+id/vr_sage"
+                        android:layout_alignBottom="@+id/vr_sage"
+                        android:gravity="center_vertical"
+                        android:textSize="15dp"
+                        android:textColor="#000000" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="나이  :  "
-                                android:id="@+id/vr_sage"
-                                android:textSize="15dp"
-                                android:textColor="#000000"
-                                android:layout_alignParentLeft="true"
-                                android:layout_alignParentStart="true"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginLeft="20dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="성별  :  "
+                        android:id="@+id/vr_sgender"
+                        android:layout_alignTop="@+id/vr_inputsage"
+                        android:layout_toRightOf="@+id/vr_inputsage"
+                        android:layout_toEndOf="@+id/vr_inputsage"
+                        android:layout_marginLeft="20dp"
+                        android:layout_alignBottom="@+id/vr_inputsage"
+                        android:gravity="center_vertical"
+                        android:textSize="15dp"
+                        android:textColor="#000000" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="66"
-                                android:id="@+id/vr_inputsage"
-                                android:layout_alignTop="@+id/vr_sage"
-                                android:layout_toRightOf="@+id/vr_sage"
-                                android:layout_toEndOf="@+id/vr_sage"
-                                android:layout_alignBottom="@+id/vr_sage"
-                                android:gravity="center_vertical"
-                                android:textSize="15dp"
-                                android:textColor="#000000" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="성별  :  "
-                                android:id="@+id/vr_sgender"
-                                android:layout_alignTop="@+id/vr_inputsage"
-                                android:layout_toRightOf="@+id/vr_inputsage"
-                                android:layout_toEndOf="@+id/vr_inputsage"
-                                android:layout_marginLeft="20dp"
-                                android:layout_alignBottom="@+id/vr_inputsage"
-                                android:gravity="center_vertical"
-                                android:textSize="15dp"
-                                android:textColor="#000000" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="남"
-                                android:id="@+id/vr_inputsgender"
-                                android:layout_alignTop="@+id/vr_sgender"
-                                android:layout_toRightOf="@+id/vr_sgender"
-                                android:layout_toEndOf="@+id/vr_sgender"
-                                android:layout_alignBottom="@+id/vr_sgender"
-                                android:textSize="15dp"
-                                android:textColor="#000000" />
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical|center_horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="서울시 영등포구 신길1동 대우트럼프아파트 1002동 670호"
-                                android:id="@+id/vr_inputsaddress"
-                                android:textSize="13dp"
-                                android:textColor="#000000"
-                                android:gravity="center_horizontal"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginRight="20dp" />
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="60dp"
-                            android:gravity="center_horizontal">
-
-                            <LinearLayout
-                                android:orientation="horizontal"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="center_horizontal">
-
-                                <Button
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="40dp"
-                                    android:text="수락"
-                                    android:id="@+id/vr_ok"
-                                    android:layout_alignParentTop="true"
-                                    android:layout_alignParentLeft="true"
-                                    android:layout_alignParentStart="true"
-                                    android:textSize="13dp" />
-
-                                <Button
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="40dp"
-                                    android:text="거절"
-                                    android:id="@+id/vr_no"
-                                    android:textSize="13dp" />
-                            </LinearLayout>
-                        </RelativeLayout>
-
-                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="남"
+                        android:id="@+id/vr_inputsgender"
+                        android:layout_alignTop="@+id/vr_sgender"
+                        android:layout_toRightOf="@+id/vr_sgender"
+                        android:layout_toEndOf="@+id/vr_sgender"
+                        android:layout_alignBottom="@+id/vr_sgender"
+                        android:textSize="15dp"
+                        android:textColor="#000000" />
 
                 </RelativeLayout>
 

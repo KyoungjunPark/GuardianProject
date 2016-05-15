@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.activity.Volunteer.VolunteerTabActivity">
+    tools:context="com.example.administrator.guardian.ui.activity.Manager.ManagerSeniorInfoTabActivity">
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"

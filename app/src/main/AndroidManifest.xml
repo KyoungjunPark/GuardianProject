@@ -104,23 +104,13 @@
             android:label="@string/title_activity_volunteer_map"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.activity.Manager.ManagerManagePulseActivity"
-            android:label="@string/title_activity_manager_manage_pulse"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ui.activity.Manager.ManagerManageInfoActivity"
-            android:label="@string/title_activity_manager_manage_info"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ui.activity.Volunteer.VolunteerRequestActivity"
-            android:label="@string/title_activity_volunteer_request"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ui.activity.Senior.SeniorVisitTabActivity"
+            android:name=".ui.activity.Volunteer.VolunteerTabActivity"
             android:label="@string/title_activity_senior_visit_tab"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.activity.Senior.SeniorVisitFragmentCheckActivity" />
-        <activity android:name=".ui.activity.Senior.SeniorFragmentOneActivity2"></activity>
+        <activity
+            android:name=".ui.activity.Manager.ManagerSeniorInfoTabActivity"
+            android:label="@string/title_activity_manager_senior_info_tab"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

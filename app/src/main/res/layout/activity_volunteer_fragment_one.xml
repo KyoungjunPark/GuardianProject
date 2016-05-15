@@ -1,21 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ui.activity.Volunteer.VolunteerRequestActivity"
-    tools:showIn="@layout/activity_volunteer_request">
+    android:paddingTop="@dimen/activity_vertical_margin">
 
     <TextView
         android:layout_width="200dp"
         android:layout_height="40dp"
-        android:text="방문요청내역"
+        android:text="방문신청하기"
         android:id="@+id/textView14"
         android:textColor="#000000"
         android:textSize="28dp"
@@ -27,10 +22,11 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/textView14"
-        android:layout_marginTop="15dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp">
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
@@ -38,7 +34,8 @@
             android:id="@+id/volunteer_request_recyclerView"
             android:layout_below="@+id/textView14"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp" />
     </FrameLayout>
-
 </RelativeLayout>
