@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,8 +22,8 @@ import java.util.Calendar;
 public class SeniorFragmentThreeActivity extends Fragment implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener{
 
     private View view;
-    private TextView dateTextView;
-    private TextView timeTextView;
+    private Button dateTextView;
+    private Button timeTextView;
 
     private int year;
     private int month;
@@ -46,8 +47,8 @@ public class SeniorFragmentThreeActivity extends Fragment implements TimePickerD
         view = inflater.inflate(R.layout.activity_senior_fragment_three, null);
 
 
-        dateTextView = (TextView) view.findViewById(R.id.dateTextView);
-        timeTextView = (TextView) view.findViewById(R.id.timeTextView);
+        dateTextView = (Button) view.findViewById(R.id.dateTextView);
+        timeTextView = (Button) view.findViewById(R.id.timeTextView);
 
 
         //Set the current date & time

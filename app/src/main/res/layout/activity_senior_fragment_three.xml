@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".ui.activity.Senior.SeniorFragmentThreeActivity"
     android:id="@+id/screen"
     android:gravity="center">
@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginBottom="57dp"
         android:background="#ffffff">
 
@@ -17,11 +17,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:id="@+id/tableLayout">
+            android:id="@+id/tableLayout"
+            android:layout_marginBottom="20dp"
+            android:focusableInTouchMode="false"
+            android:padding="30dp">
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -30,22 +35,25 @@
                     android:id="@+id/textViewDate"
                     android:padding="10dp"
                     android:textColor="#000000"
-                    android:textSize="30dp" />
+                    android:textSize="20sp" />
 
-                <TextView
+                <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/dateTextView"
                     android:text="날짜 설정"
-                    android:textSize="30sp"
-                    android:layout_gravity="center"
-                    android:textColor="#000000" />
+                    android:textSize="25sp"
+                    android:textColor="#ffffff"
+                    android:background="#5d4f4f"
+                    android:layout_margin="3dp" />
 
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -54,22 +62,25 @@
                     android:id="@+id/textViewTime"
                     android:padding="10dp"
                     android:textColor="#000000"
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
 
 
-                <TextView
+                <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/timeTextView"
                     android:text="시간 설정"
-                    android:layout_gravity="center"
-                    android:textSize="30sp"
-                    android:textColor="#000000"/>
+                    android:textSize="25sp"
+                    android:textColor="#ffffff"
+                    android:background="#5c4e4f"
+                    android:layout_margin="3dp" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -77,63 +88,61 @@
                     android:id="@+id/textViewInfo"
                     android:padding="10dp"
                     android:textColor="#000000"
-                    android:textSize="30dp" />
+                    android:textSize="20sp" />
 
-                <FrameLayout
+                <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="200dp">
-                    <EditText
-                        android:layout_width="300dp"
-                        android:layout_height="match_parent"
-                        android:id="@+id/editTextInfo"
-                        android:hint="내용을 입력해주세요."
-                        android:inputType="textMultiLine"
-                        android:scrollbars="vertical"
-                        android:textSize="20dp"
-                        android:scrollHorizontally="true"
-                        android:singleLine="false"/>
-                </FrameLayout>
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editTextInfo"
+                    android:hint="내용을 입력해주세요(12자 이내)"
+                    android:inputType="textMultiLine"
+                    android:scrollbars="vertical"
+                    android:textSize="20sp"
+                    android:scrollHorizontally="false"
+                    android:singleLine="true"
+                    android:maxLength="12"
+                    android:layout_gravity="start"
+                    android:textAlignment="textStart" />
             </TableRow>
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:background="#dbdbdb"></FrameLayout>
-
         </TableLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tableLayout"
+            android:layout_above="@+id/buttonLinearLayout"
+            android:background="#dbdbdb">
+
+        </FrameLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_below="@+id/tableLayout"
-            android:gravity="center_vertical|center_horizontal">
+            android:id="@+id/buttonLinearLayout"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            >
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                style="?android:attr/buttonBarButtonStyle"
                 android:text="방문요청"
                 android:id="@+id/buttonRequest"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:layout_weight="1"
-                android:textSize="25dp"
-                android:background="#fdd300"
-                android:gravity="center_vertical|center_horizontal" />
+                android:textSize="25sp"
+                android:background="#fdd300" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                style="?android:attr/buttonBarButtonStyle"
                 android:text="방문예정"
                 android:id="@+id/buttonSchedule"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
                 android:layout_weight="1"
-                android:textSize="25dp"
-                android:background="#f4bf6a"
-                android:gravity="center_vertical|center_horizontal" />
+                android:textSize="25sp"
+                android:background="#f4bf6a" />
         </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>
