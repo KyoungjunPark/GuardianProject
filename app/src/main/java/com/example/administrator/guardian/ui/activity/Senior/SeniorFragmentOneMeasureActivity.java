@@ -47,8 +47,7 @@ public class SeniorFragmentOneMeasureActivity extends AppCompatActivity implemen
         circularProgressBar.setValue(circularProgressBar.getMaxValue(), true);
 
         onPercentValueChanged(circularProgressBar.getValue()/19);
-
-
+        onValueChanged(circularProgressBar.getValue());
 
     }
 
@@ -56,12 +55,11 @@ public class SeniorFragmentOneMeasureActivity extends AppCompatActivity implemen
     @Override
     public void onClick() {
         circularProgressBar.setFilled(!circularProgressBar.isFilled());
-
     }
 
     @Override
     public void onStartSpinning() {
-        circularProgressBar.setSpeed(5);
+
     }
 
     @Override
@@ -78,7 +76,10 @@ public class SeniorFragmentOneMeasureActivity extends AppCompatActivity implemen
 
     @Override
     public void onValueChanged(float value) {
-
+        Log.d("value",value+"");
+        if(value==435.0){
+            onStopSpinning();
+        }
     }
 
     @Override
