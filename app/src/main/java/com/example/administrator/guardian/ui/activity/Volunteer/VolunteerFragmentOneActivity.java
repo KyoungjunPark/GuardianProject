@@ -41,11 +41,11 @@ public class VolunteerFragmentOneActivity extends Fragment {
 
             items = new ArrayList<>();
             VolunteerRequestRecyclerItem[] item = new VolunteerRequestRecyclerItem[5];
-            item[0] = new VolunteerRequestRecyclerItem(0, "박경준1", 33, "남");
-            item[1] = new VolunteerRequestRecyclerItem(1, "박경준2", 33, "남");
-            item[2] = new VolunteerRequestRecyclerItem(2, "박경준3", 33, "남");
-            item[3] = new VolunteerRequestRecyclerItem(3, "박경준4", 33, "남");
-            item[4] = new VolunteerRequestRecyclerItem(4, "박경준5", 33, "남");
+            item[0] = new VolunteerRequestRecyclerItem("0", "박경준1", 33, "남");
+            item[1] = new VolunteerRequestRecyclerItem("1", "박경준2", 33, "남");
+            item[2] = new VolunteerRequestRecyclerItem("2", "박경준3", 33, "남");
+            item[3] = new VolunteerRequestRecyclerItem("3", "박경준4", 33, "남");
+            item[4] = new VolunteerRequestRecyclerItem("4", "박경준5", 33, "남");
 
             for (int i = 0; i < 5; i++) items.add(item[i]);
 

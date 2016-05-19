@@ -43,11 +43,11 @@ public class VolunteerFragmentThreeActivity extends Fragment {
 
         items = new ArrayList<>();
         VolunteerTimeRecyclerItem[] item = new VolunteerTimeRecyclerItem[5];
-        item[0] = new VolunteerTimeRecyclerItem(0, 2016,4,13, 1,0,3,0, "박경준1");
-        item[1] = new VolunteerTimeRecyclerItem(1, 2016,4,14, 2,0,4,0,  "박경준2");
-        item[2] = new VolunteerTimeRecyclerItem(2, 2016,4,15, 3,0,5,0, "박경준3");
-        item[3] = new VolunteerTimeRecyclerItem(3, 2016,4,16, 4,0,6,0, "박경준4");
-        item[4] = new VolunteerTimeRecyclerItem(4, 2016,4,17, 5,0,7,0, "박경준5");
+        item[0] = new VolunteerTimeRecyclerItem("0", 2016,4,13, 1,0,3,0, "박경준1");
+        item[1] = new VolunteerTimeRecyclerItem("1", 2016,4,14, 2,0,4,0,  "박경준2");
+        item[2] = new VolunteerTimeRecyclerItem("2", 2016,4,15, 3,0,5,0, "박경준3");
+        item[3] = new VolunteerTimeRecyclerItem("3", 2016,4,16, 4,0,6,0, "박경준4");
+        item[4] = new VolunteerTimeRecyclerItem("4", 2016,4,17, 5,0,7,0, "박경준5");
 
         for (int i = 0; i < 5; i++) items.add(item[i]);
 

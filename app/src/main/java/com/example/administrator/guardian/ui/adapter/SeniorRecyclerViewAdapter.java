@@ -48,7 +48,7 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
         holder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,item.getId(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,item.getId()+"", Toast.LENGTH_SHORT).show();
             }
         });
     }
