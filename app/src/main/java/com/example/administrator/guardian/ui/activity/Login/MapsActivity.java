@@ -99,6 +99,7 @@ public class MapsActivity extends AppCompatActivity {
                  dLongitude =place.getLatLng().longitude;
                 Log.d("longitude 2 latitude 2",dLongitude+" "+dLatitude);
 
+
                 inputAdd.setText(placeName);
 
                 dLa= String.format("%.10f",dLatitude);
