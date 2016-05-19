@@ -30,6 +30,14 @@
                 android:layout_alignLeft="@+id/appbar"
                 android:layout_alignTop="@+id/appbar" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="심박수"
+                android:textSize="23dp"
+                android:textStyle="bold"
+                android:textColor="#ffffff" />
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>

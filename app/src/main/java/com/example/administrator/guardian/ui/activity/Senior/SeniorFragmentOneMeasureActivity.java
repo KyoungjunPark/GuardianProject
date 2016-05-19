@@ -21,7 +21,6 @@ public class SeniorFragmentOneMeasureActivity extends AppCompatActivity implemen
     private Button measureback;
     private TextView measuring;
     private CircularProgressBar circularProgressBar;
-    int percent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +47,9 @@ public class SeniorFragmentOneMeasureActivity extends AppCompatActivity implemen
         circularProgressBar.setValue(circularProgressBar.getMaxValue(), true);
 
         onPercentValueChanged(circularProgressBar.getValue()/19);
+
+
+
     }
 
 
@@ -59,7 +61,7 @@ public class SeniorFragmentOneMeasureActivity extends AppCompatActivity implemen
 
     @Override
     public void onStartSpinning() {
-
+        circularProgressBar.setSpeed(5);
     }
 
     @Override
@@ -71,7 +73,7 @@ public class SeniorFragmentOneMeasureActivity extends AppCompatActivity implemen
 
     @Override
     public void onStopSpinning() {
-
+        circularProgressBar.setSpeed(0);
     }
 
     @Override

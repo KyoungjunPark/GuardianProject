@@ -3,10 +3,131 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.administrator.guardian.ui.activity.Senior.SeniorFragmentOneMeasureResultActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#9c57ec"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/stoolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#9c57ec"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/sfomrback"
+                android:background="@drawable/leftarrow"
+                android:layout_alignBottom="@+id/appbar"
+                android:layout_alignLeft="@+id/appbar"
+                android:layout_alignTop="@+id/appbar" />
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/bmp"
+        android:id="@+id/relativeLayout3"
+        android:layout_marginTop="114dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/pulseResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="50sp"
+            android:textIsSelectable="false"
+            android:singleLine="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp" />
+    </RelativeLayout>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/pulseProgressBar"
+        android:layout_below="@+id/relativeLayout3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:max="110"
+        android:progress="100"
+        android:scrollIndicators="top"
+        android:indeterminate="false"
+        android:background="@drawable/progressbar"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="40"
+        android:id="@+id/minProgressBar"
+        android:layout_below="@+id/pulseProgressBar"
+        android:layout_alignLeft="@+id/pulseProgressBar"
+        android:layout_alignStart="@+id/pulseProgressBar"
+        android:textColor="#7e7e7e"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="150"
+        android:id="@+id/textView13"
+        android:textColor="#7e7e7e"
+        android:textSize="20dp"
+        android:layout_below="@+id/pulseProgressBar"
+        android:layout_alignRight="@+id/pulseProgressBar"
+        android:layout_alignEnd="@+id/pulseProgressBar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="61"
+        android:id="@+id/textView15"
+        android:textColor="#7ab0e2"
+        android:textSize="20dp"
+        android:layout_alignTop="@+id/minProgressBar"
+        android:layout_alignLeft="@+id/relativeLayout3"
+        android:layout_alignStart="@+id/relativeLayout3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="76"
+        android:id="@+id/textView16"
+        android:textColor="#7ab0e2"
+        android:textSize="20dp"
+        android:layout_alignTop="@+id/textView15"
+        android:layout_toRightOf="@+id/textView15"
+        android:layout_toEndOf="@+id/textView15"
+        android:layout_marginLeft="15dp" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="안정 시 심박수 평균 범위"
+        android:id="@+id/explain"
+        android:textSize="15dp"
+        android:textColor="#7ab0e2"
+        android:textStyle="bold"
+        android:lines="2"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/textView15"
+        android:layout_toRightOf="@+id/minProgressBar"
+        android:layout_toEndOf="@+id/minProgressBar"
+        android:layout_marginLeft="10dp" />
 
 </RelativeLayout>
