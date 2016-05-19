@@ -63,10 +63,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/jni" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/rs" isTestSource="false" />
-<<<<<<< HEAD
-=======
       <sourceFolder url="file://$MODULE_DIR$/src/main/shaders" isTestSource="false" />
->>>>>>> 205e16f7274009f13e379a3e96343876188da659
       <sourceFolder url="file://$MODULE_DIR$/src/test/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/assets" type="java-test-resource" />
@@ -74,10 +71,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/jni" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
-<<<<<<< HEAD
-=======
       <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
->>>>>>> 205e16f7274009f13e379a3e96343876188da659
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/assets" type="java-test-resource" />
@@ -85,10 +79,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/jni" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/rs" isTestSource="true" />
-<<<<<<< HEAD
-=======
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/shaders" isTestSource="true" />
->>>>>>> 205e16f7274009f13e379a3e96343876188da659
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/assets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/builds" />
@@ -128,11 +119,8 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/8.4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/8.4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services/8.4.0/jars" />
-<<<<<<< HEAD
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.hrules/circularprogressbar/2.0.0/jars" />
-=======
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.wdullaer/materialdatetimepicker/2.3.0/jars" />
->>>>>>> 205e16f7274009f13e379a3e96343876188da659
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-runtime-classes" />
@@ -191,6 +179,5 @@
     <orderEntry type="library" exported="" name="play-services-basement-8.4.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-fitness-8.4.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-panorama-8.4.0" level="project" />
-    <orderEntry type="library" exported="" name="android-android-23" level="project" />
   </component>
 </module>
