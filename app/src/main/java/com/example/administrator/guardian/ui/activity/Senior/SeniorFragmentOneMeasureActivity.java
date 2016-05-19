@@ -59,7 +59,7 @@ public class SeniorFragmentOneMeasureActivity extends AppCompatActivity implemen
 
     @Override
     public void onStartSpinning() {
-
+        circularProgressBar.setSpeed(5);
     }
 
     @Override
@@ -77,8 +77,11 @@ public class SeniorFragmentOneMeasureActivity extends AppCompatActivity implemen
     @Override
     public void onValueChanged(float value) {
         Log.d("value",value+"");
-        if(value==435.0){
-            onStopSpinning();
+        if(value==435.0 || value==1050.0 || value==1650.0){
+            try{onStopSpinning();
+                Thread.sleep(1000);
+                onStartSpinning();
+            }catch(InterruptedException e){}
         }
     }
 
