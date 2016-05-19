@@ -90,7 +90,8 @@
         <activity
             android:name=".ui.activity.Senior.SeniorTabActivity"
             android:label="@string/title_activity_senior_tab"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".ui.activity.Volunteer.VolunteerMainActivity"
             android:label="VolunteerMain"
@@ -116,7 +117,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.activity.Senior.SeniorFragmentOneMeasureResultActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            ></activity>
+            />
     </application>
 
 </manifest>

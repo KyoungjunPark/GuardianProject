@@ -43,5 +43,8 @@
     <string name="title_activity_senior_visit_tab">SeniorVisitTabActivity</string>
     <string name="title_activity_manager_senior_info_tab">ManagerSeniorInfoTabActivity</string>
 
+    <string name="info_title">방문 요청</string>
+    <string name="info_message"> </string>
+
 
 </resources>
