@@ -4,7 +4,7 @@ package com.example.administrator.guardian.datamodel;
  * Created by Administrator on 2016-05-06.
  */
 public class VolunteerTimeRecyclerItem {
-    private int id;
+    private String id;
     private int VolunteerYear;
     private int VolunteerMonth;
     private int VolunteerDay;
@@ -14,7 +14,7 @@ public class VolunteerTimeRecyclerItem {
     private int VolunteerFinishTimeMinute;
     private String SeniorName;
 
-    public int getId(){return this.id;}
+    public String getId(){return this.id;}
     public int getYear(){return this.VolunteerYear;}
     public int getMonth(){return this.VolunteerMonth;}
     public int getDay(){return this.VolunteerDay;}
@@ -24,7 +24,7 @@ public class VolunteerTimeRecyclerItem {
     public int getFinishMinute(){return this.VolunteerFinishTimeMinute;}
     public String getName(){return this.SeniorName;}
 
-    public VolunteerTimeRecyclerItem(int id, int year, int month, int day, int starthour, int startminute, int finishhour, int finishminute, String name){
+    public VolunteerTimeRecyclerItem(String id, int year, int month, int day, int starthour, int startminute, int finishhour, int finishminute, String name){
         this.id=id;
         this.VolunteerYear=year;
         this.VolunteerMonth=month;

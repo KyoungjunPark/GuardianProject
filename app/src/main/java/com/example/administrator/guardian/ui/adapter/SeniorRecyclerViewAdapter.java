@@ -45,10 +45,10 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
         holder.name.setText(item.getName());
         holder.age.setText(item.getAge()+"");
         holder.gender.setText(item.getGender());
-        holder.vcallbutton.setOnClickListener(new View.OnClickListener() {
+        holder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,item.getId(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,item.getId()+"", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -63,7 +63,6 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
         TextView name;
         TextView age;
         TextView gender;
-        Button  vcallbutton;
         CardView cardview;
 
         public ViewHolder(View itemView) {
@@ -72,7 +71,6 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
             name=(TextView)itemView.findViewById(R.id.inputvname);
             age=(TextView)itemView.findViewById(R.id.vr_inputsage);
             gender=(TextView)itemView.findViewById(R.id.inputvgender);
-            vcallbutton=(Button)itemView.findViewById(R.id.vcallbutton);
 
             cardview=(CardView)itemView.findViewById(R.id.senior_cardview);
         }
