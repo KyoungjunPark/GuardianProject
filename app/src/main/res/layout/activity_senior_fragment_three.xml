@@ -27,22 +27,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="날짜"
-                    android:id="@+id/textView16"
+                    android:id="@+id/textViewDate"
                     android:padding="10dp"
                     android:textColor="#000000"
                     android:textSize="30dp" />
 
-                <FrameLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="달력들어가는곳"
-                        android:id="@+id/textView18" />
-                </FrameLayout>
+                    android:id="@+id/dateTextView"
+                    android:text="날짜 설정"
+                    android:textSize="30sp"
+                    android:layout_gravity="center"
+                    android:textColor="#000000" />
 
             </TableRow>
 
@@ -54,65 +51,30 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="시간"
-                    android:id="@+id/textView17"
+                    android:id="@+id/textViewTime"
                     android:padding="10dp"
                     android:textColor="#000000"
-                    android:textSize="30dp" />
+                    android:textSize="30sp" />
 
-                <LinearLayout
-                    android:orientation="horizontal"
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center_vertical|center_horizontal">
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="30분"
-                        android:id="@+id/radioButton3"
-                        android:paddingRight="5dp"
-                        android:textSize="17dp" />
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="60분"
-                        android:id="@+id/radioButton4"
-                        android:paddingRight="5dp"
-                        android:textSize="17dp" />
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="90분"
-                        android:id="@+id/radioButton5"
-                        android:paddingRight="5dp"
-                        android:textSize="17dp" />
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="기타"
-                        android:id="@+id/radioButton6"
-                        android:textSize="17dp" />
-
-                </RadioGroup>
-
-                </LinearLayout>
+                    android:id="@+id/timeTextView"
+                    android:text="시간 설정"
+                    android:layout_gravity="center"
+                    android:textSize="30sp"
+                    android:textColor="#000000"/>
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="내용"
-                    android:id="@+id/textView19"
+                    android:id="@+id/textViewInfo"
                     android:padding="10dp"
                     android:textColor="#000000"
                     android:textSize="30dp" />
@@ -120,11 +82,10 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="200dp">
-
                     <EditText
                         android:layout_width="300dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/editText"
+                        android:id="@+id/editTextInfo"
                         android:hint="내용을 입력해주세요."
                         android:inputType="textMultiLine"
                         android:scrollbars="vertical"
@@ -152,7 +113,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="방문요청"
-                android:id="@+id/button2"
+                android:id="@+id/buttonRequest"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
@@ -165,7 +126,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="방문예정"
-                android:id="@+id/button3"
+                android:id="@+id/buttonSchedule"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
