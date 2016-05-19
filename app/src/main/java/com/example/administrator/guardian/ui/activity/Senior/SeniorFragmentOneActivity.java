@@ -2,6 +2,7 @@ package com.example.administrator.guardian.ui.activity.Senior;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.ActivityGroup;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -73,6 +74,7 @@ public class SeniorFragmentOneActivity extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_senior_fragment_one);
+
         /*if(btService == null) {
             btService = new BluetoothService(this, mHandler);
         }
@@ -87,23 +89,25 @@ public class SeniorFragmentOneActivity extends Fragment {
 */
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.activity_senior_fragment_one, null);
 
-
         measure = (Button)view.findViewById(R.id.measure);
-        /*measure.setOnClickListener(new View.OnClickListener(){
+        measure = (Button)view.findViewById(R.id.measure);
+        measure.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(getContext(), SeniorFragmentOneActivity2.class);
+                Intent intent = new Intent(getContext(), SeniorFragmentOneMeasureActivity.class);
                 startActivity(intent);
             }
-        });*/
+        });
 
         return view;
     }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.administrator.guardian.ui.activity.Senior.SeniorFragmentOneMeasureActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#9c57ec"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/stoolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#9c57ec"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/measureback"
+                android:background="@drawable/leftarrow"
+                android:layout_alignBottom="@+id/appbar"
+                android:layout_alignLeft="@+id/appbar"
+                android:layout_alignTop="@+id/appbar" />
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:id="@+id/heartmeasure"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/measureheart"/>
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:id="@+id/dontmove"
+        android:background="@drawable/dontmmove"
+        android:layout_below="@+id/heartmeasure"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
+
+    <com.hrules.circularprogressbar.CircularProgressBar
+        android:layout_height="140dp"
+        android:layout_width="140dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/circularProgressBar"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/dontmove"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:id="@+id/measuring"
+        android:layout_marginBottom="37dp"
+        android:layout_alignBottom="@+id/circularProgressBar"
+        android:layout_centerHorizontal="true"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:gravity="center|center_horizontal" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:id="@+id/measure"
+        android:background="@drawable/measuring"
+        android:layout_below="@+id/circularProgressBar"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
