@@ -115,8 +115,8 @@
             android:name=".ui.activity.Senior.SeniorFragmentOneMeasureActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.activity.Senior.SeniorFragmentOneMeasureResultActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            ></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
+
     </application>
 
 </manifest>

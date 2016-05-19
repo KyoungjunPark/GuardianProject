@@ -3,69 +3,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="5dp"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="5dp">
+    android:layout_height="match_parent">
 
     <android.support.v7.widget.CardView
         android:id="@+id/senior_cardview"
         card_view:cardCornerRadius="3dp"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_margin="5dp"
         android:background="#ffffff">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#ffffff">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/icon"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/ic_person_black"/>
+            android:background="#ffffff"
+            android:weightSum="1">
 
             <RelativeLayout
-                android:layout_width="178dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/icon"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/ic_person_black"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="이름  :  "
-                    android:id="@+id/vname"
-                    android:layout_marginTop="13dp"
-                    android:textSize="15dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/inputvname"
-                    android:layout_alignTop="@+id/vname"
-                    android:layout_toRightOf="@+id/vname"
-                    android:layout_toEndOf="@+id/vname"
-                    android:layout_alignBottom="@+id/vname"
                     android:gravity="center_vertical"
-                    android:textSize="15dp"
-                    android:text="박경준" />
+                    android:textSize="23dp"
+                    android:text="박경준"
+                    android:textColor="#000000"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="나이  :  "
+                    android:text="나이  : "
                     android:id="@+id/vr_sage"
-                    android:layout_below="@+id/vname"
+                    android:textSize="18dp"
+                    android:textColor="#000000"
+                    android:layout_below="@+id/inputvname"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginTop="10dp"
-                    android:textSize="15dp" />
+                    android:layout_marginTop="2dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -77,7 +71,8 @@
                     android:layout_toEndOf="@+id/vr_sage"
                     android:layout_alignBottom="@+id/vr_sage"
                     android:gravity="center_vertical"
-                    android:textSize="15dp" />
+                    android:textSize="18dp"
+                    android:textColor="#000000" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -90,7 +85,8 @@
                     android:layout_marginLeft="20dp"
                     android:layout_alignBottom="@+id/vr_inputsage"
                     android:gravity="center_vertical"
-                    android:textSize="15dp" />
+                    android:textSize="18dp"
+                    android:textColor="#000000" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -101,24 +97,26 @@
                     android:layout_toRightOf="@+id/vr_sgender"
                     android:layout_toEndOf="@+id/vr_sgender"
                     android:layout_alignBottom="@+id/vr_sgender"
-                    android:textSize="15dp" />
+                    android:textSize="18dp"
+                    android:textColor="#000000" />
 
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#ffffff">
+                android:layout_height="match_parent">
 
-                <Button
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/vcall"
-                    android:id="@+id/vcallbutton"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    android:textSize="18dp" />
+                    android:id="@+id/ssbutton"
+                    android:background="@drawable/rightarrow"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="80dp" />
             </RelativeLayout>
+
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
