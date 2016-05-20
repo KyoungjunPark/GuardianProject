@@ -8,13 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.datamodel.VolunteerRequestRecyclerItem;
-import com.example.administrator.guardian.datamodel.VolunteerTimeRecyclerItem;
 
 import java.util.List;
 
@@ -73,7 +71,7 @@ public class VolunteerRequestViewAdapter extends RecyclerView.Adapter<VolunteerR
             super(itemView);
 
             vr_inputsname=(TextView)itemView.findViewById(R.id.vr_inputsname);
-            vr_inputsage=(TextView)itemView.findViewById(R.id.vr_inputsage);
+            vr_inputsage=(TextView)itemView.findViewById(R.id.s_inputsage);
             vr_inputsgender=(TextView)itemView.findViewById(R.id.vr_inputsgender);
 
             cardview = (CardView)itemView.findViewById(R.id.volunteer_request_cardview);

@@ -8,9 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.datamodel.SeniorRecyclerItem;
@@ -76,9 +74,9 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
         public ViewHolder(View itemView) {
             super(itemView);
 
-            name=(TextView)itemView.findViewById(R.id.inputvname);
-            age=(TextView)itemView.findViewById(R.id.vr_inputsage);
-            gender=(TextView)itemView.findViewById(R.id.inputvgender);
+            name=(TextView)itemView.findViewById(R.id.s_inputsname);
+            age=(TextView)itemView.findViewById(R.id.s_inputsage);
+            gender=(TextView)itemView.findViewById(R.id.s_inputsgender);
 
             cardview=(CardView)itemView.findViewById(R.id.senior_cardview);
         }

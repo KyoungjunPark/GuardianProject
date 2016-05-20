@@ -9,100 +9,115 @@
         android:id="@+id/volunteer_request_cardview"
         card_view:cardCornerRadius="3dp"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="#ffffff"
-        android:layout_alignParentTop="false"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentEnd="true">
+        android:layout_height="70dp"
+        android:background="#ffffff">
 
-        <RelativeLayout
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/volunteer_cardbackground">
+            android:background="#ffffff"
+            android:weightSum="1">
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/icon"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/ic_person_black"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/s_inputsname"
+                    android:gravity="center_vertical"
+                    android:textSize="23dp"
+                    android:text="박경준"
+                    android:textColor="#000000"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="나이  : "
+                    android:id="@+id/s_sage"
+                    android:textSize="18dp"
+                    android:textColor="#000000"
+                    android:layout_below="@+id/s_inputsname"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="2dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="80"
+                    android:id="@+id/s_inputsage"
+                    android:layout_alignTop="@+id/s_sage"
+                    android:layout_toRightOf="@+id/s_sage"
+                    android:layout_toEndOf="@+id/s_sage"
+                    android:layout_alignBottom="@+id/s_sage"
+                    android:gravity="center_vertical"
+                    android:textSize="18dp"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="성별  :  "
+                    android:id="@+id/s_sgender"
+                    android:layout_alignTop="@+id/s_inputsage"
+                    android:layout_toRightOf="@+id/s_inputsage"
+                    android:layout_toEndOf="@+id/s_inputsage"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignBottom="@+id/s_inputsage"
+                    android:gravity="center_vertical"
+                    android:textSize="18dp"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="남"
+                    android:id="@+id/inputsgender"
+                    android:layout_alignTop="@+id/s_sgender"
+                    android:layout_toRightOf="@+id/s_sgender"
+                    android:layout_toEndOf="@+id/s_sgender"
+                    android:layout_alignBottom="@+id/s_sgender"
+                    android:textSize="18dp"
+                    android:textColor="#000000" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:id="@+id/linearLayout2"
-                >
+                android:layout_height="match_parent">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sbutton"
+                    android:background="@drawable/rightarrow"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="80dp" />
+            </RelativeLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/vr_inputsname"
-                        android:textSize="15dp"
-                        android:text="박경준"
-                        android:textColor="#000000"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_above="@+id/vr_sage"
-                        android:layout_alignLeft="@+id/vr_sage"
-                        android:layout_alignStart="@+id/vr_sage"
-                        android:layout_marginBottom="10dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="나이  :  "
-                        android:id="@+id/vr_sage"
-                        android:textSize="15dp"
-                        android:textColor="#000000"
-                        android:layout_marginLeft="67dp"
-                        android:layout_marginStart="67dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginBottom="27dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="66"
-                        android:id="@+id/vr_inputsage"
-                        android:layout_alignTop="@+id/vr_sage"
-                        android:layout_toRightOf="@+id/vr_sage"
-                        android:layout_toEndOf="@+id/vr_sage"
-                        android:layout_alignBottom="@+id/vr_sage"
-                        android:gravity="center_vertical"
-                        android:textSize="15dp"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="성별  :  "
-                        android:id="@+id/vr_sgender"
-                        android:layout_alignTop="@+id/vr_inputsage"
-                        android:layout_toRightOf="@+id/vr_inputsage"
-                        android:layout_toEndOf="@+id/vr_inputsage"
-                        android:layout_marginLeft="20dp"
-                        android:layout_alignBottom="@+id/vr_inputsage"
-                        android:gravity="center_vertical"
-                        android:textSize="15dp"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="남"
-                        android:id="@+id/vr_inputsgender"
-                        android:layout_alignTop="@+id/vr_sgender"
-                        android:layout_toRightOf="@+id/vr_sgender"
-                        android:layout_toEndOf="@+id/vr_sgender"
-                        android:layout_alignBottom="@+id/vr_sgender"
-                        android:textSize="15dp"
-                        android:textColor="#000000" />
-
-                </RelativeLayout>
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 
 
