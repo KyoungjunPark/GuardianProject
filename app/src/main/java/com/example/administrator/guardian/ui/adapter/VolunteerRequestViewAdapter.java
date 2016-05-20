@@ -42,9 +42,9 @@ public class VolunteerRequestViewAdapter extends RecyclerView.Adapter<VolunteerR
     public void onBindViewHolder(ViewHolder holder, int position) {
         final VolunteerRequestRecyclerItem item=items.get(position);
 
-        holder.vr_inputsname.setText(item.getName()+"");
-        holder.vr_inputsage.setText(item.getAge()+"");
-        holder.vr_inputsgender.setText(item.getGender());
+        holder.v_inputsname.setText(item.getName()+"");
+        holder.v_inputsage.setText(item.getAge()+"");
+        holder.v_inputsgender.setText(item.getGender());
 
         holder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,17 +62,17 @@ public class VolunteerRequestViewAdapter extends RecyclerView.Adapter<VolunteerR
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView vr_inputsname;
-        TextView vr_inputsage;
-        TextView vr_inputsgender;
+        TextView v_inputsname;
+        TextView v_inputsage;
+        TextView v_inputsgender;
         CardView cardview;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            vr_inputsname=(TextView)itemView.findViewById(R.id.vr_inputsname);
-            vr_inputsage=(TextView)itemView.findViewById(R.id.s_inputsage);
-            vr_inputsgender=(TextView)itemView.findViewById(R.id.vr_inputsgender);
+            v_inputsname=(TextView)itemView.findViewById(R.id.v_inputsname);
+            v_inputsage=(TextView)itemView.findViewById(R.id.v_inputsage);
+            v_inputsgender=(TextView)itemView.findViewById(R.id.v_inputsgender);
 
             cardview = (CardView)itemView.findViewById(R.id.volunteer_request_cardview);
 
