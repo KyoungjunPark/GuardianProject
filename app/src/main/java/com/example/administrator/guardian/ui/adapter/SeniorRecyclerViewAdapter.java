@@ -45,6 +45,8 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
         holder.name.setText(item.getName());
         holder.age.setText(item.getAge()+"");
         holder.gender.setText(item.getGender());
+
+
         holder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,10 +56,7 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
 
             }
         });
-
     }
-
-
 
     @Override
     public int getItemCount() {

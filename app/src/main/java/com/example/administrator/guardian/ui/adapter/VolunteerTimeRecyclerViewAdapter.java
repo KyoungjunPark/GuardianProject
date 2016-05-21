@@ -6,6 +6,7 @@ package com.example.administrator.guardian.ui.adapter;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.datamodel.VolunteerTimeRecyclerItem;
+import com.example.administrator.guardian.ui.activity.Volunteer.VolunteerFragmentThreeAwardActivity;
 
 import java.util.List;
 
@@ -51,8 +53,16 @@ public class VolunteerTimeRecyclerViewAdapter extends RecyclerView.Adapter<Volun
         holder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,item.getName()+"aa",Toast.LENGTH_SHORT).show();
-                //implement onClick
+                Intent intent = new Intent(context, VolunteerFragmentThreeAwardActivity.class);
+                intent.putExtra("year",item.getYear());
+                intent.putExtra("month",item.getMonth());
+                intent.putExtra("day",item.getDay());
+                intent.putExtra("startHour",item.getStartHour());
+                intent.putExtra("startMinute",item.getStartMinute());
+                intent.putExtra("finishHour",item.getFinishHour());
+                intent.putExtra("finishMinute",item.getFinishMinute());
+                intent.putExtra("name",item.getName());
+                context.startActivity(intent);
             }
         });
     }

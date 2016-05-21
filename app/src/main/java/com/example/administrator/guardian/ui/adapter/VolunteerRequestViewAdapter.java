@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.datamodel.VolunteerRequestRecyclerItem;
+import com.example.administrator.guardian.ui.activity.Volunteer.VolunteerFragmentOneDialogActivity;
 
 import java.util.List;
 
@@ -24,6 +25,7 @@ public class VolunteerRequestViewAdapter extends RecyclerView.Adapter<VolunteerR
     Context context;
     List<VolunteerRequestRecyclerItem> items;
     int item_layout;
+    private VolunteerFragmentOneDialogActivity mCustomDialog;
 
     public VolunteerRequestViewAdapter(Context context, List<VolunteerRequestRecyclerItem> items, int item_layout) {
         this.context=context;
@@ -42,15 +44,19 @@ public class VolunteerRequestViewAdapter extends RecyclerView.Adapter<VolunteerR
     public void onBindViewHolder(ViewHolder holder, int position) {
         final VolunteerRequestRecyclerItem item=items.get(position);
 
-        holder.v_inputsname.setText(item.getName()+"");
         holder.v_inputsage.setText(item.getAge()+"");
         holder.v_inputsgender.setText(item.getGender());
+
+        if(item.getGender()=="남"){
+            holder.v_inputsname.setText(item.getName()+" 할아버지");
+        }
+        else{holder.v_inputsname.setText(item.getName()+" 할머니");}
 
         holder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,item.getName()+"aa",Toast.LENGTH_SHORT).show();
-                //implement onClick
+                mCustomDialog = new VolunteerFragmentOneDialogActivity(context, item.getName(), item.getAge(), item.getGender(), item.getAddress());
+                mCustomDialog.show();
             }
         });
     }
