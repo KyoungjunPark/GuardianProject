@@ -44,9 +44,13 @@ public class VolunteerRequestViewAdapter extends RecyclerView.Adapter<VolunteerR
     public void onBindViewHolder(ViewHolder holder, int position) {
         final VolunteerRequestRecyclerItem item=items.get(position);
 
-        holder.v_inputsname.setText(item.getName()+"");
         holder.v_inputsage.setText(item.getAge()+"");
         holder.v_inputsgender.setText(item.getGender());
+
+        if(item.getGender()=="남"){
+            holder.v_inputsname.setText(item.getName()+" 할아버지");
+        }
+        else{holder.v_inputsname.setText(item.getName()+" 할머니");}
 
         holder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override

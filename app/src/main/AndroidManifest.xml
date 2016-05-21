@@ -118,9 +118,9 @@
         <activity
             android:name=".ui.activity.Senior.SeniorFragmentOneMeasureResultActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name=".ui.activity.Volunteer.VolunteerFragmentThreeAwardActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ui.activity.Volunteer.VolunteerFragmentThreeAwardActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

@@ -6,7 +6,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout android:orientation="vertical"
-        android:layout_height="400dip"
+        android:layout_height="460dip"
         android:layout_width="300dip"
         android:background="#e6e6e7"
         android:weightSum="1">
@@ -20,11 +20,72 @@
             android:id="@+id/vfod_name"
             android:paddingTop="10dp" />
 
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="봉사날짜"
+                    android:id="@+id/vfod_Date"
+                    android:textSize="20dp"
+                    android:textColor="#000000" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="날짜설정"
+                    android:id="@+id/vfod_DateButton"
+                    android:layout_column="1"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="10dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="봉사시간"
+                    android:id="@+id/vfod_Time"
+                    android:textSize="20dp"
+                    android:textColor="#000000" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="시간설정"
+                    android:id="@+id/vfod_TimeButton"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_column="1" />
+            </TableRow>
+        </TableLayout>
+
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.95">
+
+            <com.google.android.gms.maps.MapView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:id="@+id/vfod_map"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="#ffffff" />
 
             <TextView
                 android:layout_height="wrap_content"
@@ -60,16 +121,6 @@
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp" />
 
-            <com.google.android.gms.maps.MapView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:name="com.google.android.gms.maps.SupportMapFragment"
-                android:id="@+id/vfod_map"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="#ffffff" />
-
         </LinearLayout>
 
         <LinearLayout android:orientation="horizontal"
@@ -90,5 +141,6 @@
                 android:textSize="15dp" />
 
         </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>

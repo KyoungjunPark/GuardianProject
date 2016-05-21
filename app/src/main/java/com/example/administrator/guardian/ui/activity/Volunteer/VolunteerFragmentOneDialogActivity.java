@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -21,12 +22,28 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class VolunteerFragmentOneDialogActivity extends Dialog {
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
+import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
+import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
+
+import java.util.Calendar;
+
+public class VolunteerFragmentOneDialogActivity extends Dialog implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener{
 
     private TextView vfod_Name;
     private TextView vfod_Age;
     private TextView vfod_Address;
     private TextView vfod_Gender;
+
+
+    private Button dateTextView;
+    private Button timeTextView;
+
+    private int v_year;
+    private int v_month;
+    private int v_day_of_month;
+    private int v_hour_of_day;
+    private int v_minute;
 
     private String name;
     private int age;
@@ -49,6 +66,46 @@ public class VolunteerFragmentOneDialogActivity extends Dialog {
         getWindow().setAttributes(lpWindow);
 
         setContentView(R.layout.activity_volunteer_fragment_one_dialog);
+
+        dateTextView = (Button) findViewById(R.id.vfod_DateButton);
+        timeTextView = (Button) findViewById(R.id.vfod_TimeButton);
+
+        //Set the current date & time
+        v_year = Calendar.getInstance().get(Calendar.YEAR);
+        v_month = Calendar.getInstance().get(Calendar.MONTH);
+        v_day_of_month = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+        v_hour_of_day = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        v_minute = Calendar.getInstance().get(Calendar.MINUTE);
+
+        dateTextView.setText(v_year+"년 " + v_month +"월 " + v_day_of_month + "일 ");
+        setTime();
+        //Set the Date & Time ClickListener
+        dateTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar now = Calendar.getInstance();
+                DatePickerDialog dpd = DatePickerDialog.newInstance(
+                        VolunteerFragmentOneDialogActivity.this,
+                        now.get(Calendar.YEAR),
+                        now.get(Calendar.MONTH),
+                        now.get(Calendar.DAY_OF_MONTH)
+                );
+                //dpd.show(, "Datepickerdialog");
+            }
+        });
+        timeTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar now = Calendar.getInstance();
+                TimePickerDialog dpd = TimePickerDialog.newInstance(
+                        VolunteerFragmentOneDialogActivity.this,
+                        now.get(Calendar.HOUR_OF_DAY),
+                        now.get(Calendar.MINUTE),
+                        true
+                );
+                //dpd.show(getOwnerActivity().getFragmentManager(), "Timepickerdialog");
+            }
+        });
 
         vfod_left = (Button)findViewById(R.id.vfod_left);
         vfod_left.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +155,30 @@ public class VolunteerFragmentOneDialogActivity extends Dialog {
             }
         });
     }
+
+    @Override
+    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+        this.v_year = year;
+        this.v_month = monthOfYear;
+        this.v_day_of_month = dayOfMonth;
+        dateTextView.setText(v_year+"년 " + v_month +"월 " + v_day_of_month + "일 ");
+    }
+
+    @Override
+    public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute, int second) {
+        this.v_hour_of_day = hourOfDay;
+        this.v_minute = minute;
+        setTime();
+    }
+    private void setTime()
+    {
+        if(v_hour_of_day > 12) {
+            timeTextView.setText("오후" + (v_hour_of_day-12) + "시 " + v_minute + "분 ");
+        } else {
+            timeTextView.setText("오전" + v_hour_of_day + "시 " + v_minute + "분 ");
+        }
+    }
+
 
     public VolunteerFragmentOneDialogActivity(Context context , String name , int age, String gender, String address) {
         super(context , android.R.style.Theme_Translucent_NoTitleBar);
