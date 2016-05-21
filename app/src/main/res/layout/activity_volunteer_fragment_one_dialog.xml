@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout android:orientation="vertical"
+        android:layout_height="400dip"
+        android:layout_width="300dip"
+        android:background="#e6e6e7"
+        android:weightSum="1">
+
+        <TextView android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:textColor="@android:color/black"
+            android:textSize="25dp"
+            android:text="박경준 할아버지"
+            android:id="@+id/vfod_name"
+            android:paddingTop="10dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.95">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                android:id="@+id/vfod_age"
+                android:text="나이 : "
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="성별 : "
+                android:id="@+id/vfod_gender"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="주소 : "
+                android:id="@+id/vfod_address"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp" />
+
+            <com.google.android.gms.maps.MapView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:id="@+id/vfod_map"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="#ffffff" />
+
+        </LinearLayout>
+
+        <LinearLayout android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent">
+
+            <Button android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:text="확인"
+                android:id="@+id/vfod_left"
+                android:textSize="15dp" />
+
+            <Button android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:text="봉사신청"
+                android:id="@+id/vfod_right"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
