@@ -26,6 +26,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -51,14 +52,17 @@ public class JoinContentsActivity extends AppCompatActivity {
     private EditText my_pn3;
     private RadioButton radioButton_man;
     private RadioButton radioButton_woman;
+    private EditText detailedAddressEditText;
 
 
     private String address;
     private String latitude;
     private String longitude;
     private boolean isMan;
-    //must be modified
-    private String age = "66";
+
+    private int birth_year;
+    private int birth_monthOfYear;
+    private int birth_dayOfMonth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +78,13 @@ public class JoinContentsActivity extends AppCompatActivity {
         my_pn1 = (EditText) findViewById(R.id.my_pn1);
         my_pn2 = (EditText) findViewById(R.id.my_pn2);
         my_pn3 = (EditText)findViewById(R.id.my_pn3);
+        detailedAddressEditText = (EditText)  findViewById(R.id.detailedAddressEditText);
         radioButton_man = (RadioButton) findViewById(R.id.radioButton);
         radioButton_woman = (RadioButton) findViewById(R.id.radioButton2);
+
+        birth_year = 1990;
+        birth_monthOfYear = 1;
+        birth_dayOfMonth = 1;
 
         my_pn1.setNextFocusDownId(R.id.my_pn2);
         my_pn2.setNextFocusDownId(R.id.my_pn3);
@@ -113,6 +122,8 @@ public class JoinContentsActivity extends AppCompatActivity {
                     String user_name;
                     String user_gender;
                     String user_tel;
+                    String user_address;
+                    NumberFormat numformat;
 
                     @Override
                     protected void onPreExecute() {
@@ -125,10 +136,10 @@ public class JoinContentsActivity extends AppCompatActivity {
                         user_gender = isMan ? "man" : "woman";
                         user_tel = my_pn1.getText().toString() + my_pn2.getText().toString() + my_pn3.getText().toString();
 
-                        //must be modified
-                        address = "This is test Address";
-                        latitude = "31.232323";
-                        longitude = "132.232312";
+                        numformat = NumberFormat.getIntegerInstance();
+                        numformat.setMinimumIntegerDigits(2);
+
+                        user_address = address + detailedAddressEditText;
                     }
 
                     @Override
@@ -146,9 +157,9 @@ public class JoinContentsActivity extends AppCompatActivity {
                             parameterMaker.setParameter("login_pw", login_pw);
                             parameterMaker.setParameter("user_type", user_type);
                             parameterMaker.setParameter("user_name", user_name);
-                            parameterMaker.setParameter("user_age", age);
+                            parameterMaker.setParameter("user_birthdate", ""+birth_year+ numformat.format(birth_monthOfYear)+numformat.format(birth_dayOfMonth));
                             parameterMaker.setParameter("user_gender", user_gender);
-                            parameterMaker.setParameter("user_address", address);
+                            parameterMaker.setParameter("user_address", user_address);
                             parameterMaker.setParameter("user_tel", user_tel);
                             parameterMaker.setParameter("latitude", latitude);
                             parameterMaker.setParameter("longitude", longitude);
@@ -163,7 +174,7 @@ public class JoinContentsActivity extends AppCompatActivity {
                                 //Sign up Success
                                 rd = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
                                 Log.d(TAG,"Sign up Success: " + rd.readLine());
-
+                                finish();
                             } else {
                                 //Sign up Fail
                                 rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
@@ -182,26 +193,18 @@ public class JoinContentsActivity extends AppCompatActivity {
     }
 
     private void DialogDatePicker(){
-        Calendar c = Calendar.getInstance();
-        int cyear = c.get(Calendar.YEAR);
-        int cmonth = c.get(Calendar.MONTH);
-        int cday = c.get(Calendar.DAY_OF_MONTH);
-
         DatePickerDialog.OnDateSetListener mDateSetListener =
                 new DatePickerDialog.OnDateSetListener() {
                     // onDateSet method
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                        birth.setText("   "+year+" 년"+"    "+monthOfYear+" 월"+"   "+dayOfMonth+" 일");
-                        long now = System.currentTimeMillis();
-                        Date date = new Date(now);
-                        SimpleDateFormat CurYearFormat = new SimpleDateFormat("yyyy");
-                        String nowyear = CurYearFormat.format(date);
-                        int numyear = Integer.parseInt(nowyear);
-                        int intAge=numyear-year+1;          //나이 int값
-                        age=String.valueOf(intAge);
+                        birth_year = year;
+                        birth_monthOfYear = monthOfYear+1;
+                        birth_dayOfMonth = dayOfMonth;
+
+                        birth.setText("   "+birth_year+" 년"+"    "+birth_monthOfYear+" 월"+"   "+birth_dayOfMonth+" 일");
                     }
                 };
-        DatePickerDialog alert = new DatePickerDialog(this,  mDateSetListener, cyear, cmonth, cday);
+        DatePickerDialog alert = new DatePickerDialog(this,  mDateSetListener, birth_year, birth_monthOfYear-1, birth_dayOfMonth);
         alert.setTitle("생년월일 입력");
         alert.show();
     }

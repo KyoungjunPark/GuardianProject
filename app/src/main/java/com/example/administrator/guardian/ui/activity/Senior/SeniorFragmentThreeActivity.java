@@ -79,10 +79,15 @@ public class SeniorFragmentThreeActivity extends Fragment implements TimePickerD
                         .setPositiveButton(android.R.string.ok, new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Toast.makeText(getActivity().getApplicationContext(), "요청 완료", Toast.LENGTH_SHORT).show();
+                                //When OK button Clicked
                             }
                         })
-                        .setNegativeButton(android.R.string.no, null)
+                        .setNegativeButton(android.R.string.no, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                //When NO button Clicked
+                            }
+                        })
                         .show();
             }
         });
@@ -154,4 +159,5 @@ public class SeniorFragmentThreeActivity extends Fragment implements TimePickerD
             timeButton.setText("오전" + hour_of_day + "시 " + minute + "분 ");
         }
     }
+
 }

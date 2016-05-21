@@ -30,8 +30,8 @@ public class JoinActivity extends AppCompatActivity {
         join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent RegistrationActivity = new Intent(getApplicationContext(), JoinContentsActivity.class);
                 if(senior.isChecked() || volunteer.isChecked()) {
-                    Intent RegistrationActivity = new Intent(getApplicationContext(), JoinContentsActivity.class);
                     if(senior.isChecked()){
                         RegistrationActivity.putExtra("type","senior");
                         startActivity(RegistrationActivity);
@@ -43,8 +43,8 @@ public class JoinActivity extends AppCompatActivity {
                     finish();
                 }
                 if(manager.isChecked()){
-                    Intent ManagerRegistration = new Intent(getApplicationContext(), ManagerRegistrationActivity.class);
-                    startActivity(ManagerRegistration);
+                    RegistrationActivity.putExtra("type","manager");
+                    startActivity(RegistrationActivity);
                     finish();
                 }
             }
