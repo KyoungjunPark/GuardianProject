@@ -8,12 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.datamodel.SeniorRecyclerItem;
+import com.example.administrator.guardian.ui.activity.Senior.SeniorFragmentTwoDialogActivity;
 
 import java.util.List;
 
@@ -24,6 +23,7 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
     Context context;
     List<SeniorRecyclerItem> items;
     int item_layout;
+    private SeniorFragmentTwoDialogActivity mCustomDialog;
 
     public SeniorRecyclerViewAdapter(Context context, List<SeniorRecyclerItem> items, int item_layout) {
         this.context=context;
@@ -48,10 +48,16 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
         holder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,item.getId()+"", Toast.LENGTH_SHORT).show();
+
+                mCustomDialog = new SeniorFragmentTwoDialogActivity(context, item.getName(), item.getAge(), item.getGender(), item.getAddress(), item.getNumber());
+                mCustomDialog.show();
+
             }
         });
+
     }
+
+
 
     @Override
     public int getItemCount() {
@@ -68,9 +74,9 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
         public ViewHolder(View itemView) {
             super(itemView);
 
-            name=(TextView)itemView.findViewById(R.id.inputvname);
-            age=(TextView)itemView.findViewById(R.id.vr_inputsage);
-            gender=(TextView)itemView.findViewById(R.id.inputvgender);
+            name=(TextView)itemView.findViewById(R.id.s_inputsname);
+            age=(TextView)itemView.findViewById(R.id.s_inputsage);
+            gender=(TextView)itemView.findViewById(R.id.s_inputsgender);
 
             cardview=(CardView)itemView.findViewById(R.id.senior_cardview);
         }

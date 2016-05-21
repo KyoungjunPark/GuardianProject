@@ -49,11 +49,11 @@ public class SeniorFragmentTwoActivity extends Fragment {
 
         items = new ArrayList<>();
         SeniorRecyclerItem[] item = new SeniorRecyclerItem[5];
-        item[0] = new SeniorRecyclerItem("0", "박경준1", 23, "남");
-        item[1] = new SeniorRecyclerItem("1", "박경준2", 23, "남");
-        item[2] = new SeniorRecyclerItem("2", "박경준3", 23, "남");
-        item[3] = new SeniorRecyclerItem("3", "박경준4", 23, "남");
-        item[4] = new SeniorRecyclerItem("4", "박경준5", 23, "남");
+        item[0] = new SeniorRecyclerItem("0", "박경준1", 23, "남","서울시 동작구 흑석동 중앙대학교 513-1호","01011111111");
+        item[1] = new SeniorRecyclerItem("1", "박경준2", 23, "남","서울시 동작구 흑석동 중앙대학교 513-1호","01011111111");
+        item[2] = new SeniorRecyclerItem("2", "박경준3", 23, "남","서울시 동작구 흑석동 중앙대학교 513-1호","01011111111");
+        item[3] = new SeniorRecyclerItem("3", "박경준4", 23, "남","서울시 동작구 흑석동 중앙대학교 513-1호","01011111111");
+        item[4] = new SeniorRecyclerItem("4", "박경준5", 23, "남","서울시 동작구 흑석동 중앙대학교 513-1호","01011111111");
 
         for (int i = 0; i < 5; i++) items.add(item[i]);
 
