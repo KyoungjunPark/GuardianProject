@@ -1,8 +1,10 @@
-package com.example.administrator.guardian.ui.activity.Volunteer;
+package com.example.administrator.guardian.ui.activity.Senior;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -10,7 +12,12 @@ import android.widget.TextView;
 
 import com.example.administrator.guardian.R;
 
-public class VolunteerFragmentTwoFinishDialog extends Dialog {
+public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
+
+    private TextView sftsf_Name;
+    private TextView sftsf_Contents;
+    private TextView sftsf_vDate;
+    private TextView sftsf_vTime;
 
     private int year;
     private int month;
@@ -20,20 +27,12 @@ public class VolunteerFragmentTwoFinishDialog extends Dialog {
     private int finishHour;
     private int finishMinute;
 
-    private TextView vftdf_Name;
-    private TextView vftdf_Contents;
-    private TextView vftdf_vDate;
-    private TextView vftdf_vTime;
-
-
     private String name;
-    private String gender;
     private String contents;
 
-    private Button vftdf_button;
+    private Button sftsf_button;
 
-
-    public VolunteerFragmentTwoFinishDialog(Context context, int year, int month, int day, int startHour, int startMinute, int finishHour, int finishMinute, String name, String gender, String contents) {
+    public SeniorFragmentThreeScheduleFinishDialog(Context context, int year, int month, int day, int startHour, int startMinute, int finishHour, int finishMinute, String name, String contents) {
         super(context , android.R.style.Theme_Translucent_NoTitleBar);
         this.year=year;
         this.month=month;
@@ -43,10 +42,8 @@ public class VolunteerFragmentTwoFinishDialog extends Dialog {
         this.finishHour=finishHour;
         this.finishMinute=finishMinute;
         this.name = name;
-        this.gender=gender;
-        this.contents = contents;
+        this.contents=contents;
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,46 +53,42 @@ public class VolunteerFragmentTwoFinishDialog extends Dialog {
         lpWindow.dimAmount = 0.35f;
         getWindow().setAttributes(lpWindow);
 
-        setContentView(R.layout.activity_volunteer_fragment_two_finish_dialog);
+        setContentView(R.layout.activity_senior_fragment_three_schedule_finish_dialog);
 
         setLayout();
+        Log.d("name",name+"");
         setTitle(name);
         setContent(year,month,day,startHour,startMinute,finishHour,finishMinute,contents);
 
-        vftdf_button = (Button)findViewById(R.id.vftdf_button);
-        vftdf_button.setOnClickListener(new View.OnClickListener() {
+        sftsf_button = (Button)findViewById(R.id.sftsf_button);
+        sftsf_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                VolunteerFragmentTwoFinishDialog.this.dismiss();
+                SeniorFragmentThreeScheduleFinishDialog.this.dismiss();
             }
         });
     }
     private void setTitle(String Name){
-        if(gender=="남"){
-            Name = Name + " 할아버지";
-        }
-        else{
-            Name = Name + " 할머니";
-        }
 
-        vftdf_Name.setText(Name);
+        sftsf_Name.setText(Name);
     }
 
     private void setContent(int year, int month, int day, int startHour, int startMinute, int finishHour,int finishMinute, String contents){
 
-        vftdf_vDate.setText(year+"년 "+ month+"월 "+day+"일 ");
-        vftdf_vTime.setText(startHour+":"+startMinute+" ~ "+finishHour+":"+finishMinute);
-        vftdf_Contents.setText("내용 : "+contents);
+        sftsf_vDate.setText(year+"년 "+ month+"월 "+day+"일 ");
+        sftsf_vTime.setText(startHour+":"+startMinute+" ~ "+finishHour+":"+finishMinute);
+        sftsf_Contents.setText("내용 : "+contents);
     }
 
     /*
      * Layout
      */
     private void setLayout(){
-        vftdf_Name = (TextView) findViewById(R.id.vftdf_name);
-        vftdf_Contents = (TextView)findViewById(R.id.vftdf_content);
-        vftdf_vDate= (TextView)findViewById(R.id.vftdf_vDate);
-        vftdf_vTime = (TextView)findViewById(R.id.vftdf_vTime);
+        sftsf_Name = (TextView) findViewById(R.id.sftsf_name);
+        sftsf_Contents=(TextView)findViewById(R.id.sftsf_content);
+        sftsf_vDate= (TextView)findViewById(R.id.sftsf_vDate);
+        sftsf_vTime = (TextView)findViewById(R.id.sftsf_vTime);
     }
+
 }

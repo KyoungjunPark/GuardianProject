@@ -122,6 +122,10 @@
         <activity
             android:name=".ui.activity.Volunteer.VolunteerFragmentThreeAwardActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activity.Senior.SeniorFragmentThreeScheduleActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.activity.Senior.SeniorFragmentThreeScheduleFinishDialog"></activity>
     </application>
 
 </manifest>

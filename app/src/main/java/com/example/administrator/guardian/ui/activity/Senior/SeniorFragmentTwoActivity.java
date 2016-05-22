@@ -22,7 +22,6 @@ import java.util.List;
 public class SeniorFragmentTwoActivity extends Fragment {
 
     RecyclerView recyclerView;
-    TextView a;
     private View view;
     List<SeniorRecyclerItem> items;
 

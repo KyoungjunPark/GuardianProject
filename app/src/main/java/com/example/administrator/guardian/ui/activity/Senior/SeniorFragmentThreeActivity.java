@@ -2,6 +2,7 @@ package com.example.administrator.guardian.ui.activity.Senior;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -91,12 +92,15 @@ public class SeniorFragmentThreeActivity extends Fragment implements TimePickerD
                         .show();
             }
         });
+
         scheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getContext(), SeniorFragmentThreeScheduleActivity.class);
+                startActivity(intent);
             }
         });
+
         //Set the current date & time
         year = Calendar.getInstance().get(Calendar.YEAR);
         month = Calendar.getInstance().get(Calendar.MONTH);

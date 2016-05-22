@@ -2,7 +2,6 @@ package com.example.administrator.guardian.ui.activity.Volunteer;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -17,8 +16,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-
-import org.w3c.dom.Text;
 
 public class VolunteerFragmentTwoAcceptDialog extends Dialog {
 
@@ -76,7 +73,7 @@ public class VolunteerFragmentTwoAcceptDialog extends Dialog {
         lpWindow.dimAmount = 0.35f;
         getWindow().setAttributes(lpWindow);
 
-        setContentView(R.layout.activity_volunteer_fragment_two_dialog_accept);
+        setContentView(R.layout.activity_volunteer_fragment_two_accept_dialog);
 
         setLayout();
         setTitle(name);
