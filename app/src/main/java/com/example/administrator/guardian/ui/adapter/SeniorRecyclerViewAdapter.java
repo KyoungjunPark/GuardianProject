@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.datamodel.SeniorRecyclerItem;
-import com.example.administrator.guardian.ui.activity.Senior.SeniorFragmentTwoDialogActivity;
+import com.example.administrator.guardian.ui.activity.Senior.SeniorFragmentTwoDialog;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
     Context context;
     List<SeniorRecyclerItem> items;
     int item_layout;
-    private SeniorFragmentTwoDialogActivity mCustomDialog;
+    private SeniorFragmentTwoDialog mCustomDialog;
 
     public SeniorRecyclerViewAdapter(Context context, List<SeniorRecyclerItem> items, int item_layout) {
         this.context=context;
@@ -51,7 +51,7 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
             @Override
             public void onClick(View v) {
 
-                mCustomDialog = new SeniorFragmentTwoDialogActivity(context, item.getName(), item.getAge(), item.getGender(), item.getAddress(), item.getNumber());
+                mCustomDialog = new SeniorFragmentTwoDialog(context, item.getName(), item.getAge(), item.getGender(), item.getAddress(), item.getNumber());
                 mCustomDialog.show();
 
             }

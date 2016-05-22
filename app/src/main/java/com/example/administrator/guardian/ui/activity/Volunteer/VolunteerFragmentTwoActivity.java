@@ -46,11 +46,11 @@ public class VolunteerFragmentTwoActivity extends Fragment{
 
         items = new ArrayList<>();
         VolunteerConfirmRecyclerItem[] item = new VolunteerConfirmRecyclerItem[5];
-        item[0] = new VolunteerConfirmRecyclerItem("0", "박경준1", 80, "여","서울특별시 영등포구 여의도동 국회의사당 1층 로비");
-        item[1] = new VolunteerConfirmRecyclerItem("1", "박경준2", 79, "남","서울특별시 영등포구 여의도동 국회의사당 1층 로비");
-        item[2] = new VolunteerConfirmRecyclerItem("2", "박경준3", 78, "남","서울특별시 영등포구 여의도동 국회의사당 1층 로비");
-        item[3] = new VolunteerConfirmRecyclerItem("3", "박경준4", 77, "남","서울특별시 영등포구 여의도동 국회의사당 1층 로비");
-        item[4] = new VolunteerConfirmRecyclerItem("4", "박경준5", 76, "남","서울특별시 영등포구 여의도동 국회의사당 1층 로비");
+        item[0] = new VolunteerConfirmRecyclerItem("0",2016,5,23,1,0,3,0, "박경준1", 80, "여","서울특별시 영등포구 여의도동 국회의사당 1층 로비","",1);
+        item[1] = new VolunteerConfirmRecyclerItem("1",2016,5,23,1,0,3,0, "박경준2", 79, "남","서울특별시 영등포구 여의도동 국회의사당 1층 로비","말동무",2);
+        item[2] = new VolunteerConfirmRecyclerItem("2",2016,5,23,1,0,3,0, "박경준3", 78, "남","서울특별시 영등포구 여의도동 국회의사당 1층 로비","",3);
+        item[3] = new VolunteerConfirmRecyclerItem("3",2016,5,23,1,0,3,0, "박경준4", 77, "남","서울특별시 영등포구 여의도동 국회의사당 1층 로비","",4);
+        item[4] = new VolunteerConfirmRecyclerItem("4",2016,5,23,1,0,3,0, "박경준5", 76, "남","서울특별시 영등포구 여의도동 국회의사당 1층 로비","말동무",5);
 
         for (int i = 0; i < 5; i++) items.add(item[i]);
 

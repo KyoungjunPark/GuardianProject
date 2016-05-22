@@ -13,12 +13,8 @@ import android.widget.TextView;
 
 import com.example.administrator.guardian.R;
 
-import org.w3c.dom.Text;
 
-import java.security.Security;
-
-
-public class SeniorFragmentTwoDialogActivity extends Dialog {
+public class SeniorFragmentTwoDialog extends Dialog {
 
     private TextView sName;
     private TextView sAge;
@@ -48,7 +44,7 @@ public class SeniorFragmentTwoDialogActivity extends Dialog {
         bt_left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SeniorFragmentTwoDialogActivity.this.dismiss();
+                SeniorFragmentTwoDialog.this.dismiss();
             }
         });
         bt_right = (Button)findViewById(R.id.bt_right);
@@ -69,7 +65,7 @@ public class SeniorFragmentTwoDialogActivity extends Dialog {
         setContent(age,gender,address);
     }
 
-    public SeniorFragmentTwoDialogActivity(Context context , String name , int age, String gender, String address, String phoneNumber) {
+    public SeniorFragmentTwoDialog(Context context , String name , int age, String gender, String address, String phoneNumber) {
         super(context , android.R.style.Theme_Translucent_NoTitleBar);
         this.name = name;
         this.age = age;

@@ -92,7 +92,7 @@
             android:name=".ui.activity.Senior.SeniorTabActivity"
             android:label="@string/title_activity_senior_tab"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.activity.Volunteer.VolunteerMainActivity"
             android:label="VolunteerMain"
@@ -122,7 +122,6 @@
         <activity
             android:name=".ui.activity.Volunteer.VolunteerFragmentThreeAwardActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.activity.MyMarkerView"></activity>
     </application>
 
 </manifest>

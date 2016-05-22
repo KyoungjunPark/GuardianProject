@@ -1,13 +1,8 @@
 package com.example.administrator.guardian.ui.activity.Volunteer;
 
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -29,7 +24,7 @@ import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
 import java.util.Calendar;
 
-public class VolunteerFragmentOneDialogActivity extends Dialog implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener{
+public class VolunteerFragmentOneDialog extends Dialog implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener{
 
     private TextView vfod_Name;
     private TextView vfod_Age;
@@ -46,6 +41,7 @@ public class VolunteerFragmentOneDialogActivity extends Dialog implements TimePi
     private int v_hour_of_day;
     private int v_minute;
 
+
     private String name;
     private int age;
     private String gender;
@@ -56,6 +52,14 @@ public class VolunteerFragmentOneDialogActivity extends Dialog implements TimePi
 
     private GoogleMap mMap;
     MapView mapView;
+
+    public VolunteerFragmentOneDialog(Context context, String name, int age, String gender, String address) {
+        super(context , android.R.style.Theme_Translucent_NoTitleBar);
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.address =  address;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,12 +91,12 @@ public class VolunteerFragmentOneDialogActivity extends Dialog implements TimePi
                 Toast.makeText(getContext(),"a",Toast.LENGTH_SHORT).show();
                 Calendar now = Calendar.getInstance();
                 DatePickerDialog dpd = DatePickerDialog.newInstance(
-                        VolunteerFragmentOneDialogActivity.this,
+                        VolunteerFragmentOneDialog.this,
                         now.get(Calendar.YEAR),
                         now.get(Calendar.MONTH),
                         now.get(Calendar.DAY_OF_MONTH)
                 );
-                //dpd.show(, "Datepickerdialog");
+                //dpd.show(get, "Datepickerdialog");
             }
         });
 
@@ -101,12 +105,12 @@ public class VolunteerFragmentOneDialogActivity extends Dialog implements TimePi
             public void onClick(View v) {
                 Calendar now = Calendar.getInstance();
                 TimePickerDialog dpd = TimePickerDialog.newInstance(
-                        VolunteerFragmentOneDialogActivity.this,
+                        VolunteerFragmentOneDialog.this,
                         now.get(Calendar.HOUR_OF_DAY),
                         now.get(Calendar.MINUTE),
                         true
                 );
-                //dpd.show(getOwnerActivity().getFragmentManager(), "Timepickerdialog");
+                //dpd.show(, "Timepickerdialog");
             }
         });
 
@@ -114,7 +118,7 @@ public class VolunteerFragmentOneDialogActivity extends Dialog implements TimePi
         vfod_left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                VolunteerFragmentOneDialogActivity.this.dismiss();
+                VolunteerFragmentOneDialog.this.dismiss();
             }
         });
         vfod_right = (Button)findViewById(R.id.vfod_right);
@@ -151,7 +155,7 @@ public class VolunteerFragmentOneDialogActivity extends Dialog implements TimePi
                 mMap.moveCamera( CameraUpdateFactory.newLatLng(senior_home) );
                 MarkerOptions optFirst = new MarkerOptions();
                 optFirst.position(senior_home);// 위도 • 경도
-                optFirst.title("박경준 할아버지");// 제목 미리보기
+                optFirst.title(name);// 제목 미리보기
                 optFirst.snippet(address+"");
                 mMap.addMarker(optFirst);
                 mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
@@ -183,14 +187,7 @@ public class VolunteerFragmentOneDialogActivity extends Dialog implements TimePi
     }
 
 
-    public VolunteerFragmentOneDialogActivity(Context context , String name , int age, String gender, String address) {
-        super(context , android.R.style.Theme_Translucent_NoTitleBar);
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
-        this.address =  address;
 
-    }
 
     private void setTitle(String Name){
         if(gender=="남"){

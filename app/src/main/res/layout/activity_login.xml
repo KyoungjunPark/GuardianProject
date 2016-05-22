@@ -83,5 +83,14 @@
         android:layout_below="@+id/tov"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="노인메인가기"
+        android:id="@+id/tos"
+        android:layout_alignTop="@+id/tov"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 
 </RelativeLayout>

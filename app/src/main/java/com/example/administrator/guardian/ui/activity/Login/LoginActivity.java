@@ -53,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
 
     Button tov;//for volunteer activity test
     Button tom;//for manager activity test
+    Button tos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,6 +109,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent mtest = new Intent(getApplicationContext(), ManagerMainActivity.class);
                 startActivity(mtest);
+            }
+        });
+        tos = (Button)findViewById(R.id.tos);
+        tos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent stest = new Intent(getApplicationContext(), SeniorTabActivity.class);
+                startActivity(stest);
             }
         });
     }
