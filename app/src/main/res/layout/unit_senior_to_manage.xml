@@ -4,19 +4,84 @@
 			  android:layout_height="match_parent"
 			  android:orientation="horizontal">
 
-	<Button
+	<RelativeLayout
 		android:id="@+id/show_senior_info_button"
 		android:layout_width="wrap_content"
 		android:layout_height="80dp"
 		android:layout_weight="1"
-		android:hint="Name_of_Senior"
-		/>
+		>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:id="@+id/ustm_name"
+			android:gravity="center_vertical"
+			android:textSize="23dp"
+			android:text="박경준"
+			android:textColor="#000000"
+			android:layout_alignParentTop="true"
+			android:layout_alignParentLeft="true"
+			android:layout_alignParentStart="true"
+			android:layout_marginLeft="20dp"
+			android:layout_marginTop="10dp" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="나이  : "
+			android:id="@+id/ustm_age"
+			android:textSize="18dp"
+			android:textColor="#000000"
+			android:layout_alignParentStart="true"
+			android:layout_below="@+id/ustm_name"
+			android:layout_alignParentLeft="true"
+			android:layout_marginTop="10dp"
+			android:layout_marginLeft="20dp" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="80"
+			android:id="@+id/ustm_inputage"
+			android:gravity="center_vertical"
+			android:textSize="18dp"
+			android:textColor="#000000"
+			android:layout_alignTop="@+id/ustm_age"
+			android:layout_toRightOf="@+id/ustm_age"
+			android:layout_toEndOf="@+id/ustm_age" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="성별  :  "
+			android:id="@+id/ustm_gender"
+			android:gravity="center_vertical"
+			android:textSize="18dp"
+			android:textColor="#000000"
+			android:layout_marginLeft="24dp"
+			android:layout_marginStart="24dp"
+			android:layout_alignTop="@+id/ustm_inputage"
+			android:layout_toRightOf="@+id/ustm_inputage"
+			android:layout_toEndOf="@+id/ustm_inputage" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="남"
+			android:id="@+id/ustm_inputgender"
+			android:textSize="18dp"
+			android:textColor="#000000"
+			android:layout_below="@+id/ustm_name"
+			android:layout_toRightOf="@+id/ustm_gender"
+			android:layout_toEndOf="@+id/ustm_gender"
+			android:layout_marginTop="10dp" />
+	</RelativeLayout>
 
 	<ImageButton
 		android:id="@+id/manage_senior_button"
 		android:layout_width="80dp"
 		android:layout_height="80dp"
 		android:scaleType="fitCenter"
-		android:src="@drawable/setting_button"/>
+		android:src="@android:drawable/stat_sys_phone_call_forward"/>
 
 </LinearLayout>

@@ -2,9 +2,11 @@ package com.example.administrator.guardian.ui.activity.Manager;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
@@ -57,13 +60,17 @@ public class ManagerMainActivity extends AppCompatActivity{
 		* */
 
 		//-----------------test-----------------
-		String sample_name;
-		Senior senior;
-		for(int i=0; i<10; i++){
-			sample_name = "홍길동";
-			sample_name += " "+i;
-			senior = new Senior(sample_name);
-			list.add(senior);
+		Senior[] senior;
+
+			senior = new Senior[5];
+		senior[0]=new Senior("홍길동",80,"여","흑석","01012345678");
+		senior[1]=new Senior("박길동",82,"여","흑석","01012345679");
+		senior[2]=new Senior("박경동",98,"여","흑석","01012345670");
+		senior[3]=new Senior("박경준",99,"여","흑석","01012345671");
+		senior[4]=new Senior("백갱준",100,"여","흑석","01012345672");
+
+		for(int i=0; i<5; i++){
+			list.add(senior[i]);
 		}
 		//-----------------test-----------------
 
@@ -74,8 +81,16 @@ public class ManagerMainActivity extends AppCompatActivity{
 	// Senior Object Def
 	class Senior{
 		String name;
-		Senior(String name){
+		int age;
+		String gender;
+		String address;
+		String phoneNumber;
+		Senior(String name, int age, String gender, String address, String phoneNumber){
 			this.name = name;
+			this.age=age;
+			this.gender=gender;
+			this.address=address;
+			this.phoneNumber=phoneNumber;
 		}
 	}
 
@@ -109,25 +124,34 @@ public class ManagerMainActivity extends AppCompatActivity{
 			if(convertView == null){
 				convertView = inflater.inflate(layout, parent, false);
 			}
-			Button show_senior_info_button = (Button)convertView.findViewById(R.id.show_senior_info_button);
+			RelativeLayout show_senior_info_button = (RelativeLayout)convertView.findViewById(R.id.show_senior_info_button);
 			ImageButton manage_senior_button = (ImageButton)convertView.findViewById(R.id.manage_senior_button);
-			show_senior_info_button.setText(seniorList.get(position).name);
+			//show_senior_info_button.setText(seniorList.get(position).name);
 
 			//-----------------test-----------------
 			show_senior_info_button.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
 					Intent manageinfo = new Intent(getApplicationContext(),ManagerSeniorInfoTabActivity.class);
+					manageinfo.putExtra("seniorname",seniorList.get(position).name);
+					manageinfo.putExtra("seniorage",seniorList.get(position).age);
+					manageinfo.putExtra("seniorgender",seniorList.get(position).gender);
+					manageinfo.putExtra("senioraddress",seniorList.get(position).address);
+					manageinfo.putExtra("seniorphoneNumber",seniorList.get(position).phoneNumber);
 					startActivity(manageinfo);
 				}
 			});
-			/*manage_senior_button.setOnClickListener(new View.OnClickListener(){
+			manage_senior_button.setOnClickListener(new View.OnClickListener(){
 				@Override
 				public void onClick(View v){
-					Intent managepulse = new Intent(getApplicationContext(),ManagerManagePulseActivity.class);
-					startActivity(managepulse);
+					String Dial = "tel:"+seniorList.get(position).phoneNumber;
+					Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(Dial));
+					try {
+						startActivity(intent);
+					}catch(SecurityException e){
+						Log.d("SecurityException","try/catch gulrim");}
 				}
-			});*/
+			});
 			//-----------------test-----------------
 
 			return convertView;
