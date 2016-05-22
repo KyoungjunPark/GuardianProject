@@ -22,6 +22,7 @@ public class VolunteerConfirmViewAdapter extends  RecyclerView.Adapter<Volunteer
     Context context;
     List<VolunteerConfirmRecyclerItem> items;
     int item_layout;
+    boolean ok=true;
 
     public VolunteerConfirmViewAdapter(Context context, List<VolunteerConfirmRecyclerItem> items, int item_layout) {
         this.context=context;
@@ -39,20 +40,24 @@ public class VolunteerConfirmViewAdapter extends  RecyclerView.Adapter<Volunteer
     public void onBindViewHolder(ViewHolder holder, int position) {
         final VolunteerConfirmRecyclerItem item=items.get(position);
 
-        /*holder.v_inputsage.setText(item.getAge()+"");
-        holder.v_inputsgender.setText(item.getGender());
+        holder.vcc_inputage.setText(item.getAge()+"");
+        holder.vcc_inputgender.setText(item.getGender());
 
         if(item.getGender()=="남"){
-            holder.v_inputsname.setText(item.getName()+" 할아버지");
+            holder.vcc_inputname.setText(item.getName()+" 할아버지");
         }
-        else{holder.v_inputsname.setText(item.getName()+" 할머니");}
+        else{holder.vcc_inputname.setText(item.getName()+" 할머니");}
+
+        if(ok==true){
+            holder.vcc_button.setText("봉사예정");
+        }
 
         holder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
-        });*/
+        });
     }
 
     @Override
@@ -65,6 +70,7 @@ public class VolunteerConfirmViewAdapter extends  RecyclerView.Adapter<Volunteer
         TextView vcc_inputname;
         TextView vcc_inputage;
         TextView vcc_inputgender;
+        TextView vcc_button;
         CardView cardview;
 
         public ViewHolder(View itemView) {
@@ -73,6 +79,7 @@ public class VolunteerConfirmViewAdapter extends  RecyclerView.Adapter<Volunteer
             vcc_inputname=(TextView)itemView.findViewById(R.id.vcc_inputname);
             vcc_inputage=(TextView)itemView.findViewById(R.id.vcc_inputage);
             vcc_inputgender=(TextView)itemView.findViewById(R.id.vcc_inputgender);
+            vcc_button=(TextView)itemView.findViewById(R.id.vcc_button);
 
             cardview = (CardView)itemView.findViewById(R.id.volunteer_confirm_cardview);
         }

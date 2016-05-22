@@ -1,6 +1,7 @@
 package com.example.administrator.guardian.ui.activity.Volunteer;
 
 import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -83,6 +84,7 @@ public class VolunteerFragmentOneDialogActivity extends Dialog implements TimePi
         dateTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getContext(),"a",Toast.LENGTH_SHORT).show();
                 Calendar now = Calendar.getInstance();
                 DatePickerDialog dpd = DatePickerDialog.newInstance(
                         VolunteerFragmentOneDialogActivity.this,
@@ -93,6 +95,7 @@ public class VolunteerFragmentOneDialogActivity extends Dialog implements TimePi
                 //dpd.show(, "Datepickerdialog");
             }
         });
+
         timeTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
