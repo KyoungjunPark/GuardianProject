@@ -40,8 +40,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5ca898f-45c0-40d8-a108-e5e2ffd4f24d" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/.gitignore" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/.gitignore" afterPath="$PROJECT_DIR$/app/.gitignore" />
     </list>
     <ignored path="Guardian.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -145,20 +146,10 @@
         </entry>
       </file>
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41742286">
-              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.066667">
-              <caret line="103" column="11" selection-start-line="0" selection-start-column="0" selection-end-line="134" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.41016334">
+              <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -2179,7 +2170,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/temp_select_be_deleted.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/tempActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/SeniorMainActivity.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ManagerRegistrationActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/ManagerRegistrationActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/LoginActivity.java" />
@@ -2200,6 +2190,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/utils/ConnectServer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Login/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/.gitignore" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -2424,6 +2415,9 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\KJPARK\Desktop\guardianproject" />
+    </key>
     <key name="android.template.packageName">
       <recent name="com.example.administrator.guardian" />
     </key>
@@ -2911,7 +2905,13 @@
       <option name="project" value="LOCAL" />
       <updated>1463898775909</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="modify gitignore for covering workspace &amp; imi files">
+      <created>1463899884815</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1463899884815</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2971,7 +2971,8 @@
     <MESSAGE value="update a dialog in visit request" />
     <MESSAGE value="update server connection in login" />
     <MESSAGE value="Implement Login connection with server" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement Login connection with server" />
+    <MESSAGE value="modify gitignore for covering workspace &amp; imi files" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify gitignore for covering workspace &amp; imi files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -3039,13 +3040,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="312" column="45" selection-start-line="312" selection-start-column="45" selection-end-line="312" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -3390,16 +3384,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.066667">
-          <caret line="103" column="11" selection-start-line="0" selection-start-column="0" selection-end-line="134" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41742286">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.41016334">
+          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding />
         </state>
       </provider>
