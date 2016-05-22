@@ -142,8 +142,8 @@
       <file leaf-file-name="VolunteerFragmentTwoAcceptDialog.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Volunteer/VolunteerFragmentTwoAcceptDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15321638">
-              <caret line="112" column="11" selection-start-line="112" selection-start-column="11" selection-end-line="112" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.70877194">
+              <caret line="140" column="46" selection-start-line="140" selection-start-column="46" selection-end-line="140" selection-end-column="46" />
               <folding>
                 <element signature="e#3778#3960#0" expanded="true" />
                 <element signature="e#3959#3960#0" expanded="true" />
@@ -3295,7 +3295,13 @@
       <option name="project" value="LOCAL" />
       <updated>1463911088139</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="volunteerfragmentTwo">
+      <created>1463911169833</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1463911169833</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -3825,8 +3831,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Volunteer/VolunteerFragmentTwoAcceptDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15321638">
-          <caret line="112" column="11" selection-start-line="112" selection-start-column="11" selection-end-line="112" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.70877194">
+          <caret line="140" column="46" selection-start-line="140" selection-start-column="46" selection-end-line="140" selection-end-column="46" />
           <folding>
             <element signature="e#3778#3960#0" expanded="true" />
             <element signature="e#3959#3960#0" expanded="true" />
