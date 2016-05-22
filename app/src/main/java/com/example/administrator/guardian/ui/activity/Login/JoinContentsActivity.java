@@ -19,6 +19,8 @@ import android.widget.Toast;
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.utils.ConnectServer;
 import com.example.administrator.guardian.utils.MakeUTF8Parameter;
+import com.yarolegovich.lovelydialog.LovelyInfoDialog;
+import com.yarolegovich.lovelydialog.LovelyStandardDialog;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -177,6 +179,15 @@ public class JoinContentsActivity extends AppCompatActivity {
                                 finish();
                             } else {
                                 //Sign up Fail
+                                rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
+                                new LovelyInfoDialog(getApplicationContext())
+                                        .setTopColorRes(R.color.mdtp_red)
+                                        .setIcon(R.mipmap.ic_not_interested_black_24dp)
+                                        //This will add Don't show again checkbox to the dialog. You can pass any ID as argument
+                                        .setNotShowAgainOptionEnabled(0)
+                                        .setTitle("경고")
+                                        .setMessage(rd.readLine())
+                                        .show();
                                 rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
                                 Log.d(TAG,"Sign up Fail: " + rd.readLine());
                             }

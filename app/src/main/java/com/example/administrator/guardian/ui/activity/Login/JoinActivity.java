@@ -40,13 +40,12 @@ public class JoinActivity extends AppCompatActivity {
                         RegistrationActivity.putExtra("type","volunteer");
                         startActivity(RegistrationActivity);
                     }
-                    finish();
                 }
                 if(manager.isChecked()){
                     RegistrationActivity.putExtra("type","manager");
                     startActivity(RegistrationActivity);
-                    finish();
                 }
+                finish();
             }
         });
     }

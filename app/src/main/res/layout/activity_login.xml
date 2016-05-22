@@ -12,12 +12,12 @@
         android:layout_height="100dp"
         android:id="@+id/title"
         android:background="@drawable/title"
-        android:layout_above="@+id/idEdit"
+        android:layout_above="@+id/idEditText"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp" />
 
     <EditText
-        android:id="@+id/idEdit"
+        android:id="@+id/idEditText"
         android:layout_width="270dp"
         android:layout_height="45dp"
         android:singleLine="true"
@@ -27,11 +27,11 @@
         android:hint="아이디"
         android:textColorHint="#474747"
         android:layout_gravity="center_horizontal"
-        android:layout_above="@+id/pwEdit"
+        android:layout_above="@+id/pwEditText"
         android:layout_centerHorizontal="true" />
 
     <EditText
-        android:id="@+id/pwEdit"
+        android:id="@+id/pwEditText"
         android:layout_width="270dp"
         android:layout_height="45dp"
         android:hint="비밀번호"
@@ -44,8 +44,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="51dp"
         android:layout_above="@+id/loginbutton"
-        android:layout_alignLeft="@+id/idEdit"
-        android:layout_alignStart="@+id/idEdit"
+        android:layout_alignLeft="@+id/idEditText"
+        android:layout_alignStart="@+id/idEditText"
         android:password="true"/>
 
     <Button
@@ -55,8 +55,8 @@
         android:background="@drawable/login"
         android:layout_marginBottom="122dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/pwEdit"
-        android:layout_alignStart="@+id/pwEdit" />
+        android:layout_alignLeft="@+id/pwEditText"
+        android:layout_alignStart="@+id/pwEditText" />
 
     <Button
         android:layout_width="80dp"

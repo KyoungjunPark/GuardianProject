@@ -15,6 +15,8 @@ public class ConnectServer {
     private String token;
     private static String URL = "http://59.187.203.140:80";
 
+    private String type;
+
     private static final ConnectServer instance = new ConnectServer();
 
     public ConnectServer() {
@@ -43,7 +45,13 @@ public class ConnectServer {
 
         return con;
     }
+    public String getType() {
+        return type;
+    }
 
+    public void setType(String type) {
+        this.type = type;
+    }
     public String getURL(String path) {
         String resultURL = null;
 
@@ -53,6 +61,7 @@ public class ConnectServer {
                 resultURL = URL + "/" + "Sign_Up";
                 break;
             case "Sign_In":
+                resultURL = URL + "/" + "Sign_In";
                 break;
         }
         return resultURL;
