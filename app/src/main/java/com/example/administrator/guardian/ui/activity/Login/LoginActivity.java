@@ -1,5 +1,6 @@
 package com.example.administrator.guardian.ui.activity.Login;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -57,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         idEditText = (EditText) findViewById(R.id.idEditText);
         pwEditText = (EditText) findViewById(R.id.pwEditText);
 
@@ -67,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                 //Intent firstMainActivity = new Intent(getApplicationContext(), SeniorMainActivity.class);
                 if(idEditText.getText().toString().equals("")
                         || pwEditText.getText().toString().equals("")){
-                    new LovelyInfoDialog(getApplicationContext())
+                    new LovelyInfoDialog(v.getContext())
                             .setTopColorRes(R.color.mdtp_red)
                             .setIcon(R.mipmap.ic_not_interested_black_24dp)
                             //This will add Don't show again checkbox to the dialog. You can pass any ID as argument
