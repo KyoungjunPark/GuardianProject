@@ -63,6 +63,9 @@ public class ConnectServer {
             case "Sign_In":
                 resultURL = URL + "/" + "Sign_In";
                 break;
+            case "Senior_List":
+                resultURL = URL + "/" + "Senior_List";
+                break;
         }
         return resultURL;
     }
