@@ -57,7 +57,7 @@ public class SeniorFragmentFourActivity extends Fragment {
         LineData data = new LineData(labels, dataset);
         dataset.setColors(ColorTemplate.COLORFUL_COLORS); //
         dataset.setDrawCubic(true);
-        //dataset.setDrawFilled(true);
+        dataset.setDrawFilled(true);
 
         lineChart.setData(data);
         lineChart.animateY(1000);

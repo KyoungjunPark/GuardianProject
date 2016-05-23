@@ -1,14 +1,9 @@
 package com.example.administrator.guardian.ui.activity.Login;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Base64;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,16 +13,12 @@ import android.widget.EditText;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.ui.activity.Manager.ManagerMainActivity;
-import com.example.administrator.guardian.ui.activity.Manager.ManagerSeniorInfoTabActivity;
 import com.example.administrator.guardian.ui.activity.Senior.SeniorTabActivity;
-import com.example.administrator.guardian.ui.activity.Volunteer.VolunteerMainActivity;
 import com.example.administrator.guardian.ui.activity.Volunteer.VolunteerTabActivity;
 import com.example.administrator.guardian.utils.ConnectServer;
 import com.example.administrator.guardian.utils.MakeUTF8Parameter;
-import com.google.ads.afma.nano.NanoAfmaSignals;
 import com.yarolegovich.lovelydialog.LovelyInfoDialog;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -35,11 +26,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.NumberFormat;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";

@@ -125,8 +125,6 @@
         <activity
             android:name=".ui.activity.Senior.SeniorFragmentThreeScheduleActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.activity.Senior.SeniorFragmentThreeScheduleFinishDialog" />
-        <activity android:name=".ui.activity.Manager.ManagerManagePulseInfoActivity"></activity>
     </application>
 
 </manifest>
