@@ -111,7 +111,8 @@ public class SeniorFragmentTwoActivity extends Fragment {
                             String user_tel= (String)dataArray.getJSONObject(i).get("user_tel");
                             String user_birthdate= (String)dataArray.getJSONObject(i).get("user_birthdate");
                             int user_age = (20179999 - Integer.parseInt(user_birthdate))/10000;
-                            String distance = dataArray.getJSONObject(i).get("distance") + "";
+                            String distance = String.format("%.6f", (double)dataArray.getJSONObject(i).get("distance"));
+
                             // login_id, user_name, user_birthdate, user_age, user_gender, user_address, user_tel
 
                             SeniorRecyclerItem senior = new SeniorRecyclerItem(login_id, user_name, user_birthdate, user_age, user_gender, user_address, user_tel, distance);
