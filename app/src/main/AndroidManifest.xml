@@ -107,7 +107,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.activity.Volunteer.VolunteerTabActivity"
-            android:label="@string/title_activity_senior_visit_tab"
+            android:label="@string/title_activity_volunteer_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.activity.Manager.ManagerSeniorInfoTabActivity"

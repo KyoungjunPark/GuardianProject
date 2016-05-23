@@ -34,7 +34,7 @@
     <string name="mstitle_section2">심박조절</string>
 
 
-    <string name="title_activity_volunteer_main">VolunteerMainActivity</string>
+    <string name="title_activity_volunteer_main">Volunteer</string>
     <string name="title_activity_volunteer_time">VolunteerTimeActivity</string>
     <string name="title_activity_volunteer_map">Choose Volunteer Place</string>
     <string name="title_activity_manager_manage_pulse">Manager_manage_pulse</string>
