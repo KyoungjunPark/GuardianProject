@@ -129,7 +129,7 @@ public class JoinContentsActivity extends AppCompatActivity {
                         user_type = getIntent().getStringExtra("type");
                         user_name = my_name.getText().toString();
                         isMan = radioButton_man.isChecked();
-                        user_gender = isMan ? "man" : "woman";
+                        user_gender = isMan ? "남" : "여";
                         user_tel = my_pn1.getText().toString() + my_pn2.getText().toString() + my_pn3.getText().toString();
 
                         numformat = NumberFormat.getIntegerInstance();
