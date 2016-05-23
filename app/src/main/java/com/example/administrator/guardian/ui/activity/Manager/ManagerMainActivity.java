@@ -48,8 +48,6 @@ public class ManagerMainActivity extends AppCompatActivity{
 	public void getInfoFromServer(){
 		Log.d("ktk", "ktk");
 		ConnectServer.getInstance().setAsncTask(new AsyncTask<String, Void, Boolean>() {
-
-
 			@Override
 			protected void onPreExecute() {
 				Log.d("ktk", "ktk3");
@@ -61,6 +59,9 @@ public class ManagerMainActivity extends AppCompatActivity{
 				try {
 					obj = new URL(ConnectServer.getInstance().getURL("Senior_List"));
 					HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+
+					con = ConnectServer.getInstance().setHeader(con);
 
 					con.setDoOutput(true);
 
