@@ -47,7 +47,7 @@ public class ManagerManageInfoActivity extends Fragment {
 
         TextseniorNameAgeGender.setText(senior_id);
 
-        //mapView = (MapView)view.findViewById(R.id.vfod_map);
+        //mapView = (MapView)view.findViewById(R.id.seniorAddressMap);
         //mapView.onCreate(new Bundle());
         //mapView.onResume();
         /*
