@@ -76,10 +76,9 @@ public class SeniorFragmentTwoDialog extends Dialog {
     }
 
     private void setTitle(String Name){
-        if(gender=="남"){
+        if(gender.compareTo(new String("남")) == 0){
             Name = Name + " 할아버지";
-        }
-        else{
+        }else{
             Name = Name + " 할머니";
         }
 
