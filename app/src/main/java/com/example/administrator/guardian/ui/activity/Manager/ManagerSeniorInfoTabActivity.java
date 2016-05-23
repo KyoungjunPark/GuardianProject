@@ -1,6 +1,7 @@
 package com.example.administrator.guardian.ui.activity.Manager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -28,6 +29,11 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
 
     static final int Num_Tab = 3;
 
+    private String seniorName;
+    private int seniorAge;
+    private String seniorGender;
+    private String seniorNumber;
+    private String seniorAddress;
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     /**
@@ -39,6 +45,12 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager_senior_info_tab);
+
+        Intent intent = getIntent();
+        seniorName = intent.getExtras().getString("seniorname");
+        seniorAge = intent.getExtras().getInt("seniorage");
+        seniorGender=intent.getExtras().getString("seniorgender");
+        seniorNumber=intent.getExtras().getString("seniorphoneNumber");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.mstoolbar);
         setSupportActionBar(toolbar);
@@ -67,9 +79,9 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
 
             switch (position) {
                 case 0:
-                    return new ManagerManageInfoActivity(mContext);
+                    return new ManagerManageInfoActivity(mContext,seniorName,seniorAge,seniorGender,seniorAddress,seniorNumber);
                 case 1:
-                    //return new ManagerManagePulseInfoActivity(mContext);
+                    return new ManagerManagePulseInfoActivity(mContext);
                 case 2:
                     return new ManagerManagePulseActivity(mContext);
             }
