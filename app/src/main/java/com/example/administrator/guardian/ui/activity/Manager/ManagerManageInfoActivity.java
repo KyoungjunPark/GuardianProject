@@ -10,8 +10,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.administrator.guardian.R;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 @SuppressLint("ValidFragment")
 public class ManagerManageInfoActivity extends Fragment {
@@ -53,11 +58,12 @@ public class ManagerManageInfoActivity extends Fragment {
         TextseniorNumber = (TextView)view.findViewById(R.id.TextseniorNumber);
 
         TextseniorNameAgeGender.setText(senior_name +" ("+senior_age+","+senior_gender+") ");
+        TextseniorNumber.setText("전화번호 : "+senior_tel);
+        TextseniorAddress.setText(senior_address);
+        mapView = (MapView)view.findViewById(R.id.seniorAddressMap);
+        mapView.onCreate(new Bundle());
+        mapView.onResume();
 
-        //mapView = (MapView)view.findViewById(R.id.seniorAddressMap);
-        //mapView.onCreate(new Bundle());
-        //mapView.onResume();
-        /*
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap googleMap) {
@@ -68,13 +74,13 @@ public class ManagerManageInfoActivity extends Fragment {
                 mMap.moveCamera( CameraUpdateFactory.newLatLng(senior_home) );
                 MarkerOptions optFirst = new MarkerOptions();
                 optFirst.position(senior_home);// 위도 • 경도
-                optFirst.title(seniorName);// 제목 미리보기
-                optFirst.snippet(seniorAddress+"");
+                optFirst.title(senior_name);// 제목 미리보기
+                optFirst.snippet(senior_address+"");
                 mMap.addMarker(optFirst);
                 mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
             }
         });
-        */
+
 
         return view;
     }
