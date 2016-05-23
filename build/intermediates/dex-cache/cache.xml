@@ -1,12 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
+<items version="2" />
 
-    <item
-        jar="C:\Users\KJPARK\Desktop\guardianproject\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="d0ff943aa2e025e6ef01e329f1f690ec6a159fc6">
-        <dex dex="C:\Users\KJPARK\Desktop\guardianproject\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_74ec240640e02610a01a5ab890fd43455409124f\classes.dex" />
-    </item>
-
-</items>
