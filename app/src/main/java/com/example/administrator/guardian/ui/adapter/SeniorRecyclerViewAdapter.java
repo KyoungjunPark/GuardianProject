@@ -51,7 +51,7 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
             @Override
             public void onClick(View v) {
 
-                mCustomDialog = new SeniorFragmentTwoDialog(context, item.getName(), item.getAge(), item.getGender(), item.getAddress(), item.getNumber());
+                mCustomDialog = new SeniorFragmentTwoDialog(context, item.getName(), item.getAge(), item.getGender(), item.getAddress(), item.getTel());
                 mCustomDialog.show();
 
             }

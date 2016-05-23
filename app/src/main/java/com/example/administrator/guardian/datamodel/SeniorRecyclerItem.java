@@ -4,26 +4,29 @@ package com.example.administrator.guardian.datamodel;
  * Created by Administrator on 2016-04-28.
  */
 public class SeniorRecyclerItem {
-    private String id;
-    private String name;
-    private int age;
-    private String gender;
-    private String phoneNumber;
-    private String address;
+    String login_id;
+    String user_name;
+    String user_birthdate;
+    int user_age;
+    String user_gender;
+    String user_address;
+    String user_tel;
 
-    public String getId(){return this.id;}
-    public String getName(){return this.name;}
-    public int getAge(){return this.age;}
-    public String getGender(){return this.gender;}
-    public String getNumber(){return this.phoneNumber;}
-    public String getAddress(){return this.address;}
+    public String getId(){return this.login_id;}
+    public String getName(){return this.user_name;}
+    public String getBirthDate(){return this.user_birthdate;}
+    public int getAge(){return this.user_age;}
+    public String getGender(){return this.user_gender;}
+    public String getAddress(){return this.user_address;}
+    public String getTel(){return this.user_tel;}
 
-    public SeniorRecyclerItem(String id, String name, int age, String gender, String address, String phoneNumber){
-        this.id=id;
-        this.name=name;
-        this.age=age;
-        this.gender=gender;
-        this.address=address;
-        this.phoneNumber=phoneNumber;
+    public SeniorRecyclerItem(String id, String name, String birthdate, int age, String gender, String address, String tel){
+        this.login_id=id;
+        this.user_name=name;
+        this.user_birthdate=birthdate;
+        this.user_age=age;
+        this.user_gender=gender;
+        this.user_address=address;
+        this.user_tel=tel;
     }
 }

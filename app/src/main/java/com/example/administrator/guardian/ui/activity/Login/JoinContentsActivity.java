@@ -1,11 +1,10 @@
 package com.example.administrator.guardian.ui.activity.Login;
 
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,13 +13,11 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.utils.ConnectServer;
 import com.example.administrator.guardian.utils.MakeUTF8Parameter;
 import com.yarolegovich.lovelydialog.LovelyInfoDialog;
-import com.yarolegovich.lovelydialog.LovelyStandardDialog;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -29,9 +26,6 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 public class JoinContentsActivity extends AppCompatActivity {
 
@@ -141,7 +135,7 @@ public class JoinContentsActivity extends AppCompatActivity {
                         numformat = NumberFormat.getIntegerInstance();
                         numformat.setMinimumIntegerDigits(2);
 
-                        user_address = address + detailedAddressEditText;
+                        user_address = address + detailedAddressEditText.getText().toString();
                     }
 
                     @Override
