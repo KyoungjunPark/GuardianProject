@@ -80,7 +80,10 @@ proguard/
 captures/
 
 # Intellij
+/build/intermediates/dex-cache/cache.xml
 *.iml
+/app/app.iml
+
 
 # Keystore files
 *.jks
