@@ -46,7 +46,7 @@ public class ManagerMainActivity extends AppCompatActivity{
 		setSupportActionBar(toolbar);
 
 		lv = (ListView)findViewById(R.id.senior_list_view);
-		updateSeniorList();
+		getInfoFromServer();
 	}
 	public void getInfoFromServer(){
 		ConnectServer.getInstance().setAsncTask(new AsyncTask<String, Void, Boolean>() {
@@ -55,7 +55,11 @@ public class ManagerMainActivity extends AppCompatActivity{
 			@Override
 			protected void onPreExecute() {
 			}
-
+			protected void onPostExecute(Boolean params) {
+				super.onPostExecute(null);
+				SeniorAdapter adpt = new SeniorAdapter(ManagerMainActivity.this, R.layout.unit_senior_to_manage, list);
+				lv.setAdapter(adpt);
+			}
 			@Override
 			protected Boolean doInBackground(String... params) {
 				URL obj = null;
@@ -75,11 +79,9 @@ public class ManagerMainActivity extends AppCompatActivity{
 					BufferedReader rd =null;
 
 					if(con.getResponseCode() == 200){
-
 						//Sign up Success
 						rd = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
 						String resultValues = rd.readLine();
-
 						JSONObject object = new JSONObject(resultValues);
 						JSONArray dataArray = object.getJSONArray("data");
 						for (int i=0; i<dataArray.length(); i++){
@@ -95,6 +97,7 @@ public class ManagerMainActivity extends AppCompatActivity{
 
 						}
 
+
 					} else {
 						//Sign up Fail
 						rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
@@ -105,15 +108,11 @@ public class ManagerMainActivity extends AppCompatActivity{
 				}
 				return null;
 			}
+
+
+
 		});
 		ConnectServer.getInstance().execute();
-	}
-
-	public void updateSeniorList(){
-		getInfoFromServer();
-
-		SeniorAdapter adpt = new SeniorAdapter(ManagerMainActivity.this, R.layout.unit_senior_to_manage, list);
-		lv.setAdapter(adpt);
 	}
 
 	// Senior Object Def
@@ -183,11 +182,11 @@ public class ManagerMainActivity extends AppCompatActivity{
 				public void onClick(View v) {
 					Intent manageinfo = new Intent(getApplicationContext(),ManagerSeniorInfoTabActivity.class);
 					manageinfo.putExtra("senior_id",seniorList.get(position).login_id);
-					//manageinfo.putExtra("senior_name",seniorList.get(position).user_name);
-					//manageinfo.putExtra("senior_birthdate",seniorList.get(position).user_birthdate);
-					//manageinfo.putExtra("senior_gender",seniorList.get(position).user_gender);
-					//manageinfo.putExtra("senior_address",seniorList.get(position).user_address);
-					//manageinfo.putExtra("senior_tel",seniorList.get(position).user_tel);
+					manageinfo.putExtra("senior_name",seniorList.get(position).user_name);
+					manageinfo.putExtra("senior_birthdate",seniorList.get(position).user_birthdate);
+					manageinfo.putExtra("senior_gender",seniorList.get(position).user_gender);
+					manageinfo.putExtra("senior_address",seniorList.get(position).user_address);
+					manageinfo.putExtra("senior_tel",seniorList.get(position).user_tel);
 					startActivity(manageinfo);
 				}
 			});
