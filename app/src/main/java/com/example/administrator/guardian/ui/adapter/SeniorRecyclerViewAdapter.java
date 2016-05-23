@@ -45,7 +45,7 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
         holder.name.setText(item.getName());
         holder.age.setText(item.getAge()+"");
         holder.gender.setText(item.getGender());
-
+        holder.distance.setText(item.getDistance());
 
         holder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +68,7 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
         TextView name;
         TextView age;
         TextView gender;
+        TextView distance;
         CardView cardview;
 
         public ViewHolder(View itemView) {
@@ -76,7 +77,7 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
             name=(TextView)itemView.findViewById(R.id.s_inputsname);
             age=(TextView)itemView.findViewById(R.id.s_inputsage);
             gender=(TextView)itemView.findViewById(R.id.s_inputsgender);
-
+            distance=(TextView)itemView.findViewById(R.id.s_inputsdistance);
             cardview=(CardView)itemView.findViewById(R.id.senior_cardview);
         }
     }
