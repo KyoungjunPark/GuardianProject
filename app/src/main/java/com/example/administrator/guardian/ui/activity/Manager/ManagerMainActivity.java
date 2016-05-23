@@ -29,13 +29,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
 public class ManagerMainActivity extends AppCompatActivity{
 	ListView lv;
+	final ArrayList<Senior> list = new ArrayList<>();
 	@Override
 	protected void onCreate (Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -47,7 +47,7 @@ public class ManagerMainActivity extends AppCompatActivity{
 		lv = (ListView)findViewById(R.id.senior_list_view);
 		updateSeniorList();
 	}
-	public void getInfoFromServer(ArrayList<Senior> list){
+	public void getInfoFromServer(){
 		ConnectServer.getInstance().setAsncTask(new AsyncTask<String, Void, Boolean>() {
 
 
@@ -88,7 +88,7 @@ public class ManagerMainActivity extends AppCompatActivity{
 							String user_gender= (String)dataArray.getJSONObject(i).get("user_gender");
 							String user_address= (String)dataArray.getJSONObject(i).get("user_address");
 							String user_tel= (String)dataArray.getJSONObject(i).get("user_tel");
-=
+
 							Senior senior = new Senior(login_id, user_name, user_birthdate, user_gender, user_address, user_tel);
 							list.add(senior);
 
@@ -110,8 +110,7 @@ public class ManagerMainActivity extends AppCompatActivity{
 	}
 
 	public void updateSeniorList(){
-		ArrayList<Senior> list = new ArrayList<>();
-		getInfoFromServer(list);
+		getInfoFromServer();
 
 		SeniorAdapter adpt = new SeniorAdapter(ManagerMainActivity.this, R.layout.unit_senior_to_manage, list);
 		lv.setAdapter(adpt);
