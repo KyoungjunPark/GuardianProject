@@ -7,7 +7,7 @@
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:text="방문신청하기"
-        android:id="@+id/textView14"
+        android:id="@+id/textManagerChart"
         android:textColor="#000000"
         android:textSize="28dp"
         android:background="@drawable/login_edittext"
@@ -22,7 +22,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView14"
+        android:layout_below="@+id/textManagerChart"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="30dp">
 
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/volunteer_request_recyclerView"
-            android:layout_below="@+id/textView14"
+            android:layout_below="@+id/textManagerChart"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
