@@ -34,6 +34,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class ManagerMainActivity extends AppCompatActivity{
+	private static final String TAG = "ManagerMainActivity";
 	ListView lv;
 	final ArrayList<Senior> list = new ArrayList<>();
 	@Override
@@ -97,7 +98,7 @@ public class ManagerMainActivity extends AppCompatActivity{
 					} else {
 						//Sign up Fail
 						rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
-						Log.d("ktk","fail");
+						Log.d(TAG,"fail");
 					}
 				} catch (IOException | JSONException e) {
 					e.printStackTrace();
@@ -106,7 +107,6 @@ public class ManagerMainActivity extends AppCompatActivity{
 			}
 		});
 		ConnectServer.getInstance().execute();
-		Log.d("ktk", "ktk2");
 	}
 
 	public void updateSeniorList(){
@@ -176,17 +176,18 @@ public class ManagerMainActivity extends AppCompatActivity{
 			tv_birthdate.setText(seniorList.get(position).user_birthdate);
 			tv_gender.setText(seniorList.get(position).user_gender);
 
+
 			//-----------------test-----------------
 			show_senior_info_button.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
 					Intent manageinfo = new Intent(getApplicationContext(),ManagerSeniorInfoTabActivity.class);
 					manageinfo.putExtra("senior_id",seniorList.get(position).login_id);
-					manageinfo.putExtra("senior_name",seniorList.get(position).user_name);
-					manageinfo.putExtra("senior_birthdate",seniorList.get(position).user_birthdate);
-					manageinfo.putExtra("senior_gender",seniorList.get(position).user_gender);
-					manageinfo.putExtra("senior_address",seniorList.get(position).user_address);
-					manageinfo.putExtra("senior_tel",seniorList.get(position).user_tel);
+					//manageinfo.putExtra("senior_name",seniorList.get(position).user_name);
+					//manageinfo.putExtra("senior_birthdate",seniorList.get(position).user_birthdate);
+					//manageinfo.putExtra("senior_gender",seniorList.get(position).user_gender);
+					//manageinfo.putExtra("senior_address",seniorList.get(position).user_address);
+					//manageinfo.putExtra("senior_tel",seniorList.get(position).user_tel);
 					startActivity(manageinfo);
 				}
 			});

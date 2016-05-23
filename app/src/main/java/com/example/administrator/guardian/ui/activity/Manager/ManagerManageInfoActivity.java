@@ -3,36 +3,26 @@ package com.example.administrator.guardian.ui.activity.Manager;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.administrator.guardian.R;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
-
-import org.w3c.dom.Text;
 
 @SuppressLint("ValidFragment")
 public class ManagerManageInfoActivity extends Fragment {
 
     Context mContext;
-    String seniorName;
-    int seniorAge;
-    String seniorGender;
-    String seniorAddress;
-    String seniorNumber;
+    String senior_id;
+    String senior_name;
+    String senior_birthdate;
+    String senior_gender;
+    String senior_address;
+    String senior_tel;
 
     TextView TextseniorNameAgeGender;
     TextView TextseniorAddress;
@@ -41,13 +31,9 @@ public class ManagerManageInfoActivity extends Fragment {
     private GoogleMap mMap;
     MapView mapView;
 
-    public ManagerManageInfoActivity(Context context, String seniorName, int seniorAge, String seniorGender, String seniorAddress, String seniorNumber){
+    public ManagerManageInfoActivity(Context context, String senior_id){
         mContext=context;
-        this.seniorName=seniorName;
-        this.seniorAge=seniorAge;
-        this.seniorGender=seniorGender;
-        this.seniorAddress=seniorAddress;
-        this.seniorNumber=seniorNumber;
+        this.senior_id = senior_id;
     }
 
     @Override
@@ -59,13 +45,12 @@ public class ManagerManageInfoActivity extends Fragment {
         TextseniorAddress = (TextView)view.findViewById(R.id.TextseniorAddress);
         TextseniorNumber = (TextView)view.findViewById(R.id.TextseniorNumber);
 
-        TextseniorNameAgeGender.setText(seniorName+"("+seniorAge+","+seniorGender+")");
-        TextseniorNumber.setText("전화번호 : "+seniorNumber);
-        TextseniorAddress.setText("주소 : "+seniorAddress);
+        TextseniorNameAgeGender.setText(senior_id);
 
-        mapView = (MapView)view.findViewById(R.id.vfod_map);
-        mapView.onCreate(new Bundle());
-        mapView.onResume();
+        //mapView = (MapView)view.findViewById(R.id.vfod_map);
+        //mapView.onCreate(new Bundle());
+        //mapView.onResume();
+        /*
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap googleMap) {
@@ -82,7 +67,7 @@ public class ManagerManageInfoActivity extends Fragment {
                 mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
             }
         });
-
+        */
 
         return view;
     }
