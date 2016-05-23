@@ -39,13 +39,8 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5ca898f-45c0-40d8-a108-e5e2ffd4f24d" name="Default" comment="add image files">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="d5ca898f-45c0-40d8-a108-e5e2ffd4f24d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Manager/ManagerMainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Manager/ManagerMainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
     </list>
     <ignored path="Guardian.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -125,19 +120,19 @@
             <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Login/LoginActivity.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="184" column="63" selection-start-line="184" selection-start-column="63" selection-end-line="184" selection-end-column="65" />
+                  <caret line="172" column="63" selection-start-line="172" selection-start-column="63" selection-end-line="172" selection-end-column="65" />
                   <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#2414#3376#0" expanded="true" />
-                    <element signature="e#3375#3376#0" expanded="true" />
-                    <element signature="e#3478#3740#0" expanded="true" />
-                    <element signature="e#3739#3740#0" expanded="true" />
-                    <element signature="e#3821#4071#0" expanded="true" />
-                    <element signature="e#4070#4071#0" expanded="true" />
-                    <element signature="e#4152#4401#0" expanded="true" />
-                    <element signature="e#4400#4401#0" expanded="true" />
-                    <element signature="e#4481#4728#0" expanded="true" />
-                    <element signature="e#4727#4728#0" expanded="true" />
+                    <element signature="e#1878#2840#0" expanded="true" />
+                    <element signature="e#2839#2840#0" expanded="true" />
+                    <element signature="e#2942#3204#0" expanded="true" />
+                    <element signature="e#3203#3204#0" expanded="true" />
+                    <element signature="e#3285#3535#0" expanded="true" />
+                    <element signature="e#3534#3535#0" expanded="true" />
+                    <element signature="e#3616#3865#0" expanded="true" />
+                    <element signature="e#3864#3865#0" expanded="true" />
+                    <element signature="e#3945#4192#0" expanded="true" />
+                    <element signature="e#4191#4192#0" expanded="true" />
+                    <marker date="1464003341464" expanded="true" signature="70:1091" placeholder="..." />
                   </folding>
                 </state>
               </provider>
@@ -146,9 +141,20 @@
           <file leaf-file-name="ManagerMainActivity.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Manager/ManagerMainActivity.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.584392">
-                  <caret line="48" column="28" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
-                  <folding />
+                <state vertical-scroll-proportion="0.34447005">
+                  <caret line="44" column="37" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
+                  <folding>
+                    <element signature="e#4714#4715#0" expanded="true" />
+                    <element signature="e#4747#4748#0" expanded="true" />
+                    <element signature="e#4798#4799#0" expanded="true" />
+                    <element signature="e#4838#4839#0" expanded="true" />
+                    <element signature="e#4889#4890#0" expanded="true" />
+                    <element signature="e#4913#4914#0" expanded="true" />
+                    <element signature="e#5908#6605#0" expanded="true" />
+                    <element signature="e#6604#6605#0" expanded="true" />
+                    <element signature="e#6651#6995#0" expanded="true" />
+                    <element signature="e#6994#6995#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -161,7 +167,7 @@
             <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Manager/ManagerMainActivity.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="63" column="23" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
+                  <caret line="79" column="20" selection-start-line="79" selection-start-column="20" selection-end-line="79" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
@@ -171,7 +177,7 @@
             <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="-12.9375">
-                  <caret line="52" column="57" selection-start-line="52" selection-start-column="57" selection-end-line="52" selection-end-column="57" />
+                  <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
                   <folding>
                     <element signature="e#2224#2253#0" expanded="true" />
                   </folding>
@@ -182,8 +188,8 @@
           <file leaf-file-name="styles.xml" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.28105906">
-                  <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.22772278">
+                  <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
                   <folding />
                 </state>
               </provider>
@@ -2490,25 +2496,15 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/gradle.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/app/app.iml</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/AndroidManifest.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/datamodel/VolunteerConfirmRecyclerItem.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Login/LoginActivity.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Manager/ManagerMainActivity.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Manager/ManagerManageInfoActivity.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Manager/ManagerManagePulseInfoActivity.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Manager/ManagerSeniorInfoTabActivity.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Senior/SeniorFragmentThreeActivity.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Senior/SeniorFragmentTwoActivity.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Volunteer/VolunteerFragmentOneActivity.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Volunteer/VolunteerFragmentTwoActivity.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/adapter/SeniorRecyclerViewAdapter.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/adapter/VolunteerConfirmViewAdapter.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/adapter/VolunteerRequestViewAdapter.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/utils/ConnectServer.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/res/layout/activity_manager_manage_info.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Senior/SeniorFragmentFourActivity.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/res/layout/activity_manager_manage_pulse_info.xml</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/res/layout/unit_senior_to_manage.xml</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
@@ -2517,25 +2513,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/datamodel/SeniorScheduleRecyclerItem.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Manager/ManagerManagePulseInfoActivity.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Senior/SeniorFragmentThreeScheduleAcceptDialog.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Senior/SeniorFragmentThreeScheduleActivity.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Senior/SeniorFragmentThreeScheduleFinishDialog.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Senior/SeniorFragmentTwoDialog.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Volunteer/VolunteerFragmentOneDialog.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Volunteer/VolunteerFragmentTwoAcceptDialog.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Volunteer/VolunteerFragmentTwoFinishDialog.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/adapter/SeniorScheduleRecyclerViewAdapter.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/res/drawable/awardbackground.PNG</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/res/layout/activity_manager_manage_pulse_info.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/res/layout/activity_senior_fragment_three_schedule.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/res/layout/activity_senior_fragment_three_schedule_accept_dialog.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/res/layout/activity_senior_fragment_three_schedule_finish_dialog.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/res/layout/activity_volunteer_fragment_two_accept_dialog.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/res/layout/activity_volunteer_fragment_two_finish_dialog.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/res/layout/senior_schedule_cardview.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -2543,9 +2520,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Senior/SeniorFragmentTwoDialogActivity.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Volunteer/VolunteerFragmentOneDialogActivity.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/res/drawable/awardBackground.PNG</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -3009,7 +2983,13 @@
       <option name="project" value="LOCAL" />
       <updated>1463901042015</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="modfiy style because of black style&#10;">
+      <created>1464003295199</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1464003295199</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -3022,7 +3002,7 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3322185" sideWeight="0.5063966" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35340023" sideWeight="0.49573562" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35340023" sideWeight="0.49573562" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3322185" sideWeight="0.4936034" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -3071,7 +3051,8 @@
     <MESSAGE value="Implement Login connection with server" />
     <MESSAGE value="modify gitignore for covering workspace &amp; imi files" />
     <MESSAGE value="add image files" />
-    <option name="LAST_COMMIT_MESSAGE" value="add image files" />
+    <MESSAGE value="modfiy style because of black style&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="modfiy style because of black style&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -3451,19 +3432,19 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Login/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="184" column="63" selection-start-line="184" selection-start-column="63" selection-end-line="184" selection-end-column="65" />
+          <caret line="172" column="63" selection-start-line="172" selection-start-column="63" selection-end-line="172" selection-end-column="65" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2414#3376#0" expanded="true" />
-            <element signature="e#3375#3376#0" expanded="true" />
-            <element signature="e#3478#3740#0" expanded="true" />
-            <element signature="e#3739#3740#0" expanded="true" />
-            <element signature="e#3821#4071#0" expanded="true" />
-            <element signature="e#4070#4071#0" expanded="true" />
-            <element signature="e#4152#4401#0" expanded="true" />
-            <element signature="e#4400#4401#0" expanded="true" />
-            <element signature="e#4481#4728#0" expanded="true" />
-            <element signature="e#4727#4728#0" expanded="true" />
+            <element signature="e#1878#2840#0" expanded="true" />
+            <element signature="e#2839#2840#0" expanded="true" />
+            <element signature="e#2942#3204#0" expanded="true" />
+            <element signature="e#3203#3204#0" expanded="true" />
+            <element signature="e#3285#3535#0" expanded="true" />
+            <element signature="e#3534#3535#0" expanded="true" />
+            <element signature="e#3616#3865#0" expanded="true" />
+            <element signature="e#3864#3865#0" expanded="true" />
+            <element signature="e#3945#4192#0" expanded="true" />
+            <element signature="e#4191#4192#0" expanded="true" />
+            <marker date="1464003341464" expanded="true" signature="70:1091" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -3476,28 +3457,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Manager/ManagerMainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="23" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.9375">
-          <caret line="52" column="57" selection-start-line="52" selection-start-column="57" selection-end-line="52" selection-end-column="57" />
+          <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
           <folding>
             <element signature="e#2224#2253#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/administrator/guardian/ui/activity/Manager/ManagerMainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="79" column="20" selection-start-line="79" selection-start-column="20" selection-end-line="79" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28105906">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.22772278">
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
           <folding />
         </state>
       </provider>
