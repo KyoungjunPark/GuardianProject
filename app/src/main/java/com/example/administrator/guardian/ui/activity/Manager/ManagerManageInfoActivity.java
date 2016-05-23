@@ -20,6 +20,7 @@ public class ManagerManageInfoActivity extends Fragment {
     String senior_id;
     String senior_name;
     String senior_birthdate;
+    int senior_age;
     String senior_gender;
     String senior_address;
     String senior_tel;
@@ -31,9 +32,15 @@ public class ManagerManageInfoActivity extends Fragment {
     private GoogleMap mMap;
     MapView mapView;
 
-    public ManagerManageInfoActivity(Context context, String senior_id){
+    public ManagerManageInfoActivity(Context context, String senior_id, String senior_name, String senior_birthdate, String senior_gender, String senior_address, String senior_tel){
         mContext=context;
         this.senior_id = senior_id;
+        this.senior_name = senior_name;
+        this.senior_birthdate = senior_birthdate;
+        this.senior_age = (20179999 - Integer.parseInt(senior_birthdate))/10000;
+        this.senior_gender = senior_gender;
+        this.senior_address = senior_address;
+        this.senior_tel = senior_tel;
     }
 
     @Override
@@ -45,7 +52,7 @@ public class ManagerManageInfoActivity extends Fragment {
         TextseniorAddress = (TextView)view.findViewById(R.id.TextseniorAddress);
         TextseniorNumber = (TextView)view.findViewById(R.id.TextseniorNumber);
 
-        TextseniorNameAgeGender.setText(senior_id);
+        TextseniorNameAgeGender.setText(senior_name +" ("+senior_age+","+senior_gender+") ");
 
         //mapView = (MapView)view.findViewById(R.id.seniorAddressMap);
         //mapView.onCreate(new Bundle());

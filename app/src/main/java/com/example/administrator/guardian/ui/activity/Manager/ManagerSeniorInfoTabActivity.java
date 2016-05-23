@@ -20,6 +20,12 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
     static final int Num_Tab = 3;
 
     private String senior_id;
+    private String senior_name;
+    private String senior_birthdate;
+    private String senior_gender;
+    private String senior_address;
+    private String senior_tel;
+
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     /**
@@ -34,6 +40,11 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         senior_id = intent.getExtras().getString("senior_id");
+        senior_name = intent.getExtras().getString("senior_name");
+        senior_birthdate = intent.getExtras().getString("senior_birthdate");
+        senior_gender = intent.getExtras().getString("senior_gender");
+        senior_address = intent.getExtras().getString("senior_address");
+        senior_tel = intent.getExtras().getString("senior_tel");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.mstoolbar);
         setSupportActionBar(toolbar);
@@ -62,7 +73,7 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
 
             switch (position) {
                 case 0:
-                    return new ManagerManageInfoActivity(mContext,senior_id);
+                    return new ManagerManageInfoActivity(mContext,senior_id, senior_name, senior_birthdate, senior_gender, senior_address, senior_tel);
                 case 1:
                     return new ManagerManagePulseInfoActivity(mContext);
                 case 2:
