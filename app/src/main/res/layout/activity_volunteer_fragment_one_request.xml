@@ -152,13 +152,13 @@
 
         <Button android:layout_height="wrap_content"
             android:layout_width="150dp"
-            android:text="확인"
+            android:background="@drawable/confirmbutton"
             android:id="@+id/vfor_left"
             android:textSize="15dp" />
 
         <Button android:layout_height="wrap_content"
             android:layout_width="150dp"
-            android:text="봉사신청"
+            android:background="@drawable/requestbutton"
             android:id="@+id/vfor_right"
             android:textSize="15dp" />
 

@@ -114,7 +114,7 @@
 
             <Button android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:text="확인"
+                android:background="@drawable/longconfirmbutton"
                 android:id="@+id/vftdf_button"
                 android:textSize="15dp" />
 

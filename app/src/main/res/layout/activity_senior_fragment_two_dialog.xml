@@ -68,13 +68,13 @@
 
             <Button android:layout_height="wrap_content"
                 android:layout_width="150dp"
-                android:text="확인"
+                android:background="@drawable/confirmbutton"
                 android:id="@+id/bt_left"
                 android:textSize="15dp" />
 
             <Button android:layout_height="wrap_content"
                 android:layout_width="150dp"
-                android:text="통화"
+                android:background="@drawable/callbutton"
                 android:id="@+id/bt_right"
                 android:textSize="15dp" />
 
