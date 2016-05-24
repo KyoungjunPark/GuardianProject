@@ -76,6 +76,7 @@ public class VolunteerFragmentOneRequestActivity extends AppCompatActivity imple
         //Set the current date & time
         v_year = Calendar.getInstance().get(Calendar.YEAR);
         v_month = Calendar.getInstance().get(Calendar.MONTH);
+        v_month+=1;
         v_day_of_month = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
         v_hour_of_day = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
         v_minute = Calendar.getInstance().get(Calendar.MINUTE);
@@ -179,9 +180,9 @@ public class VolunteerFragmentOneRequestActivity extends AppCompatActivity imple
     private void setTime()
     {
         if(v_hour_of_day > 12) {
-            timeTextView.setText("오후" + (v_hour_of_day-12) + "시 " + v_minute + "분 ");
+            timeTextView.setText("오후 " + (v_hour_of_day-12) + "시 " + v_minute + "분 ");
         } else {
-            timeTextView.setText("오전" + v_hour_of_day + "시 " + v_minute + "분 ");
+            timeTextView.setText("오전 " + v_hour_of_day + "시 " + v_minute + "분 ");
         }
     }
 

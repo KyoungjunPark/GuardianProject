@@ -8,9 +8,11 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.datamodel.SeniorRecyclerItem;
@@ -27,12 +29,20 @@ public class SeniorFragmentThreeScheduleActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     List<SeniorScheduleRecyclerItem> items;
+    private Button sfts_back;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_senior_fragment_three_schedule);
 
+        sfts_back = (Button)findViewById(R.id.sfts_back);
+        sfts_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         recyclerView = (RecyclerView)findViewById(R.id.senior_schedule_recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
