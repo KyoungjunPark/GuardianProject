@@ -57,27 +57,27 @@
     </RelativeLayout>
 
     <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/pulseProgressBar"
-        android:layout_below="@+id/relativeLayout3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
-        android:max="110"
-        android:progress="100"
-        android:scrollIndicators="top"
-        android:indeterminate="false"
-        android:background="@drawable/progressbar"/>
+    style="?android:attr/progressBarStyleHorizontal"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:id="@+id/seniorpulseProgressBar"
+    android:layout_below="@+id/relativeLayout3"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="70dp"
+    android:max="110"
+    android:progress="110"
+    android:scrollIndicators="top"
+    android:indeterminate="false"
+    android:background="@drawable/progressbar"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="40"
-        android:id="@+id/minProgressBar"
-        android:layout_below="@+id/pulseProgressBar"
-        android:layout_alignLeft="@+id/pulseProgressBar"
-        android:layout_alignStart="@+id/pulseProgressBar"
+        android:id="@+id/textSMinpulse"
+        android:layout_below="@+id/seniorpulseProgressBar"
+        android:layout_alignLeft="@+id/seniorpulseProgressBar"
+        android:layout_alignStart="@+id/seniorpulseProgressBar"
         android:textColor="#7e7e7e"
         android:textSize="20dp" />
 
@@ -85,12 +85,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="150"
-        android:id="@+id/textView13"
+        android:id="@+id/textMaxpulse"
         android:textColor="#7e7e7e"
         android:textSize="20dp"
-        android:layout_below="@+id/pulseProgressBar"
-        android:layout_alignRight="@+id/pulseProgressBar"
-        android:layout_alignEnd="@+id/pulseProgressBar" />
+        android:layout_below="@+id/seniorpulseProgressBar"
+        android:layout_alignRight="@+id/seniorpulseProgressBar"
+        android:layout_alignEnd="@+id/seniorpulseProgressBar" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -99,7 +99,7 @@
         android:id="@+id/textView15"
         android:textColor="#7ab0e2"
         android:textSize="20dp"
-        android:layout_alignTop="@+id/minProgressBar"
+        android:layout_alignTop="@+id/textSMinpulse"
         android:layout_alignLeft="@+id/relativeLayout3"
         android:layout_alignStart="@+id/relativeLayout3" />
 
@@ -126,8 +126,8 @@
         android:lines="2"
         android:gravity="center_horizontal"
         android:layout_below="@+id/textView15"
-        android:layout_toRightOf="@+id/minProgressBar"
-        android:layout_toEndOf="@+id/minProgressBar"
+        android:layout_toRightOf="@+id/textSMinpulse"
+        android:layout_toEndOf="@+id/textSMinpulse"
         android:layout_marginLeft="10dp" />
 
 </RelativeLayout>

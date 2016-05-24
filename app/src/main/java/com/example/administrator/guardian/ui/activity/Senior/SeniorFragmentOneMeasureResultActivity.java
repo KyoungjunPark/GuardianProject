@@ -25,7 +25,7 @@ public class SeniorFragmentOneMeasureResultActivity extends AppCompatActivity {
             }
         });
 
-        pulseProgressBar = (ProgressBar)findViewById(R.id.pulseProgressBar);
+        pulseProgressBar = (ProgressBar)findViewById(R.id.seniorpulseProgressBar);
 
         //심박수 값이 들어가야함
         pulseProgressBar.setProgress(70);

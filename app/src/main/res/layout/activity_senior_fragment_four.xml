@@ -20,7 +20,174 @@
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/chart"
             android:layout_width="match_parent"
-            android:layout_height="300dp" />
+            android:layout_height="250dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/chart"
+            android:id="@+id/pulseAverageLayout"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="30dp">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:text="평균 심박수"
+                android:id="@+id/seniorPulseAverage"
+                android:textColor="#000000"
+                android:textSize="28dp"
+                android:background="@drawable/login_edittext"
+                android:layout_alignParentTop="true"
+                android:layout_alignLeft="@+id/seniorpulseProgressBar"
+                android:layout_alignStart="@+id/seniorpulseProgressBar" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/seniorpulseProgressBar"
+                android:max="110"
+                android:progress="110"
+                android:scrollIndicators="top"
+                android:indeterminate="false"
+                android:background="@drawable/progressbar"
+                android:layout_below="@+id/seniorPulseAverage"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/seniorpulseProgressBar"
+                android:layout_alignLeft="@+id/seniorpulseProgressBar"
+                android:layout_alignStart="@+id/seniorpulseProgressBar"
+                android:layout_alignRight="@+id/seniorpulseProgressBar"
+                android:layout_alignEnd="@+id/seniorpulseProgressBar"
+                android:id="@+id/relativeLayout4">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linearLayout5">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.15">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="40"
+                            android:id="@+id/textSMinpulse"
+                            android:layout_below="@+id/seniorpulseProgressBar"
+                            android:layout_alignLeft="@+id/seniorpulseProgressBar"
+                            android:layout_alignStart="@+id/seniorpulseProgressBar"
+                            android:textColor="#7e7e7e"
+                            android:textSize="20dp" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.06">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="61"
+                            android:id="@+id/textView15"
+                            android:textColor="#7ab0e2"
+                            android:textSize="20dp"
+                            android:layout_below="@+id/seniorpulseProgressBar"
+                            android:layout_toRightOf="@+id/textSMinpulse"
+                            android:layout_toEndOf="@+id/textSMinpulse" />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.8">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="76"
+                            android:id="@+id/textView16"
+                            android:textColor="#7ab0e2"
+                            android:textSize="20dp"
+                            android:layout_below="@+id/seniorpulseProgressBar"
+                            android:layout_toRightOf="@+id/textView15"
+                            android:layout_toEndOf="@+id/textView15" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="150"
+                            android:id="@+id/textSMaxpulse"
+                            android:textColor="#7e7e7e"
+                            android:textSize="20dp"
+                            android:layout_below="@+id/seniorpulseProgressBar"
+                            android:layout_alignRight="@+id/seniorpulseProgressBar"
+                            android:layout_alignEnd="@+id/seniorpulseProgressBar" />
+                    </FrameLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/linearLayout5">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.2"></FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.8"
+                        android:layout_gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="안정 시 심박수  평균 범위"
+                            android:id="@+id/explain"
+                            android:textSize="15dp"
+                            android:textColor="#7ab0e2"
+                            android:textStyle="bold"
+                            android:lines="2"
+                            android:gravity="center_horizontal"
+                            android:layout_below="@+id/linearLayout5"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"></FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"></FrameLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
 
     </RelativeLayout>
 </RelativeLayout>
