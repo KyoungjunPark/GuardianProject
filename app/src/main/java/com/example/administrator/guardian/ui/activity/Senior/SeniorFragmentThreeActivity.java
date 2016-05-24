@@ -116,7 +116,6 @@ public class SeniorFragmentThreeActivity extends Fragment implements TimePickerD
                             .setTitle("경고")
                             .setMessage("요청시간을 입력해주세요.")
                             .show();
-
                 }
             }
         });
@@ -131,7 +130,7 @@ public class SeniorFragmentThreeActivity extends Fragment implements TimePickerD
 
         //Set the current date & time
         year = Calendar.getInstance().get(Calendar.YEAR);
-        month = Calendar.getInstance().get(Calendar.MONTH);
+        month = Calendar.getInstance().get(Calendar.MONTH) + 1;
         day_of_month = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
         hour_of_day = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
         minute = Calendar.getInstance().get(Calendar.MINUTE);

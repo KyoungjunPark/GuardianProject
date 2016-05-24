@@ -111,91 +111,111 @@ public class JoinContentsActivity extends AppCompatActivity {
                 //finish();
 
                 //Send join data to server
-                ConnectServer.getInstance().setAsncTask(new AsyncTask<String, Void, Boolean>() {
-                    String login_id;
-                    String login_pw;
-                    String user_type;
-                    String user_name;
-                    String user_gender;
-                    String user_tel;
-                    String user_address;
-                    NumberFormat numformat;
+                if(isAllEntered()) {
+                    ConnectServer.getInstance().setAsncTask(new AsyncTask<String, Void, Boolean>() {
+                        String login_id;
+                        String login_pw;
+                        String user_type;
+                        String user_name;
+                        String user_gender;
+                        String user_tel;
+                        String user_address;
+                        NumberFormat numformat;
 
-                    @Override
-                    protected void onPreExecute() {
-                        //Collect the input data
-                        login_id = my_id.getText().toString();
-                        login_pw = my_pw.getText().toString();
-                        user_type = getIntent().getStringExtra("type");
-                        user_name = my_name.getText().toString();
-                        isMan = radioButton_man.isChecked();
-                        user_gender = isMan ? "남" : "여";
-                        user_tel = my_pn1.getText().toString() + my_pn2.getText().toString() + my_pn3.getText().toString();
+                        @Override
+                        protected void onPreExecute() {
+                            //Collect the input data
+                            login_id = my_id.getText().toString();
+                            login_pw = my_pw.getText().toString();
+                            user_type = getIntent().getStringExtra("type");
+                            user_name = my_name.getText().toString();
+                            isMan = radioButton_man.isChecked();
+                            user_gender = isMan ? "남" : "여";
+                            user_tel = my_pn1.getText().toString() + my_pn2.getText().toString() + my_pn3.getText().toString();
 
-                        numformat = NumberFormat.getIntegerInstance();
-                        numformat.setMinimumIntegerDigits(2);
+                            numformat = NumberFormat.getIntegerInstance();
+                            numformat.setMinimumIntegerDigits(2);
 
-                        user_address = address + detailedAddressEditText.getText().toString();
-                    }
-
-                    @Override
-                    protected Boolean doInBackground(String... params) {
-                        URL obj = null;
-                        try {
-                            obj = new URL(ConnectServer.getInstance().getURL("Sign_Up"));
-                            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-
-                            con.setDoOutput(true);
-
-                            //set Request parameter
-                            MakeUTF8Parameter parameterMaker = new MakeUTF8Parameter();
-                            parameterMaker.setParameter("login_id", login_id);
-                            parameterMaker.setParameter("login_pw", login_pw);
-                            parameterMaker.setParameter("user_type", user_type);
-                            parameterMaker.setParameter("user_name", user_name);
-                            parameterMaker.setParameter("user_birthdate", ""+birth_year+ numformat.format(birth_monthOfYear)+numformat.format(birth_dayOfMonth));
-                            parameterMaker.setParameter("user_gender", user_gender);
-                            parameterMaker.setParameter("user_address", user_address);
-                            parameterMaker.setParameter("user_tel", user_tel);
-                            parameterMaker.setParameter("latitude", latitude);
-                            parameterMaker.setParameter("longitude", longitude);
-
-                            OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
-                            wr.write(parameterMaker.getParameter());
-                            wr.flush();
-
-                            BufferedReader rd =null;
-
-                            if(con.getResponseCode() == JOIN_PERMITTED){
-                                //Sign up Success
-                                rd = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
-                                Log.d(TAG,"Sign up Success: " + rd.readLine());
-                                finish();
-                            } else {
-                                //Sign up Fail
-                                rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
-                                new LovelyInfoDialog(getApplicationContext())
-                                        .setTopColorRes(R.color.wallet_holo_blue_light)
-                                        .setIcon(R.mipmap.ic_not_interested_black_24dp)
-                                        //This will add Don't show again checkbox to the dialog. You can pass any ID as argument
-                                         .setTitle("경고")
-                                        .setMessage(rd.readLine())
-                                        .show();
-                                rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
-                                Log.d(TAG,"Sign up Fail: " + rd.readLine());
-                            }
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                            user_address = address + detailedAddressEditText.getText().toString();
                         }
-                        return null;
-                    }
-                });
-                ConnectServer.getInstance().execute();
 
+                        @Override
+                        protected Boolean doInBackground(String... params) {
+                            URL obj = null;
+                            try {
+                                obj = new URL(ConnectServer.getInstance().getURL("Sign_Up"));
+                                HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+                                con.setDoOutput(true);
+
+                                //set Request parameter
+                                MakeUTF8Parameter parameterMaker = new MakeUTF8Parameter();
+                                parameterMaker.setParameter("login_id", login_id);
+                                parameterMaker.setParameter("login_pw", login_pw);
+                                parameterMaker.setParameter("user_type", user_type);
+                                parameterMaker.setParameter("user_name", user_name);
+                                parameterMaker.setParameter("user_birthdate", "" + birth_year + numformat.format(birth_monthOfYear) + numformat.format(birth_dayOfMonth));
+                                parameterMaker.setParameter("user_gender", user_gender);
+                                parameterMaker.setParameter("user_address", user_address);
+                                parameterMaker.setParameter("user_tel", user_tel);
+                                parameterMaker.setParameter("latitude", latitude);
+                                parameterMaker.setParameter("longitude", longitude);
+
+                                OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
+                                wr.write(parameterMaker.getParameter());
+                                wr.flush();
+
+                                BufferedReader rd = null;
+
+                                if (con.getResponseCode() == JOIN_PERMITTED) {
+                                    //Sign up Success
+                                    rd = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
+                                    Log.d(TAG, "Sign up Success: " + rd.readLine());
+                                    finish();
+                                } else {
+                                    //Sign up Fail
+                                    rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
+                                    new LovelyInfoDialog(getApplicationContext())
+                                            .setTopColorRes(R.color.wallet_holo_blue_light)
+                                            .setIcon(R.mipmap.ic_not_interested_black_24dp)
+                                            //This will add Don't show again checkbox to the dialog. You can pass any ID as argument
+                                            .setTitle("경고")
+                                            .setMessage(rd.readLine())
+                                            .show();
+                                    rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
+                                    Log.d(TAG, "Sign up Fail: " + rd.readLine());
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            return null;
+                        }
+                    });
+                    ConnectServer.getInstance().execute();
+                } else{
+                    //When All input is not entered
+                    new LovelyInfoDialog(getApplicationContext())
+                            .setTopColorRes(R.color.wallet_holo_blue_light)
+                            .setIcon(R.mipmap.ic_not_interested_black_24dp)
+                            //This will add Don't show again checkbox to the dialog. You can pass any ID as argument
+                            .setTitle("경고")
+                            .setMessage("내용들을 모두 입력해주세요.")
+                            .show();
+                }
             }
         });
     }
-
+    private boolean isAllEntered()
+    {
+        if(!my_id.getText().toString().equals("") && !my_name.getText().toString().equals("")
+                && !my_pw.getText().toString().equals("") && !my_pn1.getText().toString().equals("")
+                && !my_pn2.getText().toString().equals("") && !my_pn3.getText().toString().equals("")
+                && (radioButton_man.isChecked() || radioButton_woman.isChecked())
+                && !detailedAddressEditText.getText().toString().equals("")){
+            return true;
+        }
+        return false;
+    }
     private void DialogDatePicker(){
         DatePickerDialog.OnDateSetListener mDateSetListener =
                 new DatePickerDialog.OnDateSetListener() {
