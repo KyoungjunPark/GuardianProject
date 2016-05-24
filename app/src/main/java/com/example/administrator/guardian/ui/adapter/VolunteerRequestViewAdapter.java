@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.datamodel.VolunteerRequestRecyclerItem;
-import com.example.administrator.guardian.ui.activity.Volunteer.VolunteerFragmentOneDialog;
 import com.example.administrator.guardian.ui.activity.Volunteer.VolunteerFragmentOneRequestActivity;
 
 import java.util.List;
