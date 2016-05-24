@@ -4,24 +4,31 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
+import com.yarolegovich.lovelydialog.LovelyInfoDialog;
 import com.yarolegovich.lovelydialog.LovelyStandardDialog;
 
 import java.util.Calendar;
 
+import info.hoang8f.android.segmented.SegmentedGroup;
+
 @SuppressLint("ValidFragment")
 public class SeniorFragmentThreeActivity extends Fragment implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener{
+    private static final String TAG = "FragmentThreeActivity";
 
     private View view;
     private Button dateButton;
@@ -35,6 +42,10 @@ public class SeniorFragmentThreeActivity extends Fragment implements TimePickerD
     private int day_of_month;
     private int hour_of_day;
     private int minute;
+
+    private RadioButton radioButton01;
+    private RadioButton radioButton02;
+    private RadioButton radioButton03;
 
     Context mContext;
 
@@ -51,45 +62,62 @@ public class SeniorFragmentThreeActivity extends Fragment implements TimePickerD
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.activity_senior_fragment_three, null);
 
-
         dateButton = (Button) view.findViewById(R.id.dateTextView);
         timeButton = (Button) view.findViewById(R.id.timeTextView);
         requestButton = (Button) view.findViewById(R.id.requestButton);
         scheduleButton = (Button) view.findViewById(R.id.scheduleButton);
         infoEditText = (EditText) view.findViewById(R.id.infoEditText);
+        radioButton01 = (RadioButton) view.findViewById(R.id.radioButton01);
+        radioButton02 = (RadioButton) view.findViewById(R.id.radioButton02);
+        radioButton03 = (RadioButton) view.findViewById(R.id.radioButton03);
 
         //Set the ClickListener
         requestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String info_message;
-                if(hour_of_day > 12) {
-                    info_message = "일시 : " + year+"년 " + month +"월 " + day_of_month + "일 " + "오후" + (hour_of_day-12) + "시 " + minute + "분 "
-                            +"\n" + "내용 : " + infoEditText.getText().toString();
-                } else {
-                    info_message = "일시 : " + year+"년 " + month +"월 " + day_of_month + "일 " + "오전" + hour_of_day + "시 " + minute + "분 "
-                            +"\n" + "내용 : " + infoEditText.getText().toString();
-                }
+                if (isAllEntered()) {
+                    if (hour_of_day > 12) {
+                        info_message = "일시 : " + year + "년 " + month + "월 " + day_of_month + "일 " + "오후" + (hour_of_day - 12) + "시 " + minute + "분 "
+                                + "\n" + "요청시간 : " + (radioButton01.isChecked() ? "60분" : radioButton02.isChecked() ? "120분" : "180분")
+                                + "\n" + "내용 : " + infoEditText.getText().toString();
+                    } else {
+                        info_message = "일시 : " + year + "년 " + month + "월 " + day_of_month + "일 " + "오전" + hour_of_day + "시 " + minute + "분 "
+                                + "\n" + "요청시간 : " + (radioButton01.isChecked() ? "60분" : radioButton02.isChecked() ? "120분" : "180분")
+                                + "\n" + "내용 : " + infoEditText.getText().toString();
+                    }
 
-                new LovelyStandardDialog(getActivity())
-                        .setTopColorRes(R.color.mdtp_light_gray)
-                        .setButtonsColorRes(R.color.mdtp_transparent_black)
-                        .setIcon(R.mipmap.ic_playlist_add_check_black_24dp)
-                        .setTitle(R.string.info_title)
-                        .setMessage(info_message)
-                        .setPositiveButton(android.R.string.ok, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                //When OK button Clicked
-                            }
-                        })
-                        .setNegativeButton(android.R.string.no, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                //When NO button Clicked
-                            }
-                        })
-                        .show();
+                    new LovelyStandardDialog(getActivity())
+                            .setTopColorRes(R.color.mdtp_light_gray)
+                            .setButtonsColorRes(R.color.mdtp_transparent_black)
+                            .setIcon(R.mipmap.ic_playlist_add_check_black_24dp)
+                            .setTitle(R.string.info_title)
+                            .setMessage(info_message)
+                            .setPositiveButton(android.R.string.ok, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    //When OK button Clicked
+                                }
+                            })
+                            .setNegativeButton(android.R.string.no, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    //When NO button Clicked
+                                    //Do nothing
+                                }
+                            })
+                            .show();
+                } else {
+                    //When All input is not entered
+                    new LovelyInfoDialog(getActivity())
+                            .setTopColorRes(R.color.wallet_holo_blue_light)
+                            .setIcon(R.mipmap.ic_not_interested_black_24dp)
+                            //This will add Don't show again checkbox to the dialog. You can pass any ID as argument
+                            .setTitle("경고")
+                            .setMessage("요청시간을 입력해주세요.")
+                            .show();
+
+                }
             }
         });
 
@@ -141,10 +169,17 @@ public class SeniorFragmentThreeActivity extends Fragment implements TimePickerD
 
         return view;
     }
+    private boolean isAllEntered()
+    {
+        if(radioButton01.isChecked() || radioButton02.isChecked() || radioButton03.isChecked()){
+            return true;
+        }
+        return false;
+    }
     @Override
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
         this.year = year;
-        this.month = monthOfYear;
+        this.month = monthOfYear+1;
         this.day_of_month = dayOfMonth;
         dateButton.setText(year+"년 " + month +"월 " + day_of_month + "일 ");
     }

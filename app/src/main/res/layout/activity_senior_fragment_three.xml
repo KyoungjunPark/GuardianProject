@@ -32,9 +32,12 @@
                     android:layout_height="wrap_content"
                     android:text="날짜"
                     android:id="@+id/textViewDate"
-                    android:padding="10dp"
                     android:textColor="#000000"
-                    android:textSize="20sp" />
+                    android:textSize="15sp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_gravity="left|center"
+                    android:layout_marginRight="15dp" />
 
                 <Button
                     android:layout_width="match_parent"
@@ -57,11 +60,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="시간"
+                    android:text="시작시간"
                     android:id="@+id/textViewTime"
-                    android:padding="10dp"
                     android:textColor="#000000"
-                    android:textSize="20sp" />
+                    android:textSize="15sp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_gravity="left|center"
+                    android:layout_marginRight="15dp" />
 
 
                 <Button
@@ -79,15 +85,69 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="요청시간"
+                    android:id="@+id/textView14"
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_gravity="left|center"
+                    android:layout_marginRight="15dp" />
+
+                <info.hoang8f.android.segmented.SegmentedGroup
+                    xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/segmented2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal"
+                    segmentedgroup:sc_border_width="2dp"
+                    segmentedgroup:sc_corner_radius="10dp">
+
+                    <RadioButton
+                        android:id="@+id/radioButton01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="60분"
+                        style="@style/RadioButton"
+                        />
+                    <RadioButton
+                        android:id="@+id/radioButton02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="120분"
+                        style="@style/RadioButton"
+                        />
+                    <RadioButton
+                        android:id="@+id/radioButton03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="180분"
+                        style="@style/RadioButton"
+                        />
+                </info.hoang8f.android.segmented.SegmentedGroup>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="7dp"
                 android:layout_marginBottom="7dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="내용"
                     android:id="@+id/textViewInfo"
-                    android:padding="10dp"
                     android:textColor="#000000"
-                    android:textSize="20sp" />
+                    android:textSize="15sp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_gravity="left|center"
+                    android:layout_marginRight="15dp" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -96,7 +156,7 @@
                     android:hint="내용을 입력해주세요(12자 이내)"
                     android:inputType="textMultiLine"
                     android:scrollbars="vertical"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:scrollHorizontally="false"
                     android:singleLine="true"
                     android:maxLength="12"

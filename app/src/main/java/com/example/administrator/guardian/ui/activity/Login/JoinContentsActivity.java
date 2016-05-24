@@ -175,11 +175,10 @@ public class JoinContentsActivity extends AppCompatActivity {
                                 //Sign up Fail
                                 rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
                                 new LovelyInfoDialog(getApplicationContext())
-                                        .setTopColorRes(R.color.mdtp_red)
+                                        .setTopColorRes(R.color.wallet_holo_blue_light)
                                         .setIcon(R.mipmap.ic_not_interested_black_24dp)
                                         //This will add Don't show again checkbox to the dialog. You can pass any ID as argument
-                                        .setNotShowAgainOptionEnabled(0)
-                                        .setTitle("경고")
+                                         .setTitle("경고")
                                         .setMessage(rd.readLine())
                                         .show();
                                 rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
