@@ -2,6 +2,7 @@ package com.example.administrator.guardian.ui.adapter;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.datamodel.VolunteerRequestRecyclerItem;
 import com.example.administrator.guardian.ui.activity.Volunteer.VolunteerFragmentOneDialog;
+import com.example.administrator.guardian.ui.activity.Volunteer.VolunteerFragmentOneRequestActivity;
 
 import java.util.List;
 
@@ -24,7 +26,7 @@ public class VolunteerRequestViewAdapter extends RecyclerView.Adapter<VolunteerR
     Context context;
     List<VolunteerRequestRecyclerItem> items;
     int item_layout;
-    private VolunteerFragmentOneDialog mCustomDialog;
+
 
     public VolunteerRequestViewAdapter(Context context, List<VolunteerRequestRecyclerItem> items, int item_layout) {
         this.context=context;
@@ -54,8 +56,13 @@ public class VolunteerRequestViewAdapter extends RecyclerView.Adapter<VolunteerR
         holder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mCustomDialog = new VolunteerFragmentOneDialog(context, item.getName(), item.getAge(), item.getGender(), item.getAddress());
-                mCustomDialog.show();
+
+                Intent volunteerRequest = new Intent(context, VolunteerFragmentOneRequestActivity.class);
+                volunteerRequest.putExtra("name",item.getName());
+                volunteerRequest.putExtra("age",item.getAge());
+                volunteerRequest.putExtra("gender",item.getGender());
+                volunteerRequest.putExtra("address",item.getAddress());
+                context.startActivity(volunteerRequest);
             }
         });
     }
