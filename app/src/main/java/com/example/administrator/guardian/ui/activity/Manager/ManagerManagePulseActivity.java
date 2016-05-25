@@ -42,9 +42,9 @@ public class ManagerManagePulseActivity extends Fragment {
         editSeriousPulse=(EditText)view.findViewById(R.id.editSeriousPulse);
         editMinSeriousPulse=(EditText)view.findViewById(R.id.editMinSeriousPulse);
 
-        max=Integer.parseInt(editMaxSeriousPulse.getText().toString());
-        middle=Integer.parseInt(editSeriousPulse.getText().toString());
-        min=Integer.parseInt(editMinSeriousPulse.getText().toString());
+        //max=Integer.parseInt(editMaxSeriousPulse.getText().toString());
+        //middle=Integer.parseInt(editSeriousPulse.getText().toString());
+        //min=Integer.parseInt(editMinSeriousPulse.getText().toString());
 
         
         return view;

@@ -22,16 +22,21 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_senior_fragment_four">senior_fragment_four</string>
     <string name="title_activity_test">test</string>
+
     <string name="title_section1">심박측정</string>
     <string name="title_section2">주변독거노인</string>
     <string name="title_section3">자원봉사자  방문요청</string>
     <string name="title_section4">그래프</string>
+
     <string name="v_title_section1">봉사신청</string>
     <string name="v_title_section2">봉사예정</string>
     <string name="v_title_section3">봉사내역</string>
     <string name="v_title_section4">봉사시간</string>
+
     <string name="mstitle_section1">노인정보</string>
-    <string name="mstitle_section2">심박조절</string>
+    <string name="mstitle_section2">노인활동량</string>
+    <string name="mstitle_section3">심박그래프</string>
+    <string name="mstitle_section4">심박조절</string>
 
 
     <string name="title_activity_volunteer_main">Volunteer</string>

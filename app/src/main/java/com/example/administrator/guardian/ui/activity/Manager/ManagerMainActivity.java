@@ -46,9 +46,15 @@ public class ManagerMainActivity extends AppCompatActivity{
 		setSupportActionBar(toolbar);
 
 		lv = (ListView)findViewById(R.id.senior_list_view);
-		getInfoFromServer();
+		//getInfoFromServer();
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		list.add(new Senior("1","이원세","19941222","남","서울시","01088888888"));
+		SeniorAdapter adpt = new SeniorAdapter(ManagerMainActivity.this, R.layout.unit_senior_to_manage, list);
+		lv.setAdapter(adpt);
+
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	}
-	public void getInfoFromServer(){
+	/*public void getInfoFromServer(){
 		ConnectServer.getInstance().setAsncTask(new AsyncTask<String, Void, Boolean>() {
 
 
@@ -113,7 +119,7 @@ public class ManagerMainActivity extends AppCompatActivity{
 
 		});
 		ConnectServer.getInstance().execute();
-	}
+	}*/
 
 	// Senior Object Def
 	class Senior{
@@ -174,6 +180,7 @@ public class ManagerMainActivity extends AppCompatActivity{
 			tv_name.setText(seniorList.get(position).user_name);
 			tv_birthdate.setText(seniorList.get(position).user_birthdate);
 			tv_gender.setText(seniorList.get(position).user_gender);
+
 
 
 			//-----------------test-----------------

@@ -17,7 +17,7 @@ import com.example.administrator.guardian.R;
 public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
 
 
-    static final int Num_Tab = 3;
+    static final int Num_Tab = 4;
 
     private String senior_id;
     private String senior_name;
@@ -75,8 +75,10 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
                 case 0:
                     return new ManagerManageInfoActivity(mContext,senior_id, senior_name, senior_birthdate, senior_gender, senior_address, senior_tel);
                 case 1:
-                    return new ManagerManagePulseInfoActivity(mContext);
+                    return new ManagerManageActiveActivity(mContext);
                 case 2:
+                    return new ManagerManagePulseInfoActivity(mContext);
+                case 3:
                     return new ManagerManagePulseActivity(mContext);
             }
             return null;
@@ -84,7 +86,7 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
+            // Show 4 total pages.
             return Num_Tab;
         }
 
@@ -95,9 +97,11 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
                 case 0:
                     return mContext.getString(R.string.mstitle_section1);
                 case 1:
-                    return "심박그래프";
-                case 2:
                     return mContext.getString(R.string.mstitle_section2);
+                case 2:
+                    return mContext.getString(R.string.mstitle_section3);
+                case 3:
+                    return mContext.getString(R.string.mstitle_section4);
             }
             return null;
         }
