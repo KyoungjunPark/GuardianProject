@@ -10,9 +10,9 @@
     tools:context=".ui.activity.Volunteer.VolunteerFragmentTwoFinishDialog">
 
     <LinearLayout android:orientation="vertical"
-        android:layout_height="340dip"
+        android:layout_height="wrap_content"
         android:layout_width="300dip"
-        android:background="#e6e6e7"
+        android:background="#ffffff"
         android:weightSum="1"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true">
@@ -38,7 +38,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="봉사날짜"
+                    android:text="봉사날짜 : "
                     android:id="@+id/vftdf_Date"
                     android:textSize="20dp"
                     android:textColor="#000000"
@@ -65,7 +65,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="봉사시간"
+                    android:text="봉사시간 : "
                     android:id="@+id/vftdf_Time"
                     android:textSize="20dp"
                     android:textColor="#000000"
@@ -82,27 +82,42 @@
                     android:layout_column="1"
                     android:textColor="#000000" />
             </TableRow>
-        </TableLayout>
 
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="내용       : "
+                android:id="@+id/textviewcontent"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/vftdf_content"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_column="1"
+                android:textColor="#000000" />
+        </TableRow>
+    </TableLayout>
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.95">
 
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="내용 : "
-                android:id="@+id/vftdf_content"
-                android:textSize="20dp"
-                android:textColor="#000000"
-                android:paddingLeft="10dp"
-                android:paddingBottom="5dp" />
-
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="150dp"
                 android:id="@+id/vftdf_signature" />
 
         </LinearLayout>
@@ -114,9 +129,10 @@
 
             <Button android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:background="@drawable/longconfirmbutton"
                 android:id="@+id/vftdf_button"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:text="확인"
+                android:background="#c5a3ec" />
 
         </LinearLayout>
 

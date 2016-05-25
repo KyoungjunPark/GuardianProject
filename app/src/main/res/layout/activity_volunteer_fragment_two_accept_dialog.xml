@@ -10,9 +10,9 @@
     tools:context=".ui.activity.Volunteer.VolunteerFragmentTwoAcceptDialog">
 
     <LinearLayout android:orientation="vertical"
-        android:layout_height="480dip"
+        android:layout_height="wrap_content"
         android:layout_width="300dip"
-        android:background="#e6e6e7"
+        android:background="#ffffff"
         android:weightSum="1"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true">
@@ -146,6 +146,10 @@
 
         </LinearLayout>
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"></FrameLayout>
+
         <LinearLayout android:orientation="horizontal"
             android:gravity="center"
             android:layout_height="wrap_content"
@@ -153,15 +157,17 @@
 
             <Button android:layout_height="wrap_content"
                 android:layout_width="150dp"
-                android:background="@drawable/okbutton"
                 android:id="@+id/vftda_left"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:text="수락"
+                android:background="#c5a3ec" />
 
             <Button android:layout_height="wrap_content"
                 android:layout_width="150dp"
-                android:background="@drawable/nobutton"
                 android:id="@+id/vftda_right"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:text="거절"
+                android:background="#e8e7e7" />
 
         </LinearLayout>
 

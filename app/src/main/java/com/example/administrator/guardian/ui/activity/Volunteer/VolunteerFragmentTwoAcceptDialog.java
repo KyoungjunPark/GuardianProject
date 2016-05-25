@@ -70,7 +70,7 @@ public class VolunteerFragmentTwoAcceptDialog extends Dialog {
 
         WindowManager.LayoutParams lpWindow = new WindowManager.LayoutParams();
         lpWindow.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
-        lpWindow.dimAmount = 0.35f;
+        lpWindow.dimAmount = 0.1f;
         getWindow().setAttributes(lpWindow);
 
         setContentView(R.layout.activity_volunteer_fragment_two_accept_dialog);

@@ -55,7 +55,7 @@ public class VolunteerFragmentTwoFinishDialog extends Dialog {
 
         WindowManager.LayoutParams lpWindow = new WindowManager.LayoutParams();
         lpWindow.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
-        lpWindow.dimAmount = 0.35f;
+        lpWindow.dimAmount = 0.8f;
         getWindow().setAttributes(lpWindow);
 
         setContentView(R.layout.activity_volunteer_fragment_two_finish_dialog);
@@ -91,7 +91,7 @@ public class VolunteerFragmentTwoFinishDialog extends Dialog {
 
         vftdf_vDate.setText(year+"년 "+ month+"월 "+day+"일 ");
         vftdf_vTime.setText(startHour+":"+startMinute+" ~ "+finishHour+":"+finishMinute);
-        vftdf_Contents.setText("내용 : "+contents);
+        vftdf_Contents.setText(contents);
     }
 
     /*

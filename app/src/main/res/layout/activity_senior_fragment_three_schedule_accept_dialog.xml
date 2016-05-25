@@ -10,7 +10,7 @@
     tools:context=".ui.activity.Senior.SeniorFragmentThreeScheduleAcceptDialog">
 
     <LinearLayout android:orientation="vertical"
-        android:layout_height="270dip"
+        android:layout_height="wrap_content"
         android:layout_width="300dip"
         android:background="#ffffff"
         android:weightSum="1"
@@ -87,7 +87,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:layout_weight="0.95">
 
             <TextView
@@ -115,21 +115,35 @@
         </LinearLayout>
 
         <LinearLayout android:orientation="horizontal"
-            android:gravity="center"
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent">
+            android:layout_width="match_parent"
+            android:gravity="bottom">
 
-            <Button android:layout_height="wrap_content"
-                android:layout_width="150dp"
-                android:background="@drawable/okbutton"
-                android:id="@+id/sftsa_left"
-                android:textSize="15dp" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
-            <Button android:layout_height="wrap_content"
-                android:background="@drawable/nobutton"
-                android:layout_width="150dp"
-                android:id="@+id/sftsa_right"
-                android:textSize="15dp" />
+                <Button android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:id="@+id/sftsa_left"
+                    android:textSize="15dp"
+                    android:text="수락"
+                    android:background="#c5a3ec" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:id="@+id/sftsa_right"
+                    android:textSize="15dp"
+                    android:text="거절"
+                    android:background="#e8e7e7" />
+            </FrameLayout>
 
         </LinearLayout>
 

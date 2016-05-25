@@ -10,9 +10,9 @@
     tools:context=".ui.activity.Senior.SeniorFragmentThreeScheduleFinishDialog">
 
     <LinearLayout android:orientation="vertical"
-        android:layout_height="340dip"
+        android:layout_height="wrap_content"
         android:layout_width="300dip"
-        android:background="#e6e6e7"
+        android:background="#ffffff"
         android:weightSum="1"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true">
@@ -24,11 +24,13 @@
             android:textSize="25dp"
             android:text="박경준"
             android:id="@+id/sftsf_name"
-            android:paddingTop="10dp" />
+            android:paddingTop="10dp"
+            android:background="#ffffff" />
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#ffffff">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -88,7 +90,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.95">
+            android:background="#ffffff">
 
             <TextView
                 android:layout_width="fill_parent"
@@ -102,16 +104,23 @@
 
         </LinearLayout>
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_gravity="center_horizontal"></FrameLayout>
+
         <LinearLayout android:orientation="horizontal"
             android:gravity="center"
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent">
+            android:layout_width="fill_parent"
+            android:background="#ffffff">
 
             <Button android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:background="@drawable/longconfirmbutton"
                 android:id="@+id/sftsf_button"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:text="확인"
+                android:background="#c5a3ec" />
 
         </LinearLayout>
 

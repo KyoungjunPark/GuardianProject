@@ -50,7 +50,7 @@ public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
 
         WindowManager.LayoutParams lpWindow = new WindowManager.LayoutParams();
         lpWindow.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
-        lpWindow.dimAmount = 0.35f;
+        lpWindow.dimAmount = 0.8f;
         getWindow().setAttributes(lpWindow);
 
         setContentView(R.layout.activity_senior_fragment_three_schedule_finish_dialog);
