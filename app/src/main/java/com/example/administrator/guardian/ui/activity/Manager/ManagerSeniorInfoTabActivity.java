@@ -29,7 +29,7 @@ import java.net.URL;
 
 @SuppressWarnings("deprecation")
 public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
-
+    private static final String TAG = "ManagerTabActivity";
     static final int Num_Tab = 4;
 
     private String senior_id;
@@ -43,6 +43,8 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
     private int high_zone_2;
     private int high_zone_1;
     private int low_zone_1;
+
+    private TabLayout tabLayout;
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
@@ -66,17 +68,6 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
 
         getSeniorInfo();
 
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getApplicationContext(), getSupportFragmentManager());
-
-        // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.mscontainer);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.mstabs);
-        tabLayout.setupWithViewPager(mViewPager);
 
     }
 
@@ -93,7 +84,6 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
 
             switch (position) {
                 case 0:
-                    Log.d("ktk-getItem", senior_name + "/"+ senior_birthdate);
                     return new ManagerManageInfoActivity(mContext,senior_id, senior_name, senior_birthdate, senior_gender, senior_address, senior_tel, latitude, longitude);
                 case 1:
                     return new ManagerManageActiveActivity(mContext, senior_id);
@@ -132,9 +122,18 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
         ConnectServer.getInstance().setAsncTask(new AsyncTask<String, Void, Boolean>() {
             @Override
             protected void onPreExecute() {
+                mViewPager = (ViewPager) findViewById(R.id.mscontainer);
+                tabLayout = (TabLayout) findViewById(R.id.mstabs);
             }
             protected void onPostExecute(Boolean params) {
-                super.onPostExecute(null);
+                // Create the adapter that will return a fragment for each of the three
+                // primary sections of the activity.
+
+                mSectionsPagerAdapter = new SectionsPagerAdapter(getApplicationContext(), getSupportFragmentManager());
+
+                // Set up the ViewPager with the sections adapter.
+                mViewPager.setAdapter(mSectionsPagerAdapter);
+                tabLayout.setupWithViewPager(mViewPager);
             }
             @Override
             protected Boolean doInBackground(String... params) {
@@ -149,7 +148,6 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
                     MakeUTF8Parameter parameterMaker = new MakeUTF8Parameter();
                     parameterMaker.setParameter("senior_id", senior_id);
 
-                    Log.d("ktk", parameterMaker.getParameter());
                     OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
                     wr.write(parameterMaker.getParameter());
                     wr.flush();
@@ -160,7 +158,7 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
                         //Sign up Success
                         rd = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
                         String resultValues = rd.readLine();
-
+                        Log.d(TAG,"Connect Success: " + resultValues);
                         JSONObject object = new JSONObject(resultValues);
                         JSONObject dataObj = (JSONObject)object.get("data");
 
@@ -177,7 +175,7 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
                     } else {
                         //Sign up Fail
                         rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
-                        Log.d("ManagerTab","fail");
+                        Log.d("ManagerTab","fail/" + senior_id);
                     }
 
                 } catch (IOException | JSONException e) {

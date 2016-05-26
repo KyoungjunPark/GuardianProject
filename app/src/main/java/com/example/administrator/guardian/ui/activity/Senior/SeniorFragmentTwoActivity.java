@@ -110,7 +110,12 @@ public class SeniorFragmentTwoActivity extends Fragment {
                             String user_address= (String)dataArray.getJSONObject(i).get("user_address");
                             String user_tel= (String)dataArray.getJSONObject(i).get("user_tel");
                             String user_birthdate= (String)dataArray.getJSONObject(i).get("user_birthdate");
-                            Double distance = (Double)dataArray.getJSONObject(i).get("distance");
+                            Double distance;
+                            try {
+                                distance = (Double) dataArray.getJSONObject(i).get("distance");
+                            } catch(Exception e){
+                                distance = 0.0;
+                            }
                             int user_age = (20179999 - Integer.parseInt(user_birthdate))/10000;
 
                             // login_id, user_name, user_birthdate, user_age, user_gender, user_address, user_tel
