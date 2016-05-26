@@ -29,6 +29,8 @@ public class ManagerManageInfoActivity extends Fragment {
     String senior_gender;
     String senior_address;
     String senior_tel;
+    String latitude;
+    String longitude;
 
     TextView TextseniorNameAgeGender;
     TextView TextseniorAddress;
@@ -37,7 +39,7 @@ public class ManagerManageInfoActivity extends Fragment {
     private GoogleMap mMap;
     MapView mapView;
 
-    public ManagerManageInfoActivity(Context context, String senior_id, String senior_name, String senior_birthdate, String senior_gender, String senior_address, String senior_tel){
+    public ManagerManageInfoActivity(Context context, String senior_id, String senior_name, String senior_birthdate, String senior_gender, String senior_address, String senior_tel, String latitude, String longitude){
         mContext=context;
         this.senior_id = senior_id;
         this.senior_name = senior_name;
@@ -46,6 +48,8 @@ public class ManagerManageInfoActivity extends Fragment {
         this.senior_gender = senior_gender;
         this.senior_address = senior_address;
         this.senior_tel = senior_tel;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     @Override
@@ -69,7 +73,7 @@ public class ManagerManageInfoActivity extends Fragment {
             public void onMapReady(GoogleMap googleMap) {
                 mMap = googleMap;
 
-                LatLng senior_home = new LatLng( 37.56, 126.97);
+                LatLng senior_home = new LatLng( Double.parseDouble(latitude), Double.parseDouble(longitude));
                 CameraPosition cameraPosition = new CameraPosition.Builder().target(senior_home).zoom(16).build();
                 mMap.moveCamera( CameraUpdateFactory.newLatLng(senior_home) );
                 MarkerOptions optFirst = new MarkerOptions();

@@ -1,7 +1,6 @@
 package com.example.administrator.guardian.ui.activity.Manager;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -23,11 +22,14 @@ import java.util.ArrayList;
 public class ManagerManagePulseInfoActivity extends Fragment {
 
     Context mContext;
+    String senior_id;
     private ProgressBar managerpulseProgressBar;
     private int pulseAverage;
 
-    public ManagerManagePulseInfoActivity(Context context){
-        mContext=context;
+    public ManagerManagePulseInfoActivity(Context context, String senior_id){
+
+        this.mContext = context;
+        this.senior_id = senior_id;
     }
 
 

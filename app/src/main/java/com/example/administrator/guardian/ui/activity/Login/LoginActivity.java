@@ -157,7 +157,7 @@ public class LoginActivity extends AppCompatActivity {
                     MakeUTF8Parameter parameterMaker = new MakeUTF8Parameter();
                     parameterMaker.setParameter("login_id", login_id);
                     parameterMaker.setParameter("login_pw", login_pw);
-
+                    Log.d("ktk", parameterMaker.getParameter());
                     OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
                     wr.write(parameterMaker.getParameter());
                     wr.flush();
