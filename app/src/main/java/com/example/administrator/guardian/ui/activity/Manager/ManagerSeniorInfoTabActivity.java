@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -67,7 +68,7 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        /*
+
         mSectionsPagerAdapter = new SectionsPagerAdapter(getApplicationContext(), getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
@@ -76,7 +77,7 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.mstabs);
         tabLayout.setupWithViewPager(mViewPager);
-        */
+
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -129,8 +130,6 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
 
     public void getSeniorInfo(){
         ConnectServer.getInstance().setAsncTask(new AsyncTask<String, Void, Boolean>() {
-
-
             @Override
             protected void onPreExecute() {
             }
@@ -175,9 +174,6 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
                         low_zone_1=(int)dataObj.get("low_zone_1");
                         latitude = (String)dataObj.get("latitude");
                         longitude = (String)dataObj.get("longitude");
-
-
-
                     } else {
                         //Sign up Fail
                         rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));

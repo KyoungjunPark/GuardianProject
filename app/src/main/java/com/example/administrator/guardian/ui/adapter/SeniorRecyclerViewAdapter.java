@@ -45,7 +45,7 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
         holder.name.setText(item.getName());
         holder.age.setText(item.getAge()+"");
         holder.gender.setText(item.getGender());
-        holder.distance.setText(item.getDistance());
+        holder.distance.setText(item.getDistance().toString());
 
         holder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
