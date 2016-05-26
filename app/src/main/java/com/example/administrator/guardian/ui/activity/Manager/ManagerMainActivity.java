@@ -2,7 +2,6 @@ package com.example.administrator.guardian.ui.activity.Manager;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -46,15 +45,16 @@ public class ManagerMainActivity extends AppCompatActivity{
 		setSupportActionBar(toolbar);
 
 		lv = (ListView)findViewById(R.id.senior_list_view);
-		//getInfoFromServer();
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		getInfoFromServer();
+
+		/*
 		list.add(new Senior("1","이원세","19941222","남","서울시","01088888888"));
 		SeniorAdapter adpt = new SeniorAdapter(ManagerMainActivity.this, R.layout.unit_senior_to_manage, list);
 		lv.setAdapter(adpt);
-
-		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		*/
 	}
-	/*public void getInfoFromServer(){
+
+	public void getInfoFromServer(){
 		ConnectServer.getInstance().setAsncTask(new AsyncTask<String, Void, Boolean>() {
 
 
@@ -95,10 +95,8 @@ public class ManagerMainActivity extends AppCompatActivity{
 							String user_name= (String)dataArray.getJSONObject(i).get("user_name");
 							String user_birthdate= (String)dataArray.getJSONObject(i).get("user_birthdate");
 							String user_gender= (String)dataArray.getJSONObject(i).get("user_gender");
-							String user_address= (String)dataArray.getJSONObject(i).get("user_address");
-							String user_tel= (String)dataArray.getJSONObject(i).get("user_tel");
 
-							Senior senior = new Senior(login_id, user_name, user_birthdate, user_gender, user_address, user_tel);
+							Senior senior = new Senior(login_id, user_name, user_birthdate, user_gender);
 							list.add(senior);
 
 						}
@@ -119,7 +117,7 @@ public class ManagerMainActivity extends AppCompatActivity{
 
 		});
 		ConnectServer.getInstance().execute();
-	}*/
+	}
 
 	// Senior Object Def
 	class Senior{
@@ -127,16 +125,12 @@ public class ManagerMainActivity extends AppCompatActivity{
 		String user_name;
 		String user_birthdate;
 		String user_gender;
-		String user_address;
-		String user_tel;
 
-		Senior(String id, String name, String birthdate, String gender, String address, String tel){
+		Senior(String id, String name, String birthdate, String gender){
 			this.login_id = id;
 			this.user_name = name;
 			this.user_birthdate=birthdate;
 			this.user_gender=gender;
-			this.user_address=address;
-			this.user_tel=tel;
 		}
 	}
 
@@ -192,20 +186,7 @@ public class ManagerMainActivity extends AppCompatActivity{
 					manageinfo.putExtra("senior_name",seniorList.get(position).user_name);
 					manageinfo.putExtra("senior_birthdate",seniorList.get(position).user_birthdate);
 					manageinfo.putExtra("senior_gender",seniorList.get(position).user_gender);
-					manageinfo.putExtra("senior_address",seniorList.get(position).user_address);
-					manageinfo.putExtra("senior_tel",seniorList.get(position).user_tel);
 					startActivity(manageinfo);
-				}
-			});
-			manage_senior_button.setOnClickListener(new View.OnClickListener(){
-				@Override
-				public void onClick(View v){
-					String Dial = "tel:"+seniorList.get(position).user_tel;
-					Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(Dial));
-					try {
-						startActivity(intent);
-					}catch(SecurityException e){
-						Log.d("SecurityException","try/catch gulrim");}
 				}
 			});
 			//-----------------test-----------------

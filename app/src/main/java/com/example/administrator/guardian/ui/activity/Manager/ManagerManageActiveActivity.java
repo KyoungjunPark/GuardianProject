@@ -2,9 +2,8 @@ package com.example.administrator.guardian.ui.activity.Manager;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +23,7 @@ import java.util.ArrayList;
 public class ManagerManageActiveActivity extends Fragment {
 
     Context mContext;
+    String senior_id;
     private int activeDoor=0;
     private int activeRepri=4;
     private int activeToilet=5;
@@ -35,8 +35,10 @@ public class ManagerManageActiveActivity extends Fragment {
     TextView mma_repritime;
     BarData data;
 
-    public ManagerManageActiveActivity(Context context){
-        mContext=context;
+    public ManagerManageActiveActivity(Context context, String senior_id){
+
+        this.mContext = context;
+        this.senior_id = senior_id;
     }
 
     @Override
