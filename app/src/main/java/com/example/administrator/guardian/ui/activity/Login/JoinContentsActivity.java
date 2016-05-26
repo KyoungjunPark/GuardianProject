@@ -1,6 +1,7 @@
 package com.example.administrator.guardian.ui.activity.Login;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -35,6 +36,7 @@ public class JoinContentsActivity extends AppCompatActivity {
     public static final int JOIN_PERMITTED = 200;
     public static final int JOIN_DENIED = 404;
 
+    private Context mContext;
     private Button toMap;
     private String type;   // senior?? or volunteer??
     private Button seniorJoinButton;
@@ -64,6 +66,7 @@ public class JoinContentsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_joincontents);
+        mContext = this;
 
         toMap=(Button)findViewById(R.id.tomap);
         birth=(Button)findViewById(R.id.birth);
@@ -175,7 +178,7 @@ public class JoinContentsActivity extends AppCompatActivity {
                                 } else {
                                     //Sign up Fail
                                     rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
-                                    new LovelyInfoDialog(getApplicationContext())
+                                    new LovelyInfoDialog(mContext)
                                             .setTopColorRes(R.color.wallet_holo_blue_light)
                                             .setIcon(R.mipmap.ic_not_interested_black_24dp)
                                             //This will add Don't show again checkbox to the dialog. You can pass any ID as argument
@@ -194,7 +197,7 @@ public class JoinContentsActivity extends AppCompatActivity {
                     ConnectServer.getInstance().execute();
                 } else{
                     //When All input is not entered
-                    new LovelyInfoDialog(getApplicationContext())
+                    new LovelyInfoDialog(mContext)
                             .setTopColorRes(R.color.wallet_holo_blue_light)
                             .setIcon(R.mipmap.ic_not_interested_black_24dp)
                             //This will add Don't show again checkbox to the dialog. You can pass any ID as argument

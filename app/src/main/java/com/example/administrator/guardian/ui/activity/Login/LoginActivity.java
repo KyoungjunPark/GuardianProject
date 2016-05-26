@@ -1,8 +1,12 @@
 package com.example.administrator.guardian.ui.activity.Login;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -32,10 +36,13 @@ import java.net.URL;
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
 
+    private Context mContext;
     private Button loginbutton;
     private Button joinbutton;
     private EditText idEditText;
     private EditText pwEditText;
+
+    private Handler messageHandler;
 
     private final int LOGIN_PERMITTED = 200;
 
@@ -46,7 +53,21 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        mContext = this;
+        messageHandler = new Handler(Looper.getMainLooper()) {
 
+            @Override
+            public void handleMessage(Message msg) {
+                if(msg.what == 0){
+                    new LovelyInfoDialog(mContext)
+                            .setTopColorRes(R.color.wallet_holo_blue_light)
+                            .setIcon(R.mipmap.ic_not_interested_black_24dp)
+                            //This will add Don't show again checkbox to the dialog. You can pass any ID as argument
+                            .setTitle("서버와의 통신 문제")
+                            .setMessage((String)msg.obj)
+                            .show();
+                }
+            }};
 
         idEditText = (EditText) findViewById(R.id.idEditText);
         pwEditText = (EditText) findViewById(R.id.pwEditText);
@@ -59,10 +80,8 @@ public class LoginActivity extends AppCompatActivity {
                 if(idEditText.getText().toString().equals("")
                         || pwEditText.getText().toString().equals("")){
                     new LovelyInfoDialog(v.getContext())
-                            .setTopColorRes(R.color.mdtp_red)
+                            .setTopColorRes(R.color.wallet_holo_blue_light)
                             .setIcon(R.mipmap.ic_not_interested_black_24dp)
-                            //This will add Don't show again checkbox to the dialog. You can pass any ID as argument
-                            .setNotShowAgainOptionEnabled(0)
                             .setTitle("경고")
                             .setMessage("아이디와 비밀번호를 입력해주세요.")
                             .show();
@@ -193,16 +212,10 @@ public class LoginActivity extends AppCompatActivity {
                 }else {
                         //Login Fail
                         rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
-                        new LovelyInfoDialog(getApplicationContext())
-                                .setTopColorRes(R.color.mdtp_red)
-                                .setIcon(R.mipmap.ic_not_interested_black_24dp)
-                                //This will add Don't show again checkbox to the dialog. You can pass any ID as argument
-                                .setNotShowAgainOptionEnabled(0)
-                                .setTitle("경고")
-                                .setMessage(rd.readLine())
-                                .show();
-                        rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
-                        Log.d(TAG,"Login Fail: " + rd.readLine());
+                        String returnMessage = rd.readLine();
+                        Log.d(TAG,"Login Fail: " + returnMessage);
+                        Message message = messageHandler.obtainMessage(0, returnMessage);
+                        message.sendToTarget();
                     }
                 } catch(IOException | JSONException e){
                     e.printStackTrace();

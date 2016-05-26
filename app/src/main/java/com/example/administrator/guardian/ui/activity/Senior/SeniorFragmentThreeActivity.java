@@ -3,6 +3,7 @@ package com.example.administrator.guardian.ui.activity.Senior;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
@@ -16,12 +17,26 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
+import com.example.administrator.guardian.ui.activity.Manager.ManagerMainActivity;
+import com.example.administrator.guardian.ui.activity.Volunteer.VolunteerTabActivity;
+import com.example.administrator.guardian.utils.ConnectServer;
+import com.example.administrator.guardian.utils.MakeUTF8Parameter;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 import com.yarolegovich.lovelydialog.LovelyInfoDialog;
 import com.yarolegovich.lovelydialog.LovelyStandardDialog;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.text.NumberFormat;
 import java.util.Calendar;
 
 import info.hoang8f.android.segmented.SegmentedGroup;
@@ -29,6 +44,8 @@ import info.hoang8f.android.segmented.SegmentedGroup;
 @SuppressLint("ValidFragment")
 public class SeniorFragmentThreeActivity extends Fragment implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener{
     private static final String TAG = "FragmentThreeActivity";
+
+    private static final Integer SERVER_PERMITTED = 200;
 
     private View view;
     private Button dateButton;
@@ -88,7 +105,7 @@ public class SeniorFragmentThreeActivity extends Fragment implements TimePickerD
                     }
 
                     new LovelyStandardDialog(getActivity())
-                            .setTopColorRes(R.color.mdtp_light_gray)
+                            .setTopColorRes(R.color.wallet_holo_blue_light)
                             .setButtonsColorRes(R.color.mdtp_transparent_black)
                             .setIcon(R.mipmap.ic_playlist_add_check_black_24dp)
                             .setTitle(R.string.info_title)
@@ -97,6 +114,69 @@ public class SeniorFragmentThreeActivity extends Fragment implements TimePickerD
                                 @Override
                                 public void onClick(View v) {
                                     //When OK button Clicked
+                                    ConnectServer.getInstance().setAsncTask(new AsyncTask<String, Void, Boolean>() {
+                                        String date_from;
+                                        Integer req_hour;
+                                        NumberFormat numformat;
+
+                                        @Override
+                                        protected void onPreExecute() {
+                                            //Collect the input data
+                                            req_hour = radioButton01.isChecked() ? 1 : (radioButton02.isChecked() ? 2 : 3);
+
+                                            numformat = NumberFormat.getIntegerInstance();
+                                            numformat.setMinimumIntegerDigits(2);
+                                            date_from = ""+ year + numformat.format(month) + numformat.format(day_of_month)
+                                                    + numformat.format(hour_of_day) + numformat.format(minute);
+                                        }
+
+                                        @Override
+                                        protected Boolean doInBackground(String... params) {
+                                            URL obj = null;
+                                            try {
+                                                obj = new URL(ConnectServer.getInstance().getURL("Request"));
+                                                HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+                                                con.setDoOutput(true);
+
+                                                //set Request parameter
+                                                MakeUTF8Parameter parameterMaker = new MakeUTF8Parameter();
+                                                parameterMaker.setParameter("date_from", date_from);
+                                                parameterMaker.setParameter("req_hour", req_hour);
+
+                                                OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
+                                                wr.write(parameterMaker.getParameter());
+                                                wr.flush();
+
+                                                BufferedReader rd =null;
+
+                                                if(con.getResponseCode() == SERVER_PERMITTED){
+                                                    //Request Success
+                                                    rd = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
+                                                    String resultValues = rd.readLine();
+                                                    Log.d(TAG,"Connect Success: " + resultValues);
+                                                }else {
+                                                    //Request Fail
+                                                    rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
+                                                    new LovelyInfoDialog(getActivity().getApplicationContext())
+                                                            .setTopColorRes(R.color.wallet_holo_blue_light)
+                                                            .setIcon(R.mipmap.ic_not_interested_black_24dp)
+                                                            //This will add Don't show again checkbox to the dialog. You can pass any ID as argument
+                                                            .setNotShowAgainOptionEnabled(0)
+                                                            .setTitle("서버와의 통신 문제")
+                                                            .setMessage(rd.readLine())
+                                                            .show();
+                                                    rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
+                                                    Log.d(TAG,"Connect Fail: " + rd.readLine());
+                                                }
+                                            } catch(IOException e){
+                                                e.printStackTrace();
+                                            }
+                                            return null;
+                                        }
+                                    });
+                                    ConnectServer.getInstance().execute();
+
                                 }
                             })
                             .setNegativeButton(android.R.string.no, new View.OnClickListener() {
