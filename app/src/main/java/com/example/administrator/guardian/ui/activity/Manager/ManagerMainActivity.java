@@ -81,7 +81,7 @@ public class ManagerMainActivity extends AppCompatActivity{
 					OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
 					wr.write(parameterMaker.getParameter());
 					wr.flush();
-
+					wr.close();
 					BufferedReader rd =null;
 
 					if(con.getResponseCode() == 200){

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -14,8 +15,8 @@ import android.util.Log;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.utils.ConnectServer;
-import com.example.administrator.guardian.utils.MakeUTF8Parameter;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -67,16 +68,16 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        /*
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getApplicationContext(), getSupportFragmentManager());
 
-        // Set up the ViewPager with the sections adapter.
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getApplicationContext(), getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.mscontainer);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.mstabs);
         tabLayout.setupWithViewPager(mViewPager);
-        */
+
+
+
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -92,7 +93,6 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
 
             switch (position) {
                 case 0:
-                    Log.d("ktk-getItem", senior_name + "/"+ senior_birthdate);
                     return new ManagerManageInfoActivity(mContext,senior_id, senior_name, senior_birthdate, senior_gender, senior_address, senior_tel, latitude, longitude);
                 case 1:
                     return new ManagerManageActiveActivity(mContext, senior_id);
@@ -136,6 +136,7 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
             }
             protected void onPostExecute(Boolean params) {
                 super.onPostExecute(null);
+
             }
             @Override
             protected Boolean doInBackground(String... params) {
@@ -143,16 +144,21 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
                 try {
                     obj = new URL(ConnectServer.getInstance().getURL("Senior_Info"));
                     HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+                    con.setRequestMethod("POST");
+                    con.setRequestProperty("Content-Type", "application/json; charset=utf8");
+                    con.setRequestProperty("Accept", "application/json");
+
                     con = ConnectServer.getInstance().setHeader(con);
                     con.setDoOutput(true);
 
-                    //set Request parameter
-                    MakeUTF8Parameter parameterMaker = new MakeUTF8Parameter();
-                    parameterMaker.setParameter("senior_id", senior_id);
+                    JSONObject jsonObj = new JSONObject();
+                    jsonObj.put("senior_id", '"'+ senior_id+'"');
 
-                    Log.d("ktk", parameterMaker.getParameter());
                     OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
-                    wr.write(parameterMaker.getParameter());
+                    wr.write(jsonObj.toString());
+
+
                     wr.flush();
 
                     BufferedReader rd =null;
@@ -163,20 +169,18 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
                         String resultValues = rd.readLine();
 
                         JSONObject object = new JSONObject(resultValues);
-                        JSONObject dataObj = (JSONObject)object.get("data");
-
-                        senior_name= (String)dataObj.get("user_name");
-                        senior_birthdate=(String)dataObj.get("user_birthdate");
-                        senior_gender=(String)dataObj.get("user_gender");
-                        senior_address=(String)dataObj.get("user_address");
-                        senior_tel=(String)dataObj.get("user_tel");
-                        high_zone_2=(int)dataObj.get("high_zone_2");
-                        high_zone_1=(int)dataObj.get("high_zone_1");
-                        low_zone_1=(int)dataObj.get("low_zone_1");
-                        latitude = (String)dataObj.get("latitude");
-                        longitude = (String)dataObj.get("longitude");
-
-
+                        JSONArray jArr  = jsonObj.getJSONArray("data");
+                        JSONObject c = jArr.getJSONObject(0);
+                        senior_name = c.getString("user_name");
+                        senior_birthdate= c.getString("user_birthdate");
+                        senior_gender= c.getString("user_gender");
+                        senior_address= c.getString("user_address");
+                        senior_tel= c.getString("user_tel");
+                        latitude= c.getString("latitude");
+                        longitude= c.getString("longitude");
+                        high_zone_2= c.getInt("high_zone_2");
+                        high_zone_1= c.getInt("high_zone_1");
+                        low_zone_1= c.getInt("low_zone_1");
 
                     } else {
                         //Sign up Fail
@@ -187,7 +191,15 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
                 } catch (IOException | JSONException e) {
                     e.printStackTrace();
                 }
+
+
+                // Set up the ViewPager with the sections adapter.
+
+
+
                 return null;
+
+
             }
 
 
