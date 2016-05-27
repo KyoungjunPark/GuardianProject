@@ -53,7 +53,7 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,12 +62,8 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         senior_id = intent.getExtras().getString("senior_id");
-        Log.d("ktk", senior_id +"");
+        Log.d(TAG, senior_id +"");
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.mstoolbar);
-        setSupportActionBar(toolbar);
-        mViewPager = (ViewPager) findViewById(R.id.mscontainer);
-        tabLayout = (TabLayout) findViewById(R.id.mstabs);
 
         getSeniorInfo();
     }
@@ -124,6 +120,11 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
 
             @Override
             protected void onPreExecute() {
+                toolbar = (Toolbar) findViewById(R.id.mstoolbar);
+                setSupportActionBar(toolbar);
+                mViewPager = (ViewPager) findViewById(R.id.mscontainer);
+                tabLayout = (TabLayout) findViewById(R.id.mstabs);
+
             }
             protected void onPostExecute(Boolean params) {
                 // Create the adapter that will return a fragment for each of the three
@@ -154,7 +155,7 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
 
                     OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
                     wr.write(jsonObj.toString());
-                    Log.d("", "doInBackground: ");
+                    Log.d(TAG, "doInBackground: "+jsonObj.toString());
 
                     wr.flush();
 
@@ -180,7 +181,6 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
                         high_zone_2= c.getInt("high_zone_2");
                         high_zone_1= c.getInt("high_zone_1");
                         low_zone_1= c.getInt("low_zone_1");
-                        Log.d(TAG, "doInBackground: "+ senior_name);
                     } else {
                         //Sign up Fail
                         rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));

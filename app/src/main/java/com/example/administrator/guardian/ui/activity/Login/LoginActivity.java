@@ -1,7 +1,9 @@
 package com.example.administrator.guardian.ui.activity.Login;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -43,16 +45,34 @@ public class LoginActivity extends AppCompatActivity {
     private EditText pwEditText;
 
     private Handler messageHandler;
+    SharedPreferences pref;
 
     private final int LOGIN_PERMITTED = 200;
 
     Button tov;//for volunteer activity test
     Button tom;//for manager activity test
     Button tos;
+    public void onStop(){
+        super.onStop();
+        pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+
+
+
+
+        editor.putString("idEditText", idEditText.getText().toString());
+
+        editor.commit();
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+
         mContext = this;
         messageHandler = new Handler(Looper.getMainLooper()) {
 
@@ -70,6 +90,7 @@ public class LoginActivity extends AppCompatActivity {
             }};
 
         idEditText = (EditText) findViewById(R.id.idEditText);
+        idEditText.setText(pref.getString("idEditText", ""));
         pwEditText = (EditText) findViewById(R.id.pwEditText);
 
         loginbutton = (Button)findViewById(R.id.loginbutton);
