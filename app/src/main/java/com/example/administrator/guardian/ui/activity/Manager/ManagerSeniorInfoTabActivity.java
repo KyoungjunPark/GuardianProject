@@ -29,8 +29,9 @@ import java.net.URL;
 
 @SuppressWarnings("deprecation")
 public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
-
+    private static final String TAG = "ManagerInfoActivity";
     static final int Num_Tab = 4;
+
 
     private String senior_id;
     private String senior_name;
@@ -43,6 +44,8 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
     private int high_zone_2;
     private int high_zone_1;
     private int low_zone_1;
+
+    private TabLayout tabLayout;
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
@@ -63,21 +66,10 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.mstoolbar);
         setSupportActionBar(toolbar);
+        mViewPager = (ViewPager) findViewById(R.id.mscontainer);
+        tabLayout = (TabLayout) findViewById(R.id.mstabs);
 
         getSeniorInfo();
-
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getApplicationContext(), getSupportFragmentManager());
-        mViewPager = (ViewPager) findViewById(R.id.mscontainer);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.mstabs);
-        tabLayout.setupWithViewPager(mViewPager);
-
-
-
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -134,7 +126,13 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
             protected void onPreExecute() {
             }
             protected void onPostExecute(Boolean params) {
-                super.onPostExecute(null);
+                // Create the adapter that will return a fragment for each of the three
+                // primary sections of the activity.
+
+                mSectionsPagerAdapter = new SectionsPagerAdapter(getApplicationContext(), getSupportFragmentManager());
+                mViewPager.setAdapter(mSectionsPagerAdapter);
+
+                tabLayout.setupWithViewPager(mViewPager);
 
             }
             @Override
@@ -152,11 +150,11 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
                     con.setDoOutput(true);
 
                     JSONObject jsonObj = new JSONObject();
-                    jsonObj.put("senior_id", '"'+ senior_id+'"');
+                    jsonObj.put("senior_id", senior_id);
 
                     OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
                     wr.write(jsonObj.toString());
-
+                    Log.d("", "doInBackground: ");
 
                     wr.flush();
 
@@ -168,7 +166,9 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
                         String resultValues = rd.readLine();
 
                         JSONObject object = new JSONObject(resultValues);
-                        JSONArray jArr  = jsonObj.getJSONArray("data");
+                        Log.d(TAG, "doInBackground: "+object.toString());
+                        JSONArray jArr  = object.getJSONArray("data");
+
                         JSONObject c = jArr.getJSONObject(0);
                         senior_name = c.getString("user_name");
                         senior_birthdate= c.getString("user_birthdate");
@@ -180,22 +180,16 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
                         high_zone_2= c.getInt("high_zone_2");
                         high_zone_1= c.getInt("high_zone_1");
                         low_zone_1= c.getInt("low_zone_1");
-
+                        Log.d(TAG, "doInBackground: "+ senior_name);
                     } else {
                         //Sign up Fail
                         rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
-                        Log.d("ManagerTab","fail");
+                        Log.d(TAG,"fail : " + rd.readLine());
                     }
 
                 } catch (IOException | JSONException e) {
                     e.printStackTrace();
                 }
-
-
-                // Set up the ViewPager with the sections adapter.
-
-
-
                 return null;
             }
 
