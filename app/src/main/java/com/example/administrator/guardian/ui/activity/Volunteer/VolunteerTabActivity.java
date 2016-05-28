@@ -1,7 +1,14 @@
 package com.example.administrator.guardian.ui.activity.Volunteer;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.BitmapFactory;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -10,6 +17,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
 
@@ -20,6 +30,7 @@ public class VolunteerTabActivity extends AppCompatActivity {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
+    private Button notification;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +39,15 @@ public class VolunteerTabActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.svtoolbar);
         setSupportActionBar(toolbar);
+
+        notification=(Button)findViewById(R.id.notification);
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Toast.makeText(getApplicationContext(),"a",Toast.LENGTH_LONG).show();
+                NotificationSomethins1();
+            }
+        });
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getApplicationContext(), getSupportFragmentManager());
@@ -39,6 +59,31 @@ public class VolunteerTabActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(mViewPager);
     }
 
+    public void NotificationSomethins1() {
+
+
+        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        Resources res = getResources();
+
+        Intent notificationIntent = new Intent(this, com.example.administrator.guardian.ui.activity.Senior.SeniorTabActivity.class);
+        notificationIntent.putExtra("notificationId", 9999); //전달할 값
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+                .setContentTitle("의심알림")
+                .setContentText("주변 노인분을 방문해주세요!!")
+                .setTicker("주변 노인분을 방문해주세요!!!!")
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.icon))
+                .setContentIntent(contentIntent)
+                .setAutoCancel(true)
+                .setWhen(System.currentTimeMillis())
+                .setDefaults( Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE|Notification.DEFAULT_LIGHTS)
+                .setNumber(13);
+
+        Notification n = builder.build();
+        nm.notify(1234, n);
+    }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
         Context mContext;
