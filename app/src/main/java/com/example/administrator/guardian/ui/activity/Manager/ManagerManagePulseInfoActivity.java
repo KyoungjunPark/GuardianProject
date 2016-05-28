@@ -16,22 +16,28 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 @SuppressLint("ValidFragment")
 public class ManagerManagePulseInfoActivity extends Fragment {
 
     Context mContext;
     String senior_id;
+    String today_date;
     private ProgressBar managerpulseProgressBar;
     private int pulseAverage;
+
+    int[] dateAvg;
 
     public ManagerManagePulseInfoActivity(Context context, String senior_id){
 
         this.mContext = context;
         this.senior_id = senior_id;
-    }
+        this.today_date = new SimpleDateFormat("yyyyMMdd").format(new Date());
 
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,30 +50,22 @@ public class ManagerManagePulseInfoActivity extends Fragment {
 
         //심박수 값들
         ArrayList<Integer> pulse = new ArrayList<>();
+        pulse.add(70);
+        pulse.add(71);
+        pulse.add(72);
+        pulse.add(73);
+        pulse.add(74);
+        pulse.add(75);
         pulse.add(76);
-        pulse.add(77);
-        pulse.add(78);
-        pulse.add(79);
-        pulse.add(80);
-        pulse.add(81);
 
         ArrayList<Entry> entries = new ArrayList<>();
-        entries.add(new Entry(pulse.get(0), 0));
-        entries.add(new Entry(pulse.get(1), 1));
-        entries.add(new Entry(pulse.get(2), 2));
-        entries.add(new Entry(pulse.get(3), 3));
-        entries.add(new Entry(pulse.get(4), 4));
-        entries.add(new Entry(pulse.get(5), 5));
-
+        ArrayList<String> labels = new ArrayList<String>();
         LineDataSet dataset = new LineDataSet(entries, "# of Calls");
 
-        ArrayList<String> labels = new ArrayList<String>();
-        labels.add("5/30");
-        labels.add("5/31");
-        labels.add("6/1");
-        labels.add("6/2");
-        labels.add("6/3");
-        labels.add("6/4");
+        for (int i=0; i<7;i++){
+            entries.add(new Entry(pulse.get(i), i));
+            labels.add(Integer.parseInt(new SimpleDateFormat("MM/dd").format(new Date()))-6+i +"");
+        }
 
         LineData data = new LineData(labels, dataset);
         dataset.setColors(ColorTemplate.COLORFUL_COLORS); //

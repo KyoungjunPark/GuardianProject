@@ -96,6 +96,8 @@ public class ManagerManagePulseActivity extends Fragment {
 
                 if(responseStatus == true){
                     Toast.makeText(getActivity(), "심박수 변경 성공", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getActivity(), "심박수 변경 실패", Toast.LENGTH_SHORT).show();
                 }
             }
 

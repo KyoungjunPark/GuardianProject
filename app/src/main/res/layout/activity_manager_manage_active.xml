@@ -59,7 +59,7 @@
             android:layout_toRightOf="@+id/mma_door"
             android:layout_toEndOf="@+id/mma_door"
             android:gravity="center_vertical|center_horizontal"
-            android:text="1시간 지남"
+            android:text="정보없음"
             android:textColor="#000000"
             android:textIsSelectable="false"
             android:textSize="20dp"
@@ -75,7 +75,7 @@
             android:gravity="center_vertical|center_horizontal"
             android:textColor="#000000"
             android:textSize="20dp"
-            android:text="2시간 지남"
+            android:text="정보없음"
             android:background="#ffffff" />
 
         <TextView
@@ -88,7 +88,7 @@
             android:gravity="center_vertical|center_horizontal"
             android:textColor="#000000"
             android:textSize="20dp"
-            android:text="3시간 지남"
+            android:text="정보없음"
             android:background="#ffffff" />
 
     </RelativeLayout>

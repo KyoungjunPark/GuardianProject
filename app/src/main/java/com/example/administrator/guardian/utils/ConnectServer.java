@@ -72,6 +72,10 @@ public class ConnectServer {
             case "Set_HR":
                 resultURL = URL + "/" + "Set_HR";
                 break;
+            case "Receive_Activity_Log":
+                resultURL = URL + "/" + "Receive_Activity_Log";
+                break;
+
         }
         return resultURL;
     }
