@@ -3,11 +3,13 @@ package com.example.administrator.guardian.ui.activity.Senior;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.administrator.guardian.R;

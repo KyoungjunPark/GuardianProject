@@ -105,9 +105,14 @@
         </LinearLayout>
 
         <FrameLayout
+            android:id="@+id/senior_signature_layout"
             android:layout_width="match_parent"
             android:layout_height="130dp"
-            android:layout_gravity="center_horizontal"></FrameLayout>
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/seniorsignature">
+
+
+        </FrameLayout>
 
         <LinearLayout android:orientation="horizontal"
             android:gravity="center"

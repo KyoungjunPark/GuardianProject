@@ -132,7 +132,7 @@
         <activity
             android:name=".ui.activity.Volunteer.VolunteerFragmentOneRequestActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.activity.Volunteer.notification"></activity>
+
     </application>
 
 </manifest>
