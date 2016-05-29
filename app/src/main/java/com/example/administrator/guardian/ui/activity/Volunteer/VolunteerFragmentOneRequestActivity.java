@@ -2,15 +2,11 @@ package com.example.administrator.guardian.ui.activity.Volunteer;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -48,7 +44,7 @@ public class VolunteerFragmentOneRequestActivity extends AppCompatActivity imple
     private int age;
     private String gender;
     private String address;
-
+    private double latitude, longitude;
     private Button vfor_left;
     private Button vfor_right;
 
@@ -68,7 +64,8 @@ public class VolunteerFragmentOneRequestActivity extends AppCompatActivity imple
         age = intent.getExtras().getInt("age");
         gender = intent.getExtras().getString("gender");
         address = intent.getExtras().getString("address");
-
+        latitude = intent.getExtras().getDouble("latitude");
+        longitude = intent.getExtras().getDouble("longitude");
 
         dateTextView = (Button) findViewById(R.id.vfor_DateButton);
         timeTextView = (Button) findViewById(R.id.vfor_TimeButton);
@@ -149,7 +146,7 @@ public class VolunteerFragmentOneRequestActivity extends AppCompatActivity imple
             public void onMapReady(GoogleMap googleMap) {
                 mMap = googleMap;
 
-                LatLng senior_home = new LatLng( 37.56, 126.97);
+                LatLng senior_home = new LatLng( latitude, longitude);
                 CameraPosition cameraPosition = new CameraPosition.Builder().target(senior_home).zoom(16).build();
                 mMap.moveCamera( CameraUpdateFactory.newLatLng(senior_home) );
                 MarkerOptions optFirst = new MarkerOptions();
@@ -187,7 +184,7 @@ public class VolunteerFragmentOneRequestActivity extends AppCompatActivity imple
     }
 
     private void setTitle(String Name){
-        if(gender=="남"){
+        if(gender.compareTo("남") == 0){
             Name = Name + " 할아버지";
         }
         else{

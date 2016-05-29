@@ -16,6 +16,7 @@ import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.datamodel.SeniorRecyclerItem;
 import com.example.administrator.guardian.ui.adapter.SeniorRecyclerViewAdapter;
 import com.example.administrator.guardian.utils.ConnectServer;
+import com.example.administrator.guardian.utils.GlobalVariable;
 import com.example.administrator.guardian.utils.MakeUTF8Parameter;
 
 import org.json.JSONArray;
@@ -37,8 +38,9 @@ public class SeniorFragmentTwoActivity extends Fragment {
     RecyclerView recyclerView;
     private View view;
     List<SeniorRecyclerItem> items ;
-
     Context mContext;
+    int globalVariable;
+
     public SeniorFragmentTwoActivity(Context context) {
         mContext = context;
     }
@@ -51,8 +53,6 @@ public class SeniorFragmentTwoActivity extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.activity_senior_fragment_two, null);
-
-
 
 
         getInfoFromServer();
@@ -76,7 +76,8 @@ public class SeniorFragmentTwoActivity extends Fragment {
             }
             protected void onPostExecute(Boolean params) {
                 super.onPostExecute(null);
-                SeniorRecyclerViewAdapter adpt = new SeniorRecyclerViewAdapter(SeniorFragmentTwoActivity.this.getContext(), items, R.layout.activity_senior_fragment_two);
+                globalVariable = ((GlobalVariable)getActivity().getApplication()).getLoginType();
+                SeniorRecyclerViewAdapter adpt = new SeniorRecyclerViewAdapter(SeniorFragmentTwoActivity.this.getContext(), items, R.layout.activity_senior_fragment_two, globalVariable);
                 recyclerView.setAdapter(adpt);
             }
             @Override

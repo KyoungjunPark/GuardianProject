@@ -22,6 +22,7 @@ import com.example.administrator.guardian.ui.activity.Manager.ManagerMainActivit
 import com.example.administrator.guardian.ui.activity.Senior.SeniorTabActivity;
 import com.example.administrator.guardian.ui.activity.Volunteer.VolunteerTabActivity;
 import com.example.administrator.guardian.utils.ConnectServer;
+import com.example.administrator.guardian.utils.GlobalVariable;
 import com.example.administrator.guardian.utils.MakeUTF8Parameter;
 import com.yarolegovich.lovelydialog.LovelyInfoDialog;
 
@@ -37,13 +38,12 @@ import java.net.URL;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
-
     private Context mContext;
     private Button loginbutton;
     private Button joinbutton;
     private EditText idEditText;
     private EditText pwEditText;
-
+    private GlobalVariable globalVariable;
     private Handler messageHandler;
     SharedPreferences pref;
 
@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        globalVariable = (GlobalVariable)getApplication();
         pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
 
         mContext = this;
@@ -219,15 +219,19 @@ public class LoginActivity extends AppCompatActivity {
                         ConnectServer.getInstance().setType(user_type);
 
                         if(user_type.equals("senior")){
+                            globalVariable.setLoginType(0);
                             Intent firstMainActivity = new Intent(getApplicationContext(), SeniorTabActivity.class);
                             startActivity(firstMainActivity);
                         } else if(user_type.equals("volunteer")){
+                            globalVariable.setLoginType(1);
                             Intent firstMainActivity = new Intent(getApplicationContext(), VolunteerTabActivity.class);
                             startActivity(firstMainActivity);
                         } else if(user_type.equals("manager")){
+                            globalVariable.setLoginType(2);
                             Intent firstMainActivity = new Intent(getApplicationContext(), ManagerMainActivity.class);
                             startActivity(firstMainActivity);
                         } else {
+                            globalVariable.setLoginType(-1);
                             //error case
                             Log.d(TAG, "UNEXPECTED PATH!!!");
                         }

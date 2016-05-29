@@ -28,6 +28,7 @@
         android:required="true" />
 
     <application
+        android:name=".utils.GlobalVariable"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:theme="@style/AppTheme">
