@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
+import android.os.Vibrator;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -31,6 +32,7 @@ public class VolunteerTabActivity extends AppCompatActivity {
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
     private Button notification;
+    private Vibrator mVibe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,8 @@ public class VolunteerTabActivity extends AppCompatActivity {
             public void onClick(View arg0) {
                 Toast.makeText(getApplicationContext(),"a",Toast.LENGTH_LONG).show();
                 NotificationSomethins1();
+                mVibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+                mVibe.vibrate(1000);
             }
         });
         // Create the adapter that will return a fragment for each of the three
@@ -61,11 +65,10 @@ public class VolunteerTabActivity extends AppCompatActivity {
 
     public void NotificationSomethins1() {
 
-
         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         Resources res = getResources();
 
-        Intent notificationIntent = new Intent(this, com.example.administrator.guardian.ui.activity.Senior.SeniorTabActivity.class);
+        Intent notificationIntent = new Intent(this, VolunteerTabActivity.class);
         notificationIntent.putExtra("notificationId", 9999); //전달할 값
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
