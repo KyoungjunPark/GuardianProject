@@ -1,31 +1,35 @@
 package com.example.administrator.guardian.ui.activity.Senior;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.administrator.guardian.R;
 import com.hrules.circularprogressbar.CircularProgressBar;
 import com.hrules.circularprogressbar.CircularProgressBarListener;
-
-import com.example.administrator.guardian.R;
-
-import java.io.IOException;
 
 public class SeniorFragmentOneMeasureActivity extends AppCompatActivity implements CircularProgressBarListener {
     private static final String TAG = "SeniorFragmentOneMeasureActivity";
 
     private Button measureback;
     private TextView measuring;
+    private int high_zone_2;
+    private int low_zone_1;
+
     private CircularProgressBar circularProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_senior_fragment_one_measure);
+
+        Intent intent = getIntent();
+        high_zone_2 = intent.getExtras().getInt("high_zone_2");
+        low_zone_1 = intent.getExtras().getInt("low_zone_1");
 
         measureback = (Button)findViewById(R.id.measureback);
         measureback.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +69,8 @@ public class SeniorFragmentOneMeasureActivity extends AppCompatActivity implemen
     @Override
     public void onFinish() {
         Intent intent = new Intent(getApplicationContext(), SeniorFragmentOneMeasureResultActivity.class);
+        intent.putExtra("high_zone_2", high_zone_2);
+        intent.putExtra("low_zone_1",low_zone_1);
         startActivity(intent);
         finish();
     }

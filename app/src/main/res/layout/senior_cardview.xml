@@ -12,153 +12,127 @@
         android:layout_height="70dp"
         android:background="#ffffff">
 
-        <LinearLayout
-            android:orientation="horizontal"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#ffffff"
-            >
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="#ffffff">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="#ffffff"
-                android:gravity="center_vertical|center_horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/icon"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:background="@drawable/ic_person_black"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:background="#ffffff"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/s_inputsname"
-                        android:gravity="center_vertical"
-                        android:textSize="23dp"
-                        android:text="박경준"
-                        android:textColor="#000000"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="10dp" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="나이  : "
-                        android:id="@+id/s_sage"
-                        android:textSize="18dp"
-                        android:textColor="#000000"
-                        android:layout_below="@+id/s_inputsname"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginTop="2dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="19"
-                        android:id="@+id/s_inputsage"
-                        android:layout_alignTop="@+id/s_sage"
-                        android:layout_toRightOf="@+id/s_sage"
-                        android:layout_toEndOf="@+id/s_sage"
-                        android:layout_alignBottom="@+id/s_sage"
-                        android:gravity="center_vertical"
-                        android:textSize="18dp"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="성별  :  "
-                        android:id="@+id/s_sgender"
-                        android:layout_alignTop="@+id/s_inputsage"
-                        android:layout_toRightOf="@+id/s_inputsage"
-                        android:layout_toEndOf="@+id/s_inputsage"
-                        android:layout_marginLeft="20dp"
-                        android:layout_alignBottom="@+id/s_inputsage"
-                        android:gravity="center_vertical"
-                        android:textSize="18dp"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="남"
-                        android:id="@+id/s_inputsgender"
-                        android:layout_alignTop="@+id/s_sgender"
-                        android:layout_toRightOf="@+id/s_sgender"
-                        android:layout_toEndOf="@+id/s_sgender"
-                        android:layout_alignBottom="@+id/s_sgender"
-                        android:textSize="18dp"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="거리  :  "
-                        android:id="@+id/s_sdistance"
-                        android:layout_alignTop="@+id/s_inputsgender"
-                        android:layout_toRightOf="@+id/s_inputsgender"
-                        android:layout_toEndOf="@+id/s_inputsgender"
-                        android:layout_marginLeft="20dp"
-                        android:layout_alignBottom="@+id/s_inputsgender"
-                        android:gravity="center_vertical"
-                        android:textSize="18dp"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:layout_weight="1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2km"
-                        android:id="@+id/s_inputsdistance"
-                        android:layout_alignTop="@+id/s_sdistance"
-                        android:layout_toRightOf="@+id/s_sdistance"
-                        android:layout_alignBottom="@+id/s_sdistance"
-                        android:textSize="18dp"
-                        android:textColor="#000000"
-                        />
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-
-            </LinearLayout>
-    <!--
             <RelativeLayout
+                android:id="@+id/show_senior_info"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:background="#ffffff">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/ssbutton"
-                    android:background="@drawable/rightarrow"
+                    android:id="@+id/s_inputsname"
+                    android:gravity="center_vertical"
+                    android:textSize="23dp"
+                    android:text="박경준"
+                    android:textColor="#000000"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="나이 : "
+                    android:id="@+id/s_sage"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/s_inputsname"
+                    android:layout_alignParentLeft="true"
                     android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="80dp" />
+                    android:layout_marginLeft="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="70"
+                    android:id="@+id/s_inputsage"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:layout_alignTop="@+id/s_sage"
+                    android:layout_toRightOf="@+id/s_sage"
+                    android:layout_toEndOf="@+id/s_sage" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="세   성별 : "
+                    android:id="@+id/s_sgender"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_alignTop="@+id/s_inputsage"
+                    android:layout_toRightOf="@+id/s_inputsage"
+                    android:layout_toEndOf="@+id/s_inputsage" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="남"
+                    android:id="@+id/s_inputsgender"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:layout_below="@+id/s_inputsname"
+                    android:layout_toRightOf="@+id/s_sgender"
+                    android:layout_toEndOf="@+id/s_sgender"
+                    android:layout_marginTop="10dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="거리 : "
+                    android:id="@+id/s_sdistance"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_alignTop="@+id/s_inputsgender"
+                    android:layout_toRightOf="@+id/s_inputsgender"
+                    android:layout_toEndOf="@+id/s_inputsgender" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.64"
+                    android:id="@+id/s_inputsdistance"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:layout_below="@+id/s_inputsname"
+                    android:layout_toRightOf="@+id/s_sdistance"
+                    android:layout_toEndOf="@+id/s_sdistance"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="km"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_alignTop="@+id/s_inputsdistance"
+                    android:layout_toRightOf="@+id/s_inputsdistance"
+                    android:layout_toEndOf="@+id/s_inputsdistance" />
+
             </RelativeLayout>
-    -->
+
+        </RelativeLayout>
     </android.support.v7.widget.CardView>
 
 </LinearLayout>

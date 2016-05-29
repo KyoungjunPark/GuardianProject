@@ -36,7 +36,7 @@ public class SeniorFragmentTwoActivity extends Fragment {
 
     RecyclerView recyclerView;
     private View view;
-    List<SeniorRecyclerItem> items = new ArrayList<>();
+    List<SeniorRecyclerItem> items ;
 
     Context mContext;
     public SeniorFragmentTwoActivity(Context context) {
@@ -53,11 +53,7 @@ public class SeniorFragmentTwoActivity extends Fragment {
         view = inflater.inflate(R.layout.activity_senior_fragment_two, null);
 
 
-        recyclerView = (RecyclerView)view.findViewById(R.id.senior_recyclerView);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(layoutManager);
+
 
         getInfoFromServer();
 
@@ -71,6 +67,12 @@ public class SeniorFragmentTwoActivity extends Fragment {
 
             @Override
             protected void onPreExecute() {
+                recyclerView = (RecyclerView)view.findViewById(R.id.senior_recyclerView);
+                LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+                layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+                items = new ArrayList<>();
+                recyclerView.setHasFixedSize(true);
+                recyclerView.setLayoutManager(layoutManager);
             }
             protected void onPostExecute(Boolean params) {
                 super.onPostExecute(null);

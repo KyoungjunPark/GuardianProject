@@ -1,30 +1,34 @@
 package com.example.administrator.guardian.ui.activity.Senior;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.NotificationCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 
 import com.example.administrator.guardian.R;
+import com.example.administrator.guardian.utils.ConnectServer;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 @SuppressWarnings("deprecation")
 public class SeniorTabActivity extends AppCompatActivity {
+    private static final String TAG = "SeniorTabActivity";
 
     static final int Num_Tab = 4;
 
@@ -35,27 +39,14 @@ public class SeniorTabActivity extends AppCompatActivity {
      */
 
     private ViewPager mViewPager;
-
+    private int high_zone_2, low_zone_1;
+    Toolbar toolbar;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_senior_tab);
+        getSeniorInfo();
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.stoolbar);
-        setSupportActionBar(toolbar);
-        //getSupportActionBar().setDisplayShowHomeEnabled(true);
-        //getSupportActionBar().setDisplayShowTitleEnabled(false);
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-
-        // Set up the ViewPager with the sections adapter.
-
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getApplicationContext(), getSupportFragmentManager());
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -71,13 +62,13 @@ public class SeniorTabActivity extends AppCompatActivity {
 
             switch (position) {
                 case 0:
-                    return new SeniorFragmentOneActivity(mContext);
+                    return new SeniorFragmentOneActivity(mContext, high_zone_2, low_zone_1);
                 case 1:
                     return new SeniorFragmentTwoActivity(mContext);
                 case 2:
                     return new SeniorFragmentThreeActivity(mContext);
                 case 3:
-                    return new SeniorFragmentFourActivity(mContext);
+                    return new SeniorFragmentFourActivity(mContext, high_zone_2, low_zone_1);
             }
             return null;
         }
@@ -103,5 +94,82 @@ public class SeniorTabActivity extends AppCompatActivity {
             }
             return null;
         }
+    }
+
+    public void getSeniorInfo(){
+        ConnectServer.getInstance().setAsncTask(new AsyncTask<String, Void, Boolean>() {
+
+
+            @Override
+            protected void onPreExecute() {
+
+            }
+            protected void onPostExecute(Boolean params) {
+                toolbar = (Toolbar) findViewById(R.id.stoolbar);
+                setSupportActionBar(toolbar);
+
+                mSectionsPagerAdapter = new SectionsPagerAdapter(getApplicationContext(), getSupportFragmentManager());
+                mViewPager = (ViewPager) findViewById(R.id.container);
+                mViewPager.setAdapter(mSectionsPagerAdapter);
+
+                TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+                tabLayout.setupWithViewPager(mViewPager);
+            }
+
+            @Override
+            protected Boolean doInBackground(String... params) {
+                URL obj = null;
+                try {
+                    obj = new URL(ConnectServer.getInstance().getURL("Senior_Info"));
+                    HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+                    con.setRequestMethod("POST");
+                    con.setRequestProperty("Content-Type", "application/json; charset=utf8");
+                    con.setRequestProperty("Accept", "application/json");
+
+                    con = ConnectServer.getInstance().setHeader(con);
+                    con.setDoOutput(true);
+
+                    JSONObject jsonObj = new JSONObject();
+
+                    OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
+                    wr.write(jsonObj.toString());
+
+                    wr.flush();
+
+                    BufferedReader rd =null;
+
+                    if(con.getResponseCode() == 200){
+                        rd = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
+                        String resultValues = rd.readLine();
+
+                        JSONObject object = new JSONObject(resultValues);
+                        Log.d(TAG, "success: "+object.toString());
+                        JSONArray jArr  = object.getJSONArray("data");
+
+                        JSONObject c = jArr.getJSONObject(0);
+                        //senior_name = c.getString("user_name");
+                        //senior_birthdate= c.getString("user_birthdate");
+                        //senior_gender= c.getString("user_gender");
+                        //senior_address= c.getString("user_address");
+                        //senior_tel= c.getString("user_tel");
+                        //latitude= c.getString("latitude");
+                        //longitude= c.getString("longitude");
+                        high_zone_2= c.getInt("high_zone_2");
+                        //high_zone_1= c.getInt("high_zone_1");
+                        low_zone_1= c.getInt("low_zone_1");
+                    } else {
+                        rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
+                        Log.d(TAG,"fail : " + rd.readLine());
+                    }
+
+                } catch (IOException | JSONException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+
+        });
+        ConnectServer.getInstance().execute();
     }
 }

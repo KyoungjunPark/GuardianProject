@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         editor.putString("idEditText", idEditText.getText().toString());
-
+        editor.putString("pwEditText", pwEditText.getText().toString());
         editor.commit();
     }
 
@@ -92,6 +92,7 @@ public class LoginActivity extends AppCompatActivity {
         idEditText = (EditText) findViewById(R.id.idEditText);
         idEditText.setText(pref.getString("idEditText", ""));
         pwEditText = (EditText) findViewById(R.id.pwEditText);
+        pwEditText.setText(pref.getString("pwEditText", ""));
 
         loginbutton = (Button)findViewById(R.id.loginbutton);
         loginbutton.setOnClickListener(new View.OnClickListener() {

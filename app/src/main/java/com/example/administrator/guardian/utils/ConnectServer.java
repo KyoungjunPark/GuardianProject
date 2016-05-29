@@ -78,6 +78,9 @@ public class ConnectServer {
             case "Receive_Avg_Heartrate_Log":
                 resultURL = URL + "/" +"Receive_Avg_Heartrate_Log";
                 break;
+            case "Receive_Heartrate_Log":
+                resultURL = URL + "/" + "Receive_Heartrate_Log";
+                break;
 
         }
         return resultURL;
