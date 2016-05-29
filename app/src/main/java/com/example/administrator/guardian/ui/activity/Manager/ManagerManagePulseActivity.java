@@ -88,9 +88,7 @@ public class ManagerManagePulseActivity extends Fragment {
                 high_zone_2 = Integer.parseInt(editMaxSeriousPulse.getText().toString());
                 high_zone_1 = Integer.parseInt(editSeriousPulse.getText().toString());
                 low_zone_1 = Integer.parseInt(editMinSeriousPulse.getText().toString());
-                Log.d(TAG, "h2 : "+high_zone_2);
-                Log.d(TAG, "h2 : "+high_zone_2);
-                Log.d(TAG, "h2 : "+high_zone_2);
+
             }
             protected void onPostExecute(Boolean params) {
 

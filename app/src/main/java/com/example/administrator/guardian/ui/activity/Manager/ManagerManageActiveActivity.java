@@ -61,7 +61,6 @@ public class ManagerManageActiveActivity extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.d(TAG, "onCreateView: ");
         View view = inflater.inflate(R.layout.activity_manager_manage_active, null);
 
         mma_dtr_time = new ArrayList<>();
@@ -87,9 +86,9 @@ public class ManagerManageActiveActivity extends Fragment {
                 dataList = new String[3];
                 activeNum_dtr = new int[3];
             }
+
             protected void onPostExecute(Boolean params) {
                 if(responseStatus == 1){
-                    Log.d(TAG, dataList[0] + "/" + dataList[1] + "/" + dataList[2]);
 
                     String date = new SimpleDateFormat("yyyyMMddHH").format(new Date());
                     int num0 = Integer.parseInt(date);
@@ -157,18 +156,14 @@ public class ManagerManageActiveActivity extends Fragment {
                         BufferedReader rd =null;
 
                         if(con.getResponseCode() == 200){
-                            //Sign up Success
                             rd = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
                             String resultValues = rd.readLine();
-                            Log.d(TAG, resultValues);
                             JSONObject object = new JSONObject(resultValues);
                             JSONArray jArr  = object.getJSONArray("data");
                             JSONObject c = jArr.getJSONObject(0);
-                            Log.d(TAG, c.getString("date"));
                             dataList[i] = new String(c.getString("date"));
                             Log.d(TAG, "success");
                         } else {
-                            //Sign up Fail
                             responseStatus *= 0;
                             rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
                             Log.d(TAG,"fail : " + rd.readLine());
@@ -200,13 +195,10 @@ public class ManagerManageActiveActivity extends Fragment {
                             //Sign up Success
                             rd = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
                             String resultValues = rd.readLine();
-                            Log.d(TAG, resultValues);
                             JSONObject object = new JSONObject(resultValues);
                             JSONArray jArr  = object.getJSONArray("data");
 
                             activeNum_dtr[i] = jArr.length();
-
-                            Log.d(TAG, i+"번째 개수 : "+activeNum_dtr[i]);
 
                             Log.d(TAG, "success");
                         } else {

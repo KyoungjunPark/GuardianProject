@@ -85,7 +85,7 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
                 case 1:
                     return new ManagerManageActiveActivity(mContext, senior_id);
                 case 2:
-                    return new ManagerManagePulseInfoActivity(mContext, senior_id);
+                    return new ManagerManagePulseInfoActivity(mContext, senior_id, high_zone_2, low_zone_1);
                 case 3:
                     return new ManagerManagePulseActivity(mContext, senior_id, high_zone_2, high_zone_1, low_zone_1);
             }
@@ -155,19 +155,17 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
 
                     OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
                     wr.write(jsonObj.toString());
-                    Log.d(TAG, "doInBackground: "+jsonObj.toString());
 
                     wr.flush();
 
                     BufferedReader rd =null;
 
                     if(con.getResponseCode() == 200){
-                        //Sign up Success
                         rd = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
                         String resultValues = rd.readLine();
 
                         JSONObject object = new JSONObject(resultValues);
-                        Log.d(TAG, "doInBackground: "+object.toString());
+                        Log.d(TAG, "success: "+object.toString());
                         JSONArray jArr  = object.getJSONArray("data");
 
                         JSONObject c = jArr.getJSONObject(0);
@@ -182,7 +180,6 @@ public class ManagerSeniorInfoTabActivity extends AppCompatActivity {
                         high_zone_1= c.getInt("high_zone_1");
                         low_zone_1= c.getInt("low_zone_1");
                     } else {
-                        //Sign up Fail
                         rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
                         Log.d(TAG,"fail : " + rd.readLine());
                     }
