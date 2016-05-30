@@ -2,6 +2,7 @@ package com.example.administrator.guardian.ui.activity.Senior;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,8 +11,20 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.administrator.guardian.R;
+import com.example.administrator.guardian.utils.ConnectServer;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
+    private static final String TAG = "SeniorThreeFinish";
 
     private TextView sftsf_Name;
     private TextView sftsf_Contents;
@@ -60,7 +73,7 @@ public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
         sftsf_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //finishRequest();
                 SeniorFragmentThreeScheduleFinishDialog.this.dismiss();
             }
         });
@@ -85,6 +98,57 @@ public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
         sftsf_Contents=(TextView)findViewById(R.id.sftsf_content);
         sftsf_vDate= (TextView)findViewById(R.id.sftsf_vDate);
         sftsf_vTime = (TextView)findViewById(R.id.sftsf_vTime);
+    }
+    public void finishRequest(){
+        ConnectServer.getInstance().setAsncTask(new AsyncTask<String, Void, Boolean>() {
+
+            @Override
+            protected void onPreExecute() {
+            }
+            @Override
+            protected void onPostExecute(Boolean params){
+
+            }
+
+
+            @Override
+            protected Boolean doInBackground(String... params) {
+                URL obj = null;
+                try {
+                    obj = new URL(ConnectServer.getInstance().getURL("Finish_Request"));
+                    HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+                    con = ConnectServer.getInstance().setHeader(con);
+                    con.setDoOutput(true);
+
+                    //set Request parameter
+                    JSONObject jsonObj = new JSONObject();
+                    jsonObj.put("date_from", startInfo);
+                    // 토큰과 date_from 이 primary key가 되고
+                    // 이미지 파일 보내야 함
+
+                    OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
+                    wr.write(jsonObj.toString());
+                    wr.flush();
+
+                    BufferedReader rd =null;
+
+                    if(con.getResponseCode() == 200){
+                        //Request Success
+                        rd = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
+                        String resultValues = rd.readLine();
+                        Log.d(TAG,"Successs");
+                    }else {
+                        //Request Fail
+                        rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
+                        Log.d(TAG,"Fail: " + rd.readLine());
+                    }
+                } catch(IOException | JSONException e){
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        });
+        ConnectServer.getInstance().execute();
     }
 
 }
