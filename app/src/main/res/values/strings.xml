@@ -46,7 +46,7 @@
     <string name="title_activity_manager_manage_info">Manager_manage_info</string>
     <string name="title_activity_volunteer_request">VolunteerRequestActivity</string>
     <string name="title_activity_senior_visit_tab">SeniorVisitTabActivity</string>
-    <string name="title_activity_manager_senior_info_tab">ManagerSeniorInfoTabActivity</string>
+    <string name="title_activity_manager_senior_info_tab">Manager</string>
 
     <string name="info_title">방문 요청</string>
     <string name="info_message"> </string>

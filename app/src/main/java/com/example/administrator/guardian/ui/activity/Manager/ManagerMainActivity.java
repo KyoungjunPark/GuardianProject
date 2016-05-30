@@ -200,7 +200,7 @@ public class ManagerMainActivity extends AppCompatActivity{
 					String Dial = "tel:"+seniorList.get(position).user_tel;//"tel:"+phoneNumber;
 					Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(Dial));
 					try {
-						getApplicationContext().startActivity(intent);
+						startActivity(intent);
 					}catch(SecurityException e){
 						Log.d("SecurityException","manage_senior_call");}
 				}
