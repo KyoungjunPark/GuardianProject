@@ -93,6 +93,9 @@ public class ConnectServer {
             case "Request_List":
                 resultURL = URL + "/" + "Request_List";
                 break;
+            case "Accept_Request":
+                resultURL = URL + "/" + "Accept_Request";
+                break;
 
         }
         return resultURL;

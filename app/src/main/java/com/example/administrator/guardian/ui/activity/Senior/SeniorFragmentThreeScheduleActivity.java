@@ -24,7 +24,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -138,30 +140,43 @@ public class SeniorFragmentThreeScheduleActivity extends AppCompatActivity {
                                 }
                                 req_hour = (Integer)dataArray.getJSONObject(i).getInt("req_hour");
 
-                                if( ((Integer)dataArray.getJSONObject(i).getInt("req_type")) == 0
+                                if((dataArray.getJSONObject(i).getInt("current_status")) == 2 ){
+                                    type = 4; // 기간만료
+                                }else if( ((Integer)dataArray.getJSONObject(i).getInt("req_type")) == 0
                                         && ((Integer)dataArray.getJSONObject(i).getInt("current_status")) == 0 ){
-                                    type = 0;
-                                }else if(((Integer)dataArray.getJSONObject(i).getInt("req_type")) == 0
-                                        && ((Integer)dataArray.getJSONObject(i).getInt("current_status")) == 1 ){
-                                    type = 1;
-
+                                    type = 0; // 요청중
                                 }else if(((Integer)dataArray.getJSONObject(i).getInt("req_type")) == 1
                                         && ((Integer)dataArray.getJSONObject(i).getInt("current_status")) == 0 ){
-                                    type = 2;
+                                    type = 2; // 수락대기
 
-                                }else if(((Integer)dataArray.getJSONObject(i).getInt("req_type")) == 1
-                                        && ((Integer)dataArray.getJSONObject(i).getInt("current_status")) == 1 ){
-                                    type = 3;
+                                }else if( dataArray.getJSONObject(i).getInt("current_status") == 1 ){
+                                    if(dataArray.getJSONObject(i).getInt("req_type") == 0){
+                                        if(dataArray.getJSONObject(i).getString("signature").compareTo("0") != 0){
+                                            type = 6;
+                                        }else if(Long.parseLong(new SimpleDateFormat("yyyyMMddHHmm").format(new Date())) > Long.parseLong(startInfo) &&
+                                                Long.parseLong(new SimpleDateFormat("yyyyMMddHHmm").format(new Date())) < Long.parseLong(startInfo) + req_hour
+                                                ){
+                                            type = 5;
 
-                                }else if(((Integer)dataArray.getJSONObject(i).getInt("current_status")) == 2 ){
-                                    type = 4;
+                                        }else if(Long.parseLong(new SimpleDateFormat("yyyyMMddHHmm").format(new Date())) > Long.parseLong(startInfo) + req_hour){
+                                            type = 7; // 서명필요
+                                        }else{
+                                           type = 1;// 요청완료
+                                        }
+                                    }else if(dataArray.getJSONObject(i).getInt("req_type") == 1){
+                                        if(dataArray.getJSONObject(i).getString("signature").compareTo("0") != 0){
+                                            type = 6;
+                                        }else if(Long.parseLong(new SimpleDateFormat("yyyyMMddHHmm").format(new Date())) > Long.parseLong(startInfo) &&
+                                                Long.parseLong(new SimpleDateFormat("yyyyMMddHHmm").format(new Date())) < Long.parseLong(startInfo) + req_hour
+                                                ){
+                                            type = 5;
 
-                                }else if((String)dataArray.getJSONObject(i).get("signature") != "0" ){
-                                    type = 6;
-
-                                }else{
-                                    type = 5;
-                                    Log.d(TAG, "doInBackground: ");
+                                        }else if(Long.parseLong(new SimpleDateFormat("yyyyMMddHHmm").format(new Date())) > Long.parseLong(startInfo) + req_hour){
+                                            type = 7; // 서명필요
+                                        }else{
+                                            type = 3;// 수락완료
+                                        }
+                                    }
                                 }
 
                                 items.add(new SeniorScheduleRecyclerItem(volunteer_id,volunteer_name, volunteer_age,volunteer_gender, startInfo,details,req_hour,type ));

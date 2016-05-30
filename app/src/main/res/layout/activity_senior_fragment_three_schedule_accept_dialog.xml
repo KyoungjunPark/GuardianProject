@@ -38,7 +38,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="봉사날짜"
+                    android:text="봉사시작 : "
                     android:id="@+id/sftsa_Date"
                     android:textSize="20dp"
                     android:textColor="#000000"
@@ -65,7 +65,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="봉사시간"
+                    android:text="봉사시간 : "
                     android:id="@+id/sftsa_Time"
                     android:textSize="20dp"
                     android:textColor="#000000"

@@ -173,6 +173,7 @@ public class SeniorFragmentFourActivity extends Fragment {
                             JSONObject c = jArr.getJSONObject(0);
 
                             if(c.isNull("avgHR")){
+                                Log.d(TAG, "doInBackground: 123123aaaa");
                                 avgPulse.add(0.0);
                             }else{
                                 avgPulse.add(c.getDouble("avgHR"));

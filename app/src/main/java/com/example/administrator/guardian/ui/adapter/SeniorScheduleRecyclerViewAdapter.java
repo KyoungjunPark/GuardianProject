@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.datamodel.SeniorScheduleRecyclerItem;
@@ -61,39 +62,77 @@ public class SeniorScheduleRecyclerViewAdapter extends RecyclerView.Adapter<Seni
         }else{
             holder.ssc_inputgender.setText(item.getGender());
         }
-
-        //0 0 요청중 -0
-        //0 1 요청완료 -1
-        //1 0 수락대기 -2
-        //1 1 수락완료 -3
-        //2   기간만료 -4
+        //r c s
+        //0 0 요청중 -0    //
+        //0 1 요청완료 -1   //
+        //1 0 수락대기 -2   //
+        //1 1 수락완료 -3   //
+        //  2 기간만료 -4   //
         //0 1 0 진행시간내 진행중 -5
         //1 1 0
         //    1 완료
         if(item.getType() == 0){
             holder.ssc_button.setText("요청중");
+            holder.cardview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, item.getDetails(), Toast.LENGTH_SHORT).show();
+                }
+            });
         }else if(item.getType()==1){
             holder.ssc_button.setText("요청완료");
+            holder.cardview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, item.getDetails(), Toast.LENGTH_SHORT).show();
+                }
+            });
         }
         else if(item.getType()==2){
             holder.ssc_button.setText("확인대기");
             holder.cardview.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mCustomDialog1 = new SeniorFragmentThreeScheduleAcceptDialog(v.getContext(), item.getStartInfo(), item.getReqHour(), item.getName(), item.getAge(), item.getGender());
+                    mCustomDialog1 = new SeniorFragmentThreeScheduleAcceptDialog(v.getContext(), item.getStartInfo(), item.getDetails(), item.getReqHour(), item.getName(), item.getAge(), item.getGender());
                     mCustomDialog1.show();
                 }
             });
         }
         else if(item.getType()==3){
             holder.ssc_button.setText("확인완료");
+            holder.cardview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, item.getDetails(), Toast.LENGTH_SHORT).show();
+                }
+            });
         }
         else if(item.getType()==4){
             holder.ssc_button.setText("기간만료");
+            holder.cardview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, item.getDetails(), Toast.LENGTH_SHORT).show();
+                }
+            });
         }else if(item.getType() == 5){
             holder.ssc_button.setText("진행중");
-        }else{
+            holder.cardview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, item.getDetails(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }else if(item.getType() == 6){
             holder.ssc_button.setText("완료");
+            holder.cardview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, item.getDetails(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }else{
+            holder.ssc_button.setText("서명필요");
             holder.cardview.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
