@@ -2,6 +2,7 @@ package com.example.administrator.guardian.ui.activity.Manager;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -187,6 +188,18 @@ public class ManagerMainActivity extends AppCompatActivity{
 					manageinfo.putExtra("senior_birthdate",seniorList.get(position).user_birthdate);
 					manageinfo.putExtra("senior_gender",seniorList.get(position).user_gender);
 					startActivity(manageinfo);
+				}
+			});
+
+			manage_senior_button.setOnClickListener(new View.OnClickListener(){
+				@Override
+				public void onClick(View v){
+					String Dial = "tel:";//"tel:"+phoneNumber;
+					Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(Dial));
+					try {
+						getApplicationContext().startActivity(intent);
+					}catch(SecurityException e){
+						Log.d("SecurityException","manage_senior_call");}
 				}
 			});
 			//-----------------test-----------------
