@@ -1,10 +1,7 @@
 package com.example.administrator.guardian.ui.adapter;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -14,12 +11,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.administrator.guardian.R;
-import com.example.administrator.guardian.datamodel.SeniorRecyclerItem;
 import com.example.administrator.guardian.datamodel.SeniorScheduleRecyclerItem;
 import com.example.administrator.guardian.ui.activity.Senior.SeniorFragmentThreeScheduleAcceptDialog;
-import com.example.administrator.guardian.ui.activity.Senior.SeniorFragmentThreeScheduleActivity;
 import com.example.administrator.guardian.ui.activity.Senior.SeniorFragmentThreeScheduleFinishDialog;
-import com.example.administrator.guardian.ui.activity.Senior.SeniorFragmentTwoDialog;
 
 import java.util.List;
 
@@ -52,41 +46,58 @@ public class SeniorScheduleRecyclerViewAdapter extends RecyclerView.Adapter<Seni
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final SeniorScheduleRecyclerItem item=items.get(position);
+        if(item.getName().compareTo("") == 0){
+            holder.ssc_inputname.setText("-");
+        }else{
+            holder.ssc_inputname.setText(item.getName());
+        }
+        if(item.getAge() == 0){
+            holder.ssc_inputage.setText("-");
+        }else {
+            holder.ssc_inputage.setText(item.getAge()+"");
+        }
+        if(item.getGender().compareTo("")== 0){
+            holder.ssc_inputgender.setText("-");
+        }else{
+            holder.ssc_inputgender.setText(item.getGender());
+        }
 
-        holder.ssc_inputname.setText(item.getName());
-        holder.ssc_inputage.setText(item.getAge()+"");
-        holder.ssc_inputgender.setText(item.getGender());
-
-        if(item.getType()==1){
-            holder.ssc_inputname.setText("");
-            holder.ssc_inputage.setText("");
-            holder.ssc_inputgender.setText("");
-            holder.ssc_age.setText("");
-            holder.ssc_gender.setText("");
-            holder.ssc_button.setText("신청중...");
+        //0 0 요청중 -0
+        //0 1 요청완료 -1
+        //1 0 수락대기 -2
+        //1 1 수락완료 -3
+        //2   기간만료 -4
+        //0 1 0 진행시간내 진행중 -5
+        //1 1 0
+        //    1 완료
+        if(item.getType() == 0){
+            holder.ssc_button.setText("요청중");
+        }else if(item.getType()==1){
+            holder.ssc_button.setText("요청완료");
         }
         else if(item.getType()==2){
-            holder.ssc_button.setText("수락해줘");
+            holder.ssc_button.setText("확인대기");
             holder.cardview.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mCustomDialog1 = new SeniorFragmentThreeScheduleAcceptDialog(v.getContext(), item.getYear(), item.getMonth(), item.getDay(), item.getStartHour(), item.getStartMinute(), item.getFinishHour(), item.getFinishMinute(), item.getName(), item.getAge(), item.getGender());
+                    mCustomDialog1 = new SeniorFragmentThreeScheduleAcceptDialog(v.getContext(), item.getStartInfo(), item.getReqHour(), item.getName(), item.getAge(), item.getGender());
                     mCustomDialog1.show();
                 }
             });
         }
         else if(item.getType()==3){
-            holder.ssc_button.setText("봉사예정");
+            holder.ssc_button.setText("확인완료");
         }
         else if(item.getType()==4){
-            holder.ssc_button.setText("진행중...");
-        }
-        else{
-            holder.ssc_button.setText("봉사완료!");
+            holder.ssc_button.setText("기간만료");
+        }else if(item.getType() == 5){
+            holder.ssc_button.setText("진행중");
+        }else{
+            holder.ssc_button.setText("완료");
             holder.cardview.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mCustomDialog2 = new SeniorFragmentThreeScheduleFinishDialog(v.getContext(), item.getYear(), item.getMonth(), item.getDay(), item.getStartHour(), item.getStartMinute(), item.getFinishHour(), item.getFinishMinute(),item.getName(),item.getContents());
+                    mCustomDialog2 = new SeniorFragmentThreeScheduleFinishDialog(v.getContext(), item.getStartInfo(), item.getReqHour(), item.getName(), item.getDetails());
                     mCustomDialog2.show();
                 }
             });

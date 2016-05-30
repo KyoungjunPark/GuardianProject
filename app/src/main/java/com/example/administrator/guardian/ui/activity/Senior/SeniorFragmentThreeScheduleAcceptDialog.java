@@ -1,10 +1,8 @@
 package com.example.administrator.guardian.ui.activity.Senior;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -28,6 +26,8 @@ public class SeniorFragmentThreeScheduleAcceptDialog extends Dialog {
     private int finishHour;
     private int finishMinute;
 
+    private String startInfo;
+    private int reqHour;
     private String name;
     private int age;
     private String gender;
@@ -35,15 +35,10 @@ public class SeniorFragmentThreeScheduleAcceptDialog extends Dialog {
     private Button sftsa_left;
     private Button sftsa_right;
 
-    public SeniorFragmentThreeScheduleAcceptDialog(Context context, int year, int month, int day, int startHour, int startMinute, int finishHour, int finishMinute, String name, int age, String gender) {
+    public SeniorFragmentThreeScheduleAcceptDialog(Context context, String startInfo, int reqHour, String name, int age, String gender) {
         super(context , android.R.style.Theme_Translucent_NoTitleBar);
-        this.year=year;
-        this.month=month;
-        this.day=day;
-        this.startHour=startHour;
-        this.startMinute=startMinute;
-        this.finishHour=finishHour;
-        this.finishMinute=finishMinute;
+        this.startInfo = startInfo;
+        this.reqHour = reqHour;
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -62,7 +57,7 @@ public class SeniorFragmentThreeScheduleAcceptDialog extends Dialog {
 
         setLayout();
         setTitle(name);
-        setContent(year,month,day,startHour,startMinute,finishHour,finishMinute,age,gender);
+        setContent(startInfo, reqHour , age,gender);
 
         sftsa_left = (Button)findViewById(R.id.sftsa_left);
         sftsa_left.setOnClickListener(new View.OnClickListener() {
@@ -86,10 +81,10 @@ public class SeniorFragmentThreeScheduleAcceptDialog extends Dialog {
         sftsa_Name.setText(Name);
     }
 
-    private void setContent(int year, int month, int day, int startHour, int startMinute, int finishHour,int finishMinute, int age, String gender){
+    private void setContent(String startInfo, int reqHour, int age, String gender){
 
-        sftsa_vDate.setText(year+"년 "+ month+"월 "+day+"일 ");
-        sftsa_vTime.setText(startHour+":"+startMinute+" ~ "+finishHour+":"+finishMinute);
+        sftsa_vDate.setText(startInfo);
+        sftsa_vTime.setText(reqHour+"");
         sftsa_Age.setText("나이 : "+age);
         sftsa_Gender.setText("성별 : "+ gender);
     }

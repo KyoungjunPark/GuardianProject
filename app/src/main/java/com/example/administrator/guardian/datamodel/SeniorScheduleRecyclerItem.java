@@ -4,48 +4,32 @@ package com.example.administrator.guardian.datamodel;
  * Created by Administrator on 2016-05-22.
  */
 public class SeniorScheduleRecyclerItem {
-    private String id;
-    private int year;
-    private int month;
-    private int day;
-    private int startHour;
-    private int startMinute;
-    private int finishHour;
-    private int finishMinute;
-    private String name;
-    private int age;
-    private String gender;
-    private String contents;
-    private int type;
+    String volunteer_id;
+    String startInfo;
+    String details;
+    String volunteer_name ="";
+    int volunteer_age =0;
+    String volunteer_gender="";
+    int req_hour;
+    int type;
 
-    public int getYear(){return this.year;}
-    public int getMonth(){return this.month;}
-    public int getDay(){return this.day;}
-    public int getStartHour(){return this.startHour;}
-    public int getStartMinute(){return this.startMinute;}
-    public int getFinishHour(){return this.finishHour;}
-    public int getFinishMinute(){return this.finishMinute;}
+    public String getId(){return this.volunteer_id;}
+    public String getName(){return this.volunteer_name;}
+    public int getAge(){return this.volunteer_age;}
+    public String getGender(){return this.volunteer_gender;}
+    public String getStartInfo(){return this.startInfo;}
+    public String getDetails(){return this.details;}
+    public int getReqHour(){return this.req_hour;}
+    public int getType(){ return this.type;}
 
-    public String getId(){return this.id;}
-    public String getName(){return this.name;}
-    public int getAge(){return this.age;}
-    public String getGender(){return this.gender;}
-    public String getContents(){return this.contents;}
-    public int getType(){return this.type;}
-
-    public SeniorScheduleRecyclerItem(String id, int year, int month, int day, int startHour, int startMinute, int finishHour, int finishMinute, String name, int age, String gender, String contents, int type){
-        this.id=id;
-        this.year=year;
-        this.month=month;
-        this.day=day;
-        this.startHour=startHour;
-        this.startMinute=startMinute;
-        this.finishHour=finishHour;
-        this.finishMinute=finishMinute;
-        this.name=name;
-        this.age=age;
-        this.gender=gender;
-        this.contents=contents;
+    public SeniorScheduleRecyclerItem(String volunteer_id, String volunteer_name, int volunteer_age, String volunteer_gender, String startInfo, String details, int req_hour, int type){
+        this.volunteer_id = volunteer_id;
+        this.volunteer_name = volunteer_name;
+        this.volunteer_age = volunteer_age;
+        this.volunteer_gender = volunteer_gender;
+        this.startInfo = startInfo;
+        this.details = details;
+        this.req_hour = req_hour;
         this.type=type;
     }
 }

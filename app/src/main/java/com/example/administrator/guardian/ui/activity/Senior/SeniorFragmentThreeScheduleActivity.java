@@ -1,35 +1,47 @@
 package com.example.administrator.guardian.ui.activity.Senior;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.administrator.guardian.R;
-import com.example.administrator.guardian.datamodel.SeniorRecyclerItem;
 import com.example.administrator.guardian.datamodel.SeniorScheduleRecyclerItem;
-import com.example.administrator.guardian.datamodel.VolunteerConfirmRecyclerItem;
 import com.example.administrator.guardian.ui.adapter.SeniorScheduleRecyclerViewAdapter;
-import com.example.administrator.guardian.ui.adapter.VolunteerConfirmViewAdapter;
+import com.example.administrator.guardian.utils.ConnectServer;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class SeniorFragmentThreeScheduleActivity extends AppCompatActivity {
+    private static final String TAG = "SeniorThreeSchedule";
 
     RecyclerView recyclerView;
     List<SeniorScheduleRecyclerItem> items;
+    LinearLayoutManager layoutManager;
     private Button sfts_back;
+    int responseStatus = 1;
+
+    String volunteer_id, volunteer_name;
+    int volunteer_age;
+    String volunteer_gender;
+    String startInfo, details;
+    int req_hour, type;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,22 +56,132 @@ public class SeniorFragmentThreeScheduleActivity extends AppCompatActivity {
             }
         });
 
-        recyclerView = (RecyclerView)findViewById(R.id.senior_schedule_recyclerView);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(layoutManager);
 
-        items = new ArrayList<>();
-        SeniorScheduleRecyclerItem[] item = new SeniorScheduleRecyclerItem[5];
-        item[0] = new SeniorScheduleRecyclerItem("0",2016,5,23,1,0,3,0, "박경준1", 20, "여","",1);
-        item[1] = new SeniorScheduleRecyclerItem("1",2016,5,23,1,0,3,0, "박경준2", 21, "남","",2);
-        item[2] = new SeniorScheduleRecyclerItem("2",2016,5,23,1,0,3,0, "박경준3", 22, "남","",3);
-        item[3] = new SeniorScheduleRecyclerItem("3",2016,5,23,1,0,3,0, "박경준4", 23, "남","",4);
-        item[4] = new SeniorScheduleRecyclerItem("4",2016,5,23,1,0,3,0, "박경준5", 24, "남","말동무",5);
+        getReqInfo();
 
-        for (int i = 0; i < 5; i++) items.add(item[i]);
+    }
+    public void getReqInfo(){
+        ConnectServer.getInstance().setAsncTask(new AsyncTask<String, Void, Boolean>() {
+            @Override
+            protected void onPreExecute() {
+                items = new ArrayList<SeniorScheduleRecyclerItem>();
+            }
 
-        recyclerView.setAdapter(new SeniorScheduleRecyclerViewAdapter(getApplicationContext(), items, R.layout.activity_senior_fragment_three_schedule));
+            protected void onPostExecute(Boolean params) {
+                if(responseStatus == 1){
+
+                    recyclerView = (RecyclerView)findViewById(R.id.senior_schedule_recyclerView);
+                    layoutManager = new LinearLayoutManager(getApplicationContext());
+                    layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+                    recyclerView.setHasFixedSize(true);
+                    recyclerView.setLayoutManager(layoutManager);
+                    recyclerView.setAdapter(new SeniorScheduleRecyclerViewAdapter(getApplicationContext(), items, R.layout.activity_senior_fragment_three_schedule));
+
+                }
+            }
+
+            @Override
+            protected Boolean doInBackground(String... params) {
+                URL obj = null;
+                try {
+                        obj = new URL(ConnectServer.getInstance().getURL("Request_List"));
+                        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+                        con.setRequestMethod("POST");
+                        con.setRequestProperty("Content-Type", "application/json; charset=utf8");
+                        con.setRequestProperty("Accept", "application/json");
+
+                        con = ConnectServer.getInstance().setHeader(con);
+                        con.setDoOutput(true);
+
+                        OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
+                        wr.flush();
+
+                        BufferedReader rd =null;
+
+                        if(con.getResponseCode() == 200){
+                            rd = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
+                            String resultValues = rd.readLine();
+                            Log.d(TAG, "doInBackground: "+resultValues);
+                            JSONObject object = new JSONObject(resultValues);
+                            JSONArray dataArray = object.getJSONArray("data");
+                            Log.d(TAG, "doInBackground: "+dataArray.toString());
+
+                            for (int i=0; i<dataArray.length(); i++){
+                                try{
+                                    volunteer_id = (String)dataArray.getJSONObject(i).get("volunteer_id");
+                                }catch (Exception e){
+                                    volunteer_id = "";
+                                }
+                                try{
+                                    volunteer_name = (String)dataArray.getJSONObject(i).get("user_name");
+                                }catch (Exception e){
+                                    volunteer_name= "자원봉사자 미지정";
+                                }
+                                try{
+                                    volunteer_age = (20179999 - dataArray.getJSONObject(i).getInt("user_birthdate"))/10000;
+                                }catch (Exception e){
+                                    volunteer_age= 0;
+                                }
+                                try{
+                                    volunteer_gender = (String)dataArray.getJSONObject(i).get("user_gender");
+                                }catch (Exception e){
+                                    volunteer_gender= "";
+                                }
+
+                                startInfo= (String)dataArray.getJSONObject(i).get("date_from");
+                                try{
+                                    details = (String)dataArray.getJSONObject(i).get("details");
+
+                                }catch (Exception e){
+                                    details = "";
+                                }
+                                req_hour = (Integer)dataArray.getJSONObject(i).getInt("req_hour");
+
+                                if( ((Integer)dataArray.getJSONObject(i).getInt("req_type")) == 0
+                                        && ((Integer)dataArray.getJSONObject(i).getInt("current_status")) == 0 ){
+                                    type = 0;
+                                }else if(((Integer)dataArray.getJSONObject(i).getInt("req_type")) == 0
+                                        && ((Integer)dataArray.getJSONObject(i).getInt("current_status")) == 1 ){
+                                    type = 1;
+
+                                }else if(((Integer)dataArray.getJSONObject(i).getInt("req_type")) == 1
+                                        && ((Integer)dataArray.getJSONObject(i).getInt("current_status")) == 0 ){
+                                    type = 2;
+
+                                }else if(((Integer)dataArray.getJSONObject(i).getInt("req_type")) == 1
+                                        && ((Integer)dataArray.getJSONObject(i).getInt("current_status")) == 1 ){
+                                    type = 3;
+
+                                }else if(((Integer)dataArray.getJSONObject(i).getInt("current_status")) == 2 ){
+                                    type = 4;
+
+                                }else if((String)dataArray.getJSONObject(i).get("signature") != "0" ){
+                                    type = 6;
+
+                                }else{
+                                    type = 5;
+                                    Log.d(TAG, "doInBackground: ");
+                                }
+
+                                items.add(new SeniorScheduleRecyclerItem(volunteer_id,volunteer_name, volunteer_age,volunteer_gender, startInfo,details,req_hour,type ));
+                            }
+
+                            Log.d(TAG, "success");
+                        } else {
+                            responseStatus *= 0;
+                            rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
+                            Log.d(TAG,"fail : " + rd.readLine());
+                        }
+
+
+                } catch (IOException | JSONException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+
+        });
+        ConnectServer.getInstance().execute();
     }
 }

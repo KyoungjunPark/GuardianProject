@@ -1,15 +1,12 @@
 package com.example.administrator.guardian.ui.activity.Senior;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.administrator.guardian.R;
@@ -29,22 +26,19 @@ public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
     private int finishHour;
     private int finishMinute;
 
+    private String startInfo;
+    private int reqHour;
     private String name;
-    private String contents;
+    private String details;
 
     private Button sftsf_button;
 
-    public SeniorFragmentThreeScheduleFinishDialog(Context context, int year, int month, int day, int startHour, int startMinute, int finishHour, int finishMinute, String name, String contents) {
+    public SeniorFragmentThreeScheduleFinishDialog(Context context, String startInfo, int reqHour, String name, String details) {
         super(context , android.R.style.Theme_Translucent_NoTitleBar);
-        this.year=year;
-        this.month=month;
-        this.day=day;
-        this.startHour=startHour;
-        this.startMinute=startMinute;
-        this.finishHour=finishHour;
-        this.finishMinute=finishMinute;
+        this.startInfo = startInfo;
+        this.reqHour = reqHour;
         this.name = name;
-        this.contents=contents;
+        this.details=details;
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +54,7 @@ public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
         setLayout();
         Log.d("name",name+"");
         setTitle(name);
-        setContent(year,month,day,startHour,startMinute,finishHour,finishMinute,contents);
+        setContent(startInfo, reqHour, details);
 
         sftsf_button = (Button)findViewById(R.id.sftsf_button);
         sftsf_button.setOnClickListener(new View.OnClickListener() {
@@ -76,11 +70,11 @@ public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
         sftsf_Name.setText(Name);
     }
 
-    private void setContent(int year, int month, int day, int startHour, int startMinute, int finishHour,int finishMinute, String contents){
+    private void setContent(String startInfo, int reqHour, String details){
 
-        sftsf_vDate.setText(year+"년 "+ month+"월 "+day+"일 ");
-        sftsf_vTime.setText(startHour+":"+startMinute+" ~ "+finishHour+":"+finishMinute);
-        sftsf_Contents.setText("내용 : "+contents);
+        sftsf_vDate.setText(startInfo);
+        sftsf_vTime.setText(reqHour+"");
+        sftsf_Contents.setText("내용 : "+details);
     }
 
     /*

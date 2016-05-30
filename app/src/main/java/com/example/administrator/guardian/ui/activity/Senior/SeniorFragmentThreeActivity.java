@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,10 +16,7 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
-import com.example.administrator.guardian.ui.activity.Manager.ManagerMainActivity;
-import com.example.administrator.guardian.ui.activity.Volunteer.VolunteerTabActivity;
 import com.example.administrator.guardian.utils.ConnectServer;
-import com.example.administrator.guardian.utils.MakeUTF8Parameter;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
@@ -38,8 +34,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.NumberFormat;
 import java.util.Calendar;
-
-import info.hoang8f.android.segmented.SegmentedGroup;
 
 @SuppressLint("ValidFragment")
 public class SeniorFragmentThreeActivity extends Fragment implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener{
@@ -92,7 +86,7 @@ public class SeniorFragmentThreeActivity extends Fragment implements TimePickerD
         requestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String info_message;
+                final String info_message;
                 if (isAllEntered()) {
                     if (hour_of_day > 12) {
                         info_message = "일시 : " + year + "년 " + month + "월 " + day_of_month + "일 " + "오후" + (hour_of_day - 12) + "시 " + minute + "분 "
@@ -136,16 +130,17 @@ public class SeniorFragmentThreeActivity extends Fragment implements TimePickerD
                                             try {
                                                 obj = new URL(ConnectServer.getInstance().getURL("Request"));
                                                 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-
+                                                con = ConnectServer.getInstance().setHeader(con);
                                                 con.setDoOutput(true);
 
                                                 //set Request parameter
-                                                MakeUTF8Parameter parameterMaker = new MakeUTF8Parameter();
-                                                parameterMaker.setParameter("date_from", date_from);
-                                                parameterMaker.setParameter("req_hour", req_hour);
+                                                JSONObject jsonObj = new JSONObject();
+                                                jsonObj.put("date_from", date_from);
+                                                jsonObj.put("req_hour", req_hour);
+                                                jsonObj.put("details", info_message);
 
                                                 OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
-                                                wr.write(parameterMaker.getParameter());
+                                                wr.write(jsonObj.toString());
                                                 wr.flush();
 
                                                 BufferedReader rd =null;
@@ -169,7 +164,7 @@ public class SeniorFragmentThreeActivity extends Fragment implements TimePickerD
                                                     rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
                                                     Log.d(TAG,"Connect Fail: " + rd.readLine());
                                                 }
-                                            } catch(IOException e){
+                                            } catch(IOException | JSONException e){
                                                 e.printStackTrace();
                                             }
                                             return null;

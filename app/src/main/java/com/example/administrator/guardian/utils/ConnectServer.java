@@ -87,6 +87,12 @@ public class ConnectServer {
             case "Total_Volunteer_Time":
                 resultURL = URL + "/" + "Total_Volunteer_Time";
                 break;
+            case "Request":
+                resultURL = URL + "/" + "Request";
+                break;
+            case "Request_List":
+                resultURL = URL + "/" + "Request_List";
+                break;
 
         }
         return resultURL;
