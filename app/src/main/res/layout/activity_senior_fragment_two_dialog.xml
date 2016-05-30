@@ -3,8 +3,7 @@
     android:gravity="center"
     android:layout_height="fill_parent"
     android:layout_width="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-        android:background="#ffffff">
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout android:orientation="vertical"
         android:layout_height="wrap_content"
         android:layout_width="300dip"
