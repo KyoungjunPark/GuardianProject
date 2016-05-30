@@ -55,7 +55,7 @@ public class VolunteerFragmentTwoFinishDialog extends Dialog {
 
         WindowManager.LayoutParams lpWindow = new WindowManager.LayoutParams();
         lpWindow.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
-        lpWindow.dimAmount = 0.8f;
+        lpWindow.dimAmount = 0.6f;
         getWindow().setAttributes(lpWindow);
 
         setContentView(R.layout.activity_volunteer_fragment_two_finish_dialog);
