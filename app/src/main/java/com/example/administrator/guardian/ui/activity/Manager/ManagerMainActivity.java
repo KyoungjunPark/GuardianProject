@@ -96,8 +96,9 @@ public class ManagerMainActivity extends AppCompatActivity{
 							String user_name= (String)dataArray.getJSONObject(i).get("user_name");
 							String user_birthdate= (String)dataArray.getJSONObject(i).get("user_birthdate");
 							String user_gender= (String)dataArray.getJSONObject(i).get("user_gender");
+							String user_tel= (String)dataArray.getJSONObject(i).get("user_tel");
 
-							Senior senior = new Senior(login_id, user_name, user_birthdate, user_gender);
+							Senior senior = new Senior(login_id, user_name, user_birthdate, user_gender, user_tel);
 							list.add(senior);
 
 						}
@@ -126,12 +127,14 @@ public class ManagerMainActivity extends AppCompatActivity{
 		String user_name;
 		String user_birthdate;
 		String user_gender;
+		String user_tel;
 
-		Senior(String id, String name, String birthdate, String gender){
+		Senior(String id, String name, String birthdate, String gender, String tel){
 			this.login_id = id;
 			this.user_name = name;
 			this.user_birthdate=birthdate;
 			this.user_gender=gender;
+			this.user_tel=tel;
 		}
 	}
 
@@ -194,7 +197,7 @@ public class ManagerMainActivity extends AppCompatActivity{
 			manage_senior_button.setOnClickListener(new View.OnClickListener(){
 				@Override
 				public void onClick(View v){
-					String Dial = "tel:";//"tel:"+phoneNumber;
+					String Dial = "tel:"+seniorList.get(position).user_tel;//"tel:"+phoneNumber;
 					Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(Dial));
 					try {
 						getApplicationContext().startActivity(intent);
