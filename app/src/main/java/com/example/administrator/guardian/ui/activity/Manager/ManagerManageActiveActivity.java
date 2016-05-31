@@ -91,13 +91,30 @@ public class ManagerManageActiveActivity extends Fragment {
                 if(responseStatus == 1){
 
                     String date = new SimpleDateFormat("yyyyMMddHH").format(new Date());
-                    int num0 = Integer.parseInt(date);
 
-                    int num[] = new int[3];
+                    //int year1, year2;
+                    int month1, month2;
+                    int day1, day2;
+                    int hour1, hour2;
+
+                    //int num0 = Integer.parseInt(date);
+                    //int num[] = new int[3];
                     for (int i=0; i<3; i++){
                         if(dataList[i] != null){
-                            num[i] =  Integer.parseInt(dataList[i].substring(0, 10));
-                            mma_dtr_time.get(i).setText((num0/100 - num[i]/100)*24 + (num0%100 - num[i]%100) + "시간 경과");
+                            //num[i] =  Integer.parseInt(dataList[i].substring(0, 10));
+                            //year1 = Integer.parseInt(date.substring(0, 4));
+                            month1 = Integer.parseInt(date.substring(4,6));
+                            day1 = Integer.parseInt(date.substring(6,8));
+                            hour1 = Integer.parseInt(date.substring(8,10));
+
+                            //year2 = Integer.parseInt(dataList[i].substring(0, 4));
+                            month2 = Integer.parseInt(dataList[i].substring(4, 6));
+                            day2 = Integer.parseInt(dataList[i].substring(6, 8));
+                            hour2 = Integer.parseInt(dataList[i].substring(8, 10));
+
+                            mma_dtr_time.get(i).setText( (month1 - month2)*24*31 + (day1 - day2)*24 + (hour1 - hour2) + "시간 경과");
+                            //mma_dtr_time.get(i).setText((num0/100 - num[i]/100)*24 + (num0%100 - num[i]%100) + "시간 경과");
+
                         }else{
                             mma_dtr_time.get(i).setText("정보없음");
                         }

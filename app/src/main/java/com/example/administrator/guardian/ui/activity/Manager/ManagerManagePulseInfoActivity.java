@@ -154,8 +154,19 @@ public class ManagerManagePulseInfoActivity extends Fragment {
 
                         JSONObject jsonObj = new JSONObject();
                         jsonObj.put("senior_id", senior_id);
-                        jsonObj.put("start_of_period", Integer.parseInt(today_date) - 6 + i + "");
-                        jsonObj.put("end_of_period", Integer.parseInt(today_date) - 6 + i + 1 + "");
+
+                        if(Integer.parseInt( (today_date).substring(6,8)) -6 + i < 1 ){
+                            jsonObj.put("start_of_period", Integer.parseInt(today_date) - 100 - 6 + i + 31 + "");
+                        }else{
+                            jsonObj.put("start_of_period", Integer.parseInt(today_date) - 6 + i + "");
+                        }
+
+                        if(Integer.parseInt( (today_date).substring(6,8)) -6 + i + 1 < 1 ){
+                            jsonObj.put("end_of_period", Integer.parseInt(today_date) - 100 - 6 + i + 1 + 31 + "");
+                        }else{
+                            jsonObj.put("end_of_period", Integer.parseInt(today_date) - 6 + i + 1 + "");
+                        }
+
 
 
 

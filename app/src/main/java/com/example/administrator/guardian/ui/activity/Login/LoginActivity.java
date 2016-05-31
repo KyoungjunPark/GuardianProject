@@ -50,9 +50,6 @@ public class LoginActivity extends AppCompatActivity {
     int responseStatus = 0;
     private final int LOGIN_PERMITTED = 200;
 
-    Button tov;//for volunteer activity test
-    Button tom;//for manager activity test
-    Button tos;
     public void onStop(){
         super.onStop();
         pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
@@ -124,34 +121,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        tov = (Button)findViewById(R.id.tov);
-        tov.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent vtest = new Intent(getApplicationContext(), VolunteerTabActivity.class);
-                startActivity(vtest);
-                finish();
-            }
-        });
-
-        tom = (Button)findViewById(R.id.tom);
-        tom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent mtest = new Intent(getApplicationContext(), ManagerMainActivity.class);
-                startActivity(mtest);
-                finish();
-            }
-        });
-        tos = (Button)findViewById(R.id.tos);
-        tos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent stest = new Intent(getApplicationContext(), SeniorTabActivity.class);
-                startActivity(stest);
-                finish();
-            }
-        });
     }
 
     @Override
