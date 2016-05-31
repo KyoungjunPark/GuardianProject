@@ -11,6 +11,13 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.utils.ConnectServer;
@@ -41,12 +48,29 @@ public class SeniorTabActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private int high_zone_2, low_zone_1;
     Toolbar toolbar;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_senior_tab);
         getSeniorInfo();
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        super.onCreateOptionsMenu(menu);
+        MenuItem item = menu.add(0, 1, 0, "logout");
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case 1:
+                Toast.makeText(getApplicationContext(),"되냐",Toast.LENGTH_SHORT).show();
+                return true;
+        }
+        return false;
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {

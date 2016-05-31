@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -16,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.utils.ConnectServer;
@@ -53,6 +56,23 @@ public class ManagerMainActivity extends AppCompatActivity{
 		SeniorAdapter adpt = new SeniorAdapter(ManagerMainActivity.this, R.layout.unit_senior_to_manage, list);
 		lv.setAdapter(adpt);
 		*/
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu){
+		super.onCreateOptionsMenu(menu);
+		MenuItem item = menu.add(0, 1, 0, "logout");
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case 1:
+				Toast.makeText(getApplicationContext(),"되냐",Toast.LENGTH_SHORT).show();
+				return true;
+		}
+		return false;
 	}
 
 	public void getInfoFromServer(){
