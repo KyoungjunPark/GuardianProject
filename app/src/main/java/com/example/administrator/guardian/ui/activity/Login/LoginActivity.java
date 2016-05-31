@@ -129,6 +129,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent vtest = new Intent(getApplicationContext(), VolunteerTabActivity.class);
                 startActivity(vtest);
+                finish();
             }
         });
 
@@ -138,6 +139,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent mtest = new Intent(getApplicationContext(), ManagerMainActivity.class);
                 startActivity(mtest);
+                finish();
             }
         });
         tos = (Button)findViewById(R.id.tos);
@@ -146,6 +148,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent stest = new Intent(getApplicationContext(), SeniorTabActivity.class);
                 startActivity(stest);
+                finish();
             }
         });
     }
@@ -222,14 +225,17 @@ public class LoginActivity extends AppCompatActivity {
                             globalVariable.setLoginType(0);
                             Intent firstMainActivity = new Intent(getApplicationContext(), SeniorTabActivity.class);
                             startActivity(firstMainActivity);
+                            finish();
                         } else if(user_type.equals("volunteer")){
                             globalVariable.setLoginType(1);
                             Intent firstMainActivity = new Intent(getApplicationContext(), VolunteerTabActivity.class);
                             startActivity(firstMainActivity);
+                            finish();
                         } else if(user_type.equals("manager")){
                             globalVariable.setLoginType(2);
                             Intent firstMainActivity = new Intent(getApplicationContext(), ManagerMainActivity.class);
                             startActivity(firstMainActivity);
+                            finish();
                         } else {
                             globalVariable.setLoginType(-1);
                             //error case
