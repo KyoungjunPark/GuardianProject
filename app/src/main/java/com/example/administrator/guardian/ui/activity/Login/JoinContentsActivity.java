@@ -139,7 +139,7 @@ public class JoinContentsActivity extends AppCompatActivity {
                             numformat = NumberFormat.getIntegerInstance();
                             numformat.setMinimumIntegerDigits(2);
 
-                            user_address = address + detailedAddressEditText.getText().toString();
+                            user_address = address +" "+detailedAddressEditText.getText().toString();
                         }
 
                         @Override
