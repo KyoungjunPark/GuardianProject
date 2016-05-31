@@ -2,7 +2,6 @@ package com.example.administrator.guardian.ui.activity.Volunteer;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -14,18 +13,8 @@ import com.example.administrator.guardian.R;
 
 public class VolunteerFragmentTwoFinishDialog extends Dialog {
 
-    private int year;
-    private int month;
-    private int day;
-    private int startHour;
-    private int startMinute;
-    private int finishHour;
-    private int finishMinute;
-
     private TextView vftdf_Name;
     private TextView vftdf_Contents;
-    private TextView vftdf_vDate;
-    private TextView vftdf_vTime;
 
 
     private String name;
@@ -35,15 +24,9 @@ public class VolunteerFragmentTwoFinishDialog extends Dialog {
     private Button vftdf_button;
     private ImageView vftdf_signature;
 
-    public VolunteerFragmentTwoFinishDialog(Context context, int year, int month, int day, int startHour, int startMinute, int finishHour, int finishMinute, String name, String gender, String contents) {
+    public VolunteerFragmentTwoFinishDialog(Context context, String name, String gender, String contents) {
         super(context , android.R.style.Theme_Translucent_NoTitleBar);
-        this.year=year;
-        this.month=month;
-        this.day=day;
-        this.startHour=startHour;
-        this.startMinute=startMinute;
-        this.finishHour=finishHour;
-        this.finishMinute=finishMinute;
+
         this.name = name;
         this.gender=gender;
         this.contents = contents;
@@ -62,7 +45,7 @@ public class VolunteerFragmentTwoFinishDialog extends Dialog {
 
         setLayout();
         setTitle(name);
-        setContent(year,month,day,startHour,startMinute,finishHour,finishMinute,contents);
+        setContent(contents);
 
 
         vftdf_signature.setImageResource(R.drawable.signature);
@@ -77,7 +60,7 @@ public class VolunteerFragmentTwoFinishDialog extends Dialog {
         });
     }
     private void setTitle(String Name){
-        if(gender=="남"){
+        if(gender.compareTo("남") == 0){
             Name = Name + " 할아버지";
         }
         else{
@@ -87,10 +70,8 @@ public class VolunteerFragmentTwoFinishDialog extends Dialog {
         vftdf_Name.setText(Name);
     }
 
-    private void setContent(int year, int month, int day, int startHour, int startMinute, int finishHour,int finishMinute, String contents){
+    private void setContent(String contents){
 
-        vftdf_vDate.setText(year+"년 "+ month+"월 "+day+"일 ");
-        vftdf_vTime.setText(startHour+":"+startMinute+" ~ "+finishHour+":"+finishMinute);
         vftdf_Contents.setText(contents);
     }
 
@@ -100,8 +81,6 @@ public class VolunteerFragmentTwoFinishDialog extends Dialog {
     private void setLayout(){
         vftdf_Name = (TextView) findViewById(R.id.vftdf_name);
         vftdf_Contents = (TextView)findViewById(R.id.vftdf_content);
-        vftdf_vDate= (TextView)findViewById(R.id.vftdf_vDate);
-        vftdf_vTime = (TextView)findViewById(R.id.vftdf_vTime);
         vftdf_signature=(ImageView)findViewById(R.id.vftdf_signature);
     }
 }

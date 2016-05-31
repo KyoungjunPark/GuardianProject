@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.utils.ConnectServer;
@@ -32,7 +33,7 @@ public class SeniorFragmentThreeScheduleAcceptDialog extends Dialog {
     private TextView sftsa_Gender;
     private TextView sftsa_vDate;
     private TextView sftsa_vTime;
-
+    int responseStatus = 0;
     private int year;
     private int month;
     private int day;
@@ -81,7 +82,6 @@ public class SeniorFragmentThreeScheduleAcceptDialog extends Dialog {
             @Override
             public void onClick(View v) {
                 acceptReq();
-                SeniorFragmentThreeScheduleAcceptDialog.this.dismiss();
             }
         });
         sftsa_right = (Button)findViewById(R.id.sftsa_right);
@@ -123,7 +123,12 @@ public class SeniorFragmentThreeScheduleAcceptDialog extends Dialog {
             }
             @Override
             protected void onPostExecute(Boolean params){
-
+                if(responseStatus == 1){
+                    Toast.makeText(SeniorFragmentThreeScheduleAcceptDialog.this.getContext(), "수락 완료", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(SeniorFragmentThreeScheduleAcceptDialog.this.getContext(), "수락 실패", Toast.LENGTH_SHORT).show();
+                }
+                SeniorFragmentThreeScheduleAcceptDialog.this.dismiss();
             }
 
 
@@ -148,11 +153,13 @@ public class SeniorFragmentThreeScheduleAcceptDialog extends Dialog {
 
                     if(con.getResponseCode() == 200){
                         //Request Success
+                        responseStatus = 1;
                         rd = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
                         String resultValues = rd.readLine();
                         Log.d(TAG,"Successs");
                     }else {
                         //Request Fail
+                        responseStatus = 0;
                         rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
                         Log.d(TAG,"Fail: " + rd.readLine());
                     }

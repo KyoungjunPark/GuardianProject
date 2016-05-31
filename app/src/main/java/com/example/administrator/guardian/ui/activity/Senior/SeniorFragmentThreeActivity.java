@@ -40,7 +40,7 @@ public class SeniorFragmentThreeActivity extends Fragment implements TimePickerD
     private static final String TAG = "FragmentThreeActivity";
 
     private static final Integer SERVER_PERMITTED = 200;
-
+    int responseStatus = 0;
     private View view;
     private Button dateButton;
     private Button timeButton;
@@ -125,6 +125,15 @@ public class SeniorFragmentThreeActivity extends Fragment implements TimePickerD
                                         }
 
                                         @Override
+                                        protected void onPostExecute(Boolean params){
+                                            if(responseStatus == 1){
+                                                Toast.makeText(SeniorFragmentThreeActivity.this.getContext(), "신청 완료", Toast.LENGTH_SHORT).show();
+                                            }else{
+                                                Toast.makeText(SeniorFragmentThreeActivity.this.getContext(), "신청 실패", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+
+                                        @Override
                                         protected Boolean doInBackground(String... params) {
                                             URL obj = null;
                                             try {
@@ -147,11 +156,13 @@ public class SeniorFragmentThreeActivity extends Fragment implements TimePickerD
 
                                                 if(con.getResponseCode() == SERVER_PERMITTED){
                                                     //Request Success
+                                                    responseStatus = 1;
                                                     rd = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
                                                     String resultValues = rd.readLine();
                                                     Log.d(TAG,"Connect Success: " + resultValues);
                                                 }else {
                                                     //Request Fail
+                                                    responseStatus = 0;
                                                     rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
                                                     new LovelyInfoDialog(getActivity().getApplicationContext())
                                                             .setTopColorRes(R.color.wallet_holo_blue_light)

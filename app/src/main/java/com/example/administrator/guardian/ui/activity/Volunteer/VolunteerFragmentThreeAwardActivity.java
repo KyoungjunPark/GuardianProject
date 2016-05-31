@@ -10,16 +10,15 @@ import com.example.administrator.guardian.R;
 
 public class VolunteerFragmentThreeAwardActivity extends AppCompatActivity {
 
-    int year;
-    int month;
-    int day;
-    int startHour;
-    int startMinute;
-    int finishHour;
-    int finishMinute;
+    String year;
+    String month;
+    String day;
+    String hour;
+    String minute;
+    int req_hour;
     String name;
 
-   // ------------------------------
+    // ------------------------------
     String id;
     //------------------------------
     TextView awardWinner;
@@ -35,16 +34,13 @@ public class VolunteerFragmentThreeAwardActivity extends AppCompatActivity {
 
         Intent intent =getIntent();
         ////////////////////////////////////////
-        id= intent.getStringExtra("id");
-        ////////////////////////////////////////
-
-        year = intent.getExtras().getInt("year");
-        month = intent.getExtras().getInt("month");
-        day = intent.getExtras().getInt("day");
-        startHour = intent.getExtras().getInt("startHour");
-        startMinute = intent.getExtras().getInt("startMinute");
-        finishHour = intent.getExtras().getInt("finishHour");
-        finishMinute = intent.getExtras().getInt("finishMinute");
+        id= intent.getExtras().getString("id");
+        year = intent.getExtras().getString("year");
+        month = intent.getExtras().getString("month");
+        day = intent.getExtras().getString("day");
+        hour = intent.getExtras().getString("hour");
+        minute = intent.getExtras().getString("minute");
+        req_hour = intent.getExtras().getInt("req_hour");
         name = intent.getExtras().getString("name");
 
         awardWinner=(TextView)findViewById(R.id.awardWinner);
@@ -52,8 +48,11 @@ public class VolunteerFragmentThreeAwardActivity extends AppCompatActivity {
         awardDay=(TextView)findViewById(R.id.awardDay);
         awardSignature=(ImageView)findViewById(R.id.awardSignature);
         awardWinner.setText(id);//id에 해당하는 이름
-        awardContent.setText(" 위 사람은 "+month+"월 "+ day+"일, "+startHour+"시 "+startMinute+"분부터 "+ finishHour+"시 "+finishMinute+"분까지 "+name+" 님에게 헌신적으로 봉사하였으므로 이 상장을 수여함");
+        awardContent.setText(" 위 사람은 "+month+"월 "+ day+"일 "+hour+"시부터 "+ req_hour+"시간동안 "+name+" 님에게 헌신적으로 봉사하였음을 확인함.");
         awardDay.setText(year+"년 "+month+"월 "+day+"일");
         awardSignature.setImageResource(R.drawable.signature);
+    }
+    void getImage(){
+
     }
 }

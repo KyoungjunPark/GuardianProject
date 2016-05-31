@@ -26,78 +26,13 @@
             android:id="@+id/vftda_name"
             android:paddingTop="10dp" />
 
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="봉사날짜"
-                    android:id="@+id/vftda_Date"
-                    android:textSize="20dp"
-                    android:textColor="#000000"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="5dp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="날짜설정"
-                    android:id="@+id/vftda_vDate"
-                    android:layout_column="1"
-                    android:textSize="20sp"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="#000000" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="10dp"
-                android:paddingBottom="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="봉사시간"
-                    android:id="@+id/vftda_Time"
-                    android:textSize="20dp"
-                    android:textColor="#000000"
-                    android:paddingBottom="5dp"
-                    android:paddingTop="5dp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="시간설정"
-                    android:id="@+id/vftda_vTime"
-                    android:textSize="20sp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_column="1"
-                    android:textColor="#000000" />
-            </TableRow>
-        </TableLayout>
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.95">
-
-            <com.google.android.gms.maps.MapView
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:name="com.google.android.gms.maps.SupportMapFragment"
-                android:id="@+id/vftda_map"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="#ffffff" />
 
             <TextView
                 android:layout_height="wrap_content"
@@ -122,16 +57,6 @@
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp" />
 
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="내용 : "
-                android:id="@+id/vftda_content"
-                android:textSize="20dp"
-                android:textColor="#000000"
-                android:paddingLeft="10dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp" />
 
             <TextView
                 android:layout_width="fill_parent"
@@ -144,6 +69,33 @@
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp" />
 
+            <com.google.android.gms.maps.MapView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:id="@+id/vftda_map"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="#ffffff" />
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/vftda_content"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp" />
         </LinearLayout>
 
         <FrameLayout
@@ -160,14 +112,14 @@
                 android:id="@+id/vftda_left"
                 android:textSize="15dp"
                 android:text="수락"
-                android:background="#c5a3ec" />
+                android:background="#7ff2ff" />
 
             <Button android:layout_height="wrap_content"
                 android:layout_width="150dp"
                 android:id="@+id/vftda_right"
                 android:textSize="15dp"
                 android:text="거절"
-                android:background="#e8e7e7" />
+                android:background="#ffc73a" />
 
         </LinearLayout>
 

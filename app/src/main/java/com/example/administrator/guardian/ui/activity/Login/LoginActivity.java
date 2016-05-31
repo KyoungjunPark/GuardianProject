@@ -26,6 +26,7 @@ import com.example.administrator.guardian.utils.GlobalVariable;
 import com.example.administrator.guardian.utils.MakeUTF8Parameter;
 import com.yarolegovich.lovelydialog.LovelyInfoDialog;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -46,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
     private GlobalVariable globalVariable;
     private Handler messageHandler;
     SharedPreferences pref;
-
+    int responseStatus = 0;
     private final int LOGIN_PERMITTED = 200;
 
     Button tov;//for volunteer activity test
@@ -187,6 +188,12 @@ public class LoginActivity extends AppCompatActivity {
                 login_id = idEditText.getText().toString();
                 login_pw = pwEditText.getText().toString();
             }
+            @Override
+            protected void onPostExecute(Boolean params) {
+                super.onPostExecute(null);
+                getUserInfo();
+
+            }
 
             @Override
             protected Boolean doInBackground(String... params) {
@@ -209,6 +216,7 @@ public class LoginActivity extends AppCompatActivity {
                     BufferedReader rd =null;
 
                     if(con.getResponseCode() == LOGIN_PERMITTED){
+                        responseStatus = 1;
                         //Sign up Success
                         rd = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
                         String resultValues = rd.readLine();
@@ -242,12 +250,68 @@ public class LoginActivity extends AppCompatActivity {
                             Log.d(TAG, "UNEXPECTED PATH!!!");
                         }
                 }else {
+                        responseStatus = 0;
                         //Login Fail
                         rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
                         String returnMessage = rd.readLine();
                         Log.d(TAG,"Login Fail: " + returnMessage);
                         Message message = messageHandler.obtainMessage(0, returnMessage);
                         message.sendToTarget();
+                    }
+                } catch(IOException | JSONException e){
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        });
+        ConnectServer.getInstance().execute();
+
+    }
+
+    private void getUserInfo()
+    {
+        //Send join data to server
+        ConnectServer.getInstance().setAsncTask(new AsyncTask<String, Void, Boolean>() {
+
+
+            @Override
+            protected void onPreExecute() {
+            }
+
+            @Override
+            protected Boolean doInBackground(String... params) {
+                URL obj = null;
+                try {
+                    obj = new URL(ConnectServer.getInstance().getURL("User_Info"));
+                    HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+                    con = ConnectServer.getInstance().setHeader(con);
+
+                    con.setDoOutput(true);
+
+                    JSONObject jsonObj = new JSONObject();
+                    OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
+                    wr.write(jsonObj.toString());
+                    wr.flush();
+
+                    BufferedReader rd =null;
+
+                    if(con.getResponseCode() == LOGIN_PERMITTED){
+                        responseStatus = 1;
+                        //Sign up Success
+                        rd = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
+                        String resultValues = rd.readLine();
+                        JSONObject object = new JSONObject(resultValues);
+                        JSONArray jArr  = object.getJSONArray("data");
+
+                        JSONObject c = jArr.getJSONObject(0);
+                        globalVariable.setUser_name(c.getString("user_name"));
+
+                    }else {
+                        responseStatus = 0;
+                        //Login Fail
+                        rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
+                        String returnMessage = rd.readLine();
+                        Log.d(TAG,"Login Fail: " + returnMessage);
                     }
                 } catch(IOException | JSONException e){
                     e.printStackTrace();

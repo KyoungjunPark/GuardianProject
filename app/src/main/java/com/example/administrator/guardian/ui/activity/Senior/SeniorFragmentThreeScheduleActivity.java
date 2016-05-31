@@ -68,7 +68,7 @@ public class SeniorFragmentThreeScheduleActivity extends AppCompatActivity {
             protected void onPreExecute() {
                 items = new ArrayList<SeniorScheduleRecyclerItem>();
             }
-
+            @Override
             protected void onPostExecute(Boolean params) {
                 if(responseStatus == 1){
 
@@ -152,26 +152,29 @@ public class SeniorFragmentThreeScheduleActivity extends AppCompatActivity {
                                 }else if( dataArray.getJSONObject(i).getInt("current_status") == 1 ){
                                     if(dataArray.getJSONObject(i).getInt("req_type") == 0){
                                         if(dataArray.getJSONObject(i).getString("signature").compareTo("0") != 0){
-                                            type = 6;
+                                            type = 6; // 완료
                                         }else if(Long.parseLong(new SimpleDateFormat("yyyyMMddHHmm").format(new Date())) > Long.parseLong(startInfo) &&
-                                                Long.parseLong(new SimpleDateFormat("yyyyMMddHHmm").format(new Date())) < Long.parseLong(startInfo) + req_hour
+                                                Long.parseLong(new SimpleDateFormat("yyyyMMddHHmm").format(new Date())) < (Long.parseLong(startInfo) + req_hour*100)
                                                 ){
-                                            type = 5;
+                                            type = 5; //진행중
 
-                                        }else if(Long.parseLong(new SimpleDateFormat("yyyyMMddHHmm").format(new Date())) > Long.parseLong(startInfo) + req_hour){
+                                        }else if(Long.parseLong(new SimpleDateFormat("yyyyMMddHHmm").format(new Date())) > (Long.parseLong(startInfo) + req_hour*100)){
+                                            Log.d(TAG, "doInBackground:1 " + Long.parseLong(new SimpleDateFormat("yyyyMMddHHmm").format(new Date())));
+                                            Log.d(TAG, "doInBackground:1 " + Long.parseLong(startInfo) + req_hour);
+
                                             type = 7; // 서명필요
                                         }else{
                                            type = 1;// 요청완료
                                         }
                                     }else if(dataArray.getJSONObject(i).getInt("req_type") == 1){
                                         if(dataArray.getJSONObject(i).getString("signature").compareTo("0") != 0){
-                                            type = 6;
+                                            type = 6; // 완료
                                         }else if(Long.parseLong(new SimpleDateFormat("yyyyMMddHHmm").format(new Date())) > Long.parseLong(startInfo) &&
-                                                Long.parseLong(new SimpleDateFormat("yyyyMMddHHmm").format(new Date())) < Long.parseLong(startInfo) + req_hour
+                                                Long.parseLong(new SimpleDateFormat("yyyyMMddHHmm").format(new Date())) <(Long.parseLong(startInfo) + req_hour*100)
                                                 ){
-                                            type = 5;
+                                            type = 5; // 진행중
 
-                                        }else if(Long.parseLong(new SimpleDateFormat("yyyyMMddHHmm").format(new Date())) > Long.parseLong(startInfo) + req_hour){
+                                        }else if(Long.parseLong(new SimpleDateFormat("yyyyMMddHHmm").format(new Date())) > (Long.parseLong(startInfo) + req_hour*100)){
                                             type = 7; // 서명필요
                                         }else{
                                             type = 3;// 수락완료

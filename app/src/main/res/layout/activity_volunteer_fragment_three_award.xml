@@ -13,11 +13,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="상  장"
+        android:text="봉사확인증"
         android:id="@+id/awardName"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="40dp"
+        android:textSize="38dp"
         android:textColor="#000000"
         android:textStyle="bold"
         android:layout_marginTop="35dp" />
@@ -31,7 +31,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="박경준"
+            android:text=""
             android:id="@+id/awardWinner"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
@@ -45,7 +45,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="  위 사람은 00월 00일 00시 00분부터 00월 00일 00시 00분까지 000 님에게 헌신적으로 봉사하였으므로 이 상장을 수여함"
+            android:text="  00월 00일 00시부터 \n 00시간동안 000 님에게 \n 헌신적으로 봉사하였으므로\n 이 상장을 수여함"
             android:id="@+id/awardContent"
             android:layout_below="@+id/awardWinner"
             android:layout_alignParentLeft="true"
@@ -84,7 +84,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="대한민국 보건복지부 장관 권영빈"
+            android:text="서울노인복지센터"
             android:id="@+id/textView17"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"

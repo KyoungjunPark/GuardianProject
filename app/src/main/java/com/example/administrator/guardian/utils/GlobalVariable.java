@@ -7,10 +7,15 @@ import android.app.Application;
  */
 public class GlobalVariable extends Application{
 	private int login_type;
+	private String user_name;
 	public int getLoginType(){
 		return login_type;
 	}
+	public String getUser_name(){return user_name;}
 	public void setLoginType(int type){
 		this.login_type = type;
+	}
+	public void setUser_name(String name){
+		this.user_name = name;
 	}
 }

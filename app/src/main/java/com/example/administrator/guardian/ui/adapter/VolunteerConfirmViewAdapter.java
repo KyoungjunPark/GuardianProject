@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.datamodel.VolunteerConfirmRecyclerItem;
@@ -44,45 +45,92 @@ public class VolunteerConfirmViewAdapter extends  RecyclerView.Adapter<Volunteer
     public void onBindViewHolder(ViewHolder holder, int position) {
         final VolunteerConfirmRecyclerItem item=items.get(position);
 
-        holder.vcc_inputage.setText(item.getAge()+"");
-        holder.vcc_inputgender.setText(item.getGender());
+        holder.vcc_inputage.setText(item.getSenior_age()+"");
+        holder.vcc_inputgender.setText(item.getSenior_gender());
 
-        if(item.getGender()=="남"){
-            holder.vcc_inputname.setText(item.getName()+" 할아버지");
+        if(item.getSenior_gender().compareTo("남") == 0){
+            holder.vcc_inputname.setText(item.getSenior_name()+" 할아버지");
         }
-        else{holder.vcc_inputname.setText(item.getName()+" 할머니");}
+        else{holder.vcc_inputname.setText(item.getSenior_name()+" 할머니");}
 
-        if(item.getType()==1){
-            holder.vcc_button.setText("신청중...");
-        }
-        else if(item.getType()==2){
-            holder.vcc_button.setText("수락해줘");
+        // 수락대기, 수락완료, 요청중, 요청완료, 기간만료, 진행중, 완료, 서명필요
+        if(item.getType() == 0){
+            holder.vcc_button.setText("수락대기");
             holder.cardview.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mCustomDialog1 = new VolunteerFragmentTwoAcceptDialog(context, item.getYear(), item.getMonth(), item.getDay(),
-                            item.getStartHour(), item.getStartMinute(), item.getFinishHour(), item.getFinishMinute(), item.getName(), item.getAge(), item.getGender(), item.getAddress(), item.getContents());
-                    mCustomDialog1.show();
+                    mCustomDialog1 = new VolunteerFragmentTwoAcceptDialog(v.getContext(), item.getSenior_id() ,item.getStartInfo(), item.getReq_hour(), item.getSenior_name(), item.getSenior_age(), item.getSenior_gender(), item.getSenior_address(), item.getLatitude(), item.getLongitude(), item.getDetails());
+                     mCustomDialog1.show();
                 }
             });
         }
-        else if(item.getType()==3){
-            holder.vcc_button.setText("봉사예정");
-        }
-        else if(item.getType()==4){
-            holder.vcc_button.setText("진행중...");
-        }
-        else{
-            holder.vcc_button.setText("봉사완료!");
+        else if(item.getType() == 1){
+            holder.vcc_button.setText("수락완료");
             holder.cardview.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mCustomDialog2 = new VolunteerFragmentTwoFinishDialog(context, item.getYear(), item.getMonth(), item.getDay(),
-                            item.getStartHour(), item.getStartMinute(), item.getFinishHour(), item.getFinishMinute(),item.getName(),item.getGender(),item.getContents());
+                    Toast.makeText(context, item.getDetails(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        else if(item.getType() == 2){
+            holder.vcc_button.setText("요청중");
+            holder.cardview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, item.getDetails(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        else if(item.getType() == 3){
+            holder.vcc_button.setText("요청완료");
+            holder.cardview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, item.getDetails(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        else if(item.getType() == 4){
+            holder.vcc_button.setText("기간만료");
+            holder.cardview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, item.getDetails(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        else if(item.getType() == 5){
+            holder.vcc_button.setText("진행중");
+            holder.cardview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, item.getDetails(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        else if(item.getType() == 6){
+            holder.vcc_button.setText("완료");
+            holder.cardview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mCustomDialog2 = new VolunteerFragmentTwoFinishDialog(context, item.getSenior_name(), item.getSenior_gender(), item.getDetails());
+
                     mCustomDialog2.show();
                 }
             });
         }
+        else {
+            holder.vcc_button.setText("서명필요");
+            holder.cardview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, item.getDetails(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+
     }
 
     @Override

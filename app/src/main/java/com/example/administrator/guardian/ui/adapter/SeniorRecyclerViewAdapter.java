@@ -27,7 +27,6 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
     int globalVariable;
     int item_layout;
     private SeniorFragmentTwoDialog mCustomDialog;
-
     public SeniorRecyclerViewAdapter(Context context, List<SeniorRecyclerItem> items, int item_layout, int globalVariable) {
         this.context=context;
         this.items=items;
@@ -59,7 +58,9 @@ public class SeniorRecyclerViewAdapter extends RecyclerView.Adapter<SeniorRecycl
                     mCustomDialog = new SeniorFragmentTwoDialog(context, item.getName(), item.getAge(), item.getGender(), item.getAddress(), item.getTel());
                     mCustomDialog.show();
                 }else if(globalVariable == 1){
+
                     Intent volunteerRequest = new Intent(context, VolunteerFragmentOneRequestActivity.class);
+                    volunteerRequest.putExtra("id", item.getId());
                     volunteerRequest.putExtra("name",item.getName());
                     volunteerRequest.putExtra("age",item.getAge());
                     volunteerRequest.putExtra("gender",item.getGender());

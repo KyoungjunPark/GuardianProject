@@ -14,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.datamodel.VolunteerTimeRecyclerItem;
@@ -47,22 +46,22 @@ public class VolunteerTimeRecyclerViewAdapter extends RecyclerView.Adapter<Volun
     public void onBindViewHolder(ViewHolder holder, int position) {
         final VolunteerTimeRecyclerItem item=items.get(position);
 
-        holder.volunteerdate.setText(item.getYear()+"."+item.getMonth()+"."+item.getDay()+"/"+item.getStartHour()+":"+item.getStartMinute()+"~"+item.getFinishHour()+":"+item.getFinishMinute());
-        holder.volunteersenior.setText(item.getName()+" 님을 방문하여 봉사함을 인정함.");
+        holder.volunteerdate.setText(item.getYear()+"."+item.getMonth()+"."+item.getDay()+" "+item.getHour()+":"+item.getMinute()+" "+item.getReq_hour()+"시간");
+        holder.volunteersenior.setText(item.getSenior_name()+" 님을 방문하여 봉사함을 인정함.");
 
         holder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, VolunteerFragmentThreeAwardActivity.class);
-                intent.putExtra("id",item.getId());
+                // senior_id, senior_name, startInfo, startInfo(year,month, day, hour, minute), req_hour
+                intent.putExtra("id",item.getVol_name());
                 intent.putExtra("year",item.getYear());
                 intent.putExtra("month",item.getMonth());
                 intent.putExtra("day",item.getDay());
-                intent.putExtra("startHour",item.getStartHour());
-                intent.putExtra("startMinute",item.getStartMinute());
-                intent.putExtra("finishHour",item.getFinishHour());
-                intent.putExtra("finishMinute",item.getFinishMinute());
-                intent.putExtra("name",item.getName());
+                intent.putExtra("hour",item.getHour());
+                intent.putExtra("minute",item.getMinute());
+                intent.putExtra("req_hour",item.getReq_hour());
+                intent.putExtra("name",item.getSenior_name());
                 context.startActivity(intent);
             }
         });
