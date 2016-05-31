@@ -8,10 +8,15 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.utils.ConnectServer;
+import com.github.gcacace.signaturepad.views.SignaturePad;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,6 +27,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+import com.example.administrator.guardian.R;
+import com.google.android.gms.vision.Frame;
 
 public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
     private static final String TAG = "SeniorThreeFinish";
@@ -46,6 +54,9 @@ public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
 
     private Button sftsf_button;
 
+    private FrameLayout senior_signature_layout;
+    private SignaturePad mSignaturePad;
+
     public SeniorFragmentThreeScheduleFinishDialog(Context context, String startInfo, int reqHour, String name, String details) {
         super(context , android.R.style.Theme_Translucent_NoTitleBar);
         this.startInfo = startInfo;
@@ -64,6 +75,22 @@ public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
 
         setContentView(R.layout.activity_senior_fragment_three_schedule_finish_dialog);
 
+        senior_signature_layout=(FrameLayout)findViewById(R.id.senior_signature_layout);
+        mSignaturePad = (SignaturePad) findViewById(R.id.signature_pad);
+        mSignaturePad.setOnSignedListener(new SignaturePad.OnSignedListener() {
+            @Override
+            public void onStartSigning() {
+            }
+
+            @Override
+            public void onSigned() {
+            }
+
+            @Override
+            public void onClear() {
+            }
+        });
+
         setLayout();
         Log.d("name",name+"");
         setTitle(name);
@@ -74,7 +101,14 @@ public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
             @Override
             public void onClick(View v) {
                 //finishRequest();
-                SeniorFragmentThreeScheduleFinishDialog.this.dismiss();
+                ////////////////////////////////////////////////////////////////////////////////////////////
+
+                //signature result
+                Bitmap signatureBitmap = mSignaturePad.getSignatureBitmap();
+
+
+                //////////////////////////////////////////////////////////////
+                //SeniorFragmentThreeScheduleFinishDialog.this.dismiss();
             }
         });
     }
