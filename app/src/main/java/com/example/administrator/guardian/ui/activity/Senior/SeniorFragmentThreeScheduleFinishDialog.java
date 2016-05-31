@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -22,6 +23,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -56,6 +58,8 @@ public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
 
     private FrameLayout senior_signature_layout;
     private SignaturePad mSignaturePad;
+    private Bitmap signatureBitmap;
+    private String imagecode;
 
     public SeniorFragmentThreeScheduleFinishDialog(Context context, String startInfo, int reqHour, String name, String details) {
         super(context , android.R.style.Theme_Translucent_NoTitleBar);
@@ -104,14 +108,22 @@ public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
                 ////////////////////////////////////////////////////////////////////////////////////////////
 
                 //signature result
-                Bitmap signatureBitmap = mSignaturePad.getSignatureBitmap();
-
+                signatureBitmap = mSignaturePad.getSignatureBitmap();
+                BitmapToBase64(signatureBitmap);
 
                 //////////////////////////////////////////////////////////////
                 //SeniorFragmentThreeScheduleFinishDialog.this.dismiss();
             }
         });
     }
+    public String BitmapToBase64(Bitmap bm){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        byte[] bImage = baos.toByteArray();
+        String base64 = Base64.encodeToString(bImage, Base64.DEFAULT);
+        return base64;
+    }
+
     private void setTitle(String Name){
 
         sftsf_Name.setText(Name);
