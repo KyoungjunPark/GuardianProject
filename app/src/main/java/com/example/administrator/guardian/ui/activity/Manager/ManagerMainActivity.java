@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
+import com.example.administrator.guardian.ui.activity.Login.LoginActivity;
 import com.example.administrator.guardian.utils.ConnectServer;
 import com.example.administrator.guardian.utils.MakeUTF8Parameter;
 
@@ -69,7 +70,9 @@ public class ManagerMainActivity extends AppCompatActivity{
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 			case 1:
-				Toast.makeText(getApplicationContext(),"되냐",Toast.LENGTH_SHORT).show();
+				Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
+				startActivity(logout);
+				finish();
 				return true;
 		}
 		return false;
