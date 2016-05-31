@@ -2,6 +2,7 @@ package com.example.administrator.guardian.ui.activity.Senior;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Base64;
@@ -12,12 +13,9 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.utils.ConnectServer;
 import com.github.gcacace.signaturepad.views.SignaturePad;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,24 +28,11 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import com.example.administrator.guardian.R;
-import com.google.android.gms.vision.Frame;
-
 public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
     private static final String TAG = "SeniorThreeFinish";
 
     private TextView sftsf_Name;
     private TextView sftsf_Contents;
-    private TextView sftsf_vDate;
-    private TextView sftsf_vTime;
-
-    private int year;
-    private int month;
-    private int day;
-    private int startHour;
-    private int startMinute;
-    private int finishHour;
-    private int finishMinute;
 
     private String startInfo;
     private int reqHour;
@@ -131,8 +116,6 @@ public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
 
     private void setContent(String startInfo, int reqHour, String details){
 
-        sftsf_vDate.setText(startInfo);
-        sftsf_vTime.setText(reqHour+"");
         sftsf_Contents.setText("내용 : "+details);
     }
 
@@ -142,8 +125,6 @@ public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
     private void setLayout(){
         sftsf_Name = (TextView) findViewById(R.id.sftsf_name);
         sftsf_Contents=(TextView)findViewById(R.id.sftsf_content);
-        sftsf_vDate= (TextView)findViewById(R.id.sftsf_vDate);
-        sftsf_vTime = (TextView)findViewById(R.id.sftsf_vTime);
     }
     public void finishRequest(){
         ConnectServer.getInstance().setAsncTask(new AsyncTask<String, Void, Boolean>() {

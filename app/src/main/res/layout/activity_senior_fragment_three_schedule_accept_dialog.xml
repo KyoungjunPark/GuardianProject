@@ -141,7 +141,7 @@
                     android:layout_width="match_parent"
                     android:id="@+id/sftsa_right"
                     android:textSize="15dp"
-                    android:text="거절"
+                    android:text="확인"
                     android:background="#e8e7e7" />
             </FrameLayout>
 

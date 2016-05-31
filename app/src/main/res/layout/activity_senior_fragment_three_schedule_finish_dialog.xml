@@ -27,65 +27,6 @@
             android:paddingTop="10dp"
             android:background="#ffffff" />
 
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#ffffff">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="봉사날짜"
-                    android:id="@+id/sftsf_Date"
-                    android:textSize="20dp"
-                    android:textColor="#000000"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="5dp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="날짜설정"
-                    android:id="@+id/sftsf_vDate"
-                    android:layout_column="1"
-                    android:textSize="20sp"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="#000000" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="10dp"
-                android:paddingBottom="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="봉사시간"
-                    android:id="@+id/sftsf_Time"
-                    android:textSize="20dp"
-                    android:textColor="#000000"
-                    android:paddingBottom="5dp"
-                    android:paddingTop="5dp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="시간설정"
-                    android:id="@+id/sftsf_vTime"
-                    android:textSize="20sp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_column="1"
-                    android:textColor="#000000" />
-            </TableRow>
-        </TableLayout>
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"

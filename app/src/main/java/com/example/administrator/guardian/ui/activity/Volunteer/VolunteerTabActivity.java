@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Vibrator;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.NotificationCompat;
@@ -18,6 +19,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,9 +28,20 @@ import android.widget.Toast;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.ui.activity.Login.LoginActivity;
+import com.example.administrator.guardian.utils.ConnectServer;
+
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 @SuppressWarnings("deprecation")
 public class VolunteerTabActivity extends AppCompatActivity {
+    private static final String TAG = "VolunteerTabActivity";
 
     static final int Num_Tab = 4;
 
@@ -77,9 +90,7 @@ public class VolunteerTabActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case 1:
-                Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(logout);
-                finish();
+                signOut();
                 return true;
         }
         return false;
@@ -155,5 +166,61 @@ public class VolunteerTabActivity extends AppCompatActivity {
             }
             return null;
         }
+    }
+
+    public void signOut(){
+        ConnectServer.getInstance().setAsncTask(new AsyncTask<String, Void, Boolean>() {
+
+
+            @Override
+            protected void onPreExecute() {
+
+            }
+            @Override
+            protected void onPostExecute(Boolean params) {
+                Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(logout);
+                finish();
+            }
+
+            @Override
+            protected Boolean doInBackground(String... params) {
+                URL obj = null;
+                try {
+                    obj = new URL(ConnectServer.getInstance().getURL("Sign_Out"));
+                    HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+                    con.setRequestMethod("POST");
+                    con.setRequestProperty("Content-Type", "application/json; charset=utf8");
+                    con.setRequestProperty("Accept", "application/json");
+
+                    con = ConnectServer.getInstance().setHeader(con);
+                    con.setDoOutput(true);
+
+                    JSONObject jsonObj = new JSONObject();
+
+                    OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
+                    wr.write(jsonObj.toString());
+
+                    wr.flush();
+
+                    BufferedReader rd =null;
+
+                    if(con.getResponseCode() == 200){
+                        rd = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
+
+                    } else {
+                        rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
+                        Log.d(TAG,"fail : " + rd.readLine());
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+
+        });
+        ConnectServer.getInstance().execute();
     }
 }
