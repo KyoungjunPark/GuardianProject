@@ -1,9 +1,11 @@
 package com.example.administrator.guardian.ui.activity.Senior;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -20,6 +22,7 @@ import android.view.MenuItem;
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.ui.activity.Login.LoginActivity;
 import com.example.administrator.guardian.utils.ConnectServer;
+import com.example.administrator.guardian.utils.GlobalVariable;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,7 +38,7 @@ import java.net.URL;
 @SuppressWarnings("deprecation")
 public class SeniorTabActivity extends AppCompatActivity {
     private static final String TAG = "SeniorTabActivity";
-
+    GlobalVariable globalVariable;
     static final int Num_Tab = 4;
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -52,6 +55,7 @@ public class SeniorTabActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_senior_tab);
+        globalVariable = (GlobalVariable)getApplication();
         getSeniorInfo();
     }
 
@@ -227,6 +231,11 @@ public class SeniorTabActivity extends AppCompatActivity {
             }
             @Override
             protected void onPostExecute(Boolean params) {
+                SharedPreferences pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putString("token", "");
+                editor.commit();
+                Log.d(TAG, "onPostExecute: "+globalVariable.getToken());
                 Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(logout);
                 finish();

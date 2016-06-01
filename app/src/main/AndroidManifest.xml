@@ -45,29 +45,29 @@
                 <category android:name="com.example.gcm"/>
             </intent-filter>
         </receiver>
-        <!--
+
         ﻿<service
-            android:name="com.example.gcmex.MyGcmListenerService"
+            android:name="com.example.administrator.guardian.utils.MyGcmListenerService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
             </intent-filter>
         </service>
         ﻿<service
-            android:name="com.example.gcmex.MyInstanceIDListenerService"
+            android:name="com.example.administrator.guardian.utils.MyInstanceIDListenerService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.iid.InstanceID"/>
             </intent-filter>
         </service>
         ﻿<service
-            android:name="com.example.gcmex.RegistrationIntentService"
+            android:name="com.example.administrator.guardian.utils.RegistrationIntentService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.iid.InstanceID"/>
             </intent-filter>
         </service>
-        -->
+
         
         <activity
             android:name=".ui.activity.Login.IntroActivity"

@@ -23,7 +23,6 @@ import com.example.administrator.guardian.ui.activity.Senior.SeniorTabActivity;
 import com.example.administrator.guardian.ui.activity.Volunteer.VolunteerTabActivity;
 import com.example.administrator.guardian.utils.ConnectServer;
 import com.example.administrator.guardian.utils.GlobalVariable;
-import com.example.administrator.guardian.utils.MakeUTF8Parameter;
 import com.yarolegovich.lovelydialog.LovelyInfoDialog;
 
 import org.json.JSONArray;
@@ -42,25 +41,18 @@ public class LoginActivity extends AppCompatActivity {
     private Context mContext;
     private Button loginbutton;
     private Button joinbutton;
-    private EditText idEditText;
-    private EditText pwEditText;
+    public EditText idEditText;
+    public EditText pwEditText;
     private GlobalVariable globalVariable;
     private Handler messageHandler;
     SharedPreferences pref;
+    SharedPreferences.Editor editor;
     int responseStatus = 0;
+    String user_type;
     private final int LOGIN_PERMITTED = 200;
 
     public void onStop(){
         super.onStop();
-        pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
-        SharedPreferences.Editor editor = pref.edit();
-
-
-
-
-        editor.putString("idEditText", idEditText.getText().toString());
-        editor.putString("pwEditText", pwEditText.getText().toString());
-        editor.commit();
     }
 
 
@@ -154,13 +146,24 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             protected void onPreExecute() {
                 //Collect the input data
+
+
+                pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+                editor = pref.edit();
                 login_id = idEditText.getText().toString();
                 login_pw = pwEditText.getText().toString();
             }
             @Override
             protected void onPostExecute(Boolean params) {
-                super.onPostExecute(null);
-                getUserInfo();
+                if(responseStatus == 1){
+                    getUserInfo();
+                    editor.putString("idEditText", idEditText.getText().toString());
+                    editor.putString("pwEditText", pwEditText.getText().toString());
+                    editor.putString("token", globalVariable.getToken());
+                    editor.putString("userType",user_type);
+                    Log.d(TAG, "onPostExecute: "+editor.toString());
+                    editor.commit();
+                }
 
             }
 
@@ -170,21 +173,24 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     obj = new URL(ConnectServer.getInstance().getURL("Sign_In"));
                     HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-
+                    con.setRequestProperty("Accept-Language", "ko-kr,ko;q=0.8,en-us;q=0.5,en;q=0.3");
+                    con.setRequestProperty("Content-Type", "application/json");
                     con.setDoOutput(true);
 
-                    //set Request parameter
-                    MakeUTF8Parameter parameterMaker = new MakeUTF8Parameter();
-                    parameterMaker.setParameter("login_id", login_id);
-                    parameterMaker.setParameter("login_pw", login_pw);
-                    Log.d("ktk", parameterMaker.getParameter());
+                    JSONObject jsonObj = new JSONObject();
+                    jsonObj.put("login_id", login_id);
+                    jsonObj.put("login_pw", login_pw);
+                    jsonObj.put("token", globalVariable.getToken());
+                    Log.d(TAG, "doInBackground: "+globalVariable.getToken());
                     OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
-                    wr.write(parameterMaker.getParameter());
+                    wr.write(jsonObj.toString());
                     wr.flush();
 
                     BufferedReader rd =null;
 
                     if(con.getResponseCode() == LOGIN_PERMITTED){
+
+
                         responseStatus = 1;
                         //Sign up Success
                         rd = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
@@ -192,10 +198,10 @@ public class LoginActivity extends AppCompatActivity {
                         Log.d(TAG,"Login Success: " + resultValues);
                         JSONObject object = new JSONObject(resultValues);
                         Boolean login_status = (Boolean) object.get("login_status");
-                        String token = (String) object.get("token");
-                        String user_type = (String) object.get("user_type");
-                        Log.d(TAG,"Received Data: " + login_status + "//" + token + "//" + user_type);
-                        ConnectServer.getInstance().setToken(token);
+                        //String token = (String) object.get("token");
+                        user_type = (String) object.get("user_type");
+                        Log.d(TAG,"Received Data: " + login_status + "//" + user_type);
+                        ConnectServer.getInstance().setToken(globalVariable.getToken());
                         ConnectServer.getInstance().setType(user_type);
 
                         if(user_type.equals("senior")){

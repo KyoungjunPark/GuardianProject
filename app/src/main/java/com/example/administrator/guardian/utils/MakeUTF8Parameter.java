@@ -21,13 +21,5 @@ public class MakeUTF8Parameter {
             e.printStackTrace();
         }
     }
-    public void setParameter(String key, Integer data){
-        try {
-            if(!resultParameter.equals("")) resultParameter += "&";
-            resultParameter += URLEncoder.encode(key, "UTF-8") + "=" + data;
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-    }
     public String getParameter(){return resultParameter;}
 }
