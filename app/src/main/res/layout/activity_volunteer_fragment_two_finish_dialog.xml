@@ -45,10 +45,10 @@
 
         <LinearLayout android:orientation="horizontal"
             android:gravity="center"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:layout_width="fill_parent">
 
-            <Button android:layout_height="wrap_content"
+            <Button android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:id="@+id/vftdf_button"
                 android:textSize="15dp"

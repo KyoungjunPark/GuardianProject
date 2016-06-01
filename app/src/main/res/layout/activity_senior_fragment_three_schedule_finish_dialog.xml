@@ -65,11 +65,11 @@
 
         <LinearLayout android:orientation="horizontal"
             android:gravity="center"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:layout_width="fill_parent"
             android:background="#ffffff">
 
-            <Button android:layout_height="wrap_content"
+            <Button android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:id="@+id/sftsf_button"
                 android:textSize="15dp"

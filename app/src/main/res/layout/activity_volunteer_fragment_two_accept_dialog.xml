@@ -104,17 +104,17 @@
 
         <LinearLayout android:orientation="horizontal"
             android:gravity="center"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:layout_width="fill_parent">
 
-            <Button android:layout_height="wrap_content"
+            <Button android:layout_height="match_parent"
                 android:layout_width="150dp"
                 android:id="@+id/vftda_left"
                 android:textSize="15dp"
                 android:text="수락"
                 android:background="#7ff2ff" />
 
-            <Button android:layout_height="wrap_content"
+            <Button android:layout_height="match_parent"
                 android:layout_width="150dp"
                 android:id="@+id/vftda_right"
                 android:textSize="15dp"
