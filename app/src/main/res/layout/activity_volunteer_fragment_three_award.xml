@@ -8,7 +8,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ui.activity.Volunteer.VolunteerFragmentThreeAwardActivity"
-    android:background="@drawable/awardbackground">
+     android:background="@drawable/awardbackground"
+    >
 
     <TextView
         android:layout_width="wrap_content"
@@ -45,7 +46,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="  00월 00일 00시부터 \n 00시간동안 000 님에게 \n 헌신적으로 봉사하였으므로\n 이 상장을 수여함"
+            android:text=" "
             android:id="@+id/awardContent"
             android:layout_below="@+id/awardWinner"
             android:layout_alignParentLeft="true"
@@ -60,7 +61,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2016년 6월 4일"
+            android:text=" "
             android:id="@+id/awardDay"
             android:layout_marginTop="33dp"
             android:textColor="#000000"
@@ -75,6 +76,7 @@
             android:layout_width="150dp"
             android:layout_height="100dp"
             android:id="@+id/awardSignature"
+            android:scaleType="fitStart"
             android:layout_alignLeft="@+id/awardDay"
             android:layout_alignStart="@+id/awardDay"
             android:layout_below="@+id/awardDay"

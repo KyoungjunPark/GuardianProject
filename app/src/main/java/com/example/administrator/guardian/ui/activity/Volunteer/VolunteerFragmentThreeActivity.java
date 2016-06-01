@@ -100,7 +100,7 @@ public class VolunteerFragmentThreeActivity extends Fragment {
                             Log.d("ktk", object.toString());
 
                             for (int i=0; i<dataArray.length(); i++){
-                                //String senior_id = (String)dataArray.getJSONObject(i).get("senior_id");
+                                String senior_id = (String)dataArray.getJSONObject(i).get("senior_id");
                                 String senior_name = (String)dataArray.getJSONObject(i).get("user_name");
                                 String startInfo = (String)dataArray.getJSONObject(i).get("date_from");
                                 int req_hour = dataArray.getJSONObject(i).getInt("req_hour");
@@ -111,7 +111,7 @@ public class VolunteerFragmentThreeActivity extends Fragment {
                                 String hour = startInfo.substring(8,10);
                                 String minute = startInfo.substring(10,12);
 
-                                VolunteerTimeRecyclerItem vol = new VolunteerTimeRecyclerItem(gv.getUser_name(), senior_name, startInfo, year, month, day, hour, minute, req_hour);
+                                VolunteerTimeRecyclerItem vol = new VolunteerTimeRecyclerItem(gv.getUser_name(), senior_id, senior_name, startInfo, year, month, day, hour, minute, req_hour);
                                 items.add(vol);
                             }
 

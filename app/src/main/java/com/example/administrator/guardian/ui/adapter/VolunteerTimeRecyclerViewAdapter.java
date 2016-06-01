@@ -55,6 +55,8 @@ public class VolunteerTimeRecyclerViewAdapter extends RecyclerView.Adapter<Volun
                 Intent intent = new Intent(context, VolunteerFragmentThreeAwardActivity.class);
                 // senior_id, senior_name, startInfo, startInfo(year,month, day, hour, minute), req_hour
                 intent.putExtra("id",item.getVol_name());
+                intent.putExtra("senior_id",item.getSenior_id());
+                intent.putExtra("startInfo", item.getStartInfo());
                 intent.putExtra("year",item.getYear());
                 intent.putExtra("month",item.getMonth());
                 intent.putExtra("day",item.getDay());

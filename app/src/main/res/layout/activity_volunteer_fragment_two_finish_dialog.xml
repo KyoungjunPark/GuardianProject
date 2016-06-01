@@ -22,7 +22,7 @@
             android:layout_width="fill_parent"
             android:textColor="@android:color/black"
             android:textSize="25dp"
-            android:text="박경준"
+            android:text="박경준 할아버지"
             android:id="@+id/vftdf_name"
             android:paddingTop="10dp" />
 
@@ -30,24 +30,16 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.95">
+            android:layout_weight="0.95"
+            >
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:id="@+id/vftdf_content" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.95">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:id="@+id/vftdf_signature" />
+                android:layout_height="120dp"
+                android:textSize="20dp"
+                android:text="gd"
+                android:id="@+id/vftdf_content"
+                android:textColor="#000000"/>
 
         </LinearLayout>
 

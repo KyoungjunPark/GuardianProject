@@ -102,6 +102,12 @@ public class ConnectServer {
             case "User_Info":
                 resultURL = URL + "/" + "User_Info";
                 break;
+            case "Finish_Request":
+                resultURL = URL + "/" +"Finish_Request";
+                break;
+            case "Get_Signature":
+                resultURL = URL + "/" +"Get_Signature";
+                break;
 
         }
         return resultURL;

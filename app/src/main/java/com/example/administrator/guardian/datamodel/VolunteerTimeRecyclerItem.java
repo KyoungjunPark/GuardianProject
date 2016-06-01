@@ -13,7 +13,9 @@ public class VolunteerTimeRecyclerItem {
     private String hour;
     private String minute;
     private int req_hour;
+    private String senior_id;
 
+    public String getSenior_id(){return senior_id;}
     public String  getVol_name(){return vol_name;}
     public String getSenior_name(){return senior_name;}
     public String getStartInfo(){return startInfo;}
@@ -24,8 +26,9 @@ public class VolunteerTimeRecyclerItem {
     public String getMinute(){return minute;}
     public int getReq_hour(){return req_hour;}
 
-    public VolunteerTimeRecyclerItem(String vol_name, String senior_name, String startInfo, String year, String month, String day, String hour, String minute, int req_hour){
+    public VolunteerTimeRecyclerItem(String vol_name, String senior_id, String senior_name, String startInfo, String year, String month, String day, String hour, String minute, int req_hour){
         this.vol_name = vol_name;
+        this.senior_id = senior_id;
         this.senior_name = senior_name;
         this.startInfo = startInfo;
         this.year = year;

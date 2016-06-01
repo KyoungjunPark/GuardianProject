@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.administrator.guardian.R;
@@ -22,7 +21,6 @@ public class VolunteerFragmentTwoFinishDialog extends Dialog {
     private String contents;
 
     private Button vftdf_button;
-    private ImageView vftdf_signature;
 
     public VolunteerFragmentTwoFinishDialog(Context context, String name, String gender, String contents) {
         super(context , android.R.style.Theme_Translucent_NoTitleBar);
@@ -48,7 +46,6 @@ public class VolunteerFragmentTwoFinishDialog extends Dialog {
         setContent(contents);
 
 
-        vftdf_signature.setImageResource(R.drawable.signature);
 
         vftdf_button = (Button)findViewById(R.id.vftdf_button);
         vftdf_button.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +78,5 @@ public class VolunteerFragmentTwoFinishDialog extends Dialog {
     private void setLayout(){
         vftdf_Name = (TextView) findViewById(R.id.vftdf_name);
         vftdf_Contents = (TextView)findViewById(R.id.vftdf_content);
-        vftdf_signature=(ImageView)findViewById(R.id.vftdf_signature);
     }
 }

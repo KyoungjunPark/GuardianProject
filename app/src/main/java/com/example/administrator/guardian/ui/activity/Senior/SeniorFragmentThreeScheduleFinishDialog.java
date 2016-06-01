@@ -44,7 +44,7 @@ public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
     private FrameLayout senior_signature_layout;
     private SignaturePad mSignaturePad;
     private Bitmap signatureBitmap;
-    private String imagecode;
+    private String encoded_data;
 
     public SeniorFragmentThreeScheduleFinishDialog(Context context, String startInfo, int reqHour, String name, String details) {
         super(context , android.R.style.Theme_Translucent_NoTitleBar);
@@ -89,15 +89,7 @@ public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
         sftsf_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //finishRequest();
-                ////////////////////////////////////////////////////////////////////////////////////////////
-
-                //signature result
-                signatureBitmap = mSignaturePad.getSignatureBitmap();
-                BitmapToBase64(signatureBitmap);
-
-                //////////////////////////////////////////////////////////////
-                //SeniorFragmentThreeScheduleFinishDialog.this.dismiss();
+                finishRequest();
             }
         });
     }
@@ -131,10 +123,12 @@ public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
 
             @Override
             protected void onPreExecute() {
+                signatureBitmap = mSignaturePad.getSignatureBitmap();
+                encoded_data = BitmapToBase64(signatureBitmap);
             }
             @Override
             protected void onPostExecute(Boolean params){
-
+                SeniorFragmentThreeScheduleFinishDialog.this.dismiss();
             }
 
 
@@ -144,12 +138,18 @@ public class SeniorFragmentThreeScheduleFinishDialog extends Dialog {
                 try {
                     obj = new URL(ConnectServer.getInstance().getURL("Finish_Request"));
                     HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+                    //con.setRequestMethod("POST");
+                    //con.setRequestProperty("Content-Type", "application/json; charset=utf8");
+                    //con.setRequestProperty("Accept", "application/json");
+
                     con = ConnectServer.getInstance().setHeader(con);
                     con.setDoOutput(true);
 
                     //set Request parameter
                     JSONObject jsonObj = new JSONObject();
                     jsonObj.put("date_from", startInfo);
+                    jsonObj.put("encoded_data", encoded_data);
                     // 토큰과 date_from 이 primary key가 되고
                     // 이미지 파일 보내야 함
 
