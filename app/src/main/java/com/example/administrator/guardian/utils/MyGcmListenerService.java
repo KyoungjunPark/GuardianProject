@@ -56,8 +56,8 @@ public class MyGcmListenerService extends GcmListenerService {
 
 			notificationBuilder = new NotificationCompat.Builder(this)
 					.setContentTitle("방문요청알림")
-					.setContentText("000님의 방문요청을 확인해주세요.")
-					.setTicker("000님의 방문요청을 확인해주세요.")
+					.setContentText(data.getString("name")+"님의 방문요청을 확인해주세요.")
+					.setTicker(data.getString("name")+"님의 방문요청을 확인해주세요.")
 					.setSmallIcon(R.mipmap.ic_launcher)
 					.setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.icon))
 					.setContentIntent(pendingIntent)
@@ -81,8 +81,8 @@ public class MyGcmListenerService extends GcmListenerService {
 			if(result.compareTo("req1") == 0){
 				notificationBuilder = new NotificationCompat.Builder(this)
 						.setContentTitle("방문요청알림")
-						.setContentText("000님의 방문요청을 확인해주세요.")
-						.setTicker("000님의 방문요청을 확인해주세요.")
+						.setContentText(data.getString("name")+"님의 방문요청을 확인해주세요.")
+						.setTicker(data.getString("name")+"님의 방문요청을 확인해주세요.")
 						.setSmallIcon(R.mipmap.ic_launcher)
 						.setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.icon))
 						.setContentIntent(pendingIntent)
