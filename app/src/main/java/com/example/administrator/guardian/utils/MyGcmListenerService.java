@@ -135,8 +135,7 @@ public class MyGcmListenerService extends GcmListenerService {
 					.setWhen(System.currentTimeMillis())
 					.setDefaults( Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE|Notification.DEFAULT_LIGHTS)
 					.setNumber(1);
-
-			notificationBuilder.getNotification().flags |= Notification.FLAG_INSISTENT;
+			
 		}
 
 
