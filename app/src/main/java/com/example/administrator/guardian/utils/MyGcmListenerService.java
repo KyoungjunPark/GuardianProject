@@ -31,7 +31,6 @@ public class MyGcmListenerService extends GcmListenerService {
 	Intent intent;
 	PendingIntent pendingIntent;
 	NotificationCompat.Builder notificationBuilder;
-
 	@Override
 	public void onMessageReceived(String from, Bundle data) {
 
@@ -62,7 +61,7 @@ public class MyGcmListenerService extends GcmListenerService {
 					.setAutoCancel(true)
 					.setWhen(System.currentTimeMillis())
 					.setDefaults( Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE|Notification.DEFAULT_LIGHTS)
-					.setNumber(13);
+					.setNumber(1);
 
 		}else if(pref.getString("userType", "").compareTo("senior") == 0){
 			ConnectServer.getInstance().setToken(pref.getString("token",""));
@@ -83,7 +82,7 @@ public class MyGcmListenerService extends GcmListenerService {
 					.setAutoCancel(true)
 					.setWhen(System.currentTimeMillis())
 					.setDefaults( Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE|Notification.DEFAULT_LIGHTS)
-					.setNumber(13);
+					.setNumber(1);
 		}
 
 

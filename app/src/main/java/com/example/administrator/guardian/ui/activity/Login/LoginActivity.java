@@ -23,6 +23,7 @@ import com.example.administrator.guardian.ui.activity.Senior.SeniorTabActivity;
 import com.example.administrator.guardian.ui.activity.Volunteer.VolunteerTabActivity;
 import com.example.administrator.guardian.utils.ConnectServer;
 import com.example.administrator.guardian.utils.GlobalVariable;
+import com.example.administrator.guardian.utils.RegistrationIntentService;
 import com.yarolegovich.lovelydialog.LovelyInfoDialog;
 
 import org.json.JSONArray;
@@ -62,7 +63,16 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         globalVariable = (GlobalVariable)getApplication();
+
+        Intent serviceIntent = new Intent(getApplicationContext(), RegistrationIntentService.class);
+        startService(serviceIntent);
+        Log.d("bugfix0", "doInBackground: "+globalVariable.getToken());
+        Log.d("bugfix0", "doInBackground: "+globalVariable.getToken());
+
         pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+
+        Log.d("bugfix00", "doInBackground: "+pref.getString("token", ""));
+        Log.d("bugfix00", "doInBackground: "+pref.getString("token", ""));
 
         mContext = this;
         messageHandler = new Handler(Looper.getMainLooper()) {
@@ -176,7 +186,7 @@ public class LoginActivity extends AppCompatActivity {
                     jsonObj.put("login_id", login_id);
                     jsonObj.put("login_pw", login_pw);
                     String token;
-                    if(pref.getString("token","").compareTo("")!= 0){
+                    if(pref.getString("token","").compareTo("")!= 0 ){
                         token = new String(pref.getString("token",""));
                         Log.d("bugfix1", "doInBackground: "+token);
                     }else {

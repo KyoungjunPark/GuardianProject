@@ -14,7 +14,6 @@ import com.example.administrator.guardian.ui.activity.Senior.SeniorTabActivity;
 import com.example.administrator.guardian.ui.activity.Volunteer.VolunteerTabActivity;
 import com.example.administrator.guardian.utils.ConnectServer;
 import com.example.administrator.guardian.utils.GlobalVariable;
-import com.example.administrator.guardian.utils.RegistrationIntentService;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -75,8 +74,6 @@ public class IntroActivity extends Activity {
 
             }else{
 
-                Intent serviceIntent = new Intent(getApplicationContext(), RegistrationIntentService.class);
-                startService(serviceIntent);
 
                 Intent Login = new Intent(getApplicationContext(), LoginActivity.class);
                 Login.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
