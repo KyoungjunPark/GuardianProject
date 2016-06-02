@@ -62,16 +62,6 @@ public class VolunteerTabActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.svtoolbar);
         setSupportActionBar(toolbar);
 
-        notification=(Button)findViewById(R.id.notification);
-        notification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                Toast.makeText(getApplicationContext(),"a",Toast.LENGTH_LONG).show();
-                NotificationSomethins1();
-                mVibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-                mVibe.vibrate(1000);
-            }
-        });
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getApplicationContext(), getSupportFragmentManager());
