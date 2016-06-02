@@ -12,7 +12,7 @@ import java.net.HttpURLConnection;
 public class ConnectServer {
     private AsyncTask<String, Void, Boolean> task;
 
-    private String token;
+    private String token = "";
     private static String URL = "http://59.187.203.140:80";
 
     private String type;
@@ -41,6 +41,9 @@ public class ConnectServer {
     public HttpURLConnection setHeader(HttpURLConnection con) {
         con.setRequestProperty("Accept-Language", "ko-kr,ko;q=0.8,en-us;q=0.5,en;q=0.3");
         con.setRequestProperty("Content-Type", "application/json");
+        if(this.token == null){
+            this.token = "";
+        }
         con.setRequestProperty("token", this.token);
 
         return con;

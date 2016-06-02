@@ -1,163 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.administrator.guardian">
+<manifest package="com.example.administrator.guardian"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <!--
-         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the 'MyLocation' functionality.
-    -->
+		 The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+		 Google Maps Android API v2, but you must specify either coarse or fine
+		 location permissions for the 'MyLocation' functionality.
+	-->
     <permission
         android:name="com.example.administrator.guardian.locationapi.maps.permission.MAPS_RECEIVE"
-        android:protectionLevel="signature" />
+        android:protectionLevel="signature"/>
+    <permission
+        android:name="com.example.administrator.guardian.permission.C2D_MESSAGE"
+        android:protectionLevel="signature"/>
 
-    <permission android:name="com.example.administrator.guardian.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
     <uses-permission android:name="com.example.administrator.guardian.permission.C2D_MESSAGE"/>
-
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="com.example.administrator.guardian.locationapi.maps.permission.MAPS_RECEIVE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="com.example.administrator.guardian.locationapi.maps.permission.MAPS_RECEIVE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <uses-feature
         android:glEsVersion="0x00020000"
-        android:required="true" />
+        android:required="true"/>
 
     <application
         android:name=".utils.GlobalVariable"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:theme="@style/AppTheme">
-
-        <receiver android:name="com.google.android.gms.gcm.GcmReceiver"
-                  android:exported="true"
-                  android:permission="com.google.android.c2dm.permission.SEND">
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+
                 <category android:name="com.example.gcm"/>
             </intent-filter>
         </receiver>
-
-        ﻿<service
-            android:name="com.example.administrator.guardian.utils.MyGcmListenerService"
+        ﻿
+        <service
+            android:name=".utils.MyGcmListenerService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
             </intent-filter>
         </service>
-        ﻿<service
-            android:name="com.example.administrator.guardian.utils.MyInstanceIDListenerService"
+        ﻿
+        <service
+            android:name=".utils.MyInstanceIDListenerService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.iid.InstanceID"/>
             </intent-filter>
         </service>
-        ﻿<service
-            android:name="com.example.administrator.guardian.utils.RegistrationIntentService"
+        ﻿
+        <service
+            android:name=".utils.RegistrationIntentService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.iid.InstanceID"/>
             </intent-filter>
         </service>
 
-        
         <activity
             android:name=".ui.activity.Login.IntroActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".ui.activity.Login.LoginActivity"
             android:excludeFromRecents="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
         <activity
             android:name=".ui.activity.Login.JoinActivity"
             android:label="@string/title_activity_join"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
         <activity
             android:name=".ui.activity.Login.JoinContentsActivity"
             android:label="@string/title_activity_registration"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
         <activity
             android:name=".ui.activity.SeniorMainActivity"
-            android:label="SeniorMainActivity" />
+            android:label="SeniorMainActivity"/>
         <activity
             android:name=".ui.activity.DeviceListActivity"
-            android:theme="@android:style/Theme.DeviceDefault.Dialog" />
+            android:theme="@android:style/Theme.DeviceDefault.Dialog"/>
         <activity
             android:name=".ui.activity.Manager.ManagerMainActivity"
             android:label="ManagerActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ui.activity.Login.ManagerRegistrationActivity"
             android:label="MangerRegistration"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
 
         <!--
-             The API key for Google Maps-based APIs is defined as a string resource.
-             (See the file "res/values/google_maps_api.xml").
-             Note that the API key is linked to the encryption key used to sign the APK.
-             You need a different API key for each encryption key, including the release key that is used to
-             sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/.
-        -->
+			 The API key for Google Maps-based APIs is defined as a string resource.
+			 (See the file "res/values/google_maps_api.xml").
+			 Note that the API key is linked to the encryption key used to sign the APK.
+			 You need a different API key for each encryption key, including the release key that is used to
+			 sign the APK for publishing.
+			 You can define the keys for the debug and release targets in src/debug/ and src/release/.
+		-->
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDrdm_h6ShF4lTb6IGPwm6Ct2l83Yfcbsk" />
+            android:value="AIzaSyDrdm_h6ShF4lTb6IGPwm6Ct2l83Yfcbsk"/>
         <!--
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyA5QSQHHa6L-_9JezI2-5sZn7zPLhUVB8w" />
-        -->
+		<meta-data
+			android:name="com.google.android.geo.API_KEY"
+			android:value="AIzaSyA5QSQHHa6L-_9JezI2-5sZn7zPLhUVB8w" />
+		-->
 
         <activity
             android:name=".ui.activity.Login.MapsActivity"
             android:label="@string/title_activity_maps"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
         <activity
             android:name=".ui.activity.Senior.SeniorTabActivity"
             android:label="@string/title_activity_senior_tab"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".ui.activity.Volunteer.VolunteerTabActivity"
             android:label="@string/title_activity_volunteer_main"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ui.activity.Manager.ManagerSeniorInfoTabActivity"
             android:label="@string/title_activity_manager_senior_info_tab"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ui.activity.Senior.SeniorFragmentOneMeasureActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ui.activity.Senior.SeniorFragmentOneMeasureResultActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ui.activity.Volunteer.VolunteerFragmentThreeAwardActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ui.activity.Senior.SeniorFragmentThreeScheduleActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ui.activity.Volunteer.VolunteerFragmentOneRequestActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.activity.Manager.ManagerManageInfoMapActivity"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ui.activity.Manager.ManagerManageInfoMapActivity"/>
+
     </application>
 
 </manifest>

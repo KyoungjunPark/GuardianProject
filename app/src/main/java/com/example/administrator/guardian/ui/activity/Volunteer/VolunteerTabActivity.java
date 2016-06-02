@@ -131,9 +131,9 @@ public class VolunteerTabActivity extends AppCompatActivity {
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
-                .setContentTitle("의심알림")
-                .setContentText("주변 노인분을 방문해주세요!!")
-                .setTicker("주변 노인분을 방문해주세요!!!!")
+                .setContentTitle("방문요청알림")
+                .setContentText("요청을 확인해주세요.")
+                .setTicker("요청을 확인해주세요.")
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.icon))
                 .setContentIntent(contentIntent)

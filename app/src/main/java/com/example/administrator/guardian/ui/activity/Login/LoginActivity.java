@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
     SharedPreferences.Editor editor;
     int responseStatus = 0;
     String user_type;
+    String user_name;
     private final int LOGIN_PERMITTED = 200;
 
     public void onStop(){
@@ -148,8 +149,7 @@ public class LoginActivity extends AppCompatActivity {
                 //Collect the input data
 
 
-                pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
-                editor = pref.edit();
+
                 login_id = idEditText.getText().toString();
                 login_pw = pwEditText.getText().toString();
             }
@@ -157,12 +157,7 @@ public class LoginActivity extends AppCompatActivity {
             protected void onPostExecute(Boolean params) {
                 if(responseStatus == 1){
                     getUserInfo();
-                    editor.putString("idEditText", idEditText.getText().toString());
-                    editor.putString("pwEditText", pwEditText.getText().toString());
-                    editor.putString("token", globalVariable.getToken());
-                    editor.putString("userType",user_type);
-                    Log.d(TAG, "onPostExecute: "+editor.toString());
-                    editor.commit();
+
                 }
 
             }
@@ -180,8 +175,15 @@ public class LoginActivity extends AppCompatActivity {
                     JSONObject jsonObj = new JSONObject();
                     jsonObj.put("login_id", login_id);
                     jsonObj.put("login_pw", login_pw);
-                    jsonObj.put("token", globalVariable.getToken());
-                    Log.d(TAG, "doInBackground: "+globalVariable.getToken());
+                    String token;
+                    if(pref.getString("token","").compareTo("")!= 0){
+                        token = new String(pref.getString("token",""));
+                    }else {
+                        token = globalVariable.getToken();
+                    }
+                    jsonObj.put("token", token);
+
+                    Log.d(TAG, "doInBackground: "+pref.getString("token",""));
                     OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
                     wr.write(jsonObj.toString());
                     wr.flush();
@@ -253,6 +255,18 @@ public class LoginActivity extends AppCompatActivity {
             protected void onPreExecute() {
             }
 
+            @Override
+            protected void onPostExecute(Boolean params) {
+                pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+                editor = pref.edit();
+                editor.putString("idEditText", idEditText.getText().toString());
+                editor.putString("pwEditText", pwEditText.getText().toString());
+                editor.putString("token", globalVariable.getToken());
+                editor.putString("userType",user_type);
+                editor.putString("userName", user_name);
+                Log.d(TAG, "onPostExecute: "+editor.toString());
+                editor.commit();
+            }
             @Override
             protected Boolean doInBackground(String... params) {
                 URL obj = null;
