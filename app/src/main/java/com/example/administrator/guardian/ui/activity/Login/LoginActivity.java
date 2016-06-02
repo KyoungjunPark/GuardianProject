@@ -178,9 +178,13 @@ public class LoginActivity extends AppCompatActivity {
                     String token;
                     if(pref.getString("token","").compareTo("")!= 0){
                         token = new String(pref.getString("token",""));
+                        Log.d("bugfix1", "doInBackground: "+token);
                     }else {
                         token = globalVariable.getToken();
+                        Log.d("bugfix2", "doInBackground: "+token);
+
                     }
+
                     jsonObj.put("token", token);
 
                     Log.d(TAG, "doInBackground: "+pref.getString("token",""));
@@ -203,6 +207,7 @@ public class LoginActivity extends AppCompatActivity {
                         //String token = (String) object.get("token");
                         user_type = (String) object.get("user_type");
                         Log.d(TAG,"Received Data: " + login_status + "//" + user_type);
+                        Log.d("bugfix3", "doInBackground: "+globalVariable.getToken());
                         ConnectServer.getInstance().setToken(globalVariable.getToken());
                         ConnectServer.getInstance().setType(user_type);
 
