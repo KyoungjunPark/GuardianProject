@@ -17,6 +17,7 @@ import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
@@ -64,6 +65,9 @@ public class MyGcmListenerService extends GcmListenerService {
 					.setWhen(System.currentTimeMillis())
 					.setDefaults( Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE|Notification.DEFAULT_LIGHTS)
 					.setNumber(1);
+			Vibrator mVibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+			mVibe.vibrate(1000);
+
 
 		}else if(pref.getString("userType", "").compareTo("senior") == 0){
 			ConnectServer.getInstance().setToken(pref.getString("token",""));
@@ -86,12 +90,14 @@ public class MyGcmListenerService extends GcmListenerService {
 						.setWhen(System.currentTimeMillis())
 						.setDefaults( Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE|Notification.DEFAULT_LIGHTS)
 						.setNumber(1);
+				Vibrator mVibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+				mVibe.vibrate(1000);
 			}else if(result.compareTo("high1") ==0){
 
 				notificationBuilder = new NotificationCompat.Builder(this)
 						.setContentTitle("의심알림")
-						.setContentText("000님을 확인해주세요.")
-						.setTicker("000님을 확인해주세요.")
+						.setContentText(data.getString("name")+"님을 확인해주세요.")
+						.setTicker(data.getString("name")+"님을 확인해주세요.")
 						.setSmallIcon(R.mipmap.ic_launcher)
 						.setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.icon))
 						.setContentIntent(pendingIntent)
@@ -99,6 +105,8 @@ public class MyGcmListenerService extends GcmListenerService {
 						.setWhen(System.currentTimeMillis())
 						.setDefaults( Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE|Notification.DEFAULT_LIGHTS)
 						.setNumber(1);
+				Vibrator mVibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+				mVibe.vibrate(1000);
 			}
 
 		}else if(pref.getString("userType", "").compareTo("manager") == 0){
@@ -109,11 +117,12 @@ public class MyGcmListenerService extends GcmListenerService {
 
 			intent = new Intent(getApplicationContext(), IntroActivity.class);
 			pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
+			Log.d("gcm-test", ""+ data.getString("name"));
 			//PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 			notificationBuilder = new NotificationCompat.Builder(this)
 					.setContentTitle("응급사항")
-					.setContentText("000님을 확인해주세요.")
-					.setTicker("000님을 확인해주세요.")
+					.setContentText(data.getString("name")+"님을 확인해주세요.")
+					.setTicker(data.getString("name")+"님을 확인해주세요.")
 					.setSmallIcon(R.mipmap.ic_launcher)
 					.setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.icon))
 					.setContentIntent(pendingIntent)
@@ -121,11 +130,12 @@ public class MyGcmListenerService extends GcmListenerService {
 					.setWhen(System.currentTimeMillis())
 					.setDefaults( Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE|Notification.DEFAULT_LIGHTS)
 					.setNumber(1);
+
+			notificationBuilder.getNotification().flags |= Notification.FLAG_INSISTENT;
 		}
 
 
 		//노티피케이션 빌더 : 위에서 생성한 이미지나 텍스트, 사운드등을 설정해줍니다.
-
 
 		NotificationManager notificationManager =
 				(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
