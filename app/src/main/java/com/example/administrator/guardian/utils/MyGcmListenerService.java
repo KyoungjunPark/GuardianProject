@@ -18,6 +18,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
 import com.example.administrator.guardian.R;
 import com.example.administrator.guardian.ui.activity.Login.IntroActivity;
@@ -39,6 +40,8 @@ public class MyGcmListenerService extends GcmListenerService {
 		bitmap = BitmapFactory.decodeResource(res, R.drawable.icon);
 		soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
+		Log.d("bug-fix", "onMessageReceived: "+result);
+
 		SharedPreferences pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
 		if(pref.getString("userType", "").compareTo("volunteer") == 0){
 			ConnectServer.getInstance().setToken(pref.getString("token",""));
@@ -50,11 +53,10 @@ public class MyGcmListenerService extends GcmListenerService {
 			pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
 			//PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-
 			notificationBuilder = new NotificationCompat.Builder(this)
 					.setContentTitle("방문요청알림")
-					.setContentText("요청을 확인해주세요.")
-					.setTicker("요청을 확인해주세요.")
+					.setContentText("000님의 방문요청을 확인해주세요.")
+					.setTicker("000님의 방문요청을 확인해주세요.")
 					.setSmallIcon(R.mipmap.ic_launcher)
 					.setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.icon))
 					.setContentIntent(pendingIntent)
@@ -67,15 +69,51 @@ public class MyGcmListenerService extends GcmListenerService {
 			ConnectServer.getInstance().setToken(pref.getString("token",""));
 			GlobalVariable globalVariable = (GlobalVariable)getApplication();
 			globalVariable.setUser_name(pref.getString("userName",""));
-			globalVariable.setLoginType(1);
+			globalVariable.setLoginType(0);
+
+			intent = new Intent(getApplicationContext(), IntroActivity.class);
+			pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
+			//PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+			if(result.compareTo("req1") == 0){
+				notificationBuilder = new NotificationCompat.Builder(this)
+						.setContentTitle("방문요청알림")
+						.setContentText("000님의 방문요청을 확인해주세요.")
+						.setTicker("000님의 방문요청을 확인해주세요.")
+						.setSmallIcon(R.mipmap.ic_launcher)
+						.setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.icon))
+						.setContentIntent(pendingIntent)
+						.setAutoCancel(true)
+						.setWhen(System.currentTimeMillis())
+						.setDefaults( Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE|Notification.DEFAULT_LIGHTS)
+						.setNumber(1);
+			}else if(result.compareTo("high1") ==0){
+
+				notificationBuilder = new NotificationCompat.Builder(this)
+						.setContentTitle("의심알림")
+						.setContentText("000님을 확인해주세요.")
+						.setTicker("000님을 확인해주세요.")
+						.setSmallIcon(R.mipmap.ic_launcher)
+						.setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.icon))
+						.setContentIntent(pendingIntent)
+						.setAutoCancel(true)
+						.setWhen(System.currentTimeMillis())
+						.setDefaults( Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE|Notification.DEFAULT_LIGHTS)
+						.setNumber(1);
+			}
+
+		}else if(pref.getString("userType", "").compareTo("manager") == 0){
+			ConnectServer.getInstance().setToken(pref.getString("token",""));
+			GlobalVariable globalVariable = (GlobalVariable)getApplication();
+			globalVariable.setUser_name(pref.getString("userName",""));
+			globalVariable.setLoginType(2);
 
 			intent = new Intent(getApplicationContext(), IntroActivity.class);
 			pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
 			//PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 			notificationBuilder = new NotificationCompat.Builder(this)
-					.setContentTitle("방문요청알림")
-					.setContentText("요청을 확인해주세요.")
-					.setTicker("요청을 확인해주세요.")
+					.setContentTitle("응급사항")
+					.setContentText("000님을 확인해주세요.")
+					.setTicker("000님을 확인해주세요.")
 					.setSmallIcon(R.mipmap.ic_launcher)
 					.setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.icon))
 					.setContentIntent(pendingIntent)
