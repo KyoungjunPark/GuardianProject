@@ -33,6 +33,7 @@ public class MyGcmListenerService extends GcmListenerService {
 	Intent intent;
 	PendingIntent pendingIntent;
 	NotificationCompat.Builder notificationBuilder;
+	Vibrator mVibe;
 	@Override
 	public void onMessageReceived(String from, Bundle data) {
 
@@ -114,6 +115,10 @@ public class MyGcmListenerService extends GcmListenerService {
 			GlobalVariable globalVariable = (GlobalVariable)getApplication();
 			globalVariable.setUser_name(pref.getString("userName",""));
 			globalVariable.setLoginType(2);
+
+			long[] pattern = {500,1000,500,1000,500,1000,500,1000,500,1000};
+			mVibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+			mVibe.vibrate(pattern,1);
 
 			intent = new Intent(getApplicationContext(), IntroActivity.class);
 			pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
