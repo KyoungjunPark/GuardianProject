@@ -49,6 +49,14 @@ public class IntroActivity extends Activity {
             pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
             if( pref.getString("token", "").compareTo("") != 0 ){
                 tokenTest();
+
+            }else{
+
+
+                Intent Login = new Intent(getApplicationContext(), LoginActivity.class);
+                Login.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(Login);
+                finish();
             }
 
         }
@@ -122,6 +130,7 @@ public class IntroActivity extends Activity {
             }
             protected void onPostExecute(Boolean params) {
                 if(responseStatus == 1){
+
                     String user_type = pref.getString("userType","");
                     ConnectServer.getInstance().setToken(pref.getString("token",""));
                     getUserInfo();
@@ -146,6 +155,7 @@ public class IntroActivity extends Activity {
                         //error case
                     }
                 }else{
+
                     Intent Login = new Intent(getApplicationContext(), LoginActivity.class);
                     Login.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(Login);
