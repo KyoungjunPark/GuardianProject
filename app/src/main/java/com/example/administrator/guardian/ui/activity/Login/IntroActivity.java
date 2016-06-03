@@ -33,7 +33,7 @@ public class IntroActivity extends Activity {
     SharedPreferences pref;
     SharedPreferences.Editor editor;
     GlobalVariable globalVariable;
-
+    int responseStatus=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,37 +48,7 @@ public class IntroActivity extends Activity {
             globalVariable = (GlobalVariable)getApplication();
             pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
             if( pref.getString("token", "").compareTo("") != 0 ){
-                String user_type = pref.getString("userType","");
-                ConnectServer.getInstance().setToken(pref.getString("token",""));
-                getUserInfo();
-                Log.d("intro-test", pref.getString("token","") + " / "+user_type);
-                if(user_type.equals("senior")){
-                    globalVariable.setLoginType(0);
-                    Intent firstMainActivity = new Intent(getApplicationContext(), SeniorTabActivity.class);
-                    startActivity(firstMainActivity);
-                    finish();
-                } else if(user_type.equals("volunteer")){
-                    globalVariable.setLoginType(1);
-                    Intent firstMainActivity = new Intent(getApplicationContext(), VolunteerTabActivity.class);
-                    startActivity(firstMainActivity);
-                    finish();
-                } else if(user_type.equals("manager")){
-                    globalVariable.setLoginType(2);
-                    Intent firstMainActivity = new Intent(getApplicationContext(), ManagerMainActivity.class);
-                    startActivity(firstMainActivity);
-                    finish();
-                } else {
-                    globalVariable.setLoginType(-1);
-                    //error case
-                }
-
-            }else{
-
-
-                Intent Login = new Intent(getApplicationContext(), LoginActivity.class);
-                Login.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(Login);
-                finish();
+                tokenTest();
             }
 
         }
@@ -140,5 +110,85 @@ public class IntroActivity extends Activity {
         });
         ConnectServer.getInstance().execute();
 
+    }
+
+    public void tokenTest(){
+        ConnectServer.getInstance().setAsncTask(new AsyncTask<String, Void, Boolean>() {
+
+
+            @Override
+            protected void onPreExecute() {
+
+            }
+            protected void onPostExecute(Boolean params) {
+                if(responseStatus == 1){
+                    String user_type = pref.getString("userType","");
+                    ConnectServer.getInstance().setToken(pref.getString("token",""));
+                    getUserInfo();
+                    Log.d("intro-test", pref.getString("token","") + " / "+user_type);
+                    if(user_type.equals("senior")){
+                        globalVariable.setLoginType(0);
+                        Intent firstMainActivity = new Intent(getApplicationContext(), SeniorTabActivity.class);
+                        startActivity(firstMainActivity);
+                        finish();
+                    } else if(user_type.equals("volunteer")){
+                        globalVariable.setLoginType(1);
+                        Intent firstMainActivity = new Intent(getApplicationContext(), VolunteerTabActivity.class);
+                        startActivity(firstMainActivity);
+                        finish();
+                    } else if(user_type.equals("manager")){
+                        globalVariable.setLoginType(2);
+                        Intent firstMainActivity = new Intent(getApplicationContext(), ManagerMainActivity.class);
+                        startActivity(firstMainActivity);
+                        finish();
+                    } else {
+                        globalVariable.setLoginType(-1);
+                        //error case
+                    }
+                }else{
+                    Intent Login = new Intent(getApplicationContext(), LoginActivity.class);
+                    Login.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(Login);
+                    finish();
+                }
+            }
+
+            @Override
+            protected Boolean doInBackground(String... params) {
+                URL obj = null;
+                try {
+                    obj = new URL(ConnectServer.getInstance().getURL("TokenTest"));
+                    HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+                    con.setRequestMethod("POST");
+                    con.setRequestProperty("Content-Type", "application/json; charset=utf8");
+                    con.setRequestProperty("Accept", "application/json");
+
+                    con = ConnectServer.getInstance().setHeader(con);
+                    con.setDoOutput(true);
+
+                    JSONObject jsonObj = new JSONObject();
+                    jsonObj.put("token",pref.getString("token", ""));
+                    OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
+                    wr.write(jsonObj.toString());
+
+                    wr.flush();
+
+                    BufferedReader rd =null;
+
+                    if(con.getResponseCode() == 200){
+                        responseStatus = 1;
+                    } else {
+                        responseStatus = 0;
+                    }
+
+                } catch (IOException | JSONException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+
+        });
+        ConnectServer.getInstance().execute();
     }
 }

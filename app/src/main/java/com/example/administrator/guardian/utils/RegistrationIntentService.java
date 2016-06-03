@@ -13,8 +13,10 @@ import java.io.IOException;
 /**
  * Created by 경태 on 2016-06-01.
  */
+
 public class RegistrationIntentService extends IntentService{
 	private static final String TAG = "RegistrationIntentService";
+	GlobalVariable globalVariable;
 	public RegistrationIntentService(){
 		super(TAG);
 	}
@@ -25,7 +27,7 @@ public class RegistrationIntentService extends IntentService{
 		try{
 			String token = instanceID.getToken(getString(R.string.gcm_defaultSenderId), GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
 			Log.e("token", token);
-			GlobalVariable globalVariable = (GlobalVariable)getApplication();
+			globalVariable = (GlobalVariable)getApplication();
 			globalVariable.setToken(token);
 			//ConnectServer.getInstance().setToken(token);
 

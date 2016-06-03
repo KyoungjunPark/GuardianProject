@@ -1,11 +1,9 @@
 package com.example.administrator.guardian.ui.activity.Senior;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -231,10 +229,7 @@ public class SeniorTabActivity extends AppCompatActivity {
             }
             @Override
             protected void onPostExecute(Boolean params) {
-                SharedPreferences pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
-                SharedPreferences.Editor editor = pref.edit();
-                editor.putString("token", "");
-                editor.commit();
+
                 Log.d(TAG, "onPostExecute: "+globalVariable.getToken());
                 Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(logout);

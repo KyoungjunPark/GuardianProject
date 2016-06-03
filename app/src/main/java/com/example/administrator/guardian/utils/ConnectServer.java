@@ -111,6 +111,9 @@ public class ConnectServer {
             case "Get_Signature":
                 resultURL = URL + "/" +"Get_Signature";
                 break;
+            case "TokenTest":
+                resultURL = URL + "/" +"TokenTest";
+                break;
 
         }
         return resultURL;
