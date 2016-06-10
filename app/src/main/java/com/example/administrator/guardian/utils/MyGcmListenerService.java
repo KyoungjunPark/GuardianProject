@@ -40,9 +40,10 @@ public class MyGcmListenerService extends GcmListenerService {
 		result = data.getString("data");
 		Resources res = getResources();
 		bitmap = BitmapFactory.decodeResource(res, R.drawable.icon);
-		soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+		soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
 
 		Log.d("bug-fix", "onMessageReceived: "+result);
+		Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
 
 		SharedPreferences pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
 		if(pref.getString("userType", "").compareTo("volunteer") == 0){
@@ -51,23 +52,43 @@ public class MyGcmListenerService extends GcmListenerService {
 			globalVariable.setUser_name(pref.getString("userName",""));
 			globalVariable.setLoginType(1);
 
+
 			intent = new Intent(getApplicationContext(), IntroActivity.class);
 			pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
 			//PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-			notificationBuilder = new NotificationCompat.Builder(this)
-					.setContentTitle("방문요청알림")
-					.setContentText(data.getString("name")+"님의 방문요청을 확인해주세요.")
-					.setTicker(data.getString("name")+"님의 방문요청을 확인해주세요.")
-					.setSmallIcon(R.mipmap.ic_launcher)
-					.setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.icon))
-					.setContentIntent(pendingIntent)
-					.setAutoCancel(true)
-					.setWhen(System.currentTimeMillis())
-					.setDefaults( Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE|Notification.DEFAULT_LIGHTS)
-					.setNumber(1);
-			Vibrator mVibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-			mVibe.vibrate(1000);
+
+			if(result.compareTo("req0") == 0){
+				notificationBuilder = new NotificationCompat.Builder(this)
+						.setContentTitle("방문요청알림")
+						.setContentText(data.getString("name")+"님의 방문요청을 확인해주세요.")
+						.setTicker(data.getString("name")+"님의 방문요청을 확인해주세요.")
+						.setSmallIcon(R.mipmap.ic_launcher)
+						.setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.icon))
+						.setContentIntent(pendingIntent)
+						.setAutoCancel(true)
+						.setSound(alarmSound)
+						.setWhen(System.currentTimeMillis())
+						.setDefaults( Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE|Notification.DEFAULT_LIGHTS)
+						.setNumber(1);
+				Vibrator mVibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+				mVibe.vibrate(500);
+			}else if(result.compareTo("high1") == 0){
+				notificationBuilder = new NotificationCompat.Builder(this)
+						.setContentTitle("의심알림")
+						.setContentText(data.getString("name")+"님을 확인해주세요.")
+						.setTicker(data.getString("name")+"님을 확인해주세요.")
+						.setSmallIcon(R.mipmap.ic_launcher)
+						.setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.icon))
+						.setContentIntent(pendingIntent)
+						.setAutoCancel(true)
+						.setSound(alarmSound)
+						.setWhen(System.currentTimeMillis())
+						.setDefaults( Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE|Notification.DEFAULT_LIGHTS)
+						.setNumber(1);
+				Vibrator mVibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+				mVibe.vibrate(500);
+			}
 
 
 		}else if(pref.getString("userType", "").compareTo("senior") == 0){
@@ -88,11 +109,12 @@ public class MyGcmListenerService extends GcmListenerService {
 						.setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.icon))
 						.setContentIntent(pendingIntent)
 						.setAutoCancel(true)
+						.setSound(alarmSound)
 						.setWhen(System.currentTimeMillis())
 						.setDefaults( Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE|Notification.DEFAULT_LIGHTS)
 						.setNumber(1);
 				Vibrator mVibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-				mVibe.vibrate(1000);
+				mVibe.vibrate(500);
 			}else if(result.compareTo("high1") ==0){
 
 				notificationBuilder = new NotificationCompat.Builder(this)
@@ -103,11 +125,12 @@ public class MyGcmListenerService extends GcmListenerService {
 						.setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.icon))
 						.setContentIntent(pendingIntent)
 						.setAutoCancel(true)
+						.setSound(alarmSound)
 						.setWhen(System.currentTimeMillis())
 						.setDefaults( Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE|Notification.DEFAULT_LIGHTS)
 						.setNumber(1);
 				Vibrator mVibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-				mVibe.vibrate(1000);
+				mVibe.vibrate(500);
 			}
 
 		}else if(pref.getString("userType", "").compareTo("manager") == 0){
@@ -116,7 +139,7 @@ public class MyGcmListenerService extends GcmListenerService {
 			globalVariable.setUser_name(pref.getString("userName",""));
 			globalVariable.setLoginType(2);
 
-			long[] pattern = {500,1000,500,1000,500,1000,500,1000,500,1000};
+			long[] pattern = {500,500,500,500,500,500,500,500,500,500};
 			mVibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
 			mVibe.vibrate(pattern,1);
 
@@ -132,6 +155,7 @@ public class MyGcmListenerService extends GcmListenerService {
 					.setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.icon))
 					.setContentIntent(pendingIntent)
 					.setAutoCancel(true)
+					.setSound(alarmSound)
 					.setWhen(System.currentTimeMillis())
 					.setDefaults( Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE|Notification.DEFAULT_LIGHTS)
 					.setNumber(1);

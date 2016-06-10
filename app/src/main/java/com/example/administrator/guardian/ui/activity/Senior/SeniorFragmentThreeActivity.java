@@ -68,6 +68,7 @@ public class SeniorFragmentThreeActivity extends Fragment implements TimePickerD
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -254,6 +255,19 @@ public class SeniorFragmentThreeActivity extends Fragment implements TimePickerD
 
         return view;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume: ");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause: ");
+    }
+
     private boolean isAllEntered()
     {
         if(radioButton01.isChecked() || radioButton02.isChecked() || radioButton03.isChecked()){
@@ -283,5 +297,4 @@ public class SeniorFragmentThreeActivity extends Fragment implements TimePickerD
             timeButton.setText("오전" + hour_of_day + "시 " + minute + "분 ");
         }
     }
-
 }

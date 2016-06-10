@@ -2,9 +2,11 @@ package com.example.administrator.guardian.ui.adapter;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,10 +24,11 @@ import java.util.List;
  * Created by Administrator on 2016-05-22.
  */
 public class SeniorScheduleRecyclerViewAdapter extends RecyclerView.Adapter<SeniorScheduleRecyclerViewAdapter.ViewHolder> {
-
+    private String TAG = "ViewAdapter";
     Context context;
     List<SeniorScheduleRecyclerItem> items;
     int item_layout;
+    private SeniorScheduleRecyclerViewAdapter seniorScheduleRecyclerViewAdapter;
 
     private SeniorFragmentThreeScheduleAcceptDialog mCustomDialog1;
     private SeniorFragmentThreeScheduleFinishDialog mCustomDialog2;
@@ -94,6 +97,13 @@ public class SeniorScheduleRecyclerViewAdapter extends RecyclerView.Adapter<Seni
                 @Override
                 public void onClick(View v) {
                     mCustomDialog1 = new SeniorFragmentThreeScheduleAcceptDialog(v.getContext(), item.getStartInfo(), item.getDetails(), item.getReqHour(), item.getName(), item.getAge(), item.getGender());
+                    mCustomDialog1.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialog) {
+                            Log.d(TAG, "dismissed!!");
+                            seniorScheduleRecyclerViewAdapter.notifyDataSetChanged();
+                        }
+                    });
                     mCustomDialog1.show();
                 }
             });
@@ -141,6 +151,10 @@ public class SeniorScheduleRecyclerViewAdapter extends RecyclerView.Adapter<Seni
                 }
             });
         }
+    }
+    public void setAdapter(SeniorScheduleRecyclerViewAdapter adapter)
+    {
+        seniorScheduleRecyclerViewAdapter = adapter;
     }
 
     @Override

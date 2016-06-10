@@ -61,6 +61,7 @@ public class VolunteerConfirmViewAdapter extends  RecyclerView.Adapter<Volunteer
                 public void onClick(View v) {
                     mCustomDialog1 = new VolunteerFragmentTwoAcceptDialog(v.getContext(), item.getSenior_id() ,item.getStartInfo(), item.getReq_hour(), item.getSenior_name(), item.getSenior_age(), item.getSenior_gender(), item.getSenior_address(), item.getLatitude(), item.getLongitude(), item.getDetails());
                      mCustomDialog1.show();
+                    notifyDataSetChanged();
                 }
             });
         }
@@ -115,8 +116,8 @@ public class VolunteerConfirmViewAdapter extends  RecyclerView.Adapter<Volunteer
                 @Override
                 public void onClick(View v) {
                     mCustomDialog2 = new VolunteerFragmentTwoFinishDialog(context, item.getSenior_name(), item.getSenior_gender(), item.getDetails());
-
                     mCustomDialog2.show();
+                    notifyDataSetChanged();
                 }
             });
         }

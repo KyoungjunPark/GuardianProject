@@ -29,6 +29,7 @@ public class RegistrationIntentService extends IntentService{
 			Log.e("token", token);
 			globalVariable = (GlobalVariable)getApplication();
 			globalVariable.setToken(token);
+			//Log.d("bugfix88", "onHandleIntent: "+globalVariable.getToken());
 			//ConnectServer.getInstance().setToken(token);
 
 		}catch (IOException e){

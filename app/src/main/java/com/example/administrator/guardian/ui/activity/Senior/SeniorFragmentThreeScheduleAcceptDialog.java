@@ -128,7 +128,7 @@ public class SeniorFragmentThreeScheduleAcceptDialog extends Dialog {
                 }else{
                     Toast.makeText(SeniorFragmentThreeScheduleAcceptDialog.this.getContext(), "수락 실패", Toast.LENGTH_SHORT).show();
                 }
-                SeniorFragmentThreeScheduleAcceptDialog.this.dismiss();
+                dismiss();
             }
 
 

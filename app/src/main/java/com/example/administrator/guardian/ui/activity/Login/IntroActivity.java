@@ -51,8 +51,7 @@ public class IntroActivity extends Activity {
                 tokenTest();
 
             }else{
-
-
+                Log.d("bugfix99", "run: ");
                 Intent Login = new Intent(getApplicationContext(), LoginActivity.class);
                 Login.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(Login);

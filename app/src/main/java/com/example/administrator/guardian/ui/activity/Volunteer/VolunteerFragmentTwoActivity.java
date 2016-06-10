@@ -60,7 +60,7 @@ public class VolunteerFragmentTwoActivity extends Fragment{
     String details;
     int req_hour;
     int type;
-
+    VolunteerConfirmViewAdapter vcva;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -83,7 +83,9 @@ public class VolunteerFragmentTwoActivity extends Fragment{
                     layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
                     recyclerView.setHasFixedSize(true);
                     recyclerView.setLayoutManager(layoutManager);
-                    recyclerView.setAdapter(new VolunteerConfirmViewAdapter(getContext(), items, R.layout.activity_volunteer_fragment_two));
+                    vcva = new VolunteerConfirmViewAdapter(getContext(), items, R.layout.activity_volunteer_fragment_two);
+                    recyclerView.setAdapter(vcva);
+                    vcva.notifyDataSetChanged();
 
                 }
             }

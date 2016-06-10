@@ -44,6 +44,9 @@ public class SeniorFragmentThreeScheduleActivity extends AppCompatActivity {
     String volunteer_gender;
     String startInfo, details;
     int req_hour, type;
+    private int tmpCode = 0;
+
+    private SeniorScheduleRecyclerViewAdapter seniorScheduleRecyclerViewAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,11 +60,18 @@ public class SeniorFragmentThreeScheduleActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
         getReqInfo();
-
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "resume start");
+        if(tmpCode != 0)
+            getReqInfo();
+        else tmpCode = 1;
+    }
+
     public void getReqInfo(){
         ConnectServer.getInstance().setAsncTask(new AsyncTask<String, Void, Boolean>() {
             @Override
@@ -71,14 +81,15 @@ public class SeniorFragmentThreeScheduleActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(Boolean params) {
                 if(responseStatus == 1){
-
+                    Log.d(TAG, "responseStatus start: " + items.size());
+                    seniorScheduleRecyclerViewAdapter = new SeniorScheduleRecyclerViewAdapter(getApplicationContext(), items, R.layout.activity_senior_fragment_three_schedule);
+                    seniorScheduleRecyclerViewAdapter.setAdapter(seniorScheduleRecyclerViewAdapter);
                     recyclerView = (RecyclerView)findViewById(R.id.senior_schedule_recyclerView);
                     layoutManager = new LinearLayoutManager(getApplicationContext());
                     layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
                     recyclerView.setHasFixedSize(true);
                     recyclerView.setLayoutManager(layoutManager);
-                    recyclerView.setAdapter(new SeniorScheduleRecyclerViewAdapter(getApplicationContext(), items, R.layout.activity_senior_fragment_three_schedule));
-
+                    recyclerView.setAdapter(seniorScheduleRecyclerViewAdapter);
                 }
             }
 
@@ -184,8 +195,7 @@ public class SeniorFragmentThreeScheduleActivity extends AppCompatActivity {
 
                                 items.add(new SeniorScheduleRecyclerItem(volunteer_id,volunteer_name, volunteer_age,volunteer_gender, startInfo,details,req_hour,type ));
                             }
-
-                            Log.d(TAG, "success");
+                            Log.d(TAG, "success : " + items.size());
                         } else {
                             responseStatus *= 0;
                             rd = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
@@ -202,4 +212,5 @@ public class SeniorFragmentThreeScheduleActivity extends AppCompatActivity {
         });
         ConnectServer.getInstance().execute();
     }
+
 }

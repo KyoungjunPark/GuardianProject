@@ -13,7 +13,7 @@ public class ConnectServer {
     private AsyncTask<String, Void, Boolean> task;
 
     private String token = "";
-    private static String URL = "http://59.187.203.140:80";
+    private static String URL = "http://citymouse.xyz";
 
     private String type;
 
